@@ -1,0 +1,17 @@
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+easy_admin_bundle:
+    #resource: "@EasyAdminBundle/Controller/"
+    resource: "@AppBundle/Controller/EasyController.php"
+    type:     annotation
+    prefix:   /admin/
+
+JMSTranslationBundle_ui:
+    resource: "@JMSTranslationBundle/Controller/"
+    type:     annotation
+    prefix:   /admin/trans
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"

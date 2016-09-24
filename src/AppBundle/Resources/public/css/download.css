@@ -1,0 +1,44 @@
+.download > .main {
+    display: table;
+    background: #fff url(../images/lightroom/Music_05.jpg) center no-repeat;
+    background-size: cover;
+    margin-bottom: 0;
+    width:100%;
+}
+.download > .main > .middle {
+    width:75%;
+    margin: auto;
+    display: table-cell;
+    vertical-align: middle;
+}
+.download > .main > .middle > .row {
+    background: rgba(0, 0, 0 , 0.7);
+    padding-bottom: 25px;
+    color:#fff !important;
+}
+.download > .albums .album > .cover {
+    width:100%;
+    height: 0;
+    padding-bottom: 100%;
+    overflow: visible;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.download > .albums .album > .cover > img {
+    width:100%;
+    height: auto;
+}
+
+.download .share-btns a, .download .share-btns > iframe, .download .share-btns > div {
+    margin:10px;
+}
+
+.download .share-btns > iframe {
+    display: inline;
+    vertical-align: middle;
+}
+
+.download .share-btns > div {
+    vertical-align: middle;
+}

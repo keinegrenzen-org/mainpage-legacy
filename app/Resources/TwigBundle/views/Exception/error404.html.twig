@@ -1,0 +1,14 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block pagetitle %}{{ '404'|trans }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-lg-offset-3">
+                <h1>{{ '404'|trans }}</h1>
+                <p>{{ '404.text'|trans|raw }}</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

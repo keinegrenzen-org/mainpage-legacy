@@ -1,0 +1,36 @@
+.album-art-wuis-ep {
+    background: url('../uploads/images/57d2a00a62e12.jpg') center center;
+}
+
+.album-wuis-ep.album-details .row:first-child {
+    background-color: rgb(24, 28, 40);
+}
+
+.album-wuis-ep h3,
+.album-wuis-ep p,
+.album-wuis-ep span {
+    color: rgb(209, 211, 210);
+}
+
+.album-wuis\2D ep h3 {
+    border-color: rgb(151, 186, 193);
+}
+
+.album-wuis-ep.album-details .row:first-child .play-btn .pp-icon,
+.album-wuis-ep.album-details .row:first-child .highlight,
+.album-wuis-ep.album-details .row:first-child a,
+.album-wuis-ep.album-details .row:first-child a:active,
+.album-wuis-ep.album-details .row:first-child a:visited,
+.album-wuis-ep.album-details .row:first-child a:hover {
+    color: rgb(151, 186, 193);
+}
+
+.album-wuis-ep .album-list .album-list-toggle {
+    border-bottom: 3px solid rgb(209, 211, 210);
+}
+
+.album-wuis-ep .play-btn .fa-circle,
+.album-wuis-ep .album-list .list-group-item .badge,
+.album-wuis-ep .album-list .list-group-item .track-number {
+    color: rgb(151, 186, 193);
+}

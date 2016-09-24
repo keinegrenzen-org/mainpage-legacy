@@ -1,0 +1,30 @@
+{% extends '@App/base.html.twig' %}
+
+    {% block stylesheets %}
+        {{ parent() }}
+        {% stylesheets
+        'bundles/app/css/impressum.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+    {% endblock %}
+
+{% block pagetitle %}Impressum | {{ 'base.meta.title'|trans }}{% endblock %}
+
+{% block bodyclass %}impressum{% endblock %}
+
+{% block body %}
+    {% include '@App/nav.html.twig' with {'index': false} %}
+    <div class="container header min-height">
+        <div class="row">
+            <div class="col-lg-6">
+                <h1>Impressum</h1>
+                <p>Barthélémy Bonhomme</p>
+                <p>An der alten Post 6</p>
+                <p>50859 Köln</p>
+                <p>Deutschland</p>
+                <p>E-Mail: <a href="mailto:post@barthy.koeln">post@barthy.koeln</a></p>
+            </div>
+        </div>
+    </div>
+    {%  include '@App/footer.html.twig' %}
+{% endblock %}

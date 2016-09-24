@@ -1,0 +1,36 @@
+.album-art-bla {
+    background: url('../uploads/images/57b345d556969.png') center center;
+}
+
+.album-bla.album-details .row:first-child {
+    background-color: rgb(4, 179, 250);
+}
+
+.album-bla h3,
+.album-bla p,
+.album-bla span {
+    color: rgb(35, 36, 36);
+}
+
+.album-bla h3 {
+    border-color: rgb(4, 85, 108);
+}
+
+.album-bla .album-details .row:first-child .play-btn .pp-icon,
+.album-bla .album-details .row:first-child .highlight,
+.album-bla .album-details .row:first-child a,
+.album-bla .album-details .row:first-child a:active,
+.album-bla .album-details .row:first-child a:visited,
+.album-bla .album-details .row:first-child a:hover {
+    color: rgb(4, 85, 108);
+}
+
+.album-bla .album-list .album-list-toggle {
+    border-bottom: 3px solid rgb(35, 36, 36);
+}
+
+.album-bla .play-btn .fa-circle,
+.album-bla .album-list .list-group-item .badge,
+.album-bla .album-list .list-group-item .track-number {
+    color: rgb(4, 85, 108);
+}

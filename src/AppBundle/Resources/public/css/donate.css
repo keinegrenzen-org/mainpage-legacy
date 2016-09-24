@@ -1,0 +1,33 @@
+.donate > .main {
+    margin-top:50px;
+}
+.donate .album {
+    width: 45%;
+    margin-right: 5%;
+    float: left;
+    display: block;
+}
+.donate .album .cover {
+    width:50%;
+    height: auto;
+    overflow: hidden;
+    float: left;
+}
+.donate .album .cover img{
+    width: 100%;
+    height: 100%;
+}
+.donate .album .cover + div {
+    float:left;
+    margin-left: 5%;
+    width:45%;
+}
+.donate .album .cover + div > b {
+    color:#00a8ff;
+}
+
+.donate iframe {
+    width:100%;
+    background-color: #fff;
+    height: auto;
+}

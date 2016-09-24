@@ -1,0 +1,15 @@
+.profile .header {
+    background: #fff url('../uploads/images/57616747f1799.jpg') no-repeat center center;
+}
+.profile .header .img-div {
+    background: #fff url('../uploads/images/576172c966fbe.jpg') no-repeat center center;
+
+}
+.profile .header,
+.profile .header .img-div {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+

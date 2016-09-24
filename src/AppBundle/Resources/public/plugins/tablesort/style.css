@@ -1,0 +1,22 @@
+table.tablesorter .header:not(:last-child),
+table.tablesorter .headerSortDown:not(:last-child),
+table.tablesorter .headerSortUp:not(:last-child) {
+    background: url(bg.png) no-repeat;
+	background-size: auto 30%;
+	background-position-x: 0;
+	background-position-y: 50%;
+	padding-left: 15px;
+	white-space: nowrap;
+}
+table.tablesorter .headerSortUp:not(:last-child) {
+	background: url(asc.png) no-repeat;
+	background-size: auto 30%;
+	background-position-x: 0;
+	background-position-y: 50%;
+}
+table.tablesorter .headerSortDown:not(:last-child) {
+	background: url(desc.png) no-repeat;
+	background-size: auto 30%;
+	background-position-x: 0;
+	background-position-y: 50%;
+}

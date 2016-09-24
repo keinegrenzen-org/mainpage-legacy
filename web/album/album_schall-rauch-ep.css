@@ -1,0 +1,36 @@
+.album-art-schall-rauch-ep {
+    background: url('../uploads/images/576151c74b690.jpg') center center;
+}
+
+.album-schall-rauch-ep.album-details .row:first-child {
+    background-color: rgb(5, 6, 8);
+}
+
+.album-schall-rauch-ep h3,
+.album-schall-rauch-ep p,
+.album-schall-rauch-ep span {
+    color: rgb(69, 105, 178);
+}
+
+.album-schall\2D rauch\2D ep h3 {
+    border-color: rgb(199, 200, 202);
+}
+
+.album-schall-rauch-ep.album-details .row:first-child .play-btn .pp-icon,
+.album-schall-rauch-ep.album-details .row:first-child .highlight,
+.album-schall-rauch-ep.album-details .row:first-child a,
+.album-schall-rauch-ep.album-details .row:first-child a:active,
+.album-schall-rauch-ep.album-details .row:first-child a:visited,
+.album-schall-rauch-ep.album-details .row:first-child a:hover {
+    color: rgb(199, 200, 202);
+}
+
+.album-schall-rauch-ep .album-list .album-list-toggle {
+    border-bottom: 3px solid rgb(69, 105, 178);
+}
+
+.album-schall-rauch-ep .play-btn .fa-circle,
+.album-schall-rauch-ep .album-list .list-group-item .badge,
+.album-schall-rauch-ep .album-list .list-group-item .track-number {
+    color: rgb(199, 200, 202);
+}

@@ -1,0 +1,15 @@
+{% if app.session.flashbag.all|length > 0 %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                {% for label, flashes in app.session.flashbag.all %}
+                    {% for flash in flashes %}
+                        <div class="alert alert-{{ label }}">
+                            {{ flash }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endif %}

@@ -1,0 +1,111 @@
+{% extends 'AppBundle::base.html.twig' %}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+
+{% block pagetitle %}{{ 'donate'|trans }} | {{ 'base.meta.title'|trans }}{% endblock %}
+{% block bodyclass %}donate{% endblock %}
+
+{% block stylesheets %}
+    {% stylesheets
+    'bundles/app/css/donate.css' filter='cssrewrite' %}
+    <link rel="stylesheet" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    {% include 'AppBundle::nav.html.twig' with {'index': false} %}
+    <div class="container main">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>{{ 'donate'|trans }}</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>{{ 'donate.p'|trans|nl2br }}</p>
+            </div>
+        </div>
+        <div class="row">
+            {{ form_start(form) }}
+                <h2>{{ 'donate.data.label'|trans }}</h2>
+                <div class="form-group">
+                    {{ form_label(form.email) }}
+                    <div>
+                    <span>
+                        <span class="fa fa-info">
+                            <span class="sr-only">info</span>
+                        </span>
+                        {{ 'donate.email.placeholder'|trans }}
+                    </span>
+                    </div>
+                    {{ form_widget(form.email, {'attr': {'placeholder': 'example@email.com', 'min': 5 }}) }}
+                </div>
+                {{ form_row(form.amount) }}
+
+                <span class="payment-errors"></span>
+                <div class="form-group">
+                    <label>
+                        <span>Card Number</span>
+                        <input class="form-control" type="text" size="20" data-stripe="number">
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <span>Expiration (MM/YY)</span>
+                    </label>
+                    <div>
+                        <label>
+                            <input class="form-control" type="text" size="2" data-stripe="exp_month">
+                        </label>
+                        <span> / </span>
+                        <label>
+                            <input class="form-control" type="text" size="2" data-stripe="exp_year">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <span>CVC</span>
+                        <input class="form-control" type="text" size="4" data-stripe="cvc">
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <span>Billing Zip</span>
+                        <input class="form-control" type="text" size="6" data-stripe="address_zip">
+                    </label>
+                </div>
+
+                <input type="submit" class="submit btn btn-primary" value="{{ 'donate'|trans }}">
+            {{ form_end(form) }}
+            <div class="col-lg-8">
+                <h2>{{ 'donate.albums.label'|trans }}</h2>
+                <div>
+                    {% for album in donation.albums %}
+                        <div class="album">
+                            <div class="cover">
+                                <img src="{{ web_image(album.cover.webPath) }}">
+                            </div>
+                            <div>
+                                <p><b>{{ album.title }}</b></p>
+                                <p>{{ album.artist }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include '@App/footer.html.twig' %}
+{% endblock %}
+
+{% block bodyscripts %}
+    {% javascripts
+    'bundles/app/js/donate.js'%}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    {{ parent() }}
+{% endblock %}

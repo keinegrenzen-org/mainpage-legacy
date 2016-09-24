@@ -1,0 +1,137 @@
+{% extends '@AppBundle/Resources/views/base.html.twig' %}
+
+{% block bodyclass %}index{% endblock %}
+
+{% block stylesheets %}
+    {% stylesheets
+    'bundles/app/css/index.css' filter='cssrewrite' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    {% include '@App/nav.html.twig' with {'index': true} %}
+    <div class="container-fluid header fill text-center">
+        <div class="row fill-height">
+            <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 page-title-container">
+                <div>
+                    <span class="page-title">{{ 'index.page-title.1.1'|trans }} <strong>{{ 'index.page-title.1.2'|trans }}</strong></span>
+                    <br/>
+                    <span class="page-title">{{ 'index.page-title.2.1'|trans }} <strong>{{ 'index.page-title.2.2'|trans }}</strong></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include '@App/flashbag.html.twig' %}
+    <div class="container" id="{{ 'nav.projekt.id'|trans }}">
+        <div class="row ">
+            <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
+                <h1>{{ 'index.h1'|trans }}</h1>
+                <p>{{ 'index.p.description'|trans|raw|nl2br }}</p>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 text-emphasis text-center display-table hundred-percent">
+                <div class="display-table-cell">
+                    <span class="double"><strong class="counter">100</strong>%</span>
+                    <br>
+                    <span>{{ 'index.hundred'|trans }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="row margin-top-50 howto">
+            <div class="col-lg-3 text-center">
+                <span class="fa fa-volume-up fa-5x  fa-fw"></span>
+                <span class="big-text"><b>1)</b> {{ 'index.h3.howto.1'|trans }}</span>
+            </div>
+            <div class="col-lg-1 text-center howto-arrow">
+                <span class="fa fa-arrow-right fa-3x  fa-fw"></span>
+            </div>
+            <div class="col-lg-3 text-center">
+                <span class="fa fa-money fa-5x  fa-fw"></span>
+                <span class="big-text"><b>2)</b> {{ 'index.h3.howto.2'|trans }}</span>
+            </div>
+            <div class="col-lg-1 text-center howto-arrow">
+                <span class="fa fa-arrow-right fa-3x  fa-fw"></span>
+            </div>
+            <div class="col-lg-3 text-center">
+                <span class="fa fa-download fa-5x  fa-fw"></span>
+                <span class="big-text"><b>3)</b> {{ 'index.h3.howto.3'|trans }}</span>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid second-header" id="{{ 'nav.donate.id'|trans }}">
+        <div class="row fill-height">
+            <div class="col-lg-6  col-md-6 col-sm-12 col-xs-12 text-emphasis">
+                <span class="double max-text"><strong class="counter">{{ (total/100)|number_format(2, ',', '') }}</strong>€</span>
+                <br>
+                <span class="max-text">{{ 'index.donation.total.1'|trans }}</span>
+                <span class="max-text">{{ 'index.donation.total.2'|trans }}</span>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="col-lg-12 text-right text-emphasis">
+                    <span class="double max-text"><strong class="counter">{{ count }}</strong></span>
+                    <br>
+                    <span class="max-text">{{ 'index.donation.count.1'|trans }}</span>
+                    <span class="max-text">{{ 'index.donation.count.2'|trans }}</span>
+                </div>
+                <div class="col-lg-12 text-right text-emphasis">
+                    <span class="double max-text"><strong class="counter">{{ ((total/100)/count)|number_format(2, ',', '') }}</strong>€</span>
+                    <br>
+                    <span class="max-text">{{ 'index.donation.ave.1'|trans }}</span>
+                    <span class="max-text">{{ 'index.donation.ave.2'|trans }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container artists" id="{{ 'nav.artists.id'|trans }}">
+        <div class="row text-center">
+            <div class="col-lg-12">
+                <h2>{{ 'nav.artists'|trans }}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <p>{{ 'artists.p.description'|trans|nl2br }}</p>
+            </div>
+        </div>
+        <div class="row">
+            {% for frontPage in frontPages %}
+            <div class="col-lg-4 col-sm-6 text-center artist-col {% if frontPages|length < 3 and loop.index == 1 %}col-lg-offset-{{ 4/frontPages|length }}{% endif %}">
+                <h3 class="headerline">{{ frontPage.name }}</h3>
+                <div class="artist">
+                    <a href="{{ path('profile_show', {UURL: frontPage.UURL}) }}" class="imgContainer"><img src="{{ web_image(frontPage.image.webPath) }}" class="img-responsive center-block" alt="{{ frontPage.name ~ ' - ' ~ 'frontpage.image'|trans }}"></a>
+                    <ul class="list-inline">
+                        {% for link in frontPage.links %}
+                            {% if link.getSocial != 'link' %}
+                                <li>{{ link.getMarkup|raw }}</li>
+                            {% endif %}
+                        {% endfor %}
+                        {% for link in frontPage.links %}
+                            {% if link.getSocial == 'link' %}
+                                <li>{{ link.getMarkup|raw }}</li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                    <a href="{{ path('profile_show', {UURL: frontPage.UURL}) }}" class="btn btn-secondary btn-readmore">{{ 'readmore'|trans }}</a>
+                </div>
+            </div>
+            {% if loop.index % 3 == 0 %}
+        </div>
+        <div class="row">
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    {% include '@App/footer.html.twig' %}
+{% endblock %}
+
+{% block bodyscripts %}
+    {{ parent() }}
+    {% javascripts
+    '@AppBundle/Resources/public/plugins/jquery.counterup.js'
+    '@AppBundle/Resources/public/js/maxText.js'
+    '@AppBundle/Resources/public/js/index.js'
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
