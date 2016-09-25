@@ -5,9 +5,11 @@ namespace AppBundle\Controller;
 use JavierEguiluz\Bundle\EasyAdminBundle\Controller\AdminController as BaseAdminController;
 use Symfony\Component\HttpFoundation\Request;
 
-class EasyController extends BaseAdminController {
+class EasyController extends BaseAdminController
+{
 
-    public function frontCSSAction(){
+    public function frontCSSAction()
+    {
         $id = $this->request->query->get('id');
         $entity = $this->em->getRepository('AppBundle:FrontPage')->find($id);
 
@@ -21,8 +23,7 @@ class EasyController extends BaseAdminController {
 
         $this->request->getSession()
             ->getFlashBag()
-            ->add(($result!==FALSE)?'success':'error', ($result!==FALSE)?'CSS generated!':'CSS generation failed')
-        ;
+            ->add(($result !== FALSE) ? 'success' : 'error', ($result !== FALSE) ? 'CSS generated!' : 'CSS generation failed');
 
         // redirect to the 'edit' view of the given entity item
         return $this->redirectToRoute('easyadmin', array(
@@ -32,7 +33,8 @@ class EasyController extends BaseAdminController {
         ));
     }
 
-    public function albumCSSAction(){
+    public function albumCSSAction()
+    {
         $id = $this->request->query->get('id');
         $entity = $this->em->getRepository('AppBundle:Album')->find($id);
 
@@ -46,8 +48,7 @@ class EasyController extends BaseAdminController {
 
         $this->request->getSession()
             ->getFlashBag()
-            ->add(($result!==FALSE)?'success':'error', ($result!==FALSE)?'CSS generated!':'CSS generation failed')
-        ;
+            ->add(($result !== FALSE) ? 'success' : 'error', ($result !== FALSE) ? 'CSS generated!' : 'CSS generation failed');
 
         // redirect to the 'edit' view of the given entity item
         return $this->redirectToRoute('easyadmin', array(

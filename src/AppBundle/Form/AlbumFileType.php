@@ -5,6 +5,7 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 
 class AlbumFileType extends AbstractType
 {
@@ -15,7 +16,7 @@ class AlbumFileType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('file', 'vich_file', array(
+            ->add('file', VichFileType::class, array(
                 'label' => /** @Ignore */false,
                 'required'      => false,
                 'allow_delete'  => false, // not mandatory, default is true

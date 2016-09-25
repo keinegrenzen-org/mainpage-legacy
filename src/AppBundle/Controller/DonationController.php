@@ -4,7 +4,9 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Donation;
 use AppBundle\Form\DonationType;
-use Stripe\Stripe;
+use Braintree\ClientToken;
+use Braintree\Configuration;
+use Braintree\Transaction;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -12,13 +14,34 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class DonationController extends Controller
 {
 
+    public function initBrainTree(){
+        switch ($this->get('kernel')->getEnvironment()){
+            case 'prod':
+                Configuration::environment('production');
+                Configuration::merchantId('276kv5yj784m8j5d');
+                Configuration::publicKey('fhs5mmhbxjdfw9m3');
+                Configuration::privateKey('e7a0a34104f976b9e4243527d97ba64c');
+                break;
+            case 'dev':
+                Configuration::environment('sandbox');
+                Configuration::merchantId('j8bt7dv9zpdddgn4');
+                Configuration::publicKey('4k53bw3638bk9r7k');
+                Configuration::privateKey('c77ec5c01084c6eae2446c4d63a9bab6');
+                break;
+            default:
+                die($this->get('kernel')->getEnvironment());
+        }
+    }
+
     /**
      * @Route("/donate", name="add_donation")
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      * @internal param Request $request
      */
-    public function donateAction()
+    public function donateAction(Request $request)
     {
+        $this->initBrainTree();
+
         $donation = new Donation();
         $em = $this->getDoctrine()->getManager();
         $albumCnt = 0;
@@ -33,8 +56,6 @@ class DonationController extends Controller
         }
         switch ($albumCnt) {
             case 0:
-                $donation->setAmount(0);
-                break;
             case 1:
                 $donation->setAmount(500);
                 break;
@@ -50,47 +71,57 @@ class DonationController extends Controller
                 break;
         }
 
-        $form = $this->createForm(new DonationType(), $donation, array('attr' => array('id' => 'payment-form', 'class' => 'col-lg-4')));
+        $form = $this->createForm(/** @Ignore */DonationType::class, $donation, array('attr' => array('id' => 'checkout', 'class' => 'col-lg-4')));
 
-        return $this->render('AppBundle::donate.html.twig', array('form' => $form->createView(), 'donation' => $donation, 'albums' => $albums));
+        $clientToken = ClientToken::generate();
+
+        return $this->render('AppBundle::donate.html.twig', array('form' => $form->createView(), 'donation' => $donation, 'albums' => $albums, 'clientToken' => $clientToken));
     }
 
     /**
      * @Route("/savedonation", name="save_donation")
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response|\Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      */
     public function donationSaveAction(Request $request)
     {
+        $this->initBrainTree();
+
         $donation = new Donation();
         $em = $this->getDoctrine()->getManager();
         $form = $this->createForm(new DonationType(), $donation);
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            Stripe::setApiKey("sk_test_f3drm4mpfcEyVdDr835JjKNx");
 
-            // Get the credit card details submitted by the form
-            $token = $_POST['stripeToken'];
+            $nonceFromTheClient = $request->get("payment_method_nonce");
 
-            // Create a charge: this will charge the user's card
-            try {
-                $charge = \Stripe\Charge::create(array(
-                    "amount" => $donation->getAmount(), // Amount in cents
-                    "currency" => "eur",
-                    "source" => $token,
-                    "description" => $donation->getEmail()
-                ));
-            } catch (\Stripe\Error\Card $e) {
-                // The card has been declined
-                return $this->createNotFoundException();
+            $result = Transaction::sale([
+                'amount' => $donation->getDecimalAmount(),
+                'paymentMethodNonce' => $nonceFromTheClient,
+                'options' => [
+                    'submitForSettlement' => True
+                ]
+            ]);
+
+            if($result->success || !is_null($result->transaction)){
+                $em->persist($donation);
+                $em->flush();
+                $session = $this->container->get('session');
+                $session->getFlashBag()->add('message', $this->get('translator')->trans('donation.success'));
+                return $this->redirect('/download/' . $donation->getId());
+            }else {
+                $errorString = "";
+                foreach($result->errors->deepAll() as $error) {
+                    $errorString .= 'Error: ' . $error->message . "\n";
+                }
+
+                $request->getSession()
+                    ->getFlashBag()
+                    ->add('error', $errorString);
+
+                return $this->redirectToRoute('add_donation');
             }
-
-            $em->persist($donation);
-            $em->flush();
-            $session = $this->container->get('session');
-            $session->getFlashBag()->add('message', $this->get('translator')->trans('donation.success'));
-            return $this->redirect('/download/' . $donation->getId());
         }
 
         return $this->createNotFoundException();

@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2016-09-19T13:50:21Z" source-language="en" target-language="fr" datatype="plaintext" original="not.available">
+  <file date="2016-09-25T04:49:54Z" source-language="en" target-language="fr" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
     </header>
     <body>
       <trans-unit id="c965e99fbecfa886fd97dcaeb9a891f88a2a3fa1" resname="choose.file">
-        <jms:reference-file line="12">views/Form/fields.html.twig</jms:reference-file>
         <source>choose.file</source>
         <target state="new">choose.file</target>
+        <jms:reference-file line="12">/Resources/VichUploaderBundle/views/Form/fields.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="7fb07d2144ed59bfce5b86a38ad0d00096a00878" resname="choose.image">
-        <jms:reference-file line="34">views/Form/fields.html.twig</jms:reference-file>
         <source>choose.image</source>
         <target state="new">choose.image</target>
+        <jms:reference-file line="34">/Resources/VichUploaderBundle/views/Form/fields.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="817248fb77fb5c2cef3f2c732ad257cb1fb9c5e4" resname="download">
-        <jms:reference-file line="7">views/Form/fields.html.twig</jms:reference-file>
-        <jms:reference-file line="41">views/Form/fields.html.twig</jms:reference-file>
         <source>download</source>
         <target state="new">download</target>
+        <jms:reference-file line="41">/Resources/VichUploaderBundle/views/Form/fields.html.twig</jms:reference-file>
+        <jms:reference-file line="7">/Resources/VichUploaderBundle/views/Form/fields.html.twig</jms:reference-file>
       </trans-unit>
     </body>
   </file>

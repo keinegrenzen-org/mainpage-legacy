@@ -15,10 +15,7 @@ services:
         class: Twig_Extensions_Extension_Intl
         tags:
             - { name: twig.extension }
-    custom.album_namer:
-        class: AppBundle\Naming\AlbumNamer
-        public: true
-
-    app.cart_item_resolver:
-        class: AppBundle\Cart\ItemResolver
-        arguments: ['@doctrine.orm.entity_manager']
+    braintree_transaction:
+        class: \Braintree\Transaction
+        factory: ["@comet_cult_braintree.factory", get]
+        arguments: ["customer"]

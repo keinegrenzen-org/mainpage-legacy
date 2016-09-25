@@ -4,7 +4,10 @@ namespace AppBundle\Form;
 
 use AppBundle\Entity\Album;
 use JMS\TranslationBundle\Annotation\Ignore;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -17,23 +20,23 @@ class DonationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email', 'email', array(
+            ->add('email', EmailType::class, array(
                 'label' => 'donate.email.label',
                 'required' => true
             ))
-            ->add('amount', 'money', array(
+            ->add('amount', MoneyType::class, array(
                 'label' => 'donate.amount.label',
                 'divisor' => 100,
-                'required' => true
+                'required' => true,
             ))
-            ->add('albums', 'entity', array(
+            ->add('albums', EntityType::class, array(
                 'class' => 'AppBundle:Album',
                 'choice_label' => 'title',
                 'multiple' => true,
                 'label' => /** @Ignore */ false,
                 'attr' => array(
                     'class' => 'hidden',
-                )
+                ),
             ))
             ->setAction('/savedonation')
         ;

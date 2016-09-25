@@ -31,3 +31,10 @@
     background-color: #fff;
     height: auto;
 }
+
+.donate #payment-form {
+    margin-bottom: 15px;
+    border: 1px solid #00a8ff;
+    padding: 15px;
+    border-radius: 4px;
+}

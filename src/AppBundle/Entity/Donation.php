@@ -163,11 +163,16 @@ class Donation
     }
 
     public function getFloatAmount(){
-        return "" . $this->amount/100 . "€";
+        return "" . $this->getAmount()/100 . "€";
     }
 
     public function getDecimalAmount(){
-        return "" . $this->amount/100;
+        return "" . $this->getAmount()/100;
+    }
+
+    public function getUSFormatAmout(){
+        setlocale(LC_MONETARY, 'en_US');
+        return money_format('%i', $this->getAmount());
     }
 
 }

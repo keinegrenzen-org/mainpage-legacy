@@ -66,7 +66,7 @@ class DefaultController extends Controller
     /**
      * Finds and displays a FrontPage entity.
      *
-     * @Route("/{UURL}", name="profile_show")
+     * @Route("/{UURL}", name="profile_show", requirements={"UURL" = "barthy|invo|enna|wuis"})
      * @Method("GET")
      * @param FrontPage $frontPage
      * @return \Symfony\Component\HttpFoundation\Response

@@ -206,4 +206,14 @@ ivory_ck_editor:
 
 gregwar_image:
     fallback_image:  "%kernel.root_dir%/../src/AppBundle/Resources/public/images/img-placeholder.png"
-    #fallback_image:  "https://placeholdit.imgix.net/~text?txtsize=50&txt=We%20want%20the%20image%20Lebowski%21%20%0A%20%28file%20not%20found%29&w=600&h=600&txttrack=0"
+
+comet_cult_braintree:
+  environment: production
+  #sandbox:
+  #merchant_id: j8bt7dv9zpdddgn4
+  #public_key: 4k53bw3638bk9r7k
+  #private_key: c77ec5c01084c6eae2446c4d63a9bab6
+  #production:
+  merchant_id: 276kv5yj784m8j5d
+  public_key: fhs5mmhbxjdfw9m3
+  private_key: e7a0a34104f976b9e4243527d97ba64c

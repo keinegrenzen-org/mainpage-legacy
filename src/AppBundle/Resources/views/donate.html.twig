@@ -22,64 +22,49 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <p>{{ 'donate.p'|trans|nl2br }}</p>
+                <p>{{ 'donate.p'|trans|raw|nl2br }}</p>
             </div>
         </div>
         <div class="row">
             {{ form_start(form) }}
-                <h2>{{ 'donate.data.label'|trans }}</h2>
-                <div class="form-group">
-                    {{ form_label(form.email) }}
-                    <div>
+            <h2>{{ 'donate.data.label'|trans }}</h2>
+            {% if app.session.flashBag.has('error') %}
+                <div class="alert alert-danger">
+                    {% for msg in app.session.flashBag.get('error') %}
+                        {{ msg }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <div class="form-group">
+                {{ form_label(form.email) }}
+                <div>
                     <span>
                         <span class="fa fa-info">
                             <span class="sr-only">info</span>
                         </span>
                         {{ 'donate.email.placeholder'|trans }}
                     </span>
-                    </div>
-                    {{ form_widget(form.email, {'attr': {'placeholder': 'example@email.com', 'min': 5 }}) }}
                 </div>
-                {{ form_row(form.amount) }}
-
-                <span class="payment-errors"></span>
-                <div class="form-group">
-                    <label>
-                        <span>Card Number</span>
-                        <input class="form-control" type="text" size="20" data-stripe="number">
-                    </label>
+                {{ form_widget(form.email, {'attr': {'placeholder': 'exampleEmail'|trans }}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.amount) }}
+                <div>
+                    <span>
+                        <span class="fa fa-info">
+                            <span class="sr-only">info</span>
+                        </span>
+                        {{ 'donate.amount.help'|trans }}
+                    </span>
                 </div>
+                {{ form_widget(form.amount) }}
+            </div>
 
-                <div class="form-group">
-                    <label>
-                        <span>Expiration (MM/YY)</span>
-                    </label>
-                    <div>
-                        <label>
-                            <input class="form-control" type="text" size="2" data-stripe="exp_month">
-                        </label>
-                        <span> / </span>
-                        <label>
-                            <input class="form-control" type="text" size="2" data-stripe="exp_year">
-                        </label>
-                    </div>
-                </div>
+            <h3>{{ 'donate.braintree.h3'|trans }}</h3>
+            <p>{{ 'donate.braintree.info'|trans }}</p>
+            <div id="payment-form"></div>
 
-                <div class="form-group">
-                    <label>
-                        <span>CVC</span>
-                        <input class="form-control" type="text" size="4" data-stripe="cvc">
-                    </label>
-                </div>
-
-                <div class="form-group">
-                    <label>
-                        <span>Billing Zip</span>
-                        <input class="form-control" type="text" size="6" data-stripe="address_zip">
-                    </label>
-                </div>
-
-                <input type="submit" class="submit btn btn-primary" value="{{ 'donate'|trans }}">
+            <input type="submit" id="donation-submit" class="submit btn btn-primary" value="{{ 'donate'|trans }}">
             {{ form_end(form) }}
             <div class="col-lg-8">
                 <h2>{{ 'donate.albums.label'|trans }}</h2>
@@ -99,12 +84,15 @@
             </div>
         </div>
     </div>
+    <input id="braintree-token" type="hidden" value="{{ clientToken }}">
     {% include '@App/footer.html.twig' %}
 {% endblock %}
 
 {% block bodyscripts %}
+    <script src="https://js.braintreegateway.com/js/braintree-2.29.0.min.js"></script>
     {% javascripts
-    'bundles/app/js/donate.js'%}
+    'bundles/app/plugins/autoNumeric-min.js'
+    'bundles/app/js/donate.js' %}
     <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
     {{ parent() }}
