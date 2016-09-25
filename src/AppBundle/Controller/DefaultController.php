@@ -64,6 +64,13 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/faqs", name="faqs")
+     */
+    public function faqsAction(){
+        return $this->render('@App/faq.html.twig');
+    }
+
+    /**
      * Finds and displays a FrontPage entity.
      *
      * @Route("/{UURL}", name="profile_show", requirements={"UURL" = "barthy|invo|enna|wuis"})

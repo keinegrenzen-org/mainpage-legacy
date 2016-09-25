@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2016-09-25T04:49:53Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
+  <file date="2016-09-25T14:02:54Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -127,7 +127,7 @@ The amount you can see below is just a recommendation and can be freely adjusted
       <trans-unit id="ff303e4cb5a6d70e5e694f7c1bd158f7a22c695c" resname="donation.success">
         <source>donation.success</source>
         <target>Thank you for the donation!</target>
-        <jms:reference-file line="113">/../src/AppBundle/Controller/DonationController.php</jms:reference-file>
+        <jms:reference-file line="111">/../src/AppBundle/Controller/DonationController.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="817248fb77fb5c2cef3f2c732ad257cb1fb9c5e4" resname="download">
         <source>download</source>
@@ -153,6 +153,51 @@ Here you can navigate <a href="/" title="Homepage">back to the homepage</a>]]></
         <target>example@mail.com</target>
         <jms:reference-file line="48">/../src/AppBundle/Resources/views/donate.html.twig</jms:reference-file>
       </trans-unit>
+      <trans-unit id="83d545236e0a4b70c1e184c1398803421e4e32f5" resname="faqs.1.h2">
+        <source>faqs.1.h2</source>
+        <target state="new">faqs.1.h2</target>
+        <jms:reference-file line="15">/../src/AppBundle/Resources/views/faq.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="5982de575362c545305dd75b12618d902bb5b510" resname="faqs.1.p">
+        <source>faqs.1.p</source>
+        <target state="new">faqs.1.p</target>
+        <jms:reference-file line="16">/../src/AppBundle/Resources/views/faq.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7dac5f8cc2c4594607f32dad649a4d3ce305dcc0" resname="faqs.2.h2">
+        <source>faqs.2.h2</source>
+        <target state="new">faqs.2.h2</target>
+        <jms:reference-file line="19">/../src/AppBundle/Resources/views/faq.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="8fb1e19d2a94e9831ea7922552811cee4de413b2" resname="faqs.2.p">
+        <source>faqs.2.p</source>
+        <target state="new">faqs.2.p</target>
+        <jms:reference-file line="20">/../src/AppBundle/Resources/views/faq.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="868e510f3a32df1c406ba170ac617a48628066fe" resname="faqs.3.h2">
+        <source>faqs.3.h2</source>
+        <target state="new">faqs.3.h2</target>
+        <jms:reference-file line="25">/../src/AppBundle/Resources/views/faq.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d5ed3cc37d612e94be544b5e664b335a49157ad6" resname="faqs.3.p">
+        <source>faqs.3.p</source>
+        <target state="new">faqs.3.p</target>
+        <jms:reference-file line="26">/../src/AppBundle/Resources/views/faq.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0a75dcbe6f738923e359ace96177da09a1c40d6d" resname="faqs.4.h2">
+        <source>faqs.4.h2</source>
+        <target state="new">faqs.4.h2</target>
+        <jms:reference-file line="29">/../src/AppBundle/Resources/views/faq.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="8ac16ae6695221f2d55fc0523dd886233bb76e65" resname="faqs.4.p">
+        <source>faqs.4.p</source>
+        <target state="new">faqs.4.p</target>
+        <jms:reference-file line="30">/../src/AppBundle/Resources/views/faq.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="1b0f975b7bc8c6e8181f834bf3ded1f213ad9cd6" resname="faqs.h1">
+        <source>faqs.h1</source>
+        <target state="new">faqs.h1</target>
+        <jms:reference-file line="10">/../src/AppBundle/Resources/views/faq.html.twig</jms:reference-file>
+      </trans-unit>
       <trans-unit id="e13d8f83228f9cdd72230c53becaaafe8495f41f" resname="footer.lang.h4">
         <source>footer.lang.h4</source>
         <target>Languages</target>
@@ -162,6 +207,11 @@ Here you can navigate <a href="/" title="Homepage">back to the homepage</a>]]></
         <source>footer.link.datenschutz</source>
         <target>Copyright</target>
         <jms:reference-file line="26">/../src/AppBundle/Resources/views/footer.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="33667849ceec01efaf1be80cc18a86a2a9b9707b" resname="footer.link.faqs">
+        <source>footer.link.faqs</source>
+        <target state="new">footer.link.faqs</target>
+        <jms:reference-file line="27">/../src/AppBundle/Resources/views/footer.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="b23f2967ac9ed9d8b594ecdfa689e04209155349" resname="footer.link.impressum">
         <source>footer.link.impressum</source>

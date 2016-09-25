@@ -1,0 +1,44 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block bodyclass %}faqs{% endblock %}
+
+{% block body %}
+    {% include '@App/nav.html.twig' with {'index': false} %}
+    <div class="container header">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>{{ 'faqs.h1'|trans }}</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <h2>{{ 'faqs.1.h2'|trans }}</h2>
+                <p>{{ 'faqs.1.p'|trans|raw|nl2br }}</p>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <h2>{{ 'faqs.2.h2'|trans }}</h2>
+                <p>{{ 'faqs.2.p'|trans|raw|nl2br }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <h2>{{ 'faqs.3.h2'|trans }}</h2>
+                <p>{{ 'faqs.3.p'|trans|raw|nl2br }}</p>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <h2>{{ 'faqs.4.h2'|trans }}</h2>
+                <p>{{ 'faqs.4.p'|trans|raw|nl2br }}</p>
+            </div>
+        </div>
+    </div>
+    {% include '@App/footer.html.twig' %}
+{% endblock %}
+
+{% block stylesheets %}
+    {% stylesheets
+    'bundles/app/css/faqs.css' filter='cssrewrite' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+    {{  parent() }}
+{% endblock %}
+
