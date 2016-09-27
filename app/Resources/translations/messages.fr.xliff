@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2016-09-25T14:02:55Z" source-language="en" target-language="fr" datatype="plaintext" original="not.available">
+  <file date="2016-09-27T02:05:37Z" source-language="en" target-language="fr" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -269,6 +269,11 @@ Le montant que vous voyez ci-dessous est une recommendation. Vous pouvez le chan
         <target>Dans le panier</target>
         <jms:reference-file line="108">/../src/AppBundle/Resources/views/frontpage/show.html.twig</jms:reference-file>
       </trans-unit>
+      <trans-unit id="795b2872f43c8ec15b9e659cc28ee4a05a4befe2" resname="incologne">
+        <source>incologne</source>
+        <target state="new">incologne</target>
+        <jms:reference-file line="35">/../src/AppBundle/Resources/views/footer.html.twig</jms:reference-file>
+      </trans-unit>
       <trans-unit id="57aef9674791eec5ff26ba4cae6a4b868ee0c6df" resname="index.donation.ave.1">
         <source>index.donation.ave.1</source>
         <target>Montants</target>
@@ -369,6 +374,16 @@ Nous ne faisons pas de compromis: 100% des dons reviennent directement à <a hre
         <target>Écouter sur SoundCloud^</target>
         <jms:reference-file line="95">/../src/AppBundle/Resources/views/frontpage/show.html.twig</jms:reference-file>
         <jms:reference-file line="97">/../src/AppBundle/Resources/views/frontpage/show.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="9f2feb0f1ef425b292f2f94bc8482494df430413" resname="love">
+        <source>love</source>
+        <target state="new">love</target>
+        <jms:reference-file line="35">/../src/AppBundle/Resources/views/footer.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f2f811ec8a8c50ff1e0dde148a268fd71564609d" resname="madewith">
+        <source>madewith</source>
+        <target state="new">madewith</target>
+        <jms:reference-file line="35">/../src/AppBundle/Resources/views/footer.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="01e0ae7cf0fcf7dd5104026642ce358aae9d764d" resname="mwb">
         <source>mwb</source>

@@ -26,7 +26,6 @@ class AppKernel extends Kernel
             new JavierEguiluz\Bundle\EasyAdminBundle\EasyAdminBundle(),
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new Gregwar\ImageBundle\GregwarImageBundle(),
-            new CometCult\BraintreeBundle\CometCultBraintreeBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {
