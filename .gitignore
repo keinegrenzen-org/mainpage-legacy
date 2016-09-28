@@ -12,5 +12,4 @@
 # PHPStorm
 /.idea
 
-/vendor/*
 /web/bundles/*

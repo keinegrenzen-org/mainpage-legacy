@@ -45,7 +45,7 @@ class Link
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -68,7 +68,7 @@ class Link
     /**
      * Get title
      *
-     * @return string 
+     * @return string
      */
     public function getTitle()
     {
@@ -87,7 +87,7 @@ class Link
 
         $url = parse_url($link, PHP_URL_HOST);
         $url = str_replace(array('www.', '.com'), '', $url);
-        $social = ($url=='facebook')?'fb':($url=='soundcloud')?'sc':($url=='twitter')?'tw':($url=='youtube')?'yt':null;
+        $social = ($url == 'facebook') ? 'fb' : ($url == 'soundcloud') ? 'sc' : ($url == 'twitter') ? 'tw' : ($url == 'youtube') ? 'yt' : null;
         $this->setSocial($social);
 
         return $this;
@@ -96,21 +96,23 @@ class Link
     /**
      * Get link
      *
-     * @return string 
+     * @return string
      */
     public function getLink()
     {
         return $this->link;
     }
 
-    public function getAlt($in){
-        return ($in == 'youtube')?$in . '-play':$in;
+    public function getAlt($in)
+    {
+        return ($in == 'youtube') ? $in . '-play' : $in;
     }
 
-    public function getMarkup(){
+    public function getMarkup()
+    {
         $link = $this->getLink();
         $social = $this->getSocial();
-        $socialIcon = ($social == 'youtube')?$social . '-play':$social;
+        $socialIcon = ($social == 'youtube') ? $social . '-play' : $social;
         $title = $this->getTitle();
         return "<a href=\"$link\" target=\"_blank\" title=\"$title\"><span class=\"fa-stack\"><i class=\"fa fa-circle fa-stack-2x fa-fw\"></i><i class=\"fa fa-$socialIcon fa-stack-1x fa-inverse fa-fw\"></i><span class='sr-only'>$title</span></span></a>";
     }
@@ -120,7 +122,7 @@ class Link
      */
     public function getSocial()
     {
-        return ($this->social=='tw')?'twitter':(($this->social=='sc')?'soundcloud':(($this->social=='yt')?'youtube':(($this->social=='fb')?'facebook':'link')));
+        return ($this->social == 'tw') ? 'twitter' : (($this->social == 'sc') ? 'soundcloud' : (($this->social == 'yt') ? 'youtube' : (($this->social == 'fb') ? 'facebook' : 'link')));
     }
 
     /**

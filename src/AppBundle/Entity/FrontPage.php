@@ -103,7 +103,7 @@ class FrontPage
      * @ORM\OneToMany(targetEntity="Album", mappedBy="frontPage", cascade={"remove", "persist"})
      */
     private $albums;
-    
+
     /**
      * @var boolean
      *
@@ -125,7 +125,7 @@ class FrontPage
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -148,7 +148,7 @@ class FrontPage
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -171,7 +171,7 @@ class FrontPage
     /**
      * Get vita
      *
-     * @return string 
+     * @return string
      */
     public function getVita()
     {
@@ -217,7 +217,7 @@ class FrontPage
     /**
      * Get image
      *
-     * @return string 
+     * @return string
      */
     public function getImage()
     {
@@ -298,11 +298,13 @@ class FrontPage
         $this->links->removeElement($links);
     }
 
-    public function addAlbum(Album $album){
+    public function addAlbum(Album $album)
+    {
         $this->albums->add($album);
     }
 
-    public function removeAlbum(Album $album){
+    public function removeAlbum(Album $album)
+    {
         $this->albums->removeElement($album);
     }
 
@@ -322,11 +324,13 @@ class FrontPage
         $this->UURL = $UURL;
     }
 
-    public function getUrl(){
-        return '/profile/' . $this->UURL;
+    public function getUrl()
+    {
+        return '/' . $this->UURL;
     }
 
-    public function __toString(){
+    public function __toString()
+    {
         return $this->name;
     }
 

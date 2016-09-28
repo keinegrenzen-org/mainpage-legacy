@@ -6,18 +6,18 @@
 var $addTagLink = $('<a href="#"  class="add_link btn btn-green fa fa-plus"><i class="sr-only">Add</i>');
 var $newLinkLi = $('<div class="col-lg-4 add_col"></div>').append($addTagLink.clone());
 
-jQuery(document).ready(function() {
+jQuery(document).ready(function () {
     // Get the ul that holds the collection of tags
-    $('div.collection').each(function(){
+    $('div.collection').each(function () {
         var $collection = $(this);
         var $newLinkLiClone = $newLinkLi.clone();
         // add a delete link to all of the existing tag form li elements
-        $collection.find('div.col-lg-4').each(function() {
+        $collection.find('div.col-lg-4').each(function () {
             var $removeFormA = $('<a href="#" class="remove_link btn btn-danger fa fa-remove"><i class="sr-only">Remove</i></a>');
             $(this).append($removeFormA);
             var $current = $(this);
 
-            $removeFormA.on('click', function(e) {
+            $removeFormA.on('click', function (e) {
                 // prevent the link from creating a "#" on the URL
                 e.preventDefault();
 
@@ -33,7 +33,7 @@ jQuery(document).ready(function() {
         // index when inserting a new item (e.g. 2)
         $collection.data('index', $collection.find(':input').length);
 
-        $collection.find('.add_link').on('click', function(e) {
+        $collection.find('.add_link').on('click', function (e) {
             // prevent the link from creating a "#" on the URL
             e.preventDefault();
 
@@ -52,7 +52,7 @@ jQuery(document).ready(function() {
 
             // Display the form in the page in an li, before the "Add a tag" link li
             var $newFormLi = $('<div class="col-lg-4 collection-col"></div>').append($('<div class="collectionItem"></div>').append(newForm));
-            $newFormLi.find('.vich-image input').change(function(){
+            $newFormLi.find('.vich-image input').change(function () {
                 readUrl(this);
             });
             $newLinkLiClone.before($newFormLi);
@@ -61,7 +61,7 @@ jQuery(document).ready(function() {
             var $removeFormA = $('<a href="#" class="remove_link btn btn-danger fa fa-remove"><i class="sr-only">Remove</i></a>');
             $newFormLi.append($removeFormA);
 
-            $removeFormA.on('click', function(e) {
+            $removeFormA.on('click', function (e) {
                 // prevent the link from creating a "#" on the URL
                 e.preventDefault();
 

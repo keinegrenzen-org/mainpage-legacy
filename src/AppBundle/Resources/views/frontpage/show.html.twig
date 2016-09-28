@@ -75,63 +75,67 @@
                 </div>
             </div>
             {% for album in frontPage.albums %}
-            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 {{ 'album-' ~ album.UURL }} {{ (loop.index==1)?'active' }} album-details">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="album-description">
-                            <h3>{{ album.title }}</h3>
-                            <p>{{ 'published'|trans }}: {{ album.published|date('d.m.Y') }}</p>
-                            {{ album.description|raw|nl2br }}
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 {{ 'album-' ~ album.UURL }} {{ (loop.index==1)?'active' }} album-details">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="album-description">
+                                <h3>{{ album.title }}</h3>
+                                <p>{{ 'published'|trans }}: {{ album.published|date('d.m.Y') }}</p>
+                                {{ album.description|raw|nl2br }}
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="album-embed" id="album-embed-{{ loop.index0 }}"
+                                 data-sc="{{ album.soundcloud|raw }}" data-title="{{ album.title }}">
+                                <div class="album-list">
+                                    <ul class="list-group" data-toggled="false"></ul>
+                                </div>
+                                <div class="text-right listen-on-sc">
+                                    <a href="{{ album.soundcloud|raw }}" target="_blank"
+                                       title="{{ 'listenOnSc'|trans }}"><span
+                                                class="fa fa-2x fa-fw fa-soundcloud"><span
+                                                    class="sr-only">{{ 'listenOnSc'|trans }}</span></span></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="album-embed" id="album-embed-{{ loop.index0 }}"
-                             data-sc="{{ album.soundcloud|raw }}" data-title="{{ album.title }}">
-                            <div class="album-list">
-                                <ul class="list-group" data-toggled="false"></ul>
-                            </div>
-                            <div class="text-right listen-on-sc">
-                                <a href="{{ album.soundcloud|raw }}" target="_blank"
-                                   title="{{ 'listenOnSc'|trans }}"><span
-                                            class="fa fa-2x fa-fw fa-soundcloud"><span
-                                                class="sr-only">{{ 'listenOnSc'|trans }}</span></span></a>
-                            </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <a id="add-{{ album.UURL }}" class="album-add-to-cart btn btn-primary" href=""
+                               data-uurl="{{ album.UURL }}" data-album="{{ album.title }}"
+                               data-artist="{{ album.frontPage.name }}"><i class="fa fa-cart-plus"></i> <span
+                                        class="add-to-text">{{ 'addToCart'|trans }}</span><span
+                                        class="badge">{{ 'inCart'|trans }}</span></a>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <a id="add-{{ album.UURL }}" class="album-add-to-cart btn btn-primary" href=""
-                           data-uurl="{{ album.UURL }}" data-album="{{ album.title }}"
-                           data-artist="{{ album.frontPage.name }}"><i class="fa fa-cart-plus"></i> <span
-                                    class="add-to-text">{{ 'addToCart'|trans }}</span><span
-                                    class="badge">{{ 'inCart'|trans }}</span></a>
+            {% endfor %}
+        </div>
+        <div class="row margin-top-50 global-player">
+            <div class="col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1 col-sm-3 col-sm-offset-0 col-xs-8 col-xs-offset-0">
+                <span class="fa fa-backward fa-fw fa-2x music-player-interaction"><span
+                            class="sr-only">{{ 'backward'|trans }}</span></span>
+                <span class="fa fa-play fa-fw fa-2x music-player-interaction"><span
+                            class="sr-only">{{ 'play'|trans }}</span></span>
+                <span class="fa fa-pause fa-fw fa-2x music-player-interaction"><span
+                            class="sr-only">{{ 'pause'|trans }}</span></span>
+                <span class="fa fa-forward fa-fw fa-2x music-player-interaction"><span
+                            class="sr-only">{{ 'forward'|trans }}</span></span>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-7 hidden-xs">
+                <div class="progress">
+                    <div class="progress-bar active" role="progressbar"
+                         aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0">
                     </div>
                 </div>
             </div>
-        {% endfor %}
-        </div>
-    <div class="row margin-top-50 global-player">
-        <div class="col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1 col-sm-3 col-sm-offset-0 col-xs-8 col-xs-offset-0">
-            <span class="fa fa-backward fa-fw fa-2x music-player-interaction"><span class="sr-only">{{ 'backward'|trans }}</span></span>
-            <span class="fa fa-play fa-fw fa-2x music-player-interaction"><span class="sr-only">{{ 'play'|trans }}</span></span>
-            <span class="fa fa-pause fa-fw fa-2x music-player-interaction"><span class="sr-only">{{ 'pause'|trans }}</span></span>
-            <span class="fa fa-forward fa-fw fa-2x music-player-interaction"><span class="sr-only">{{ 'forward'|trans }}</span></span>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-7 hidden-xs">
-            <div class="progress">
-                <div class="progress-bar active" role="progressbar"
-                     aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0">
-                </div>
+            <div class="col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1 col-sm-2 col-xs-4 col-xs-offset-0">
+                <p><span class="now-playing-elapsed"></span>/<span class="now-playing-length"></span></p>
+            </div>
+            <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12 col-xs-offset-0">
+                <p><span class="now-playing-album"></span> - <span class="now-playing-song"></span></p>
             </div>
         </div>
-        <div class="col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1 col-sm-2 col-xs-4 col-xs-offset-0">
-            <p><span class="now-playing-elapsed"></span>/<span class="now-playing-length"></span></p>
-        </div>
-        <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12 col-xs-offset-0">
-            <p><span class="now-playing-album"></span> - <span class="now-playing-song"></span></p>
-        </div>
-    </div>
     </div>
     {% include '@App/footer.html.twig' %}
 {% endblock %}
@@ -142,7 +146,6 @@
     {% javascripts
     '@AppBundle/Resources/public/plugins/js-url/url.min.js'
     '@AppBundle/Resources/public/plugins/soundcloud-audio/dist/soundcloud-audio.min.js'
-    '@AppBundle/Resources/public/plugins/readmore/readmore.min.js'
     '@AppBundle/Resources/public/js/profile.js' %}
     <script src="{{ asset_url }}"></script>
     {% endjavascripts %}

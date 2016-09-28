@@ -1,5 +1,4 @@
 {% extends 'AppBundle::base.html.twig' %}
-{% form_theme form 'bootstrap_3_layout.html.twig' %}
 
 {% block pagetitle %}{{ 'donate'|trans }} | {{ 'base.meta.title'|trans }}{% endblock %}
 {% block bodyclass %}donate{% endblock %}
@@ -13,87 +12,73 @@
 {% endblock %}
 
 {% block body %}
+    <div id="fb-root"></div>
+    <script src="{{ asset('bundles/app/js/fb.js') }}"></script>
+    <script src="{{ asset('bundles/app/js/tw.js') }}"></script>
     {% include 'AppBundle::nav.html.twig' with {'index': false} %}
-    <div class="container main">
+    <div class="container-fluid fill-height main">
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-8 col-lg-offset-2">
                 <h1>{{ 'donate'|trans }}</h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
                 <p>{{ 'donate.p'|trans|raw|nl2br }}</p>
-            </div>
-        </div>
-        <div class="row">
-            {{ form_start(form) }}
-            <h2>{{ 'donate.data.label'|trans }}</h2>
-            {% if app.session.flashBag.has('error') %}
-                <div class="alert alert-danger">
-                    {% for msg in app.session.flashBag.get('error') %}
-                        {{ msg }}
-                    {% endfor %}
-                </div>
-            {% endif %}
-            <div class="form-group">
-                {{ form_label(form.email) }}
-                <div>
-                    <span>
-                        <span class="fa fa-info">
-                            <span class="sr-only">info</span>
-                        </span>
-                        {{ 'donate.email.placeholder'|trans }}
-                    </span>
-                </div>
-                {{ form_widget(form.email, {'attr': {'placeholder': 'exampleEmail'|trans }}) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.amount) }}
-                <div>
-                    <span>
-                        <span class="fa fa-info">
-                            <span class="sr-only">info</span>
-                        </span>
-                        {{ 'donate.amount.help'|trans }}
-                    </span>
-                </div>
-                {{ form_widget(form.amount) }}
-            </div>
-
-            <h3>{{ 'donate.braintree.h3'|trans }}</h3>
-            <p>{{ 'donate.braintree.info'|trans }}</p>
-            <div id="payment-form"></div>
-
-            <input type="submit" id="donation-submit" class="submit btn btn-primary" value="{{ 'donate'|trans }}">
-            {{ form_end(form) }}
-            <div class="col-lg-8">
-                <h2>{{ 'donate.albums.label'|trans }}</h2>
-                <div>
-                    {% for album in donation.albums %}
-                        <div class="album">
-                            <div class="cover">
-                                <img src="{{ web_image(album.cover.webPath) }}">
-                            </div>
-                            <div>
-                                <p><b>{{ album.title }}</b></p>
-                                <p>{{ album.artist }}</p>
-                            </div>
-                        </div>
-                    {% endfor %}
+                <p>
+                    <strong>{{ 'donate.p.suggested_amount'|transchoice(albums|length) }}: {{ amount }}</strong>
+                </p>
+                <p class="action-btns">
+                    <a href="http://www.aerzte-ohne-grenzen.de/spenden-sammeln?hptitle=barthyb" target="_blank"
+                       rel="nofollow" title="{{ 'donate'|trans }}"
+                       class="btn btn-primary">{{ 'donate'|trans }}</a>
+                    <a class="btn btn-secondary" rel="nofollow" href="#albums">{{ 'thankyou.a'|trans }}</a>
+                </p>
+                <h2>{{ 'thankyou.h1'|trans }}</h2>
+                <p>{{ 'thankyou.p'|trans|nl2br }}</p>
+                <div class="share-btns">
+                    <div class="fb-share-button" data-href="https://www.keinegrenzen.org" data-layout="button"
+                         data-size="large" data-mobile-iframe="true">
+                        <a class="fb-xfbml-parse-ignore" target="_blank"
+                           href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.keinegrenzen.org%2F&amp;src=sdkpreparse">Teilen</a>
+                    </div>
+                    <a id="share-tw" href="https://twitter.com/intent/tweet" data-text="{{ 'twitter.text'|trans }}"
+                       data-url="null" class="twitter-share-button btn btn-primary" data-size="large"><i
+                                class="fa fa-twitter fa-fw"></i> {{ 'share.tw'|trans }}</a>
                 </div>
             </div>
         </div>
     </div>
-    <input id="braintree-token" type="hidden" value="{{ clientToken }}">
+    <div class="container albums" id="albums">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>{{ 'downloads'|trans }}</h2>
+            </div>
+        </div>
+        <div class="row">
+            {% for album in albums %}
+                <div class="col-lg-6">
+                    <div class="album">
+                        <div class="cover">
+                            <img src="{{ web_image(album.cover.webPath) }}">
+                        </div>
+                        <div>
+                            <p><b>{{ album.title }}</b></p>
+                            <p>{{ album.artist }}</p>
+                            {% if album.albumFile is not null %}
+                                <a href="/{{ album.albumFile.webPath }}"
+                                   class="btn btn-primary">{{ 'download'|trans }}</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
     {% include '@App/footer.html.twig' %}
 {% endblock %}
 
 {% block bodyscripts %}
-    <script src="https://js.braintreegateway.com/js/braintree-2.29.0.min.js"></script>
-    {% javascripts
-    'bundles/app/plugins/autoNumeric-min.js'
-    'bundles/app/js/donate.js' %}
-    <script type="text/javascript" src="{{ asset_url }}"></script>
-    {% endjavascripts %}
     {{ parent() }}
+    {% javascripts
+    '@AppBundle/Resources/public/js/download.js'
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
 {% endblock %}

@@ -8,15 +8,15 @@
     <title>{% block pagetitle %}{{ 'base.meta.title'|trans }}{% endblock %}</title>
     <meta name="description" content="{% block description %}{{ 'base.meta.description'|trans }}{% endblock %}">
     <meta name="author" content="Barthy">
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content="website"/>
     <meta name="og:title" content="{{ 'mwb'|trans }}">
     <meta name="og:image" content="http://music-without-borders.de{{ asset('bundles/app/images/logo_og.png') }}">
-    <meta property="og:image:width" content="1000" />
-    <meta property="og:image:height" content="1000" />
-    <meta property="og:locale{{ app.request.locale=='de'?'':':alternate' }}" content="de_DE" />
-    <meta property="og:locale{{ app.request.locale=='fr'?'':':alternate' }}" content="fr_FR" />
-    <meta property="og:locale{{ app.request.locale=='en'?'':':alternate' }}" content="en_US" />
-    <meta property="og:site_name" content="{{ 'mwb'|trans }}" />
+    <meta property="og:image:width" content="1000"/>
+    <meta property="og:image:height" content="1000"/>
+    <meta property="og:locale{{ app.request.locale=='de'?'':':alternate' }}" content="de_DE"/>
+    <meta property="og:locale{{ app.request.locale=='fr'?'':':alternate' }}" content="fr_FR"/>
+    <meta property="og:locale{{ app.request.locale=='en'?'':':alternate' }}" content="en_US"/>
+    <meta property="og:site_name" content="{{ 'mwb'|trans }}"/>
     <meta name="og:description" content="{{ block('description') }}">
     <link rel="icon" href="{{ asset('bundles/app/images/favicon.png') }}">
     <link href='https://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
@@ -27,7 +27,7 @@
         'bundles/app/css/bootstrap-social.css'
         'bundles/app/css/font-awesome.min.css'
         'bundles/app/css/bartstrap.css' filter='cssrewrite' %}
-        <link rel="stylesheet" href="{{ asset_url }}" />
+        <link rel="stylesheet" href="{{ asset_url }}"/>
         {% endstylesheets %}
     {% endblock %}
 
@@ -46,8 +46,7 @@
         '@AppBundle/Resources/public/plugins/jquery-ui/jquery-ui.min.js'
         '@AppBundle/Resources/public/js/bootstrap.min.js'
         '@AppBundle/Resources/public/plugins/waypoints/lib/jquery.waypoints.min.js'
-        '@AppBundle/Resources/public/js/cart.js'
-        %}
+        '@AppBundle/Resources/public/js/cart.js' %}
         <script src="{{ asset_url }}"></script>
         {% endjavascripts %}
     {% endblock %}

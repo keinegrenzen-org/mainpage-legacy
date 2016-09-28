@@ -1,8 +1,30 @@
 .donate > .main {
-    margin-top:50px;
+    background: #fff url('../images/lightroom/kgo_04.jpg') no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.donate > .main > .row {
+    background-color: rgba(255,255,255,0.75);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-top: 50px;
+}
+@media(min-width:992px) {
+    .donate > .main > .row {
+        padding-top: 100px;
+    }
+
+    .donate p + h2 {
+        margin-top: 50px;
+    }
 }
 .donate .album {
-    width: 45%;
+    width: 75%;
     margin-right: 5%;
     float: left;
     display: block;
@@ -20,7 +42,7 @@
 .donate .album .cover + div {
     float:left;
     margin-left: 5%;
-    width:45%;
+    width:75%;
 }
 .donate .album .cover + div > b {
     color:#00a8ff;
@@ -37,4 +59,32 @@
     border: 1px solid #00a8ff;
     padding: 15px;
     border-radius: 4px;
+}
+.donate > .albums .album > .cover {
+    width:100%;
+    height: 0;
+    padding-bottom: 100%;
+    overflow: visible;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+.donate > .albums .album > .cover > img {
+    width:100%;
+    height: auto;
+}
+.donate .action-btns,
+.donate .share-btns {
+    margin-top:10px;
+}
+.donate .share-btns iframe {
+    background: transparent;
+}
+
+.donate .share-btns > iframe {
+    display: inline;
+    vertical-align: middle;
+}
+
+.donate .share-btns > div {
+    vertical-align: middle;
 }

@@ -64,7 +64,7 @@ class Donation
     /**
      * @var int
      *
-     * @ORM\Column(name="amount", type="integer")
+     * @ORM\Column(name="amount", type="integer", nullable=true)
      */
     private $amount;
 
@@ -158,19 +158,23 @@ class Donation
         return $this->email;
     }
 
-    public function addAlbum(Album $album){
+    public function addAlbum(Album $album)
+    {
         $this->albums->add($album);
     }
 
-    public function getFloatAmount(){
-        return "" . $this->getAmount()/100 . "€";
+    public function getFloatAmount()
+    {
+        return "" . $this->getAmount() / 100 . "€";
     }
 
-    public function getDecimalAmount(){
-        return "" . $this->getAmount()/100;
+    public function getDecimalAmount()
+    {
+        return "" . $this->getAmount() / 100;
     }
 
-    public function getUSFormatAmout(){
+    public function getUSFormatAmout()
+    {
         setlocale(LC_MONETARY, 'en_US');
         return money_format('%i', $this->getAmount());
     }

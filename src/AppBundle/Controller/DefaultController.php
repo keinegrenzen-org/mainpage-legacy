@@ -8,8 +8,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Validator\Constraints\Date;
-use Symfony\Component\Validator\Constraints\DateTime;
 
 class DefaultController extends Controller
 {
@@ -33,41 +31,32 @@ class DefaultController extends Controller
             ->getRepository('AppBundle:Donation')
             ->findAll();
 
-        $total = array_reduce($donations, function($i, Donation $obj)
-        {
+        $total = array_reduce($donations, function ($i, Donation $obj) {
             return $i += $obj->getAmount();
         });
-        
+
         return $this->render('@AppBundle/Resources/views/index.html.twig', array(
             'frontPages' => $frontPages,
             'albums' => $albums,
             'total' => $total,
             'count' => sizeof($donations)
-            ));
-
-        // return $this->render('@App/index.under_construction.html.twig');
-
+        ));
     }
 
     /**
      * @Route("/impressum", name="impressum")
      */
-    public function impressumAction(){
+    public function impressumAction()
+    {
         return $this->render('@App/impressum.html.twig');
     }
 
     /**
      * @Route("/datenschutz", name="datenschutz")
      */
-    public function datenschutzAction(){
+    public function datenschutzAction()
+    {
         return $this->render('@App/datenschutz.html.twig');
-    }
-
-    /**
-     * @Route("/faqs", name="faqs")
-     */
-    public function faqsAction(){
-        return $this->render('@App/faq.html.twig');
     }
 
     /**

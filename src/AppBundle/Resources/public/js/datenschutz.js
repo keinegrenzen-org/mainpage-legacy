@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('.opt-out').click(function() {
+    $('.opt-out').click(function () {
         var gaProperty = 'UA-82766576-1';
         var disableStr = 'ga-disable-' + gaProperty;
         if (document.cookie.indexOf(disableStr + '=true') > -1) {

@@ -4,7 +4,7 @@
         {{ parent() }}
         {% stylesheets
         'bundles/app/css/impressum.css' filter='cssrewrite' %}
-        <link rel="stylesheet" href="{{ asset_url }}" />
+        <link rel="stylesheet" href="{{ asset_url }}"/>
         {% endstylesheets %}
     {% endblock %}
 
@@ -26,5 +26,5 @@
             </div>
         </div>
     </div>
-    {%  include '@App/footer.html.twig' %}
+    {% include '@App/footer.html.twig' %}
 {% endblock %}

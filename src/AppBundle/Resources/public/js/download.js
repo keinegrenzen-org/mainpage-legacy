@@ -35,7 +35,7 @@ $(document).ready(function () {
         FB.ui({
             method: 'share',
             mobile_iframe: true,
-            href: 'http://music-without-borders.de/'
+            href: 'https://www.keinegrenzen.org/'
         }, function(response){});
     });
 });

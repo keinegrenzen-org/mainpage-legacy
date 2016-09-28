@@ -17,14 +17,14 @@ class AlbumFileType extends AbstractType
     {
         $builder
             ->add('file', VichFileType::class, array(
-                'label' => /** @Ignore */false,
-                'required'      => false,
-                'allow_delete'  => false, // not mandatory, default is true
+                'label' => /** @Ignore */
+                    false,
+                'required' => false,
+                'allow_delete' => false, // not mandatory, default is true
                 'download_link' => true // not mandatory, default is true
-            ));
-        ;
+            ));;
     }
-    
+
     /**
      * @param OptionsResolver $resolver
      */

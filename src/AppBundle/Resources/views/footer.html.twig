@@ -1,6 +1,6 @@
 <div class="footer container-fluid">
         <section class="row">
-            <div class="col-xs-4 text-center">
+            <div class="col-xs-4 col-xs-offset-2 text-center">
                 <h4>{{ 'footer.social.h4'|trans }}</h4>
                 <div class="footer-links text-center">
                     <a href="https://www.facebook.com/theMWBproject/" target="_blank" class="btn fb"><span class="fa fa-facebook-f fa-2x"></span><i class="sr-only">Facebook</i></a>
@@ -9,22 +9,11 @@
                 </div>
             </div>
             <div class="col-xs-4 text-center">
-                <h4>{{ 'footer.lang.h4'|trans }}</h4>
-                <div class="lng-btns text-center">
-                    <ul>
-                        <li><a href="/">Deutsch</a></li>
-                        <li><a href="/en/">English</a></li>
-                        <li><a href="/fr/">Français</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-xs-4 text-center">
                 <h4>{{ 'footer.links.h4'|trans }}</h4>
                 <div class="link-btns text-center">
                     <ul>
                         <li><a href="{{ path('impressum') }}">{{ 'footer.link.impressum'|trans }}</a></li>
                         <li><a href="{{ path('datenschutz') }}">{{ 'footer.link.datenschutz'|trans }}</a></li>
-                        <li><a href="{{ path('faqs') }}">{{ 'footer.link.faqs'|trans }}</a></li>
                         <li><a href="{#{{ path('attributions') }}">{{ 'footer.link.attributions'|trans }}#}"></a></li>
                     </ul>
                 </div>

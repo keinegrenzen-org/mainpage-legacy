@@ -1,16 +1,16 @@
-function countItems(){
+function countItems() {
     var $cartItems = $('.cart-items'),
         $cartTotal = $('.cart-total > span'),
         cnt = $cartItems.find('li:not(.empty-list)').length,
         price = '';
-    if(cnt > 0){
+    if (cnt > 0) {
         $cartItems.find('.empty-list').css('display', 'none');
         $cartItems.parent().find('.btn-donate').removeAttr('disabled');
-    }else {
+    } else {
         $cartItems.find('.empty-list').css('display', 'list-item');
         $cartItems.parent().find('.btn-donate').attr('disabled', 'true');
     }
-    switch(cnt){
+    switch (cnt) {
         case 0:
             price = '0,00';
             break;
@@ -35,13 +35,13 @@ function countItems(){
     sessionStorage.setItem("cart-cnt", cnt);
 }
 
-function addToCart($cartItems, $newItem, $btn){
+function addToCart($cartItems, $newItem, $btn) {
     $cartItems.append($newItem);
     $newItem.find('.fa-remove').click(function () {
         removeFromCart($cartItems, $newItem);
     });
     $newItem.find('input').val($newItem.data("uurl"));
-    if($btn==null) {
+    if ($btn == null) {
         $btn = $('#add-' + $newItem.data('uurl'));
     }
     $btn.addClass('in-cart');
@@ -49,7 +49,7 @@ function addToCart($cartItems, $newItem, $btn){
     countItems();
 }
 
-function removeFromCart($cartItems, $newItem){
+function removeFromCart($cartItems, $newItem) {
     $cartItems.find("[data-uurl='" + $newItem.data('uurl') + "']").remove();
     $('#add-' + $newItem.data('uurl')).removeClass('in-cart').removeClass('disabled');
     countItems();
@@ -66,7 +66,7 @@ $(document).ready(function () {
         $li = $("<li><span class='text-bold album-name'></span> - <span class='album-artist'></span><span class='fa fa-remove'><spam class='sr-only'>remove item</spam></span><input class='hidden' type='text'/></li>"),
         open = false;
 
-    if(cartCnt!=null) {
+    if (cartCnt != null) {
         for (var i = 0; i < cartCnt; i++) {
             addToCart($cartItems, $(sessionStorage.getItem("cart-" + i)));
         }
@@ -77,10 +77,10 @@ $(document).ready(function () {
         e.preventDefault();
         open = !open;
         $cart.animate({
-            height: open?$cartInner.outerHeight():'0',
-            padding: open?'15px':'0'
+            height: open ? $cartInner.outerHeight() : '0',
+            padding: open ? '15px' : '0'
         }, .500, 'linear');
-        if(!open){
+        if (!open) {
             $cartButton.blur();
         }
     });
@@ -103,7 +103,7 @@ $(document).ready(function () {
             $tmpLi.attr('data-uurl', $element.data("uurl"));
             $tmpLi.find('input').attr('name', 'album_' + i);
             $tmpLi.find('input').attr('id', 'album_' + i);
-            if(!$element.hasClass('in-cart')){
+            if (!$element.hasClass('in-cart')) {
                 addToCart($cartItems, $tmpLi, $element);
                 $element.addClass('disabled');
             }
@@ -111,10 +111,10 @@ $(document).ready(function () {
         })
     });
 
-    $cartTotal.next('.btn-donate').click(function(e){
-       if($(this).attr('disabled')){
-           e.preventDefault();
-       }
+    $cartTotal.next('.btn-donate').click(function (e) {
+        if ($(this).attr('disabled')) {
+            e.preventDefault();
+        }
     });
 
 });

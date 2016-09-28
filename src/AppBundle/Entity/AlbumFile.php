@@ -16,9 +16,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  */
 class AlbumFile
 {
-    
-    
-    
+
     /**
      * @var int
      *
@@ -79,21 +77,21 @@ class AlbumFile
     {
         return null === $this->path
             ? null
-            : $this->getUploadRootDir().'/'.$this->path;
+            : $this->getUploadRootDir() . '/' . $this->path;
     }
 
     public function getWebPath()
     {
         return null === $this->path
             ? null
-            : $this->getUploadDir().'/'.$this->path;
+            : $this->getUploadDir() . '/' . $this->path;
     }
 
     protected function getUploadRootDir()
     {
         // the absolute directory path where uploaded
         // images should be saved
-        return __DIR__.'/../../../web/'.$this->getUploadDir();
+        return __DIR__ . '/../../../web/' . $this->getUploadDir();
     }
 
     protected function getUploadDir()

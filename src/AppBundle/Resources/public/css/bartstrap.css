@@ -129,7 +129,7 @@ a:active {
     left: 0;
     z-index:100;
     border-radius: 0;
-    padding: 5px 0 0;
+    padding-top: 5px;
 }
 .navbar-collapse{
     -webkit-transition: all .2s;
@@ -159,10 +159,8 @@ a:active {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
 }
-.navbar-nav a:hover,
-.navbar-nav a:focus,
-.navbar-nav a:active {
-    background-color: rgba(25, 25, 25, 0.3) !important;
+.nav>li>a:focus, .nav>li>a:hover {
+    background: none;
     border-bottom: 2px solid #fff;
     box-sizing: border-box;
     -moz-box-sizing: border-box;

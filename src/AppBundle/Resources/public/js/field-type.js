@@ -3,8 +3,8 @@
  */
 
 
-function dot2(input){
-    return Math.round(input*100)/100;
+function dot2(input) {
+    return Math.round(input * 100) / 100;
 }
 
 $(document).ready(function () {
@@ -16,9 +16,9 @@ $(document).ready(function () {
 
     $('#album_cover').find('.easyadmin-vich-image input').change(function () {
         var $imgContainer = $('#album_cover').find('.field-vich_image > .easyadmin-vich-image');
-        $imgContainer.on("DOMSubtreeModified", function() {
+        $imgContainer.on("DOMSubtreeModified", function () {
             var $img = $imgContainer.find('.easyadmin-lightbox img');
-            if($img.length > 0) {
+            if ($img.length > 0) {
                 var colorThief = new ColorThief();
                 $img.attr('id', 'album_cover_lightbox');
 

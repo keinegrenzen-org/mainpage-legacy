@@ -97,7 +97,7 @@ class Album
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -120,7 +120,7 @@ class Album
     /**
      * Get title
      *
-     * @return string 
+     * @return string
      */
     public function getTitle()
     {
@@ -143,7 +143,7 @@ class Album
     /**
      * Get description
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {
@@ -294,11 +294,13 @@ class Album
         $this->soundcloud = $soundcloud;
     }
 
-    public function getArtist(){
+    public function getArtist()
+    {
         return $this->getFrontPage()->getName();
     }
 
-    public function __toString(){
-        return $this.$this->getTitle() . ' - ' . $this->getArtist();
+    public function __toString()
+    {
+        return $this . $this->getTitle() . ' - ' . $this->getArtist();
     }
 }

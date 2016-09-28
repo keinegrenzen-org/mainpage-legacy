@@ -24,24 +24,19 @@ class DonationType extends AbstractType
                 'label' => 'donate.email.label',
                 'required' => true
             ))
-            ->add('amount', MoneyType::class, array(
-                'label' => 'donate.amount.label',
-                'divisor' => 100,
-                'required' => true,
-            ))
             ->add('albums', EntityType::class, array(
                 'class' => 'AppBundle:Album',
                 'choice_label' => 'title',
                 'multiple' => true,
-                'label' => /** @Ignore */ false,
+                'label' => /** @Ignore */
+                    false,
                 'attr' => array(
                     'class' => 'hidden',
                 ),
             ))
-            ->setAction('/savedonation')
-        ;
+            ->setAction('/savedonation');
     }
-    
+
     /**
      * @param OptionsResolver $resolver
      */
