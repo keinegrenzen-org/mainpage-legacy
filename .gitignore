@@ -13,3 +13,4 @@
 /.idea
 
 /web/bundles/*
+composer.lock
