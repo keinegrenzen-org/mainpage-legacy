@@ -1,6 +1,7 @@
 function countItems() {
     var $cartItems = $('.cart-items'),
         $cartTotal = $('.cart-total > span'),
+        $cartSubmit = $('.btn-donate'),
         cnt = $cartItems.find('li:not(.empty-list)').length,
         price = '';
     if (cnt > 0) {
@@ -18,16 +19,18 @@ function countItems() {
             price = '5.00';
             break;
         case 2:
-            price = '7.00';
+            price = '10.00';
             break;
         case 3:
         case 4:
-            price = '12.00';
-            break;
-        default:
             price = '15.00';
             break;
+        default:
+            price = '20.00';
+            break;
     }
+
+    $cartSubmit.prop('disabled', (cnt == 0));
     $cartTotal.text(price);
     $cartItems.find('li:not(.empty-list)').each(function (i) {
         sessionStorage.setItem("cart-" + i, '<li data-uurl="' + $(this).attr('data-uurl') + '">' + $(this).html() + '</li>');
@@ -101,8 +104,9 @@ $(document).ready(function () {
             $tmpLi.find('.album-name').text($element.attr("data-album"));
             $tmpLi.find('.album-artist').text($element.attr("data-artist"));
             $tmpLi.attr('data-uurl', $element.data("uurl"));
-            $tmpLi.find('input').attr('name', 'album_' + i);
-            $tmpLi.find('input').attr('id', 'album_' + i);
+            var which = sessionStorage.getItem("cart-cnt");
+            $tmpLi.find('input').attr('name', 'album_' + which);
+            $tmpLi.find('input').attr('id', 'album_' + which);
             if (!$element.hasClass('in-cart')) {
                 addToCart($cartItems, $tmpLi, $element);
                 $element.addClass('disabled');

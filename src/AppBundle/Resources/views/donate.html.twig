@@ -18,7 +18,8 @@
     {% include 'AppBundle::nav.html.twig' with {'index': false} %}
     <div class="container-fluid fill-height main">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
+            <div class="white-bg"></div>
+            <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
                 <h1>{{ 'donate'|trans }}</h1>
                 <p>{{ 'donate.p'|trans|raw|nl2br }}</p>
                 <p>
@@ -61,10 +62,8 @@
                         <div>
                             <p><b>{{ album.title }}</b></p>
                             <p>{{ album.artist }}</p>
-                            {% if album.albumFile is not null %}
-                                <a href="/{{ album.albumFile.webPath }}"
+                                <a href="/uploads/albums/{{ album.albumFilePath }}"
                                    class="btn btn-primary">{{ 'download'|trans }}</a>
-                            {% endif %}
                         </div>
                     </div>
                 </div>

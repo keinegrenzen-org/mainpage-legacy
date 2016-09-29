@@ -46,9 +46,9 @@ class Album
     private $cover;
 
     /**
-     * @ORM\OneToOne(targetEntity="AlbumFile", cascade={"remove", "persist"})
+     * @ORM\Column(name="album_file_path", type="string", length=512)
      */
-    private $albumFile;
+    private $albumFilePath;
 
     /**
      * @var string
@@ -93,6 +93,13 @@ class Album
      * @ORM\Column(name="secondarycolor", type="string", length=20)
      */
     private $secondaryColor;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="public", type="boolean")
+     */
+    private $public = false;
 
     /**
      * Get id
@@ -199,22 +206,6 @@ class Album
     }
 
     /**
-     * @return mixed
-     */
-    public function getAlbumFile()
-    {
-        return $this->albumFile;
-    }
-
-    /**
-     * @param mixed $albumFile
-     */
-    public function setAlbumFile($albumFile)
-    {
-        $this->albumFile = $albumFile;
-    }
-
-    /**
      * @return FrontPage
      */
     public function getFrontPage()
@@ -302,5 +293,42 @@ class Album
     public function __toString()
     {
         return $this . $this->getTitle() . ' - ' . $this->getArtist();
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getPublic()
+    {
+        return $this->public;
+    }
+
+    /**
+     * @param $public
+     * @return Album
+     */
+    public function setPublic($public)
+    {
+        $this->public = $public;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAlbumFilePath()
+    {
+        return $this->albumFilePath;
+    }
+
+    /**
+     * @param mixed $albumFilePath
+     * @return Album
+     */
+    public function setAlbumFilePath($albumFilePath)
+    {
+        $this->albumFilePath = $albumFilePath;
+
+        return $this;
     }
 }

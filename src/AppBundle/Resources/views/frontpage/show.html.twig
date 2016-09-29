@@ -64,51 +64,60 @@
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                 <div class="row album-art-container">
+                    {%  set loopReal = 0 %}
                     {% for album in frontPage.albums %}
-                        <div class="{{ (loop.index==1)?'col-lg-12 col-md-12':'col-lg-6 col-md-6' }} col-sm-6 col-xs-6"
-                             data-uurl="{{ album.UURL }}">
-                            <div class="mask text-center"><span class="fa fa-3x fa-fw fa-search"></span></div>
-                            <div class="album-art {{ 'album-art-' ~ album.UURL }}"><span
-                                        class="sr-only">{{ album.title }} {{ 'sr-only.album.cover'|trans }}</span></div>
-                        </div>
+                        {% if album.public == true %}
+                            {% set loopReal = loopReal+1 %}
+                            <div class="{{ (loopReal==1)?'col-lg-12 col-md-12':'col-lg-6 col-md-6' }} col-sm-6 col-xs-6"
+                                 data-uurl="{{ album.UURL }}">
+                                <div class="mask text-center"><span class="fa fa-3x fa-fw fa-search"></span></div>
+                                <div class="album-art {{ 'album-art-' ~ album.UURL }}"><span
+                                            class="sr-only">{{ album.title }} {{ 'sr-only.album.cover'|trans }}</span>
+                                </div>
+                            </div>
+                        {% endif %}
                     {% endfor %}
                 </div>
             </div>
+            {%  set loopReal = 0 %}
             {% for album in frontPage.albums %}
-                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 {{ 'album-' ~ album.UURL }} {{ (loop.index==1)?'active' }} album-details">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="album-description">
-                                <h3>{{ album.title }}</h3>
-                                <p>{{ 'published'|trans }}: {{ album.published|date('d.m.Y') }}</p>
-                                {{ album.description|raw|nl2br }}
+                {% if album.public == true %}
+                    {% set loopReal = loopReal+1 %}
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 {{ 'album-' ~ album.UURL }} {{ (loopReal==1)?'active' }} album-details">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="album-description">
+                                    <h3>{{ album.title }}</h3>
+                                    <p>{{ 'published'|trans }}: {{ album.published|date('d.m.Y') }}</p>
+                                    {{ album.description|raw|nl2br }}
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="album-embed" id="album-embed-{{ loop.index0 }}"
+                                     data-sc="{{ album.soundcloud|raw }}" data-title="{{ album.title }}">
+                                    <div class="album-list">
+                                        <ul class="list-group" data-toggled="false"></ul>
+                                    </div>
+                                    <div class="text-right listen-on-sc">
+                                        <a href="{{ album.soundcloud|raw }}" target="_blank"
+                                           title="{{ 'listenOnSc'|trans }}"><span
+                                                    class="fa fa-2x fa-fw fa-soundcloud"><span
+                                                        class="sr-only">{{ 'listenOnSc'|trans }}</span></span></a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="album-embed" id="album-embed-{{ loop.index0 }}"
-                                 data-sc="{{ album.soundcloud|raw }}" data-title="{{ album.title }}">
-                                <div class="album-list">
-                                    <ul class="list-group" data-toggled="false"></ul>
-                                </div>
-                                <div class="text-right listen-on-sc">
-                                    <a href="{{ album.soundcloud|raw }}" target="_blank"
-                                       title="{{ 'listenOnSc'|trans }}"><span
-                                                class="fa fa-2x fa-fw fa-soundcloud"><span
-                                                    class="sr-only">{{ 'listenOnSc'|trans }}</span></span></a>
-                                </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <a id="add-{{ album.UURL }}" class="album-add-to-cart btn btn-primary" href=""
+                                   data-uurl="{{ album.UURL }}" data-album="{{ album.title }}"
+                                   data-artist="{{ album.frontPage.name }}"><i class="fa fa-cart-plus"></i> <span
+                                            class="add-to-text">{{ 'addToCart'|trans }}</span><span
+                                            class="badge">{{ 'inCart'|trans }}</span></a>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <a id="add-{{ album.UURL }}" class="album-add-to-cart btn btn-primary" href=""
-                               data-uurl="{{ album.UURL }}" data-album="{{ album.title }}"
-                               data-artist="{{ album.frontPage.name }}"><i class="fa fa-cart-plus"></i> <span
-                                        class="add-to-text">{{ 'addToCart'|trans }}</span><span
-                                        class="badge">{{ 'inCart'|trans }}</span></a>
-                        </div>
-                    </div>
-                </div>
+                {% endif %}
             {% endfor %}
         </div>
         <div class="row margin-top-50 global-player">

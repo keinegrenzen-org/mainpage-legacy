@@ -16,7 +16,6 @@ class DonationController extends Controller
      */
     public function donateAction(Request $request)
     {
-
         $em = $this->getDoctrine()->getManager();
         $albumCnt = 0;
         $albums = array();
@@ -30,8 +29,7 @@ class DonationController extends Controller
         }
         switch ($albumCnt) {
             case 0:
-                $amount = "0,00€";
-                break;
+                return $this->redirectToRoute('homepage');
             case 1:
                 $amount = "5,00€";
                 break;
