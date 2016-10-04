@@ -132,13 +132,14 @@ easy_admin:
                     - { property: 'url', label: 'URL', type: 'url' }
                     - { property: 'name', label: 'Name', type: 'string' }
                     - { property: 'albums', label: 'Albums', type: 'association' }
-                    - { property: 'public', label: 'Public', type: 'toggle' }
+                    - { property: 'public', label: 'Public', type: 'wtoggle' }
             form:
                 fields:
                     - { property: 'name', type: 'text', label: 'Name', css_class: 'col-lg-3' }
+                    - { property: 'shortName', type: 'text', label: 'Short Name', css_class: 'col-lg-3' }
                     - { property: 'location', type: 'text', label: 'Location', css_class: 'col-lg-3' }
                     - { property: 'genre', type: 'text', label: 'Genre', css_class: 'col-lg-3' }
-                    - { property: 'UURL', type: 'text', label: 'UURL', css_class: 'col-lg-3', type_options: {attr: {pattern: "^[.a-zA-Z0-9-]+$"}} }
+                    - { property: 'UURL', type: 'text', label: 'UURL', css_class: 'col-lg-12', type_options: {attr: {pattern: "^[.a-zA-Z0-9-]+$"}} }
                     - { property: 'image', type: 'AppBundle\Form\ImageType', label: 'Image', css_class: 'col-lg-6' }
                     - { property: 'cover', type: 'AppBundle\Form\ImageType', label: 'Cover', css_class: 'col-lg-6' }
                     - { property: 'vita', type: 'ckeditor', label: 'Vita' }

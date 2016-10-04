@@ -13,7 +13,7 @@ class EasyController extends BaseAdminController
         $id = $this->request->query->get('id');
         $entity = $this->em->getRepository('AppBundle:FrontPage')->find($id);
 
-        $content = $this->renderView('AppBundle:frontpage/frontPage.css.twig', array(
+        $content = $this->renderView('@App/frontpage/frontPage.css.twig', array(
             'frontPage' => $entity,
         ));
 
@@ -38,7 +38,7 @@ class EasyController extends BaseAdminController
         $id = $this->request->query->get('id');
         $entity = $this->em->getRepository('AppBundle:Album')->find($id);
 
-        $content = $this->renderView('AppBundle:album/album.css.twig', array(
+        $content = $this->renderView('@App/album/album.css.twig', array(
             'album' => $entity,
         ));
 

@@ -7,6 +7,12 @@
 .profile > .header > .row > div{
     margin-bottom: 15px;
 }
+.profile > .header .page-title-normal {
+    display: none;
+}
+.profile > .header .page-title-abbr {
+    margin-bottom: 0.5em;
+}
 @media (min-width: 992px) {
     .profile > .header > .row {
         width: 100%;
@@ -16,6 +22,12 @@
     }
     .profile > .header > .row > div{
         margin-bottom: 0;
+    }
+    .profile > .header .page-title-abbr {
+        display: none;
+    }
+    .profile > .header .page-title-normal {
+        display: inline-block;
     }
 }
 .profile .artist {

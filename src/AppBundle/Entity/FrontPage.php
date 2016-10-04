@@ -42,6 +42,13 @@ class FrontPage
     /**
      * @var string
      *
+     * @ORM\Column(name="short_name", type="string", length=255, nullable=true)
+     */
+    private $shortName;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="location", type="string", length=255, nullable=true)
      */
     private $location;
@@ -412,5 +419,21 @@ class FrontPage
     public function setGenre($genre)
     {
         $this->genre = $genre;
+    }
+
+    /**
+     * @return string
+     */
+    public function getShortName()
+    {
+        return $this->shortName;
+    }
+
+    /**
+     * @param string $shortName
+     */
+    public function setShortName($shortName)
+    {
+        $this->shortName = $shortName;
     }
 }

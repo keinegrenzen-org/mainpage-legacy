@@ -26,7 +26,12 @@
             </div>
             <div class="col-lg-9 col-md-9 col-sm-6 col-xs-12">
                 <div class="page-title-container">
-                    <h1><span class="page-title"><strong>{{ frontPage.name }}</strong></span></h1>
+                    {% if frontPage.shortName is not null %}
+                        <h1><span class="page-title page-title-normal"><strong>{{ frontPage.name }}</strong></span><span
+                                    class="page-title page-title-abbr"><strong>{{ frontPage.shortName }}</strong></span></h1>
+                    {% else %}
+                        <h1><span class="page-title"><strong>{{ frontPage.name }}</strong></span></h1>
+                    {% endif %}
                     <br>
                     <span class="page-title">{{ frontPage.genre }}, {{ 'from'|trans }} {{ frontPage.location }}</span>
                 </div>
