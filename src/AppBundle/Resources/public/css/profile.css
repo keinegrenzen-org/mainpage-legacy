@@ -1,8 +1,13 @@
-.profile > .header {
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.profile > .header > .row {
+    position: absolute;
+    top:50%;
+    left:0;
+    right:0;
+    -webkit-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    transform: translate(0, -50%);
 }
 .profile > .header > .row > div{
     margin-bottom: 15px;
@@ -13,18 +18,7 @@
 .profile > .header .page-title-abbr {
     margin-bottom: 0.5em;
 }
-@media (max-width: 767px) {
-    .profile > .header > .row {
-        margin-top: 100px;
-    }
-}
 @media (min-width: 992px) {
-    .profile > .header > .row {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
     .profile > .header > .row > div{
         margin-bottom: 0;
     }
@@ -205,17 +199,8 @@
     margin-top: 0;
     margin-bottom: 0.5em;
 }
-@media (max-width: 767px){
-    .profile .page-title-container h1 {
-        width: 100%;
-        font-size: 2em;
-    }
-}
-@media (min-width: 768px){
-    .profile .page-title-container {
-        text-align: left;
-        width: auto;
-    }
+.profile .page-title-container > span {
+    font-size: 1.5em;
 }
 .profile .page-title {
     display: inline-block;
