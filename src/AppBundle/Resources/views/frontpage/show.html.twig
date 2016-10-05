@@ -19,12 +19,10 @@
     {% include '@App/nav.html.twig' with {'index': false} %}
     <div class="container-fluid fill header">
         <div class="row">
-            <div class="col-lg-3 col-lg-offset-0 col-md-3 col-md-offset-0 col-sm-6 col-sm-offset-0 col-xs-10 col-xs-offset-1">
+            <div class="col-lg-4 col-lg-offset-0 col-md-4 col-md-offset-0 col-sm-6 col-sm-offset-0 col-xs-10 col-xs-push-1">
                 <div class="artist text-center">
                     <div class="img-div"></div>
                 </div>
-            </div>
-            <div class="col-lg-9 col-md-9 col-sm-6 col-xs-12">
                 <div class="page-title-container">
                     {% if frontPage.shortName is not null %}
                         <h1><span class="page-title page-title-normal"><strong>{{ frontPage.name }}</strong></span><span

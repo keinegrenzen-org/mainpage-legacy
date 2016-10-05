@@ -13,6 +13,11 @@
 .profile > .header .page-title-abbr {
     margin-bottom: 0.5em;
 }
+@media (max-width: 767px) {
+    .profile > .header > .row {
+        margin-top: 100px;
+    }
+}
 @media (min-width: 992px) {
     .profile > .header > .row {
         width: 100%;
