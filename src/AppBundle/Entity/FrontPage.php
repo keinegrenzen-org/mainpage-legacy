@@ -18,7 +18,6 @@ class FrontPage
 
     public function __construct()
     {
-        $this->blogPosts = new ArrayCollection();
         $this->albums = new ArrayCollection();
     }
 
@@ -229,29 +228,6 @@ class FrontPage
     public function getImage()
     {
         return $this->image;
-    }
-
-    /**
-     * Set blogPosts
-     *
-     * @param array $blogPosts
-     * @return FrontPage
-     */
-    public function setBlogPosts($blogPosts)
-    {
-        $this->blogPosts = $blogPosts;
-
-        return $this;
-    }
-
-    /**
-     * Get blogPosts
-     *
-     * @return ArrayCollection
-     */
-    public function getBlogPosts()
-    {
-        return $this->blogPosts;
     }
 
     /**
