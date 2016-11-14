@@ -16,22 +16,29 @@
     <script src="{{ asset('bundles/app/js/fb.js') }}"></script>
     <script src="{{ asset('bundles/app/js/tw.js') }}"></script>
     {% include 'AppBundle::nav.html.twig' with {'index': false} %}
-    <div class="container-fluid fill-height main">
+    <div class="container-fluid header fill text-center">
+        <div class="row fill-height">
+            <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 page-title-container">
+                <div>
+                    <span class="page-title">{{ 'donate.page-title.1.1'|trans }}
+                        <strong>{{ 'donate.page-title.1.2'|trans }}</strong></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container albums">
         <div class="row">
-            <div class="white-bg"></div>
-            <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <h1>{{ 'donate'|trans }}</h1>
                 <p>{{ 'donate.p'|trans|raw|nl2br }}</p>
                 <p>
-                    <strong>{{ 'donate.p.suggested_amount'|transchoice(albums|length) }}: {{ amount }}</strong>
+                    {{ 'donate.p.suggested_amount'|transchoice(albums|length) }}: <b>{{ amount }}</b>
                 </p>
                 <p class="action-btns">
                     <a href="http://www.aerzte-ohne-grenzen.de/spenden-sammeln?hptitle=barthyb" target="_blank"
                        rel="nofollow" title="{{ 'donate'|trans }}"
                        class="btn btn-primary">{{ 'donate'|trans }}</a>
-                    <a class="btn btn-secondary" rel="nofollow" href="#albums">{{ 'thankyou.a'|trans }}</a>
                 </p>
-                <h2>{{ 'thankyou.h1'|trans }}</h2>
                 <p>{{ 'thankyou.p'|trans|nl2br }}</p>
                 <div class="share-btns">
                     <div class="fb-share-button" data-href="https://www.keinegrenzen.org" data-layout="button"
@@ -44,30 +51,25 @@
                                 class="fa fa-twitter fa-fw"></i> {{ 'share.tw'|trans }}</a>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="container albums" id="albums">
-        <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <h2>{{ 'downloads'|trans }}</h2>
-            </div>
-        </div>
-        <div class="row">
-            {% for album in albums %}
-                <div class="col-lg-6">
-                    <div class="album">
-                        <div class="cover">
-                            <img src="{{ web_image(album.cover.webPath) }}">
-                        </div>
-                        <div>
-                            <p><b>{{ album.title }}</b></p>
-                            <p>{{ album.artist }}</p>
+                <div class="row">
+                {% for album in albums %}
+                    <div class="col-lg-6">
+                        <div class="album">
+                            <div class="cover">
+                                <img src="{{ web_image(album.cover.webPath) }}">
+                            </div>
+                            <div>
+                                <p><b>{{ album.title }}</b><br>{{ album.artist }}</p>
                                 <a href="/uploads/albums/{{ album.albumFilePath }}"
                                    class="btn btn-primary">{{ 'download'|trans }}</a>
+                            </div>
                         </div>
                     </div>
+                {% endfor %}
                 </div>
-            {% endfor %}
+            </div>
         </div>
     </div>
     {% include '@App/footer.html.twig' %}
@@ -76,8 +78,7 @@
 {% block bodyscripts %}
     {{ parent() }}
     {% javascripts
-    '@AppBundle/Resources/public/js/download.js'
-    %}
+    '@AppBundle/Resources/public/js/download.js' %}
     <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
 {% endblock %}
