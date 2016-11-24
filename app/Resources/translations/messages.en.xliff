@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2016-11-24T01:56:00Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
+  <file date="2016-11-24T03:16:58Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -37,7 +37,7 @@ Please try again later or contact the admins with the E-Mail Address <a href="ma
 You can listen to them, add them to your cart and then download them after making a donation.
 
 Have fun!</target>
-        <jms:reference-file line="80">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
+        <jms:reference-file line="82">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="92cfee211c2718d23390225146ec5cd4315ce47f" resname="backward">
         <source>backward</source>
@@ -54,55 +54,24 @@ Have fun!</target>
         <target><![CDATA[Music Without Borders - Donate & Download]]></target>
         <jms:reference-file line="8">/../src/AppBundle/Resources/views/base.html.twig</jms:reference-file>
         <jms:reference-file line="11">/../src/AppBundle/Resources/views/datenschutz.html.twig</jms:reference-file>
-        <jms:reference-file line="3">/../src/AppBundle/Resources/views/donate.html.twig</jms:reference-file>
         <jms:reference-file line="21">/../src/AppBundle/Resources/views/frontpage/show.html.twig</jms:reference-file>
         <jms:reference-file line="11">/../src/AppBundle/Resources/views/impressum.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="f57f7c97af56cb6f34c54c49c327cba84dfd5422" resname="donate">
         <source>donate</source>
         <target>Donate</target>
-        <jms:reference-file line="3">/../src/AppBundle/Resources/views/donate.html.twig</jms:reference-file>
-        <jms:reference-file line="32">/../src/AppBundle/Resources/views/donate.html.twig</jms:reference-file>
-        <jms:reference-file line="39">/../src/AppBundle/Resources/views/donate.html.twig</jms:reference-file>
-        <jms:reference-file line="40">/../src/AppBundle/Resources/views/donate.html.twig</jms:reference-file>
         <jms:reference-file line="123">/../src/AppBundle/Resources/views/frontpage/show.html.twig</jms:reference-file>
+        <jms:reference-file line="43">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="f3578fb592178944238351973fa9373d6d194760" resname="donate.email.label">
         <source>donate.email.label</source>
         <target>Email</target>
-        <jms:reference-file line="24">/../src/AppBundle/Form/DonationType.php</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="85f74f2b697918b2820d7523a09947ca27f39e59" resname="donate.p">
-        <source>donate.p</source>
-        <target xml:space="preserve">Awesome! Thank you very much for your support!
-The amount you can see below is just a recommendation and can be freely adjusted.</target>
-        <jms:reference-file line="33">/../src/AppBundle/Resources/views/donate.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="d9ef53e3ca03a377dfc00e246e84249dda46ea23" resname="donate.p.suggested_amount">
-        <source>donate.p.suggested_amount</source>
-        <target state="new">donate.p.suggested_amount</target>
-        <jms:reference-file line="35">/../src/AppBundle/Resources/views/donate.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="0811d880a28c99a55a823a7233ed25784e1a9ffc" resname="donate.page-title.1.1">
-        <source>donate.page-title.1.1</source>
-        <target state="new">donate.page-title.1.1</target>
-        <jms:reference-file line="23">/../src/AppBundle/Resources/views/donate.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="5a4fa89ba8dcebadd347750a11c76b7c1d3767d6" resname="donate.page-title.1.2">
-        <source>donate.page-title.1.2</source>
-        <target state="new">donate.page-title.1.2</target>
-        <jms:reference-file line="24">/../src/AppBundle/Resources/views/donate.html.twig</jms:reference-file>
+        <jms:reference-file line="23">/../src/AppBundle/Form/DonationType.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="817248fb77fb5c2cef3f2c732ad257cb1fb9c5e4" resname="download">
         <source>download</source>
         <target>Download</target>
-        <jms:reference-file line="66">/../src/AppBundle/Resources/views/donate.html.twig</jms:reference-file>
         <jms:reference-file line="125">/../src/AppBundle/Resources/views/frontpage/show.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="a2a55e68a147ddb026454c38213bc01a3979f52c" resname="downloads">
-        <source>downloads</source>
-        <target state="new">downloads</target>
-        <jms:reference-file line="55">/../src/AppBundle/Resources/views/donate.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="11f9578d05e6f7bb58a3cdd00107e9f4e3882671" resname="error">
         <source>error</source>
@@ -150,7 +119,7 @@ Here you can navigate <a href="/" title="Homepage">back to the homepage</a>]]></
       <trans-unit id="256e6d193e061dbe513a387710efe928b699fb57" resname="frontpage.image">
         <source>frontpage.image</source>
         <target>profile image</target>
-        <jms:reference-file line="90">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
+        <jms:reference-file line="92">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="795b2872f43c8ec15b9e659cc28ee4a05a4befe2" resname="incologne">
         <source>incologne</source>
@@ -160,32 +129,32 @@ Here you can navigate <a href="/" title="Homepage">back to the homepage</a>]]></
       <trans-unit id="57aef9674791eec5ff26ba4cae6a4b868ee0c6df" resname="index.donation.ave.1">
         <source>index.donation.ave.1</source>
         <target>Average</target>
-        <jms:reference-file line="66">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
+        <jms:reference-file line="68">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="6d7249924a3d2c4abfc745f31e897b999a5244f3" resname="index.donation.ave.2">
         <source>index.donation.ave.2</source>
         <target>donation amount</target>
-        <jms:reference-file line="67">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
+        <jms:reference-file line="69">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="30db2745145aa6e87064c24c5e0bc9707cffe653" resname="index.donation.count.1">
         <source>index.donation.count.1</source>
         <target>Donation</target>
-        <jms:reference-file line="59">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
+        <jms:reference-file line="61">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="435a70b7a1bc218b5f68452051ba6aa6c9ddca16" resname="index.donation.count.2">
         <source>index.donation.count.2</source>
         <target>count</target>
-        <jms:reference-file line="60">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
+        <jms:reference-file line="62">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="5cdf555112771f6898abbc2822c1a0f688f33d2a" resname="index.donation.total.1">
         <source>index.donation.total.1</source>
         <target>Donation</target>
-        <jms:reference-file line="52">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
+        <jms:reference-file line="54">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="b9f6cb736ab4532f5d9b8e23db4d68e9c637cdd1" resname="index.donation.total.2">
         <source>index.donation.total.2</source>
         <target>total</target>
-        <jms:reference-file line="53">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
+        <jms:reference-file line="55">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="06aefd2bc1d2cf72d99ca9be25daa6d991311ac4" resname="index.h1">
         <source>index.h1</source>
@@ -261,7 +230,7 @@ Doctors without Borders help a lot all around the world with a broad field of op
       <trans-unit id="b737e60f2a43cee6a67b0d3cceef25ee9bfc8fd2" resname="nav.artists">
         <source>nav.artists</source>
         <target>Artists</target>
-        <jms:reference-file line="75">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
+        <jms:reference-file line="77">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
         <jms:reference-file line="19">/../src/AppBundle/Resources/views/nav.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="e7d2203fc1ee221429cd69f15690b1ebdbe402f6" resname="nav.artists.href">
@@ -272,7 +241,7 @@ Doctors without Borders help a lot all around the world with a broad field of op
       <trans-unit id="9b9a7d3c52502b0699d451b1d9fcc94c3b0f3837" resname="nav.artists.id">
         <source>nav.artists.id</source>
         <target>artists</target>
-        <jms:reference-file line="72">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
+        <jms:reference-file line="74">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="42fb88737ee57569cacdf3149927829c093b218d" resname="nav.donate">
         <source>nav.donate</source>
@@ -282,7 +251,7 @@ Doctors without Borders help a lot all around the world with a broad field of op
       <trans-unit id="b86c3fdf1ad7d251ccaa2558fd67e322168fe363" resname="nav.donate.id">
         <source>nav.donate.id</source>
         <target>donate</target>
-        <jms:reference-file line="46">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
+        <jms:reference-file line="48">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="fc0cacbf487d4957a0bbf8c8f26319e5033d2c2f" resname="nav.projekt">
         <source>nav.projekt</source>
@@ -302,14 +271,18 @@ Doctors without Borders help a lot all around the world with a broad field of op
       <trans-unit id="7552d306356d4e17a8b37a8b2683705a5924c9e7" resname="nav.support">
         <source>nav.support</source>
         <target state="new">nav.support</target>
-        <jms:reference-file line="118">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
+        <jms:reference-file line="120">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
         <jms:reference-file line="20">/../src/AppBundle/Resources/views/nav.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="c0091d8ceec3d3002f477910e15c53c38de90540" resname="nav.support.href">
         <source>nav.support.href</source>
         <target state="new">nav.support.href</target>
-        <jms:reference-file line="114">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
         <jms:reference-file line="20">/../src/AppBundle/Resources/views/nav.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0712322c1a344e8e9e9f80fa4321e411cc9b5445" resname="nav.support.id">
+        <source>nav.support.id</source>
+        <target state="new">nav.support.id</target>
+        <jms:reference-file line="116">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="229b4598c070739976cc6d4f232a94cce3cb1283" resname="noscript">
         <source>noscript</source>
@@ -344,13 +317,12 @@ Doctors without Borders help a lot all around the world with a broad field of op
       <trans-unit id="940ede354b752fe4b1148d2312a5c131e19a78df" resname="readmore">
         <source>readmore</source>
         <target>Read more</target>
-        <jms:reference-file line="104">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
+        <jms:reference-file line="106">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="271dd55c16428bd7720015b262934855b312da96" resname="share.tw">
         <source>share.tw</source>
         <target>Share on Twitter</target>
-        <jms:reference-file line="51">/../src/AppBundle/Resources/views/donate.html.twig</jms:reference-file>
-        <jms:reference-file line="128">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
+        <jms:reference-file line="130">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="6a59b1764335b3c1eda4c555b3df05613bea0d1f" resname="sr-only.album.cover">
         <source>sr-only.album.cover</source>
@@ -360,21 +332,12 @@ Doctors without Borders help a lot all around the world with a broad field of op
       <trans-unit id="6cac9ab557eee6bb015d5b7fdea328be6b6511a5" resname="support.p">
         <source>support.p</source>
         <target state="new">support.p</target>
-        <jms:reference-file line="119">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="428eb7eb57fe0df900f32d7b9e9fe75929e0d6a9" resname="thankyou.p">
-        <source>thankyou.p</source>
-        <target xml:space="preserve">Without your support, this project would be nothing. We are happy to be able to reach people of all kinds.
-
-Music Without Borders grows and works only through a community effort. For this, we need the attention and support of people like you.
-This is why you now have the possibility to share this website and spread the word in social networks or via email.</target>
-        <jms:reference-file line="42">/../src/AppBundle/Resources/views/donate.html.twig</jms:reference-file>
+        <jms:reference-file line="121">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="8687b05105b0b76252c7f1451b2bd8050d2c240a" resname="twitter.text">
         <source>twitter.text</source>
         <target>Buying music and donating to doctors without borders made easy at http://music-without-borders.de/en/ #charity @MSF @MSF_uk @theMWBproject</target>
-        <jms:reference-file line="49">/../src/AppBundle/Resources/views/donate.html.twig</jms:reference-file>
-        <jms:reference-file line="126">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
+        <jms:reference-file line="128">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
       </trans-unit>
     </body>
   </file>
