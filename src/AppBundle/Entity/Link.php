@@ -132,20 +132,4 @@ class Link
     {
         $this->social = $social;
     }
-
-    /**
-     * @return mixed
-     */
-    public function getFrontPage()
-    {
-        return $this->frontPage;
-    }
-
-    /**
-     * @param mixed $frontPage
-     */
-    public function setFrontPage($frontPage)
-    {
-        $this->frontPage = $frontPage;
-    }
 }

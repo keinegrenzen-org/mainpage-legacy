@@ -16,24 +16,15 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="{{ (index)?'':'/' }}{{ 'nav.projekt.href'|trans }}">{{ 'nav.projekt'|trans }}</a></li>
-                <li><a href="{{ (index)?'':'/' }}{{ 'nav.donate.href'|trans }}">{{ 'nav.donate'|trans }}</a></li>
                 <li><a href="{{ (index)?'':'/' }}{{ 'nav.artists.href'|trans }}">{{ 'nav.artists'|trans }}</a></li>
-                <li><a class="cart-button" href="#"><span class="fa fa-shopping-cart"><i class="sr-only">Cart</i></span></a>
+                <li><a href="{{ (index)?'':'/' }}{{ 'nav.support.href'|trans }}">{{ 'nav.support'|trans }}</a></li>
+                <li>
+                    <a target="_blank"
+                       href="https://www.aerzte-ohne-grenzen.de/spenden-sammeln?cfd=barthyb">{{ 'nav.donate'|trans }}
+                        &nbsp;<span class="fa fa-external-link fa-fw"></span>
+                    </a>
                 </li>
             </ul>
-            <div class="shopping-cart">
-                <div class="cart-inner">
-                    <h3>{{ 'cart.h3'|trans }}</h3>
-                    <form action="{{ path('add_donation') }}" id="cart-form" method="post">
-                        <ol class="cart-items">
-                            <li class="empty-list">{{ 'noItems'|trans }}</li>
-                        </ol>
-                        <span class="cart-total">{{ 'totalMin'|trans }} <span>0,00</span>€</span>
-                        <input disabled="disabled" type="submit" class="btn btn-primary btn-donate"
-                               value="{{ 'donate'|trans }}"/>
-                    </form>
-                </div>
-            </div>
         </div><!-- /.navbar-collapse -->
     </div>
 </nav>

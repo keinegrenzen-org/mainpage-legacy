@@ -2,7 +2,6 @@
 
 namespace AppBundle\Entity;
 
-use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -19,6 +18,7 @@ class FrontPage
     public function __construct()
     {
         $this->albums = new ArrayCollection();
+        $this->links = new ArrayCollection();
     }
 
     /**
@@ -81,7 +81,7 @@ class FrontPage
     private $metaDescription;
 
     /**
-     * @var Link
+     * @var ArrayCollection
      * @ORM\ManyToMany(targetEntity="Link", cascade={"persist", "remove"})
      * @ORM\JoinTable(name="frontpage_links",
      *      joinColumns={@ORM\JoinColumn(name="frontpage_id", referencedColumnName="id")},
@@ -200,7 +200,7 @@ class FrontPage
     /**
      * Get links
      *
-     * @return Link
+     * @return ArrayCollection
      */
     public function getLinks()
     {

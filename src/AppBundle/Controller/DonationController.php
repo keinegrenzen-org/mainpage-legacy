@@ -3,7 +3,6 @@
 namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 class DonationController extends Controller
@@ -14,7 +13,7 @@ class DonationController extends Controller
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      * @internal param Request $request
      */
-    public function donateAction(Request $request)
+    public function donateAction()
     {
         $em = $this->getDoctrine()->getManager();
         $albumCnt = 0;

@@ -3,7 +3,6 @@
 namespace AppBundle\Controller;
 
 use JavierEguiluz\Bundle\EasyAdminBundle\Controller\AdminController as BaseAdminController;
-use Symfony\Component\HttpFoundation\Request;
 
 class EasyController extends BaseAdminController
 {

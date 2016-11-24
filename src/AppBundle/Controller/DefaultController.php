@@ -7,14 +7,14 @@ use AppBundle\Entity\FrontPage;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
+
 
 class DefaultController extends Controller
 {
     /**
      * @Route("/", name="homepage")
      */
-    public function indexAction(Request $request)
+    public function indexAction()
     {
 
         $em = $this->getDoctrine()->getManager();
@@ -46,7 +46,7 @@ class DefaultController extends Controller
     /**
      * @Route("/impressum", name="impressum")
      */
-    public function impressumAction()
+    public function imprintAction()
     {
         return $this->render('@App/impressum.html.twig');
     }

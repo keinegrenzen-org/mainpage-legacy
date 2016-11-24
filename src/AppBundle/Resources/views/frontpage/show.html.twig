@@ -118,12 +118,11 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-12">
-                                <a id="add-{{ album.UURL }}" class="album-add-to-cart btn btn-primary" href=""
-                                   data-uurl="{{ album.UURL }}" data-album="{{ album.title }}"
-                                   data-artist="{{ album.frontPage.name }}"><i class="fa fa-cart-plus"></i> <span
-                                            class="add-to-text">{{ 'addToCart'|trans }}</span><span
-                                            class="badge">{{ 'inCart'|trans }}</span></a>
+                            <div class="col-lg-12 album-btns">
+                                <a class="btn btn-primary" target="_blank"
+                                   href="https://www.aerzte-ohne-grenzen.de/spenden-sammeln?cfd=barthyb">{{ 'donate'|trans }}</a>
+                                <a class="btn btn-secondary"
+                                   href="/uploads/albums/{{ album.albumFilePath }}">{{ 'download'|trans }}</a>
                             </div>
                         </div>
                     </div>
