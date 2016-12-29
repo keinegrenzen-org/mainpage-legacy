@@ -177,8 +177,8 @@ a:active {
     padding: 0;
 }
 
-.navbar>.container-fluid .navbar-brand {
-    margin-left: 0;
+.navbar > .container-fluid .navbar-brand {
+    margin-left: 15px;
 }
 
 .navbar .navbar-brand {
@@ -434,13 +434,9 @@ a .fa-circle {
 }
 
 @media (max-width: 767px) {
-    .nav > li:last-child {
-        display: none;
-    }
-
     .nav {
-        padding-top: 15%;
-        padding-left: 10px;
+        padding-top: 2em;
+        padding-left: 15px;
         font-size: 1.5em;
     }
 
