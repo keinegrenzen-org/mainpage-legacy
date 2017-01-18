@@ -5,15 +5,13 @@ namespace AppBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
-class SecurityController extends Controller
-{
+class SecurityController extends Controller {
     /**
      * @Route("/login", name="login")
      * @return \Symfony\Component\HttpFoundation\Response
      * @internal param Request $request
      */
-    public function loginAction()
-    {
+    public function loginAction() {
         $authenticationUtils = $this->get('security.authentication_utils');
 
         // get the login error if there is one
@@ -30,5 +28,20 @@ class SecurityController extends Controller
                 'error' => $error,
             )
         );
+    }
+
+    /**
+     * @Route("/checkrole", name="check_role")
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function roleAction() {
+        $roleArtist = $this->get('security.authorization_checker')->isGranted('ROLE_ART');
+        $roleCameraOp = $this->get('security.authorization_checker')->isGranted('ROLE_CAM');
+
+        if ($roleArtist xor $roleCameraOp) {
+            return $this->redirectToRoute('planning');
+        }
+
+        return $this->redirectToRoute('admin');
     }
 }

@@ -35,7 +35,7 @@ class DefaultController extends Controller
             return $i += $obj->getAmount();
         });
 
-        return $this->render('@AppBundle/Resources/views/index.html.twig', array(
+        return $this->render('AppBundle::index.html.twig', array(
             'frontPages' => $frontPages,
             'albums' => $albums,
             'total' => $total,

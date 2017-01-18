@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>keingrenzen.org | Planung</title>
+        <meta name="author" content="Barthy">
+        <link rel="icon" href="{{ asset('bundles/app/images/favicon.png') }}">
+        <link href='https://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+
+        {% block stylesheets %}
+            {% stylesheets
+            'bundles/app/css/bootstrap.min.css'
+            'bundles/app/css/bootstrap-social.css'
+            'bundles/app/css/font-awesome.min.css'
+            'bundles/app/css/bartstrap.css'
+            'bundles/app/css/calendar.css' filter='cssrewrite' %}
+            <link rel="stylesheet" href="{{ asset_url }}"/>
+            {% endstylesheets %}
+        {% endblock %}
+
+        <script
+                src="https://code.jquery.com/jquery-2.2.4.min.js"
+                integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+                crossorigin="anonymous"></script>
+
+
+        <script
+                src="https://code.jquery.com/jquery-migrate-1.4.1.min.js"
+                integrity="sha256-SOuLUArmo4YXtXONKz+uxIGSKneCJG4x0nVcA0pFzV0="
+                crossorigin="anonymous"></script>
+
+        {% block javascripts %}
+            {% javascripts
+            '@AppBundle/Resources/public/js/bootstrap.min.js'
+            '@AppBundle/Resources/public/js/calendar.js' %}
+            <script src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+        {% endblock %}
+    </head>
+    <body>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                    <h1>Planung der Drehtage</h1>
+                    <p>Bitte tragt Euch in den Kalender ein. Alle Tage, die nicht ausgegraut sind, sind verfügbar.</p>
+                    <p class="user-info" data-name="{{ username }}" data-role="{{ role }}">Eingeloggt als:
+                        <strong>{{ username }}</strong></p>
+                    <h2>Januar 2017</h2>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <table class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <thead>
+                    <tr>
+                        <th>MO</th>
+                        <th>DI</th>
+                        <th>MI</th>
+                        <th>DO</th>
+                        <th>FR</th>
+                        <th>SA</th>
+                        <th>SO</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for day in days %}
+                        {% if loop.index == 1 or day.date|date('l') == 'Monday' %}
+                            <tr>
+                        {% endif %}
+
+                        {% if loop.index == 1 %}
+
+                            {% for i in 1..(day.date|date('N')-1) %}
+                                <td class="last-month"></td>
+                            {% endfor %}
+
+                        {% endif %}
+
+                        <td class="{{ day.date|date('l')|lower }} {{ day.available?'':'disabled' }}">
+                            {% if day.available and (role == 'cam' or (role == 'art' and day.cameraOp is not empty)) %}
+                                <div class="btn-calendar" data-id="{{ day.id }}" data-cam="{{ day.cameraOp }}"
+                                     data-art="{{ day.artist }}">
+                                    <span class="daynr">{{ day.date|date('d') }}</span>
+                                    <p>Kamera: <span class="camop">{{ day.cameraOp }}</span></p>
+                                    <p>Künstler: <span class="artist">{{ day.artist }}</span></p>
+                                </div>
+                            {% endif %}
+                        </td>
+
+                        {% if loop.index == days|length or day.date|date('l') == 'Sunday' %}
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <a class="btn btn-primary logout" href="{{ path('logout') }}">Ausloggen</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
