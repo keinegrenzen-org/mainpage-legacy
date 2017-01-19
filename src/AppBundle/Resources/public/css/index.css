@@ -31,6 +31,10 @@
     padding: 20px;
 }
 
+.index .header .fill-height {
+    background-color: rgba(0,0,0,0.3);
+}
+
 @media (max-width: 991px) {
     .index .second-header .text-emphasis,
     .index .second-header {

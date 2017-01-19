@@ -182,7 +182,7 @@ easy_admin:
             form:
                 fields:
                     - { property: 'date', label: 'Date', type: 'date' }
-                    - { property: 'email', label: 'Email', type: 'email' }
+                    - { property: 'email', label: 'Email', type: 'text' }
                     - { property: 'amount', label: 'Amount', type: 'money' }
     site_name: 'MWB ADMIN'
 

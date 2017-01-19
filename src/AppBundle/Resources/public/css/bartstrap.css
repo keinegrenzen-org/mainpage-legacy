@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Oswald:400,700,300);
+@import url('https://fonts.googleapis.com/css?family=Oswald:400,700,300');
 
 html, body {
     height: 100%;
@@ -123,26 +123,36 @@ a:active {
 }
 
 .page-title {
-    font-size: 3em;
-    padding: 0.5em;
-    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 50px;
+    /*padding: 0.5em;
+    background-color: rgba(0, 0, 0, 0.5);*/
     color: #fff;
-    font-weight: 400;
+    font-weight: 700;
     text-transform: uppercase;
     display: inline-block;
     position: relative;
 }
 
-@media (max-width: 767px) {
-    .page-title-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+.page-title strong {
+    color: #00a8ff;
+    font-weight: 700;
+}
 
+@media (min-width: 768px) {
     .page-title {
-        width: 100%;
-        font-size: 2em;
+        font-size: 65px;
+    }
+}
+
+@media (min-width: 992px) {
+    .page-title {
+        font-size: 80px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .page-title {
+        font-size: 95px;
     }
 }
 
@@ -157,16 +167,23 @@ a:active {
     left: 0;
     z-index: 100;
     border-radius: 0;
-    padding-top: 5px;
-    -webkit-transition: background-color .2s;
-    -moz-transition: background-color .2s;
-    -ms-transition: background-color .2s;
-    -o-transition: background-color .2s;
-    transition: background-color .2s;
+    -webkit-transition: background-color .4s ease;
+    -moz-transition: background-color .4s ease;
+    -ms-transition: background-color .4s ease;
+    -o-transition: background-color .4s ease;
+    transition: background-color .4s ease;
+}
+
+.navbar-nav > li > a {
+    line-height: 30px;
+}
+
+.navbar-toggle {
+    height: 60px;
 }
 
 .navbar-opaque {
-    background-color: rgba(51, 51, 51, 0.5);
+    background-color: rgba(51, 51, 51, 0);
 }
 
 .navbar-full {
@@ -178,7 +195,15 @@ a:active {
 }
 
 .navbar > .container-fluid .navbar-brand {
-    margin-left: 15px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+@media (min-width: 768px){
+    .navbar > .container-fluid .navbar-brand {
+        margin-left: -5px;
+        margin-top: 10px;
+    }
 }
 
 .navbar .navbar-brand {
@@ -280,10 +305,6 @@ a:active {
 .big-text {
     font-size: 2em;
     display: block;
-}
-
-.page-title strong {
-    color: #00a8ff;
 }
 
 .center-block {

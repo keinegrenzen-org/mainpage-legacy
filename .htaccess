@@ -1,6 +1,0 @@
-AuthType Basic
-AuthName "Restricted Files"
-# (Following line optional)
-#AuthBasicProvider file
-#AuthUserFile /homepages/8/d567573230/htdocs/stage/MWB/.htpasswd
-#Require user Dude
