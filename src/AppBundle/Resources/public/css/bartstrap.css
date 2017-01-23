@@ -543,3 +543,10 @@ a .fa-circle {
     min-height: 60%;
     min-height: calc(100% - 340px);
 }
+
+.btn-secondary > .badge {
+    background-color: #00a8ff;
+    color: #FFFFFF;
+    margin-top: -0.25em;
+    font-weight:300;
+}

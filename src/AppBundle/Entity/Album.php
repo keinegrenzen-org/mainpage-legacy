@@ -14,8 +14,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity(repositoryClass="AppBundle\Repository\AlbumRepository")
  * @ORM\HasLifecycleCallbacks
  */
-class Album
-{
+class Album {
 
     /**
      * @var int
@@ -102,12 +101,16 @@ class Album
     private $public = false;
 
     /**
+     * @ORM\Column(name="downloads", type="integer", nullable=true)
+     */
+    private $downloads;
+
+    /**
      * Get id
      *
      * @return integer
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -117,8 +120,7 @@ class Album
      * @param string $title
      * @return Album
      */
-    public function setTitle($title)
-    {
+    public function setTitle($title) {
         $this->title = $title;
 
         return $this;
@@ -129,8 +131,7 @@ class Album
      *
      * @return string
      */
-    public function getTitle()
-    {
+    public function getTitle() {
         return $this->title;
     }
 
@@ -140,8 +141,7 @@ class Album
      * @param string $description
      * @return Album
      */
-    public function setDescription($description)
-    {
+    public function setDescription($description) {
         $this->description = $description;
 
         return $this;
@@ -152,154 +152,134 @@ class Album
      *
      * @return string
      */
-    public function getDescription()
-    {
+    public function getDescription() {
         return $this->description;
     }
 
     /**
      * @return mixed
      */
-    public function getPublished()
-    {
+    public function getPublished() {
         return $this->published;
     }
 
     /**
      * @param mixed $published
      */
-    public function setPublished($published)
-    {
+    public function setPublished($published) {
         $this->published = $published;
     }
 
     /**
      * @return string
      */
-    public function getUURL()
-    {
+    public function getUURL() {
         return $this->UURL;
     }
 
     /**
      * @param string $UURL
      */
-    public function setUURL($UURL)
-    {
+    public function setUURL($UURL) {
         $this->UURL = $UURL;
     }
 
     /**
      * @return mixed
      */
-    public function getCover()
-    {
+    public function getCover() {
         return $this->cover;
     }
 
     /**
      * @param mixed $cover
      */
-    public function setCover($cover)
-    {
+    public function setCover($cover) {
         $this->cover = $cover;
     }
 
     /**
      * @return FrontPage
      */
-    public function getFrontPage()
-    {
+    public function getFrontPage() {
         return $this->frontPage;
     }
 
     /**
      * @param mixed $frontPage
      */
-    public function setFrontPage($frontPage)
-    {
+    public function setFrontPage($frontPage) {
         $this->frontPage = $frontPage;
     }
 
     /**
      * @return string
      */
-    public function getBackgroundColor()
-    {
+    public function getBackgroundColor() {
         return $this->backgroundColor;
     }
 
     /**
      * @param string $backgroundColor
      */
-    public function setBackgroundColor($backgroundColor)
-    {
+    public function setBackgroundColor($backgroundColor) {
         $this->backgroundColor = $backgroundColor;
     }
 
     /**
      * @return string
      */
-    public function getPrimaryColor()
-    {
+    public function getPrimaryColor() {
         return $this->primaryColor;
     }
 
     /**
      * @param string $primaryColor
      */
-    public function setPrimaryColor($primaryColor)
-    {
+    public function setPrimaryColor($primaryColor) {
         $this->primaryColor = $primaryColor;
     }
 
     /**
      * @return string
      */
-    public function getSecondaryColor()
-    {
+    public function getSecondaryColor() {
         return $this->secondaryColor;
     }
 
     /**
      * @param string $secondaryColor
      */
-    public function setSecondaryColor($secondaryColor)
-    {
+    public function setSecondaryColor($secondaryColor) {
         $this->secondaryColor = $secondaryColor;
     }
 
     /**
      * @return mixed
      */
-    public function getSoundcloud()
-    {
+    public function getSoundcloud() {
         return $this->soundcloud;
     }
 
     /**
      * @param mixed $soundcloud
      */
-    public function setSoundcloud($soundcloud)
-    {
+    public function setSoundcloud($soundcloud) {
         $this->soundcloud = $soundcloud;
     }
 
-    public function getArtist()
-    {
+    public function getArtist() {
         return $this->getFrontPage()->getName();
     }
 
-    public function __toString()
-    {
+    public function __toString() {
         return $this . $this->getTitle() . ' - ' . $this->getArtist();
     }
 
     /**
      * @return boolean
      */
-    public function getPublic()
-    {
+    public function getPublic() {
         return $this->public;
     }
 
@@ -307,8 +287,7 @@ class Album
      * @param $public
      * @return Album
      */
-    public function setPublic($public)
-    {
+    public function setPublic($public) {
         $this->public = $public;
         return $this;
     }
@@ -316,8 +295,7 @@ class Album
     /**
      * @return mixed
      */
-    public function getAlbumFilePath()
-    {
+    public function getAlbumFilePath() {
         return $this->albumFilePath;
     }
 
@@ -325,10 +303,34 @@ class Album
      * @param mixed $albumFilePath
      * @return Album
      */
-    public function setAlbumFilePath($albumFilePath)
-    {
+    public function setAlbumFilePath($albumFilePath) {
         $this->albumFilePath = $albumFilePath;
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDownloads() {
+        return $this->downloads;
+    }
+
+    /**
+     * @param mixed $downloads
+     */
+    public function setDownloads($downloads) {
+        $this->downloads = $downloads;
+    }
+
+    /**
+     * Increment download count by one
+     */
+    public function incrementDownloads() {
+        if ($this->downloads == null) {
+            $this->downloads = 1;
+        } else {
+            $this->downloads++;
+        }
     }
 }

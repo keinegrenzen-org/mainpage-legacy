@@ -122,7 +122,8 @@
                                 <a class="btn btn-primary" target="_blank"
                                    href="https://www.aerzte-ohne-grenzen.de/spenden-sammeln?cfd=barthyb">{{ 'donate'|trans }}</a>
                                 <a class="btn btn-secondary"
-                                   href="/uploads/albums/{{ album.albumFilePath }}">{{ 'download'|trans }}</a>
+                                   href="{{ path("download_album", {UURL: album.UURL}) }}">{{ 'download'|trans }} <span
+                                            class="badge">{{ album.downloads }}</span> </a>
                             </div>
                         </div>
                     </div>

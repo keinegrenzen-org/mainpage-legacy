@@ -108,6 +108,7 @@ easy_admin:
     design:
         form_theme: 'vertical'
         menu:
+            - { entity: 'Page', icon: 'bar-chart', label: 'Pages' }
             - { entity: 'FrontPage', icon: 'user', label: 'Artists' }
             - { entity: 'Album', icon: 'music', label: 'Albums' }
             - { entity: 'Donations', icon: 'money', label: 'Donations' }
@@ -121,6 +122,16 @@ easy_admin:
             css:
                 - '/bundles/app/css/fields.css'
     entities:
+        Page:
+            class: AppBundle\Entity\Page
+            label: Pages
+            disabled_actions: ['show', 'delete', 'edit', 'new']
+            list:
+                fields:
+                    - { property: 'id', label: 'ID', type: 'integer' }
+                    - { property: 'route', label: 'Route', type: 'url' }
+                    - { property: 'name', label: 'Name', type: 'string' }
+                    - { property: 'visits', label: 'Visits', type: 'integer', format: '%d' }
         FrontPage:
             class: AppBundle\Entity\FrontPage
             label: Artists
@@ -157,6 +168,7 @@ easy_admin:
                     - { property: 'title', label: 'Title', type: 'string' }
                     - { property: 'artist', label: 'Aritst Name', type: 'string' }
                     - { property: 'public', label: 'Public', type: 'toggle' }
+                    - { property: 'downloads', label: 'Downloads', type: 'integer', format: '%d' }
             form:
                 fields:
                     - { property: 'title', type: 'text', label: 'Title' }

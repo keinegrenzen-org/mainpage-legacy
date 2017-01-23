@@ -242,6 +242,11 @@
 .profile .page-title {
     display: inline-block;
     margin-bottom: 15px;
+    padding: 5px;
+}
+
+.profile .page-title-container > .page-title {
+    background-color: rgba(0,0,0,0.5);
 }
 
 .add-to-text {

@@ -4,7 +4,7 @@
     var players = [];
     var playlists = [];
 
-    var prettyTime = function (time, milli = false) {
+    var prettyTime = function (time, milli) {
         if (milli) time = time / 1000;
         var hours = Math.floor(time / 3600);
         var mins = '0' + Math.floor((time % 3600) / 60);
@@ -51,7 +51,7 @@
         currentPlayer = 0,
         currentSong = 0;
 
-    var togglePlay = function (player, song, b = true) {
+    var togglePlay = function (player, song, b) {
         if (currentPlayer != player) {
             players[currentPlayer].pause({
                 playlistIndex: currentSong
@@ -114,12 +114,12 @@
                     '">' + prettyTime(tracks[i].duration, true) + '</span></li>');
                 $list.append($listItem);
                 $listItem.click(function () {
-                    togglePlay(playerIndex, $(this).index());
+                    togglePlay(playerIndex, $(this).index(), true);
                 });
             }
 
             var renderTimer = function () {
-                var time = prettyTime(new Date(player.audio.currentTime));
+                var time = prettyTime(new Date(player.audio.currentTime), false);
                 $nowPlayingElapsed.text(time);
                 var percent = 100 * Math.floor(player.audio.currentTime) / Math.floor(player.audio.duration);
                 $nowPlayingProgress.attr('aria-valuenow', percent);
@@ -133,7 +133,7 @@
             player.on('ended', function () {
                 var next = currentSong + 1;
                 if (next < tracks.length) {
-                    togglePlay(playerIndex, next);
+                    togglePlay(playerIndex, next, true);
                 }
             });
 
@@ -145,7 +145,7 @@
     });
 
     $play.click(function () {
-        togglePlay(currentPlayer, currentSong);
+        togglePlay(currentPlayer, currentSong, true);
     });
 
     $pause.click(function () {
@@ -154,13 +154,13 @@
 
     $forward.click(function () {
         if (currentSong + 1 < playlists[currentPlayer].tracks.length) {
-            togglePlay(currentPlayer, currentSong + 1);
+            togglePlay(currentPlayer, currentSong + 1, true);
         }
     });
 
     $backward.click(function () {
         if (currentSong - 1 >= 0) {
-            togglePlay(currentPlayer, currentSong - 1);
+            togglePlay(currentPlayer, currentSong - 1, true);
         }
     });
 
