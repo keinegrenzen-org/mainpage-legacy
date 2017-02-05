@@ -16,7 +16,7 @@ use AppBundle\Entity\Day;
 class LoadDayData implements FixtureInterface {
     public function load(ObjectManager $manager) {
 
-        $month = 1;
+        $month = 2;
         $year = 2017;
         $num = cal_days_in_month(CAL_GREGORIAN, $month, $year);
         $today = DateTime::createFromFormat('Y-m-d', time());

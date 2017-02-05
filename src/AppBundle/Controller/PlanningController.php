@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use Doctrine\Common\Collections\Criteria;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,7 +15,7 @@ class PlanningController extends Controller {
      * @return \Symfony\Component\HttpFoundation\Response
      * @internal param Request $request
      */
-    public function loginAction() {
+    public function planningAction() {
         $roleArtist = $this->get('security.authorization_checker')->isGranted('ROLE_ART');
         $roleCameraOp = $this->get('security.authorization_checker')->isGranted('ROLE_CAM');
         $role = "";
@@ -28,10 +29,16 @@ class PlanningController extends Controller {
         $em = $this->getDoctrine()->getManager();
         $days = $em
             ->getRepository('AppBundle:Day')
-            ->findBy(array(), array('date' => 'ASC'));
+            ->getAllStartingFromThisMonth();
+
+        $months = array();
+
+        foreach ($days as $day) {
+            $months[$day->getDate()->format("n")][] = $day;
+        }
 
         return $this->render('AppBundle::planning.html.twig', array(
-            'days' => $days,
+            'months' => $months,
             'role' => $role,
             'username' => $usr
         ));
