@@ -174,12 +174,10 @@ a:active {
     transition: background-color .4s ease;
 }
 
-.navbar-nav > li > a {
-    line-height: 30px;
-}
-
-.navbar-toggle {
-    height: 60px;
+.navbar-brand > img {
+    display: block;
+    width: 75px;
+    margin-top: 10px;
 }
 
 .navbar-opaque {
@@ -196,13 +194,12 @@ a:active {
 
 .navbar > .container-fluid .navbar-brand {
     margin-left: 10px;
-    margin-top: 10px;
 }
 
 @media (min-width: 768px){
     .navbar > .container-fluid .navbar-brand {
+        width: 100px;
         margin-left: -5px;
-        margin-top: 10px;
     }
 }
 
@@ -231,10 +228,6 @@ a:active {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-}
-
-.navbar-nav .fa-shopping-cart {
-    font-size: 1.4em;
 }
 
 .navbar-toggle .icon-bar {
@@ -548,5 +541,5 @@ a .fa-circle {
     background-color: #00a8ff;
     color: #FFFFFF;
     margin-top: -0.25em;
-    font-weight:300;
+    font-weight: 300;
 }
