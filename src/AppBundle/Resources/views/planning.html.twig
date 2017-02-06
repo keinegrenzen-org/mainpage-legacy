@@ -37,7 +37,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-                        <h2>{{ month[0].date|date('F Y') }}</h2>
+                        <h2>{{ month[0].date|localizeddate('none','none', "de", "Europe/Berlin", 'LLLL yyyy') }}</h2>
                     </div>
                 </div>
                 <div class="row">
