@@ -122,6 +122,7 @@ class DefaultController extends Controller {
      */
     public function showAction(FrontPage $frontPage, Request $request) {
         $this->addVisit("/" . $frontPage->getUURL(), $frontPage->getName(), $request);
+
         return $this->render('AppBundle:frontpage:show.html.twig', array(
             'frontPage' => $frontPage,
         ));

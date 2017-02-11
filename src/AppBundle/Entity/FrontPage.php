@@ -12,11 +12,9 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="front_page")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\FrontPageRepository")
  */
-class FrontPage
-{
+class FrontPage {
 
-    public function __construct()
-    {
+    public function __construct() {
         $this->albums = new ArrayCollection();
         $this->links = new ArrayCollection();
     }
@@ -107,6 +105,7 @@ class FrontPage
     /**
      *
      * @ORM\OneToMany(targetEntity="Album", mappedBy="frontPage", cascade={"remove", "persist"})
+     * @ORM\OrderBy({"published" = "DESC"})
      */
     private $albums;
 
@@ -133,8 +132,7 @@ class FrontPage
      *
      * @return integer
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -144,8 +142,7 @@ class FrontPage
      * @param string $name
      * @return FrontPage
      */
-    public function setName($name)
-    {
+    public function setName($name) {
         $this->name = $name;
 
         return $this;
@@ -156,8 +153,7 @@ class FrontPage
      *
      * @return string
      */
-    public function getName()
-    {
+    public function getName() {
         return $this->name;
     }
 
@@ -167,8 +163,7 @@ class FrontPage
      * @param string $vita
      * @return FrontPage
      */
-    public function setVita($vita)
-    {
+    public function setVita($vita) {
         $this->vita = $vita;
 
         return $this;
@@ -179,8 +174,7 @@ class FrontPage
      *
      * @return string
      */
-    public function getVita()
-    {
+    public function getVita() {
         return $this->vita;
     }
 
@@ -190,8 +184,7 @@ class FrontPage
      * @param array $links
      * @return FrontPage
      */
-    public function setLinks($links)
-    {
+    public function setLinks($links) {
         $this->links = $links;
 
         return $this;
@@ -202,8 +195,7 @@ class FrontPage
      *
      * @return ArrayCollection
      */
-    public function getLinks()
-    {
+    public function getLinks() {
         return $this->links;
     }
 
@@ -213,8 +205,7 @@ class FrontPage
      * @param string $image
      * @return FrontPage
      */
-    public function setImage($image)
-    {
+    public function setImage($image) {
         $this->image = $image;
 
         return $this;
@@ -225,8 +216,7 @@ class FrontPage
      *
      * @return string
      */
-    public function getImage()
-    {
+    public function getImage() {
         return $this->image;
     }
 
@@ -236,8 +226,7 @@ class FrontPage
      * @param array $albums
      * @return FrontPage
      */
-    public function setAlbums($albums)
-    {
+    public function setAlbums($albums) {
         $this->albums = $albums;
 
         return $this;
@@ -248,16 +237,14 @@ class FrontPage
      *
      * @return ArrayCollection
      */
-    public function getAlbums()
-    {
+    public function getAlbums() {
         return $this->albums;
     }
 
     /**
      * @return boolean
      */
-    public function getPublic()
-    {
+    public function getPublic() {
         return $this->public;
     }
 
@@ -265,151 +252,130 @@ class FrontPage
      * @param $public
      * @return FrontPage
      */
-    public function setPublic($public)
-    {
+    public function setPublic($public) {
         $this->public = $public;
         return $this;
     }
 
-    public function addLinks(Link $links)
-    {
+    public function addLinks(Link $links) {
         $this->links->add($links);
     }
 
-    public function removeLinks(Link $links)
-    {
+    public function removeLinks(Link $links) {
         $this->links->removeElement($links);
     }
 
-    public function addAlbum(Album $album)
-    {
+    public function addAlbum(Album $album) {
         $this->albums->add($album);
     }
 
-    public function removeAlbum(Album $album)
-    {
+    public function removeAlbum(Album $album) {
         $this->albums->removeElement($album);
     }
 
     /**
      * @return mixed
      */
-    public function getUURL()
-    {
+    public function getUURL() {
         return $this->UURL;
     }
 
     /**
      * @param mixed $UURL
      */
-    public function setUURL($UURL)
-    {
+    public function setUURL($UURL) {
         $this->UURL = $UURL;
     }
 
-    public function getUrl()
-    {
+    public function getUrl() {
         return '/' . $this->UURL;
     }
 
-    public function __toString()
-    {
+    public function __toString() {
         return $this->name;
     }
 
     /**
      * @return string
      */
-    public function getLocation()
-    {
+    public function getLocation() {
         return $this->location;
     }
 
     /**
      * @param string $location
      */
-    public function setLocation($location)
-    {
+    public function setLocation($location) {
         $this->location = $location;
     }
 
     /**
      * @return Image
      */
-    public function getCover()
-    {
+    public function getCover() {
         return $this->cover;
     }
 
     /**
      * @param Image $cover
      */
-    public function setCover($cover)
-    {
+    public function setCover($cover) {
         $this->cover = $cover;
     }
 
     /**
      * @return string
      */
-    public function getCitations()
-    {
+    public function getCitations() {
         return $this->citations;
     }
 
     /**
      * @param string $citations
      */
-    public function setCitations($citations)
-    {
+    public function setCitations($citations) {
         $this->citations = $citations;
     }
 
     /**
      * @return string
      */
-    public function getMetaDescription()
-    {
+    public function getMetaDescription() {
         return $this->metaDescription;
     }
 
     /**
      * @param string $metaDescription
      */
-    public function setMetaDescription($metaDescription)
-    {
+    public function setMetaDescription($metaDescription) {
         $this->metaDescription = $metaDescription;
     }
 
     /**
      * @return string
      */
-    public function getGenre()
-    {
+    public function getGenre() {
         return $this->genre;
     }
 
     /**
      * @param string $genre
      */
-    public function setGenre($genre)
-    {
+    public function setGenre($genre) {
         $this->genre = $genre;
     }
 
     /**
      * @return string
      */
-    public function getShortName()
-    {
+    public function getShortName() {
         return $this->shortName;
     }
 
     /**
      * @param string $shortName
      */
-    public function setShortName($shortName)
-    {
+    public function setShortName($shortName) {
         $this->shortName = $shortName;
     }
 }
