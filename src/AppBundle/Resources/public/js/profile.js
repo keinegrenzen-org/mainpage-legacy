@@ -1,4 +1,31 @@
-(function (global) {
+$(document).ready(function () {
+
+    $('.toggle-dl-dialog').click(function (e) {
+        e.preventDefault();
+
+        var $e = $(this),
+            title = $e.data('title'),
+            text = $e.data('text'),
+            donate = $e.data('donate'),
+            download = $e.data('download'),
+            downloadUrl = $e.data('url');
+
+        var content =
+            "<div>"
+            + "<p>" + text + "</p>"
+            + "<a class='btn btn-dialog btn-primary' target='_blank' href='" + downloadUrl + "'>" + download + "</a>"
+            + "<a class='btn btn-dialog btn-success' target='_blank' href='https://www.aerzte-ohne-grenzen.de/spenden-sammeln?cfd=barthyb'>" + donate + "</a>"
+            + "</div>";
+
+        e.preventDefault();
+        $.dialog({
+            title: title,
+            content: content,
+            theme: 'supervan',
+            backgroundDismiss: true
+        });
+    });
+
     'use strict';
 
     var players = [];
@@ -60,6 +87,7 @@
                 players[player].play({
                     playlistIndex: song
                 });
+                currentPlayer = player;
             }
         } else if (!players[player].playing) {
             if (b) {
@@ -100,7 +128,7 @@
     var $embeds = $('.album-embed'),
         embedCnt = $embeds.length;
     $embeds.each(function (playerIndex, e) {
-        var player = global.player = new SoundCloudAudio('3f0c2df99a948f8142621535b3b4ba73');
+        var player = new SoundCloudAudio('3f0c2df99a948f8142621535b3b4ba73');
         players.push(player);
         var $this = $(this);
         $this.data('player-nr', playerIndex);
@@ -189,4 +217,5 @@
             }
         });
     });
-})(this);
+
+});

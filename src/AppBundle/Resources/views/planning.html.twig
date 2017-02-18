@@ -12,9 +12,8 @@
 
         {% block stylesheets %}
             {% stylesheets
-            'bundles/app/css/bootstrap.min.css'
-            'bundles/app/css/bootstrap-social.css'
-            'bundles/app/css/font-awesome.min.css'
+            'assets/vendor/bootstrap/dist/css/bootstrap.min.css'
+            'assets/vendor/font-awesome/css/font-awesome.min.css'
             'bundles/app/css/bartstrap.css'
             'bundles/app/css/calendar.css' filter='cssrewrite' %}
             <link rel="stylesheet" href="{{ asset_url }}"/>
@@ -98,11 +97,10 @@
             </div>
         </div>
 
-        <script src="{{ asset('bundles/app/plugins/jquery-1.12.3.min.js') }}"></script>
-
         {% block javascripts %}
             {% javascripts
-            '@AppBundle/Resources/public/js/bootstrap.min.js'
+            'assets/vendor/jquery/dist/jquery.min.js'
+            'assets/vendor/bootstrap/dist/js/bootstrap.min.js'
             '@AppBundle/Resources/public/js/calendar.js' %}
             <script src="{{ asset_url }}"></script>
             {% endjavascripts %}

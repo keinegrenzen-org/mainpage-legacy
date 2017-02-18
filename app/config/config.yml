@@ -116,8 +116,8 @@ easy_admin:
         assets:
             js:
                 - '/bundles/app/js/vich.js'
-                - '/bundles/app/plugins/color-thief/src/color-thief.js'
-                - '/bundles/app/plugins/imagesloaded.pkgd.min.js'
+                - '/assets/vendor/color-thief/dist/color-thief.js'
+                - '/assets/vendor/imagesloaded.imagesloaded.pkgd.min.js'
                 - '/bundles/app/js/field-type.js'
             css:
                 - '/bundles/app/css/fields.css'

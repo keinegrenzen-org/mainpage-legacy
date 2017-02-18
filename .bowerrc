@@ -1,0 +1,6 @@
+{
+  "directory": "web/assets/vendor/",
+  "ignoredDependencies": [
+    "ev-emitter"
+  ]
+}

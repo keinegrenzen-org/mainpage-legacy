@@ -2,7 +2,8 @@
 {% block bodyclass %}profile{% endblock %}
 {% block stylesheets %}
     {% stylesheets
-    'bundles/app/css/profile.css' filter='cssrewrite' %}
+    'bundles/app/css/profile.css'
+    'assets/vendor/jquery-confirm2/dist/jquery-confirm.min.css' filter='cssrewrite' %}
     <link rel="stylesheet" href="{{ asset_url }}" xmlns="http://www.w3.org/1999/html"/>
     {% endstylesheets %}
     <link rel="stylesheet" href="/profile/profile_{{ frontPage.UURL|raw }}.css"/>
@@ -44,8 +45,8 @@
         </div>
     </div>
     <div class="container">
-        <div class="row fill-height">
-            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+        <div class="row">
+            <div class="col-lg-12">
                 <h2>{{ 'profile.h2.bio'|trans }} & {{ 'profile.h2.albums'|trans }}</h2>
                 <ul class="list-inline">
                     {% for link in frontPage.links %}
@@ -59,6 +60,10 @@
                         {% endif %}
                     {% endfor %}
                 </ul>
+            </div>
+        </div>
+        <div class="row fill-height">
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                 <div class="vita">
                     {{ frontPage.vita|raw }}
                 </div>
@@ -96,34 +101,44 @@
                     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 {{ 'album-' ~ album.UURL }} {{ (loopReal==1)?'active' }} album-details">
                         <div class="row">
                             <div class="col-lg-6">
+                                <h3>{{ album.title }}</h3>
                                 <div class="album-description">
-                                    <h3>{{ album.title }}</h3>
                                     <p>{{ 'published'|trans }}: {{ album.published|date('d.m.Y') }}</p>
                                     {{ album.description|raw|nl2br }}
                                 </div>
                             </div>
                             <div class="col-lg-6">
+                                <div class="tracklist-title">
+                                    <p>{{ 'tracklist'|trans }}</p>
+                                    <a class="pull-right"
+                                       href="{{ album.soundcloud|raw }}"
+                                       target="_blank" title="{{ 'listenOnSc'|trans }}">
+                                        <span class="fa fa-2x fa-fw fa-soundcloud">
+                                            <span class="sr-only">{{ 'listenOnSc'|trans }}</span>
+                                        </span>
+                                    </a>
+                                </div>
                                 <div class="album-embed" id="album-embed-{{ loop.index0 }}"
                                      data-sc="{{ album.soundcloud|raw }}" data-title="{{ album.title }}">
                                     <div class="album-list">
                                         <ul class="list-group" data-toggled="false"></ul>
-                                    </div>
-                                    <div class="text-right listen-on-sc">
-                                        <a href="{{ album.soundcloud|raw }}" target="_blank"
-                                           title="{{ 'listenOnSc'|trans }}"><span
-                                                    class="fa fa-2x fa-fw fa-soundcloud"><span
-                                                        class="sr-only">{{ 'listenOnSc'|trans }}</span></span></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-12 album-btns">
-                                <a class="btn btn-primary" target="_blank"
-                                   href="https://www.aerzte-ohne-grenzen.de/spenden-sammeln?cfd=barthyb">{{ 'donate'|trans }}</a>
-                                <a class="btn btn-secondary" rel="nofollow"
-                                   href="{{ path("download_album", {UURL: album.UURL}) }}">{{ 'download'|trans }} <span
-                                            class="badge">{{ album.downloads }}</span> </a>
+                                <a class="btn btn-primary toggle-dl-dialog" target="_blank"
+                                   href="https://www.aerzte-ohne-grenzen.de/spenden-sammeln?cfd=barthyb"
+                                   data-title="{{ 'download_dialog.title'|trans }}"
+                                   data-text="{{ 'download_dialog.text'|trans }}"
+                                   data-download="{{ 'download'|trans }}"
+                                   data-donate="{{ 'donate'|trans }}"
+                                   data-url="{{ path("download_album", {UURL: album.UURL}) }}"
+                                >
+                                    {{ 'donate'|trans }} &amp; {{ 'download'|trans }}
+                                    <span class="badge">{{ album.downloads }}</span>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -159,13 +174,15 @@
     {% include '@App/footer.html.twig' %}
 {% endblock %}
 
-{% block bodyscripts %}
+{% block javascripts %}
     {{ parent() }}
     <script src="https://w.soundcloud.com/player/api.js"></script>
     {% javascripts
-    '@AppBundle/Resources/public/plugins/js-url/url.min.js'
-    '@AppBundle/Resources/public/plugins/soundcloud-audio/dist/soundcloud-audio.min.js'
-    '@AppBundle/Resources/public/js/profile.js' %}
+    'assets/vendor/js-url/url.min.js'
+    'assets/vendor/soundcloud-audio/dist/soundcloud-audio.min.js'
+    'assets/vendor/jquery-confirm2/dist/jquery-confirm.min.js'
+    '@AppBundle/Resources/public/js/profile.js'
+    '@AppBundle/Resources/public/js/soundcloud.js' %}
     <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
 {% endblock %}

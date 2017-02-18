@@ -1,9 +1,12 @@
+/**
+ * Created by Barthy on 18.02.17.
+ */
 jQuery.fn.hasHScroll = function () {
     return this.get(0).scrollWidth > this.width();
 };
 
 jQuery.fn.hasOverflow = function () {
-    return !!(this.get(0).offsetHeight < this.get(0).scrollHeight ||
+    return (this.get(0).offsetHeight < this.get(0).scrollHeight ||
     this.get(0).offsetWidth < this.get(0).scrollWidth);
 };
 

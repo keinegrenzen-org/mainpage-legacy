@@ -145,15 +145,15 @@ a:active {
 }
 
 @media (min-width: 992px) {
-    .page-title {
+    /*.page-title {
         font-size: 80px;
-    }
+    }*/
 }
 
 @media (min-width: 1200px) {
-    .page-title {
+    /*.page-title {
         font-size: 95px;
-    }
+    }*/
 }
 
 .page-title:not(:last-child) {
@@ -196,7 +196,7 @@ a:active {
     margin-left: 10px;
 }
 
-@media (min-width: 768px){
+@media (min-width: 768px) {
     .navbar > .container-fluid .navbar-brand {
         width: 100px;
         margin-left: -5px;
