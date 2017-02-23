@@ -85,12 +85,14 @@
         </div>
         <div class="row">
             {% for frontPage in frontPages %}
-            <div class="col-lg-4 col-sm-6 text-center artist-col {% if frontPages|length < 3 and loop.index == 1 %}col-lg-offset-{{ 4/frontPages|length }}{% endif %}">
-                <h3 class="headerline">{{ frontPage.name }}</h3>
+            <div class="col-lg-4 col-sm-6 text-center artist-col {{ colOffset }}" itemscope
+                 itemtype="http://schema.org/MusicGroup">
+                <h3 class="headerline" itemprop="name">{{ frontPage.name }}</h3>
                 <div class="artist">
-                    <a href="{{ path('profile_show', {UURL: frontPage.UURL}) }}" class="imgContainer"><img
-                                src="{{ web_image(frontPage.image.webPath) }}" class="img-responsive center-block"
-                                alt="{{ frontPage.name ~ ' - ' ~ 'frontpage.image'|trans }}"></a>
+                    <a href="{{ path('profile_show', {UURL: frontPage.UURL}) }}" class="imgContainer">
+                        <img src="{{ web_image(frontPage.image.webPath) }}" class="img-responsive center-block"
+                             alt="{{ frontPage.name ~ ' - ' ~ 'frontpage.image'|trans }}" itemprop="image">
+                    </a>
                     <ul class="list-inline">
                         {% for link in frontPage.links %}
                             {% if link.getSocial != 'link' %}
@@ -104,7 +106,9 @@
                         {% endfor %}
                     </ul>
                     <a href="{{ path('profile_show', {UURL: frontPage.UURL}) }}"
-                       class="btn btn-secondary btn-readmore">{{ 'readmore'|trans }}</a>
+                       class="btn btn-secondary btn-readmore" itemprop="url">
+                        {{ 'readmore'|trans }}
+                    </a>
                 </div>
             </div>
             {% if loop.index % 3 == 0 %}
