@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2017-02-18T16:06:17Z" source-language="en" target-language="de" datatype="plaintext" original="not.available">
+  <file date="2017-02-23T23:17:43Z" source-language="en" target-language="de" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -16,7 +16,7 @@
         <source>404.text</source>
         <target><![CDATA[Etwas ist schief gelaufen.<br>
 Der Link den Sie aufgerufen haben ist vielleicht abgelaufen oder fehlerhaft.<br>
-Hier können Sie <a href="/" title="Startseite">zurück zur Startseite</a>]]></target>
+Hier können Sie <a href="/" title="Startseite">zurück zur Startseite</a> gelangen.]]></target>
         <jms:reference-file line="10">/Resources/TwigBundle/views/Exception/error404.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="f83a383c0fa81f295d057f8f5ed0ba4610947817" resname="500">
@@ -34,7 +34,7 @@ Bitte versuchen Sie es zu einem späteren Zeitpunkt noch ein Mal oder kontaktier
       <trans-unit id="c0cd2200e973f084da775576db3c9b7916ffdd2b" resname="artists.p.description">
         <source>artists.p.description</source>
         <target xml:space="preserve">Auf jeder Künstler-Seite befinden sich Musikalben und Mixtapes.
-Diese können Sie anhören, zum Einkaufswagen hinzufügen und nach einer erfolgreich getätigten Spende herunterladen.
+Diese können Sie anhören und kostenlos herunterladen. Dabei können sie gleichzeitig auch zur Spendenseite gelangen.
 
 Viel spaß!</target>
         <jms:reference-file line="83">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
@@ -48,6 +48,11 @@ Viel spaß!</target>
         <source>base.meta.description</source>
         <target>keinegrenzen.org - ein Zusammenschluss von Künstlern die Ihre Musik für eine Spende an Ärzte Ohne Grenzen verkaufen. Gute Musik für einen guten Zweck.</target>
         <jms:reference-file line="9">/../src/AppBundle/Resources/views/base.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="88c0cf28fbab8c96db8d93b3134322b07617cfbb" resname="base.meta.keywords">
+        <source>base.meta.keywords</source>
+        <target>Musik, gemeinnützig, Grenzen, Kunst, Künstler, Projekt, Spenden, Hoffnung, Liebe, Musikalben, Mixtapes</target>
+        <jms:reference-file line="10">/../src/AppBundle/Resources/views/base.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="e131956406b365de12e2e853444ac5d898dd493c" resname="base.meta.title">
         <source>base.meta.title</source>
@@ -222,8 +227,7 @@ Unsere Musik und Leidenschaft ist ein Dankeschön für Ihre Menschlichkeit und H
       <trans-unit id="01e0ae7cf0fcf7dd5104026642ce358aae9d764d" resname="mwb">
         <source>mwb</source>
         <target>keinegrenzen.org</target>
-        <jms:reference-file line="12">/../src/AppBundle/Resources/views/base.html.twig</jms:reference-file>
-        <jms:reference-file line="21">/../src/AppBundle/Resources/views/base.html.twig</jms:reference-file>
+        <jms:reference-file line="22">/../src/AppBundle/Resources/views/base.html.twig</jms:reference-file>
         <jms:reference-file line="12">/../src/AppBundle/Resources/views/nav.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="b737e60f2a43cee6a67b0d3cceef25ee9bfc8fd2" resname="nav.artists">
@@ -286,7 +290,7 @@ Unsere Musik und Leidenschaft ist ein Dankeschön für Ihre Menschlichkeit und H
       <trans-unit id="229b4598c070739976cc6d4f232a94cce3cb1283" resname="noscript">
         <source>noscript</source>
         <target>Diese Seite benötigt JavaScript. Schalten Sie es ein oder öffnen Sie die Seite auf einem Gerät das JavaScript unterstützt.</target>
-        <jms:reference-file line="44">/../src/AppBundle/Resources/views/base.html.twig</jms:reference-file>
+        <jms:reference-file line="46">/../src/AppBundle/Resources/views/base.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="ef8d29955a725c39916a4626f3921a0104242439" resname="pause">
         <source>pause</source>

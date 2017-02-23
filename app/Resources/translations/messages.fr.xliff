@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2017-02-18T15:59:03Z" source-language="en" target-language="fr" datatype="plaintext" original="not.available">
+  <file date="2017-02-23T23:15:19Z" source-language="en" target-language="fr" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -45,6 +45,11 @@ Bonne écoute!</target>
         <source>base.meta.description</source>
         <target>Barthy B. - Musique Sans Frontières! Mon album caritatif. Faites un don chez Médecins Sans Frontières et téléchargez l'album.</target>
         <jms:reference-file line="9">/../src/AppBundle/Resources/views/base.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="88c0cf28fbab8c96db8d93b3134322b07617cfbb" resname="base.meta.keywords">
+        <source>base.meta.keywords</source>
+        <target state="new">base.meta.keywords</target>
+        <jms:reference-file line="10">/../src/AppBundle/Resources/views/base.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="e131956406b365de12e2e853444ac5d898dd493c" resname="base.meta.title">
         <source>base.meta.title</source>
@@ -213,8 +218,7 @@ Nous ne faisons pas de compromis: 100% des dons reviennent directement à <a hre
       <trans-unit id="01e0ae7cf0fcf7dd5104026642ce358aae9d764d" resname="mwb">
         <source>mwb</source>
         <target>Musique sans frontières</target>
-        <jms:reference-file line="12">/../src/AppBundle/Resources/views/base.html.twig</jms:reference-file>
-        <jms:reference-file line="21">/../src/AppBundle/Resources/views/base.html.twig</jms:reference-file>
+        <jms:reference-file line="22">/../src/AppBundle/Resources/views/base.html.twig</jms:reference-file>
         <jms:reference-file line="12">/../src/AppBundle/Resources/views/nav.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="b737e60f2a43cee6a67b0d3cceef25ee9bfc8fd2" resname="nav.artists">
@@ -277,7 +281,7 @@ Nous ne faisons pas de compromis: 100% des dons reviennent directement à <a hre
       <trans-unit id="229b4598c070739976cc6d4f232a94cce3cb1283" resname="noscript">
         <source>noscript</source>
         <target>Ce site fonctionne seulement avec JavaScript.</target>
-        <jms:reference-file line="44">/../src/AppBundle/Resources/views/base.html.twig</jms:reference-file>
+        <jms:reference-file line="46">/../src/AppBundle/Resources/views/base.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="ef8d29955a725c39916a4626f3921a0104242439" resname="pause">
         <source>pause</source>

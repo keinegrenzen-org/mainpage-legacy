@@ -200,8 +200,9 @@ easy_admin:
 
 jms_i18n_routing:
     default_locale: de
-    locales: [de, en, fr]
+    locales: [de] #  locales: [de, en, fr]
     strategy: prefix_except_default
+    use_cookie: false
 
 jms_translation:
     configs:

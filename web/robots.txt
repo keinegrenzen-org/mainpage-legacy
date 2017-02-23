@@ -3,4 +3,6 @@
 
 User-agent: *
 Disallow: /admin/
-Sitemap: https://music-without-borders.de/sitemap.xml
+Disallow: /planung/
+Disallow: /login
+Sitemap: https://www.keinegrenzen.org/sitemap.xml
