@@ -78,8 +78,15 @@
     /*color: #609e55;*/
 }
 
+.index .artists .genre {
+    text-transform: uppercase;
+    margin-top: 15px;
+    display: block;
+    font-size: 20px;
+}
+
 .index .artists .list-inline {
-    padding-top: 25px;
+    padding-top: 15px;
 }
 
 .index .artists .artist {

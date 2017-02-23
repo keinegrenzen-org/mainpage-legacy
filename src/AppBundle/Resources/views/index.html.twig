@@ -85,7 +85,7 @@
         </div>
         <div class="row">
             {% for frontPage in frontPages %}
-            <div class="col-lg-4 col-sm-6 text-center artist-col {{ colOffset }}" itemscope
+            <div class="col-lg-4 col-sm-6 text-center artist-col" itemscope
                  itemtype="http://schema.org/MusicGroup">
                 <h3 class="headerline" itemprop="name">{{ frontPage.name }}</h3>
                 <div class="artist">
@@ -93,6 +93,7 @@
                         <img src="{{ web_image(frontPage.image.webPath) }}" class="img-responsive center-block"
                              alt="{{ frontPage.name ~ ' - ' ~ 'frontpage.image'|trans }}" itemprop="image">
                     </a>
+                    <span class="genre" itemprop="genre">{{ frontPage.genre }}</span>
                     <ul class="list-inline">
                         {% for link in frontPage.links %}
                             {% if link.getSocial != 'link' %}

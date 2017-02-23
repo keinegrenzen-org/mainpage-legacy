@@ -45,7 +45,7 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
     </head>
-    <body class="{% block bodyclass %}{% endblock %}">
+    <body class="{% block bodyclass %}{% endblock %}" {% block bodyschema %}{% endblock %}>
         <noscript>{{ 'noscript'|trans }}</noscript>
 
         {% block body %}{% endblock %}

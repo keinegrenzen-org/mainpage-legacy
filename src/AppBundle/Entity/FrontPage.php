@@ -28,7 +28,6 @@ class FrontPage {
      */
     private $id;
 
-
     /**
      * @var string
      *
