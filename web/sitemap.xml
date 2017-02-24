@@ -4,37 +4,37 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
-        <loc>http://www.keinegrenzen.org/</loc>
+        <loc>https://www.keinegrenzen.org/</loc>
         <lastmod>2017-02-23</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>http://www.keinegrenzen.org/impressum</loc>
+        <loc>https://www.keinegrenzen.org/impressum</loc>
         <lastmod>2017-02-23</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>http://www.keinegrenzen.org/barthy</loc>
+        <loc>https://www.keinegrenzen.org/barthy</loc>
         <lastmod>2017-02-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>http://www.keinegrenzen.org/invo</loc>
+        <loc>https://www.keinegrenzen.org/invo</loc>
         <lastmod>2017-02-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>http://www.keinegrenzen.org/enna</loc>
+        <loc>https://www.keinegrenzen.org/enna</loc>
         <lastmod>2017-02-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>http://www.keinegrenzen.org/wuis</loc>
+        <loc>https://www.keinegrenzen.org/wuis</loc>
         <lastmod>2017-02-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
