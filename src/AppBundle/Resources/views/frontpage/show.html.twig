@@ -20,8 +20,12 @@
 {% endblock %}
 
 {% block pagetitle %}{{ frontPage.name }} | {{ 'base.meta.title'|trans }}{% endblock %}
+
 {% block description %}{{ frontPage.metaDescription }}{% endblock %}
+{% block og_description %}{{ frontPage.metaDescription }}{% endblock %}
+
 {% block bodyschema %}itemscope itemtype="http://schema.org/MusicGroup"{% endblock %}
+
 {% block body %}
     {% include '@App/nav.html.twig' with {'index': false} %}
     <div class="container-fluid fill header">

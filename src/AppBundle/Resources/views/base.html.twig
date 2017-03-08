@@ -6,7 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <title>{% block pagetitle %}{{ 'base.meta.title'|trans }}{% endblock %}</title>
-        <meta name="description" content="{% block description %}{{ 'base.meta.description'|trans }}{% endblock %}">
+        {% block description %}
+            <meta name="description" content="{{ 'base.meta.description'|trans }}">
+        {% endblock %}
         <meta name="keywords" content="{% block keywords %}{{ 'base.meta.keywords'|trans }}{% endblock %}">
         <meta name="author" content="Barthy">
         <meta property="og:type" content="website"/>
@@ -22,7 +24,9 @@
         <meta property="og:locale{{ app.request.locale=='en'?'':':alternate' }}" content="en_US"/>
         #}
         <meta property="og:site_name" content="{{ 'mwb'|trans }}"/>
-        <meta name="og:description" content="{{ block('description') }}">
+        {% block og_description %}
+            <meta name="og:description" content="{{ 'base.meta.description'|trans }}">
+        {% endblock %}
         {% set route = path(app.request.get('_route'), app.request.attributes.get("_route_params")) %}
         <link rel="canonical" href="https://www.keinegrenzen.org{{ route }}"/>
         <link rel="icon" href="https://www.keinegrenzen.org{{ asset('bundles/app/images/favicon.png') }}">
