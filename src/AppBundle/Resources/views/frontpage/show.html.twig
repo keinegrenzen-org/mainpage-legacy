@@ -21,14 +21,18 @@
 
 {% block pagetitle %}{{ frontPage.name }} | {{ 'base.meta.title'|trans }}{% endblock %}
 
-{% block description %}{{ frontPage.metaDescription }}{% endblock %}
-{% block og_description %}{{ frontPage.metaDescription }}{% endblock %}
+{% block description %}
+    <meta name="description" content="{{ frontPage.metaDescription }}">
+{% endblock %}
+{% block og_description %}
+    <meta name="og:description" content="{{ frontPage.metaDescription }}">
+{% endblock %}
 
 {% block bodyschema %}itemscope itemtype="http://schema.org/MusicGroup"{% endblock %}
 
 {% block body %}
     {% include '@App/nav.html.twig' with {'index': false} %}
-    <div class="container-fluid fill header">
+    <header class="container-fluid container-margin fill header">
         <div class="row">
             <div class="col-lg-4 col-lg-offset-0 col-md-4 col-md-offset-0 col-sm-6 col-sm-offset-0 col-xs-10 col-xs-push-1">
                 <div class="artist text-center">
@@ -62,8 +66,8 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container">
+    </header>
+    <section class="container container-margin">
         <div class="row">
             <div class="col-lg-12">
                 <h2>{{ 'profile.h2.bio'|trans }} & {{ 'profile.h2.albums'|trans }}</h2>
@@ -93,8 +97,8 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container">
+    </section>
+    <section class="container container-margin">
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                 <div class="row album-art-container">
@@ -194,7 +198,7 @@
                 <p><span class="now-playing-album"></span> - <span class="now-playing-song"></span></p>
             </div>
         </div>
-    </div>
+    </section>
     {% include '@App/footer.html.twig' %}
 {% endblock %}
 

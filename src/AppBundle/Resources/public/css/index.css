@@ -147,6 +147,7 @@
 
 .hundred-percent .double {
     font-size: 3.5em;
+    line-height: 100%;
 }
 
 .index .artist-col .headerline,
@@ -196,4 +197,8 @@
 
 .index .full-width {
     width: 80%;
+}
+
+.index .big-artist .embed-responsive {
+    margin-top: 20px;
 }

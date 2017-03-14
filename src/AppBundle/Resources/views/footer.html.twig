@@ -1,28 +1,32 @@
-<div class="footer container-fluid">
-        <section class="row">
-            <div class="col-xs-4 col-xs-offset-2 text-center">
-                <h4>{{ 'footer.social.h4'|trans }}</h4>
-                <div class="footer-links text-center">
-                    <a href="https://www.facebook.com/theMWBproject/" target="_blank" class="btn fb"><span class="fa fa-facebook-f fa-2x"></span><i class="sr-only">Facebook</i></a>
-                    <a href="https://www.youtube.com/channel/UC7NBh7cgloYVFrCL5uy-9_g" target="_blank" class="btn yt"><span class="fa fa-youtube-play fa-2x"></span><i class="sr-only">YouTube</i></a>
-                    <a href="https://twitter.com/theMWBproject" target="_blank" class="btn tw"><span class="fa fa-twitter fa-2x"></span><i class="sr-only">Twitter</i></a>
-                </div>
+<footer class="footer container-fluid">
+    <section class="row">
+        <div class="col-xs-4 col-xs-offset-2 text-center">
+            <h4>{{ 'footer.social.h4'|trans }}</h4>
+            <div class="footer-links text-center">
+                <a href="https://www.facebook.com/theMWBproject/" target="_blank" class="btn fb"><span
+                            class="fa fa-facebook-f fa-2x"></span><i class="sr-only">Facebook</i></a>
+                <a href="https://www.youtube.com/channel/UC7NBh7cgloYVFrCL5uy-9_g" target="_blank" class="btn yt"><span
+                            class="fa fa-youtube-play fa-2x"></span><i class="sr-only">YouTube</i></a>
+                <a href="https://twitter.com/theMWBproject" target="_blank" class="btn tw"><span
+                            class="fa fa-twitter fa-2x"></span><i class="sr-only">Twitter</i></a>
             </div>
-            <div class="col-xs-4 text-center">
-                <h4>{{ 'footer.links.h4'|trans }}</h4>
-                <div class="link-btns text-center">
-                    <ul>
-                        <li><a href="{{ path('impressum') }}">{{ 'footer.link.impressum'|trans }}</a></li>
-                        <li><a href="{{ path('datenschutz') }}">{{ 'footer.link.datenschutz'|trans }}</a></li>
-                        <li><a href="{#{{ path('attributions') }}">{{ 'footer.link.attributions'|trans }}#}"></a></li>
-                    </ul>
-                </div>
+        </div>
+        <div class="col-xs-4 text-center">
+            <h4>{{ 'footer.links.h4'|trans }}</h4>
+            <div class="link-btns text-center">
+                <ul>
+                    <li><a href="{{ path('impressum') }}">{{ 'footer.link.impressum'|trans }}</a></li>
+                    <li><a href="{{ path('datenschutz') }}">{{ 'footer.link.datenschutz'|trans }}</a></li>
+                    <li><a href="{#{{ path('attributions') }}">{{ 'footer.link.attributions'|trans }}#}"></a></li>
+                </ul>
             </div>
-        </section>
-        <section class="row text-center copyrigth">
-            <div class="col-xs-12">
-                <p>© 2016 Barthélémy Bonhomme</p>
-                <small>{{ 'madewith'|trans }} <span class="fa fa-heart"><span class="sr-only">{{ 'love'|trans }}</span></span> {{ 'incologne'|trans }}</small>
-            </div>
-        </section>
-</div>
+        </div>
+    </section>
+    <section class="row text-center copyrigth">
+        <div class="col-xs-12">
+            <p>© 2016-2017 Barthélémy Bonhomme</p>
+            <small>{{ 'madewith'|trans }} <span class="fa fa-heart"><span
+                            class="sr-only">{{ 'love'|trans }}</span></span> {{ 'incologne'|trans }}</small>
+        </div>
+    </section>
+</footer>
