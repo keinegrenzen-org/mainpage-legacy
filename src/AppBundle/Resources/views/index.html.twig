@@ -53,22 +53,21 @@
     <section class="container container-margin">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2>{{ 'current.portrait'|trans }}</h2>
+                <h2>{{ 'current.portrait'|trans }}&nbsp;{{ frontPages[0].name }}</h2>
             </div>
         </div>
         <div class="row big-artist">
             <div class="col-md-6">
                 <div class="embed-responsive embed-responsive-16by9">
                     <iframe class="embed-responsive-item"
-                            src="https://www.youtube-nocookie.com/embed/0qMLf-NNe0s?list=PLNCi9s43nus6VFG8IL89IunMOz5N9zdZ8?ecver=1"
+                            src="https://www.youtube-nocookie.com/embed/4ML8_4Owl24?ecver=1"
                             frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
             <div class="col-md-6">
-                <h3>{{ frontPages[1].name }}</h3>
-                <p><strong>{{ frontPages[1].genre }}</strong>, {{ 'from'|trans }} {{ frontPages[1].location }}</p>
-                <p>{{ frontPages[1].vita|raw }}</p>
-                <a href="{{ path('profile_show', {UURL: frontPages[1].UURL}) }}"
+                <p><strong>{{ frontPages[0].genre }}</strong>, {{ 'from'|trans }} {{ frontPages[0].location }}</p>
+                <p>{{ frontPages[0].vita|raw }}</p>
+                <a href="{{ path('profile_show', {UURL: frontPages[0].UURL}) }}"
                    class="btn btn-secondary btn-readmore">
                     {{ 'readmore'|trans }}
                 </a>
