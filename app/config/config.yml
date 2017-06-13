@@ -72,13 +72,6 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
-# app/config/config.yml
-assetic:
-    debug:          '%kernel.debug%'
-    use_controller: '%kernel.debug%'
-    filters:
-        cssrewrite: ~
-
 vich_uploader:
     db_driver: orm # or mongodb or propel or phpcr
     mappings:

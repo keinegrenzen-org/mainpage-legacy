@@ -153,4 +153,12 @@ class DefaultController extends Controller {
         return $this->em;
     }
 
+    /**
+     * @Route("donate", name="donate_external")
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function donateExternalAction(){
+        return $this->redirect("https://www.aerzte-ohne-grenzen.de/spenden-sammeln?cfd=barthyb");
+    }
+
 }

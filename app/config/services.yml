@@ -15,7 +15,3 @@ services:
         class: Twig_Extensions_Extension_Intl
         tags:
             - { name: twig.extension }
-    braintree_transaction:
-        class: \Braintree\Transaction
-        factory: ["@comet_cult_braintree.factory", get]
-        arguments: ["customer"]

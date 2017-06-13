@@ -1,62 +1,55 @@
 {% extends '@App/base.html.twig' %}
 
-{% block bodyclass %}index{% endblock %}
-
-{% block stylesheets %}
-    {% stylesheets
-    'bundles/app/css/index.css' filter='cssrewrite' %}
-    <link rel="stylesheet" href="{{ asset_url }}"/>
-    {% endstylesheets %}
-    {{ parent() }}
-{% endblock %}
-
 {% block body %}
-    <div id="fb-root"></div>
-    <script src="{{ asset('bundles/app/js/fb.js') }}"></script>
-    <script src="{{ asset('bundles/app/js/tw.js') }}"></script>
+
     {% include '@App/nav.html.twig' with {'index': true} %}
-    <header class="container-fluid container-margin header fill text-center">
-        <div class="row fill-height">
-            <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 page-title-container">
-                <div>
-                    <span class="page-title">{{ 'index.page-title.1.1'|trans }}
-                        <br/><strong>{{ 'index.page-title.1.2'|trans }}</strong></span>
-                    {#<!--
-                    <br/>
-                    <span class="page-title">{{ 'index.page-title.2.1'|trans }}
-                        <strong>{{ 'index.page-title.2.2'|trans }}</strong></span>-->#}
-                </div>
+
+    <header class="container-fluid text-center">
+        <div class="row align-items-center page-title">
+            <div class="col">
+                <h2>{{ 'index.page-title.2'|trans }}</h2>
+                <h1 class="mt-2 mb-0">
+                    {{ 'index.page-title.1.1'|trans }}&nbsp;<strong>{{ 'index.page-title.1.2'|trans }}</strong>
+                </h1>
+                <a href="{{ 'nav.projekt.href'|trans }}" class="btn btn-outline-secondary btn-lg">
+                    {{ 'readmore'|trans }}
+                </a>
             </div>
         </div>
     </header>
-    <section class="container container-margin" id="{{ 'nav.projekt.id'|trans }}">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h1>{{ 'index.h1'|trans }}</h1>
+
+    <section class="intro container py-5" id="{{ 'nav.projekt.id'|trans }}">
+        <div class="row py-2">
+            <div class="col text-center">
+                <h2>{{ 'index.h1'|trans }}</h2>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-6 col-xs-12 margin-top-15">
-                <p>{{ 'index.p.description'|trans|raw|nl2br }}</p>
+        <div class="row py-2 justify-content-center">
+            <div class="col-md-8 text-center">
+                <p class="text-big">{{ 'index.p.description'|trans|raw|nl2br }}</p>
             </div>
-            <div class="col-sm-6 col-xs-12 text-emphasis text-center display-table hundred-percent">
-                <div class="display-table-cell">
-                    <span class="double"><strong class="counter">100</strong>%</span>
-                    <br>
-                    <span>{{ 'index.hundred'|trans }}</span>
-                    <a class="btn btn-primary full-width" target="_blank"
-                       href="https://www.aerzte-ohne-grenzen.de/spenden-sammeln?cfd=barthyb">{{ 'donate'|trans }}</a>
-                </div>
+        </div>
+        <div class="row py-2 justify-content-center">
+            <div class="col-md-8 text-center">
+                <a class="btn btn-lg btn-outline-primary" href="{{ 'nav.artists.href'|trans }}">
+                    <i class="fa fa-users fa-fw mr-1"></i>
+                    {{ 'index.a.see_all_artists'|trans }}
+                </a>
+                <a class="btn btn-lg btn-primary btn-shadow" target="_blank" href="{{ path('donate_external') }}">
+                    {{ 'donate'|trans }}
+                    <i class="fa fa-external-link fa-fw ml-1"></i>
+                </a>
             </div>
         </div>
     </section>
-    <section class="container container-margin">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2>{{ 'current.portrait'|trans }}&nbsp;{{ frontPages[0].name }}</h2>
+
+    <section class="portrait container py-5">
+        <div class="row py-2">
+            <div class="col text-center">
+                <h2>{{ 'current.portrait'|trans }}</h2>
             </div>
         </div>
-        <div class="row big-artist">
+        <div class="row py-2">
             <div class="col-md-6">
                 <div class="embed-responsive embed-responsive-16by9">
                     <iframe class="embed-responsive-item"
@@ -64,119 +57,113 @@
                             frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 align-self-center">
+                <h3>{{ frontPages[0].name }}</h3>
                 <p><strong>{{ frontPages[0].genre }}</strong>, {{ 'from'|trans }} {{ frontPages[0].location }}</p>
-                <p>{{ frontPages[0].vita|raw }}</p>
+                <p>{{ frontPages[0].vita|truncate(400, true)|raw }}</p>
                 <a href="{{ path('profile_show', {UURL: frontPages[0].UURL}) }}"
-                   class="btn btn-secondary btn-readmore">
+                   class="btn btn-secondary">
                     {{ 'readmore'|trans }}
                 </a>
             </div>
         </div>
     </section>
-    <section class="container-fluid container-margin second-header" id="{{ 'nav.donate.id'|trans }}">
-        <div class="row fill-height">
-            <div class="col-lg-6  col-md-6 col-sm-12 col-xs-12 text-emphasis">
-                <span class="double max-text"><strong
-                            class="counter">{{ (total/100)|number_format(2, ',', '') }}</strong>€</span>
+
+    <section class="statistics container-fluid p-3" id="{{ 'nav.donate.id'|trans }}">
+        <div class="row p-5">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 p-5">
+                <span class="double">
+                    <strong class="counter">{{ (total/100)|number_format(0, '', '') }}</strong>€
+                </span>
                 <br>
-                <span class="max-text">{{ 'index.donation.total.1'|trans }}</span>
-                <span class="max-text">{{ 'index.donation.total.2'|trans }}</span>
+                <span>{{ 'index.donation.total.1'|trans }}</span>
+                <span>{{ 'index.donation.total.2'|trans }}</span>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <div class="col-lg-12 text-right text-emphasis">
-                    <span class="double max-text"><strong class="counter">{{ count }}</strong></span>
+            <div class="col-lg-6 col-md-6 col-sm-12 p-5">
+                <div class="col-lg-12 text-right">
+                    <span class="double"><strong class="counter">{{ count }}</strong></span>
                     <br>
-                    <span class="max-text">{{ 'index.donation.count.1'|trans }}</span>
-                    <span class="max-text">{{ 'index.donation.count.2'|trans }}</span>
+                    <span>{{ 'index.donation.count.1'|trans }}</span>
+                    <span>{{ 'index.donation.count.2'|trans }}</span>
                 </div>
-                <div class="col-lg-12 text-right text-emphasis">
-                    <span class="double max-text"><strong
-                                class="counter">{{ ((total/100)/count)|number_format(2, ',', '') }}</strong>€</span>
+                <div class="col-lg-12 text-right mt-5">
+                    <span class="double">
+                        <strong class="counter">{{ ((total/100)/count)|number_format(2, ',', '') }}</strong>€
+                    </span>
                     <br>
-                    <span class="max-text">{{ 'index.donation.ave.1'|trans }}</span>
-                    <span class="max-text">{{ 'index.donation.ave.2'|trans }}</span>
+                    <span>{{ 'index.donation.ave.1'|trans }}</span>
+                    <span>{{ 'index.donation.ave.2'|trans }}</span>
                 </div>
             </div>
         </div>
     </section>
-    <section class="container container-margin artists" id="{{ 'nav.artists.id'|trans }}">
-        <div class="row text-center">
-            <div class="col-lg-12">
+
+    <section class="artists container py-5" id="{{ 'nav.artists.id'|trans }}">
+        <div class="row py-2">
+            <div class="col text-center">
                 <h2>{{ 'nav.artists'|trans }}</h2>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 text-center">
-                <p>{{ 'artists.p.description'|trans|nl2br }}</p>
+        <div class="row py-2 justify-content-center">
+            <div class="col-lg-8 text-center">
+                <p class="text-big">{{ 'artists.p.description'|trans|nl2br }}</p>
             </div>
         </div>
-        <div class="row">
+        <div class="row py-2 justify-content-center">
             {% for frontPage in frontPages %}
-            <div class="col-lg-4 col-sm-6 text-center artist-col" itemscope
-                 itemtype="http://schema.org/MusicGroup">
-                <h3 class="headerline" itemprop="name">{{ frontPage.name }}</h3>
-                <div class="artist">
-                    <a href="{{ path('profile_show', {UURL: frontPage.UURL}) }}" class="imgContainer">
-                        <img src="{{ web_image(frontPage.image.webPath) }}" class="img-responsive center-block"
-                             alt="{{ frontPage.name ~ ' - ' ~ 'frontpage.image'|trans }}" itemprop="image">
-                    </a>
-                    <span class="genre" itemprop="genre">{{ frontPage.genre }}</span>
-                    <ul class="list-inline">
-                        {% for link in frontPage.links %}
-                            {% if link.getSocial != 'link' %}
-                                <li>{{ link.getMarkup|raw }}</li>
-                            {% endif %}
-                        {% endfor %}
-                        {% for link in frontPage.links %}
-                            {% if link.getSocial == 'link' %}
-                                <li>{{ link.getMarkup|raw }}</li>
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
-                    <a href="{{ path('profile_show', {UURL: frontPage.UURL}) }}"
-                       class="btn btn-secondary btn-readmore" itemprop="url">
-                        {{ 'readmore'|trans }}
-                    </a>
+                <div class="col-lg-4 col-sm-6 text-center artist-col"
+                     itemscope itemtype="http://schema.org/MusicGroup">
+                    <h3 class="artist-name" itemprop="name">{{ frontPage.name }}</h3>
+                    <div class="artist-preview my-3">
+                        <a href="{{ path('profile_show', {UURL: frontPage.UURL}) }}"
+                           class="artist-img d-flex justify-content-center">
+                            <img src="{{ web_image(frontPage.image.webPath) }}" class="img-responsive center-block"
+                                 alt="{{ frontPage.name ~ ' - ' ~ 'frontpage.image'|trans }}" itemprop="image">
+                        </a>
+                        <p class="artist-genre my-2" itemprop="genre">{{ frontPage.genre }}</p>
+                        <ul class="list-inline my-3 text-muted">
+                            {% for link in frontPage.links %}
+                                {% if link.getSocial != 'link' %}
+                                    <li class="list-inline-item">{{ link.getMarkup|raw }}</li>
+                                {% endif %}
+                            {% endfor %}
+                            {% for link in frontPage.links %}
+                                {% if link.getSocial == 'link' %}
+                                    <li class="list-inline-item">{{ link.getMarkup|raw }}</li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                        <a href="{{ path('profile_show', {UURL: frontPage.UURL}) }}"
+                           class="btn btn-outline-primary mb-3" itemprop="url">
+                            {{ 'readmore'|trans }}
+                        </a>
+                    </div>
                 </div>
-            </div>
-            {% if loop.index % 3 == 0 %}
-        </div>
-        <div class="row">
-            {% endif %}
             {% endfor %}
         </div>
     </section>
-    <section class="container-fluid support three-quarter-height" id="{{ 'nav.support.id'|trans }}">
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 three-quarter-height text-center">
-                <div>
-                    <h2>{{ 'nav.support'|trans }}</h2>
-                    <p>{{ 'support.p'|trans }}</p>
-                    <div class="share-btns">
-                        <div class="fb-share-button" data-href="https://www.keinegrenzen.org" data-layout="button"
-                             data-size="large" data-mobile-iframe="true">
-                            <a class="fb-xfbml-parse-ignore" target="_blank"
-                               href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.keinegrenzen.org%2F&amp;src=sdkpreparse">Teilen</a>
-                        </div>
-                        <a id="share-tw" href="https://twitter.com/intent/tweet" data-text="{{ 'twitter.text'|trans }}"
-                           data-url="null" class="twitter-share-button btn btn-primary" data-size="large"><i
-                                    class="fa fa-twitter fa-fw"></i> {{ 'share.tw'|trans }}</a>
-                    </div>
+
+    <section class="support container-fluid" id="{{ 'nav.support.id'|trans }}">
+        <div class="row h-100">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center h-100 overlay d-flex align-content-center">
+                <div class="col align-self-center">
+                    <h2 class="my-2">{{ 'nav.support'|trans }}</h2>
+                    <p class="text-big p-5 my-2">{{ 'support.p'|trans }}</p>
+                    <a class="btn btn-tw btn-lg my-2" href="https://twitter.com/keinegrenzenOrg" rel="nofollow"
+                       target="_blank" title="{{ 'support.tw.title'|trans }}">
+                        <span class="fa fa-fw fa-twitter"></span>
+                        {{ 'support.tw.title'|trans }}
+                    </a>
+                    <a class="btn btn-fb btn-lg my-2" href="https://www.facebook.com/keinegrenzenOrg/" rel="nofollow"
+                       target="_blank" title="{{ 'support.fb.title'|trans }}">
+                        <span class="fa fa-fw fa-facebook-f"></span>
+                        {{ 'support.fb.title'|trans }}
+                    </a>
                 </div>
             </div>
         </div>
     </section>
-    {% include '@App/footer.html.twig' %}
-{% endblock %}
 
-{% block javascripts %}
-    {{ parent() }}
-    {% javascripts
-    '@AppBundle/Resources/public/js/counterup.js'
-    '@AppBundle/Resources/public/js/max-text.js'
-    '@AppBundle/Resources/public/js/index.js'
-    '@AppBundle/Resources/public/js/download.js' %}
-    <script src="{{ asset_url }}"></script>
-    {% endjavascripts %}
+    {% include '@App/footer.html.twig' %}
+
 {% endblock %}

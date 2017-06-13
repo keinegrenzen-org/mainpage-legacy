@@ -1,30 +1,34 @@
-<nav class="navbar navbar-opaque">
-    <div class="container-fluid nav-container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{{ (index)?'#':'/' }}"><img title="{{ 'mwb'|trans }}" alt="{{ 'mwb'|trans }} - Logo" src="{{ web_image(asset
-                ('bundles/app/images/logo_web.png')) }}"></a>
-        </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ (index)?'':'/' }}{{ 'nav.projekt.href'|trans }}">{{ 'nav.projekt'|trans }}</a></li>
-                <li><a href="{{ (index)?'':'/' }}{{ 'nav.artists.href'|trans }}">{{ 'nav.artists'|trans }}</a></li>
-                <li><a href="{{ (index)?'':'/' }}{{ 'nav.support.href'|trans }}">{{ 'nav.support'|trans }}</a></li>
-                <li>
-                    <a target="_blank"
-                       href="https://www.aerzte-ohne-grenzen.de/spenden-sammeln?cfd=barthyb">{{ 'nav.donate'|trans }}
-                        &nbsp;<span class="fa fa-external-link fa-fw"></span>
-                    </a>
-                </li>
-            </ul>
-        </div><!-- /.navbar-collapse -->
+<nav class="navbar navbar-toggleable-md fixed-top">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon fa fa-navicon fa-fw">
+            <i class="sr-only">Toggle navigation</i>
+        </span>
+    </button>
+    <a class="navbar-brand" href="{{ (index)?'#':'/' }}">
+        <img title="{{ 'mwb'|trans }}" alt="{{ 'mwb'|trans }} - Logo"
+             src="{{ web_image(asset('bundles/app/images/logo_web.png')) }}">
+    </a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link"
+                   href="{{ (index)?'':'/' }}{{ 'nav.projekt.href'|trans }}">{{ 'nav.projekt'|trans }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"
+                   href="{{ (index)?'':'/' }}{{ 'nav.artists.href'|trans }}">{{ 'nav.artists'|trans }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"
+                   href="{{ (index)?'':'/' }}{{ 'nav.support.href'|trans }}">{{ 'nav.support'|trans }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" target="_blank" href="{{ path('donate_external') }}">
+                    {{ 'nav.donate'|trans }}<span class="fa fa-external-link fa-fw ml-2"></span>
+                </a>
+            </li>
+        </ul>
     </div>
 </nav>
