@@ -49,4 +49,16 @@ class AppKernel extends Kernel
         date_default_timezone_set( 'Europe/Paris' );
         parent::__construct($environment, $debug);
     }
+
+    public function getRootDir() {
+        return __DIR__;
+    }
+
+    public function getCacheDir() {
+        return dirname(__DIR__).'/var/cache/'.$this->environment;
+    }
+
+    public function getLogDir() {
+        return dirname(__DIR__).'/var/logs';
+    }
 }

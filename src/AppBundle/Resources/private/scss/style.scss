@@ -53,6 +53,11 @@ $enable-print-styles: true !default;
 
 // BTN SHADOW
 
+.btn:active, .btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 .btn-shadow {
   box-shadow: rgba(0, 34, 55, 0.24) 0 0.45rem 1.75rem 0;
   text-shadow: 1px 1px rgba(0, 0, 0, 0.09);
@@ -174,6 +179,37 @@ header {
       }
     }
   }
+
+  &.profile-header {
+    padding-top: 56px;
+    padding-bottom: 56px;
+
+    .image-container {
+      width: 75%;
+      padding-bottom: 75%;
+      overflow: hidden;
+      margin-left: auto;
+      margin-right: auto;
+      border: 3px solid $white;
+      position: relative;
+
+      img {
+        height: 100%;
+        width: auto;
+        position: absolute;
+      }
+    }
+
+    .title-container {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    .profile-header-content {
+      width: 90%;
+      margin-left: 5%;
+      margin-right: 5%;
+    }
+  }
 }
 
 section.intro {
@@ -239,7 +275,7 @@ section.support {
   height: 75%;
 
   .overlay {
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgba(255, 255, 255, 0.5);
   }
 
   .btn-fb {
@@ -297,6 +333,113 @@ footer {
 
 }
 
+section.artist-bio {
+
+  .citations {
+
+    em {
+      line-height: 1rem;
+      vertical-align: top;
+
+      &::before {
+        display: inline-block;
+        content: '"';
+        font-size: 2rem;
+        font-weight: 700;
+        margin-right: 5px;
+      }
+    }
+
+  }
+
+}
+
+section.artist-discography {
+
+  .album-art-container {
+
+    .album-art {
+      width: 100%;
+      float: left;
+
+      .image-container {
+        width: 100%;
+        padding-bottom: 100%;
+        overflow: hidden;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+
+        img {
+          height: 100%;
+          width: auto;
+          position: absolute;
+        }
+      }
+    }
+  }
+
+  .album-details-container {
+
+    .album-details {
+
+      *:not(.btn) {
+        border-color: inherit;
+      }
+
+      .fa-soundcloud {
+        color: #ff5500;
+      }
+
+      .list-group-item {
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid;
+
+        .track-number {
+          width: 10%;
+        }
+
+        .title {
+          width: 70%;
+          font-weight: 700;
+        }
+
+        .track-duration {
+          width: 20%;
+        }
+      }
+    }
+  }
+}
+
+.global-player {
+
+  .now-playing-elapsed,
+  .now-playing-length,
+  .fa,
+  .progress-container {
+    height: 2.5rem;
+    line-height: 2.5rem;
+  }
+
+  .progress {
+    height: 1rem;
+    margin-top: (2.5rem - 1rem) / 2;
+    margin-bottom: (2.5rem - 1rem) / 2;
+
+    .progress-bar {
+      height: 1rem;
+    }
+  }
+
+  .now-playing-album, .now-playing-song {
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+
+}
+
 @include media-breakpoint-up(sm) {
 
   section.statistics {
@@ -345,6 +488,13 @@ footer {
 
       h2 {
         font-size: 1.75rem;
+      }
+    }
+
+    &.profile-header {
+
+      .profile-header-content {
+        width: 40%;
       }
     }
   }

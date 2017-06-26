@@ -138,7 +138,7 @@ $(document).ready(function () {
                 $list = $this.find('.list-group');
 
             for (var i = 0; i < tracks.length; i++) {
-                var $listItem = $('<li class="list-group-item music-player-interaction"><span class="track-number music-player-interaction">' + ((i < 9) ? '0' + (i + 1) : (i + 1)) + '</span> <span class="title music-player-interaction">' + tracks[i].title + '</span><span class="badge music-player-interactiongit add -A' +
+                var $listItem = $('<li class="list-group-item"><span class="track-number ">' + ((i < 9) ? '0' + (i + 1) : (i + 1)) + '</span> <span class="title">' + tracks[i].title + '</span><span class="track-duration' +
                     '">' + prettyTime(tracks[i].duration, true) + '</span></li>');
                 $list.append($listItem);
                 $listItem.click(function () {

@@ -64,14 +64,9 @@ class DefaultController extends Controller {
      */
     public function indexAction(Request $request) {
 
-        // GET BLOGPOSTS
         $frontPages = $this->getEm()
             ->getRepository('AppBundle:FrontPage')
             ->findBy(array('public' => true), array('id' => 'DESC'));
-
-        $albums = $this->getEm()
-            ->getRepository('AppBundle:Album')
-            ->findBy(array(), array('id' => 'DESC'));
 
         $donations = $this->getEm()
             ->getRepository('AppBundle:Donation')
@@ -85,7 +80,6 @@ class DefaultController extends Controller {
 
         return $this->render('AppBundle::index.html.twig', array(
             'frontPages' => $frontPages,
-            'albums' => $albums,
             'total' => $total,
             'count' => sizeof($donations)
         ));

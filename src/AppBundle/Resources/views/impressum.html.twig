@@ -1,13 +1,5 @@
 {% extends '@App/base.html.twig' %}
 
-    {% block stylesheets %}
-        {{ parent() }}
-        {% stylesheets
-        'bundles/app/css/impressum.css' filter='cssrewrite' %}
-        <link rel="stylesheet" href="{{ asset_url }}"/>
-        {% endstylesheets %}
-    {% endblock %}
-
 {% block pagetitle %}Impressum | {{ 'base.meta.title'|trans }}{% endblock %}
 
 {% block description %}{% endblock %}
