@@ -5,7 +5,6 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Album;
 use AppBundle\Entity\Donation;
 use AppBundle\Entity\FrontPage;
-use AppBundle\Entity\Page;
 use Doctrine\ORM\EntityManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -18,31 +17,6 @@ class DefaultController extends Controller {
      * @var EntityManager
      */
     private $em;
-
-    private function addVisit($route, $name, Request $request) {
-        $page = $this->getDoctrine()
-            ->getRepository('AppBundle:Page')
-            ->findOneBy(array('route' => $route));
-
-        if (!$page) {
-            $page = new Page();
-            $page->setRoute($route);
-            $page->setName($name);
-            $page->setVisits(1);
-
-            setcookie($route, true, time() + (3600 * 12));
-        } else {
-            $cookies[] = $request->cookies->all();
-
-            if (!isset($cookies[0][$route])) {
-                $page->incrementVisits();
-                setcookie($route, true, time() + (3600 * 12));
-            }
-        }
-
-        $this->getEm()->persist($page);
-        $this->getEm()->flush();
-    }
 
     private function addDownload(Album $album, Request $request) {
         $cookies[] = $request->cookies->all();
@@ -59,10 +33,10 @@ class DefaultController extends Controller {
 
     /**
      * @Route("/", name="homepage")
-     * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
+     * @internal param Request $request
      */
-    public function indexAction(Request $request) {
+    public function indexAction() {
 
         $frontPages = $this->getEm()
             ->getRepository('AppBundle:FrontPage')
@@ -73,10 +47,9 @@ class DefaultController extends Controller {
             ->findAll();
 
         $total = array_reduce($donations, function ($i, Donation $obj) {
-            return $i += $obj->getAmount();
+            $i += $obj->getAmount();
+            return $i;
         });
-
-        $this->addVisit("/", "Index", $request);
 
         return $this->render('AppBundle::index.html.twig', array(
             'frontPages' => $frontPages,
@@ -87,21 +60,19 @@ class DefaultController extends Controller {
 
     /**
      * @Route("/impressum", name="impressum")
-     * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
+     * @internal param Request $request
      */
-    public function imprintAction(Request $request) {
-        $this->addVisit("/impressum", "Impressum", $request);
+    public function imprintAction() {
         return $this->render('@App/impressum.html.twig');
     }
 
     /**
      * @Route("/datenschutz", name="datenschutz")
-     * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
+     * @internal param Request $request
      */
-    public function datenschutzAction(Request $request) {
-        $this->addVisit("/datenschutz", "Datenschutz", $request);
+    public function datenschutzAction() {
         return $this->render('@App/datenschutz.html.twig');
     }
 
@@ -111,12 +82,10 @@ class DefaultController extends Controller {
      * @Route("/{UURL}", name="profile_show", requirements={"UURL" = "barthy|invo|enna|wuis"})
      * @Method("GET")
      * @param FrontPage $frontPage
-     * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
+     * @internal param Request $request
      */
-    public function showAction(FrontPage $frontPage, Request $request) {
-        $this->addVisit("/" . $frontPage->getUURL(), $frontPage->getName(), $request);
-
+    public function showAction(FrontPage $frontPage) {
         return $this->render('AppBundle:frontpage:show.html.twig', array(
             'frontPage' => $frontPage,
         ));
@@ -151,7 +120,7 @@ class DefaultController extends Controller {
      * @Route("donate", name="donate_external")
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function donateExternalAction(){
+    public function donateExternalAction() {
         return $this->redirect("https://www.aerzte-ohne-grenzen.de/spenden-sammeln?cfd=barthyb");
     }
 

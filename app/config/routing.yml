@@ -3,8 +3,7 @@ app:
     type:     annotation
 
 easy_admin_bundle:
-    #resource: "@EasyAdminBundle/Controller/"
-    resource: "@AppBundle/Controller/EasyController.php"
+    resource: "@EasyAdminBundle/Controller/"
     type:     annotation
     prefix:   /admin/
 

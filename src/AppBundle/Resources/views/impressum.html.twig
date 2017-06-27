@@ -5,12 +5,12 @@
 {% block description %}{% endblock %}
 {% block og_description %}{% endblock %}
 
-{% block bodyclass %}impressum{% endblock %}
-
 {% block body %}
+
     {% include '@App/nav.html.twig' with {'index': false} %}
-    <div class="container header min-height">
-        <div class="row">
+
+    <div class="container py-5 mt-5">
+        <div class="row py-2">
             <div class="col-lg-6">
                 <h1>Impressum</h1>
                 <p>Barthélémy Bonhomme</p>
@@ -21,5 +21,7 @@
             </div>
         </div>
     </div>
+
     {% include '@App/footer.html.twig' %}
+
 {% endblock %}

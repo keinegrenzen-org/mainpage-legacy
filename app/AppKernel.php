@@ -12,7 +12,6 @@ class AppKernel extends Kernel
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),
             new Symfony\Bundle\TwigBundle\TwigBundle(),
             new Symfony\Bundle\MonologBundle\MonologBundle(),
-            new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new AppBundle\AppBundle(),
@@ -25,7 +24,6 @@ class AppKernel extends Kernel
             new JMS\AopBundle\JMSAopBundle(),
             new JavierEguiluz\Bundle\EasyAdminBundle\EasyAdminBundle(),
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
-            new Gregwar\ImageBundle\GregwarImageBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

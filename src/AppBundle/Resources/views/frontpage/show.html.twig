@@ -31,7 +31,7 @@
         <div class="row align-items-center justify-content-center justify-content-md-start page-title">
             <div class="profile-header-content">
                 <div class="rounded-circle image-container d-flex justify-content-center align-content-center mb-3">
-                    <img src="{{ web_image(frontPage.image.webPath) }}"
+                    <img src="{{ asset(frontPage.image.webPath) }}"
                          alt="{{ frontPage.name ~ ' - ' ~ 'frontpage.image'|trans }}" itemprop="image">
                 </div>
                 <div class="title-container py-3 px-1">
@@ -165,7 +165,7 @@
             <div class="col-md-2 col-xs-6 text-right">
                 <p><span class="now-playing-elapsed"></span>/<span class="now-playing-length"></span></p>
             </div>
-            <hr class="w-100" />
+            <hr class="w-100"/>
             <div class="col-md-10 offset-md-2 col-xs-12">
                 <p><span class="now-playing-album text-primary"></span> - <span class="now-playing-song"></span></p>
             </div>
@@ -176,12 +176,7 @@
 
 {% block javascripts %}
     {{ parent() }}
-    <script src="https://w.soundcloud.com/player/api.js"></script>
-    {% javascripts
-    'assets/vendor/js-url/url.min.js'
-    'assets/vendor/soundcloud-audio/dist/soundcloud-audio.min.js'
-    'assets/vendor/jquery-confirm/dist/jquery-confirm.min.js'
-    '@AppBundle/Resources/public/js/profile.js' %}
-    <script src="{{ asset_url }}"></script>
-    {% endjavascripts %}
+    <script src="{{ asset('assets/vendor/soundcloud-audio/dist/soundcloud-audio.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/jquery-confirm/dist/jquery-confirm.min.js') }}"></script>
+    <script src="{{ asset('bundles/app/dist/js/profile.min.js') }}"></script>
 {% endblock %}

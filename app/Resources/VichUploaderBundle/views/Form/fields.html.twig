@@ -25,7 +25,7 @@
             {% if download_uri is defined and download_uri %}
                 <div class="imageContainer">
                     <a href="{{ download_uri }}">
-                        <img src="{{ web_image(download_uri) }}" alt="" />
+                        <img src="{{ asset(download_uri) }}" alt="" />
                     </a>
                 </div>
             {% endif %}

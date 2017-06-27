@@ -1,17 +1,17 @@
-var gulp = require('gulp');
-var uglify = require('gulp-uglify');
-var watch = require('gulp-watch');
-var rename = require('gulp-rename');
-var sass = require('gulp-sass');
-var babel = require('gulp-babel');
+const gulp = require('gulp');
+const uglify = require('gulp-uglify');
+const watch = require('gulp-watch');
+const rename = require('gulp-rename');
+const sass = require('gulp-sass');
+const babel = require('gulp-babel');
 
-var src = {
+const src = {
     scss: ['./src/AppBundle/Resources/private/scss/**/*.scss'],
     es6: ['./src/AppBundle/Resources/private/es6/**/*.js']
 };
 
-var publishdir = './src/AppBundle/Resources/public/dist';
-var dist = {
+const publishdir = './src/AppBundle/Resources/public/dist';
+const dist = {
     css: publishdir + '/css/',
     js: publishdir + '/js/'
 };
@@ -36,6 +36,7 @@ function buildCSS() {
 }
 
 function buildJS() {
+
     return gulp.src(src.es6)
         .pipe(
             babel({
@@ -54,16 +55,16 @@ function buildJS() {
 gulp.task('css', buildCSS);
 gulp.task('js', buildJS);
 
-gulp.task('watch', function() {
+gulp.task('watch', function () {
     gulp.watch(src.scss, ['css'])
         .on('change', function () {
             const date = new Date();
-            console.log('-> bundling CSS @ ' + date.toString());
+            console.info('-> bundling CSS @ ' + date.toString());
         });
     gulp.watch(src.es6, ['js'])
         .on('change', function () {
             const date = new Date();
-            console.log('-> bundling JS @ ' + date.toString());
+            console.info('-> bundling JS @ ' + date.toString());
         });
 });
 

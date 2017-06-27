@@ -1,9 +1,12 @@
+import SoundCloudPlayer from "../Components/SoundCloudPlayer";
+
 $(document).ready(() => {
+
     $("a[href^='#']").on('click', e => {
         e.preventDefault();
 
         let hash = $(e.currentTarget).attr('href');
-        if(hash === '#'){
+        if (hash === '#') {
             hash = 'header';
         }
 
@@ -17,4 +20,10 @@ $(document).ready(() => {
             }
         );
     });
+
+    const $globalPlayer = $('.global-player');
+    if ($globalPlayer.length) {
+        new SoundCloudPlayer($globalPlayer);
+    }
+
 });
