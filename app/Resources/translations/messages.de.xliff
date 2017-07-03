@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2017-06-27T13:54:50Z" source-language="en" target-language="de" datatype="plaintext" original="not.available">
+  <file date="2017-06-27T16:06:32Z" source-language="en" target-language="de" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -137,7 +137,7 @@ Bitte versuchen Sie es zu einem späteren Zeitpunkt noch ein Mal oder kontaktier
       </trans-unit>
       <trans-unit id="964ce344aaafa8e36bdea9da427d8dda5eeae869" resname="index.a.see_all_artists">
         <source>index.a.see_all_artists</source>
-        <target state="new">index.a.see_all_artists</target>
+        <target>Alle Künstler sehen</target>
         <jms:reference-file line="36">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="57aef9674791eec5ff26ba4cae6a4b868ee0c6df" resname="index.donation.ave.1">
@@ -198,7 +198,7 @@ Unsere Musik und Leidenschaft ist ein Dankeschön für Ihre Menschlichkeit und H
       </trans-unit>
       <trans-unit id="c330892507cc988b6c26f9867be196871acb4461" resname="index.page-title.2">
         <source>index.page-title.2</source>
-        <target state="new">index.page-title.2</target>
+        <target>Gutes tun für gute Musik</target>
         <jms:reference-file line="10">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="f4f488c11be4f2014ec798de06994bc1212ddecd" resname="link.label.title">
@@ -331,7 +331,7 @@ Unsere Musik und Leidenschaft ist ein Dankeschön für Ihre Menschlichkeit und H
       </trans-unit>
       <trans-unit id="f15c9040f6747db2994784967e67c80f6661de91" resname="support.fb.title">
         <source>support.fb.title</source>
-        <target state="new">support.fb.title</target>
+        <target>Facebook</target>
         <jms:reference-file line="158">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
         <jms:reference-file line="160">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
       </trans-unit>
@@ -343,13 +343,13 @@ Vielen Dank!</target>
       </trans-unit>
       <trans-unit id="89caac9765d984700356d5f1e285d42871667113" resname="support.tw.title">
         <source>support.tw.title</source>
-        <target state="new">support.tw.title</target>
+        <target>Twitter</target>
         <jms:reference-file line="153">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
         <jms:reference-file line="155">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="6794f3b46652850a3c5116dbcf12836159d4da29" resname="to_the_top">
         <source>to_the_top</source>
-        <target state="new">to_the_top</target>
+        <target>Nach oben</target>
         <jms:reference-file line="6">/../src/AppBundle/Resources/views/footer.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="2fca7fabaf37f42f46d8b58f9ae529fcacbef3e6" resname="tracklist">

@@ -21,9 +21,9 @@ $(document).ready(() => {
         );
     });
 
+    // Initialize SoundCloud if found
     const $globalPlayer = $('.global-player');
     if ($globalPlayer.length) {
         new SoundCloudPlayer($globalPlayer);
     }
-
 });

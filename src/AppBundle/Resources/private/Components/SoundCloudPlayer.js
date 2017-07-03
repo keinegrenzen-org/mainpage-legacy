@@ -4,9 +4,80 @@
 
 export default class SoundCloudPlayer {
 
+    get $nowPlayingProgress() {
+        return this._$nowPlayingProgress;
+    }
+
+    set $nowPlayingProgress(value) {
+        this._$nowPlayingProgress = value;
+    }
+
+    get $nowPlayingSong() {
+        return this._$nowPlayingSong;
+    }
+
+    set $nowPlayingSong(value) {
+        this._$nowPlayingSong = value;
+    }
+
+    get $nowPlayingAlbum() {
+        return this._$nowPlayingAlbum;
+    }
+
+    set $nowPlayingAlbum(value) {
+        this._$nowPlayingAlbum = value;
+    }
+
+    get $nowPlayingLength() {
+        return this._$nowPlayingLength;
+    }
+
+    set $nowPlayingLength(value) {
+        this._$nowPlayingLength = value;
+    }
+
+    get $nowPlayingElapsed() {
+        return this._$nowPlayingElapsed;
+    }
+
+    set $nowPlayingElapsed(value) {
+        this._$nowPlayingElapsed = value;
+    }
+
+    get $btnBackward() {
+        return this._$btnBackward;
+    }
+
+    set $btnBackward(value) {
+        this._$btnBackward = value;
+    }
+
+    get $btnForward() {
+        return this._$btnForward;
+    }
+
+    set $btnForward(value) {
+        this._$btnForward = value;
+    }
+
+    get $btnPause() {
+        return this._$btnPause;
+    }
+
+    set $btnPause(value) {
+        this._$btnPause = value;
+    }
+
+    get $btnPlay() {
+        return this._$btnPlay;
+    }
+
+    set $btnPlay(value) {
+        this._$btnPlay = value;
+    }
+
     constructor($container) {
         this.players = [];
-        this.playlists = [];
 
         this.$btnPlay = $container.find('.fa-play');
         this.$btnPause = $container.find('.fa-pause');
@@ -22,7 +93,7 @@ export default class SoundCloudPlayer {
         this.currentSong = 0;
 
         const $embeds = $('.album-embed');
-        $embeds.each((embedElement, embedIndex) => {
+        $embeds.each((embedIndex, embedElement) => {
             const player = new SoundCloudAudio('3f0c2df99a948f8142621535b3b4ba73');
             this.players.push(player);
 
@@ -32,7 +103,6 @@ export default class SoundCloudPlayer {
             player.resolve(
                 $embedElement.attr('data-sc'),
                 playlist => {
-                    this.playlists.push(playlist);
                     const tracks = playlist.tracks,
                         $list = $embedElement.find('.list-group');
 
@@ -47,7 +117,7 @@ export default class SoundCloudPlayer {
 
                         $list.append($listItem);
                         $listItem.on('click', () => {
-                            this.togglePlay(embedIndex, i, true);
+                            this.play(embedIndex, i);
                         });
                     }
 
@@ -63,34 +133,34 @@ export default class SoundCloudPlayer {
                     player.on('ended', () => {
                         const next = this.currentSong + 1;
                         if (next < tracks.length) {
-                            this.togglePlay(embedIndex, next, true);
+                            this.play(embedIndex, next);
                         }
                     });
 
-                    if (embedIndex === $embeds.length) {
-                        this.togglePlay(this.currentPlayer, this.currentSong, false);
+                    if (embedIndex === 0) {
+                        this.updatePlayer();
                     }
                 }
             );
         });
 
         this.$btnPlay.on('click', () => {
-            this.togglePlay(this.currentPlayer, this.currentSong, true);
+            this.play(this.currentPlayer, this.currentSong);
         });
 
         this.$btnPause.on('click', () => {
-            this.togglePause(this.currentPlayer, this.currentSong);
+            this.pause(this.currentPlayer, this.currentSong);
         });
 
         this.$btnForward.on('click', () => {
-            if (this.currentSong + 1 < this.playlists[this.currentPlayer].tracks.length) {
-                this.togglePlay(this.currentPlayer, this.currentSong + 1, true);
+            if (this.currentSong + 1 < this.players[this.currentPlayer]._playlist.tracks.length) {
+                this.play(this.currentPlayer, this.currentSong + 1);
             }
         });
 
         this.$btnBackward.on('click', () => {
             if (this.currentSong - 1 >= 0) {
-                this.togglePlay(this.currentPlayer, this.currentSong - 1, true);
+                this.play(this.currentPlayer, this.currentSong - 1);
             }
         });
     }
@@ -125,41 +195,36 @@ export default class SoundCloudPlayer {
         $temp.after($that).remove();
     };
 
-    togglePlay(playerIndex, songIndex, b) {
+    play(playerIndex, songIndex) {
         if (this.currentPlayer !== playerIndex) {
             this.players[this.currentPlayer].pause({
                 playlistIndex: this.currentSong
             });
-            if (b) {
-                this.players[playerIndex].play({
-                    playlistIndex: songIndex
-                });
-                this.currentPlayer = playerIndex;
-            }
-        } else if (b && !this.players[playerIndex].playing) {
-            this.$btnPlay.fadeToggle(200, 'linear', function () {
-                this.$btnPause.fadeToggle(200);
-            });
-            this.players[playerIndex].play({
-                playlistIndex: songIndex
-            });
-        } else if (b && this.players[playerIndex]._playlistIndex !== songIndex) {
             this.players[playerIndex].play({
                 playlistIndex: songIndex
             });
         }
 
-        this.$nowPlayingLength.text(SoundCloudPlayer.formatTime(this.playlists[playerIndex].tracks[songIndex].duration, true));
-        this.$nowPlayingAlbum.text(this.playlists[playerIndex].title);
-        this.$nowPlayingSong.text(this.playlists[playerIndex].tracks[songIndex].title);
+        if (!this.players[playerIndex].playing) {
+            this.$btnPlay.fadeToggle(200, 'linear', () => {
+                this.$btnPause.fadeToggle(200);
+            });
+        }
+        if (this.players[playerIndex]._playlistIndex !== songIndex) {
+            this.players[playerIndex].play({
+                playlistIndex: songIndex
+            });
+        }
 
         this.currentPlayer = playerIndex;
         this.currentSong = songIndex;
+
+        this.updatePlayer();
     };
 
-    togglePause(playerIndex, songIndex) {
+    pause(playerIndex, songIndex) {
         if (this.players[playerIndex].playing) {
-            this.$btnPause.fadeToggle(200, 'linear', function () {
+            this.$btnPause.fadeToggle(200, 'linear', () => {
                 this.$btnPlay.fadeToggle(200);
             });
             this.players[playerIndex].pause({
@@ -167,5 +232,14 @@ export default class SoundCloudPlayer {
             });
         }
     };
+
+    updatePlayer() {
+        if(this.$nowPlayingElapsed.text().length === 0){
+            this.$nowPlayingElapsed.text("00:00");
+        }
+        this.$nowPlayingLength.text(SoundCloudPlayer.formatTime(this.players[this.currentPlayer]._playlist.tracks[this.currentSong].duration, true));
+        this.$nowPlayingAlbum.text(this.players[this.currentPlayer]._playlist.title);
+        this.$nowPlayingSong.text(this.players[this.currentPlayer]._playlist.tracks[this.currentSong].title);
+    }
 
 }

@@ -79,6 +79,10 @@ $enable-print-styles: true !default;
   line-height: 1.75rem;
 }
 
+.initially-hidden {
+  display: none;
+}
+
 body, html {
   height: 100%;
   font-family: "Oswald", sans-serif;
@@ -395,6 +399,7 @@ section.artist-discography {
         background: transparent;
         border: 0;
         border-bottom: 1px solid;
+        cursor: pointer;
 
         .track-number {
           width: 10%;
@@ -423,6 +428,11 @@ section.artist-discography {
     line-height: 2.5rem;
   }
 
+  .now-playing-elapsed,
+  .now-playing-length {
+    font-size: 1.2rem;
+  }
+
   .progress {
     height: 1rem;
     margin-top: (2.5rem - 1rem) / 2;
@@ -438,6 +448,9 @@ section.artist-discography {
     font-weight: 400;
   }
 
+  .fa {
+    cursor: pointer;
+  }
 }
 
 @include media-breakpoint-up(sm) {

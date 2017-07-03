@@ -81,7 +81,7 @@
     <section class="container py-5 artist-discography">
         {% for album in frontPage.albums %}
             <div class="row py-2 my-2">
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 album-art-container">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 px-2 album-art-container">
                     <div class="album-art" itemprop="album" itemscope itemtype="http://schema.org/MusicAlbum"
                          data-uurl="{{ album.UURL }}">
                         <meta itemprop="description" content="{{ album.description }}"/>
@@ -124,7 +124,7 @@
                             </div>
                         </div>
                         <div class="col-12">
-                            <a class="btn btn-primary pull-right toggle-dl-dialog" target="_blank"
+                            <a class="btn btn-primary pull-right toggle-dl-dialog mt-2" target="_blank"
                                href="https://www.aerzte-ohne-grenzen.de/spenden-sammeln?cfd=barthyb"
                                data-title="{{ 'download_dialog.title'|trans }}"
                                data-text="{{ 'download_dialog.text'|trans }}"
@@ -148,7 +148,7 @@
                 <span class="fa fa-play fa-fw fa-2x">
                     <i class="sr-only">{{ 'play'|trans }}</i>
                 </span>
-                <span class="fa fa-pause fa-fw fa-2x d-none">
+                <span class="fa fa-pause fa-fw fa-2x initially-hidden">
                     <i class="sr-only">{{ 'pause'|trans }}</i>
                 </span>
                 <span class="fa fa-forward fa-fw fa-2x">
@@ -162,7 +162,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-2 col-xs-6 text-right">
+            <div class="col-md-2 col-sm-8 col-xs-6 text-right">
                 <p><span class="now-playing-elapsed"></span>/<span class="now-playing-length"></span></p>
             </div>
             <hr class="w-100"/>
