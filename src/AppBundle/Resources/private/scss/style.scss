@@ -189,8 +189,8 @@ header {
     padding-bottom: 56px;
 
     .image-container {
-      width: 75%;
-      padding-bottom: 75%;
+      width: 55%;
+      padding-bottom: 55%;
       overflow: hidden;
       margin-left: auto;
       margin-right: auto;
@@ -474,7 +474,7 @@ section.artist-discography {
   header {
     .page-title {
       h1 {
-        font-size: 4rem;
+        font-size: 3rem;
       }
 
       h2 {
@@ -494,16 +494,6 @@ section.artist-discography {
 
 @include media-breakpoint-up(lg) {
   header {
-    .page-title {
-      h1 {
-        font-size: 5rem;
-      }
-
-      h2 {
-        font-size: 1.75rem;
-      }
-    }
-
     &.profile-header {
 
       .profile-header-content {
