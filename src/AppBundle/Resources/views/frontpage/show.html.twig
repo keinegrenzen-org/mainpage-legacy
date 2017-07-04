@@ -29,6 +29,14 @@
     <header class="container-fluid profile-header text-center"
             style="background-image: url({{ asset(frontPage.cover.webPath) }});">
         <div class="row align-items-center justify-content-center justify-content-md-start page-title">
+            {% if not is_mobile() %}
+                <div class="video-container">
+                    <video width="auto" height="100%">
+                        <source src="{{ asset(frontPage.video) }}" type="video/mp4">
+                        {{ 'no-video'|trans }}
+                    </video>
+                </div>
+            {% endif %}
             <div class="profile-header-content">
                 <div class="rounded-circle image-container d-flex justify-content-center align-content-center mb-3">
                     <img src="{{ asset(frontPage.image.webPath) }}"

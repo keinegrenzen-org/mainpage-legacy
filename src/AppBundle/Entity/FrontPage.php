@@ -109,6 +109,13 @@ class FrontPage {
     private $albums;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="video", type="string", length=160, nullable=true)
+     */
+    private $video;
+
+    /**
      * @var boolean
      *
      * @ORM\Column(name="public", type="boolean")
@@ -376,5 +383,19 @@ class FrontPage {
      */
     public function setShortName($shortName) {
         $this->shortName = $shortName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getVideo() {
+        return $this->video;
+    }
+
+    /**
+     * @param string $video
+     */
+    public function setVideo($video) {
+        $this->video = $video;
     }
 }
