@@ -12,6 +12,7 @@ const es = require('event-stream');
 
 const src = {
     scss: './src/AppBundle/Resources/private/scss/**/*.scss',
+    partials: './src/AppBundle/Resources/private/partials/**/*.scss',
     es6: './src/AppBundle/Resources/private/es6/**/*.js',
     components: './src/AppBundle/Resources/private/Components/**/*.js',
 };
@@ -68,7 +69,7 @@ gulp.task('css', buildCSS);
 gulp.task('js', buildJS);
 
 gulp.task('watch', function () {
-    gulp.watch(src.scss, ['css'])
+    gulp.watch([src.scss, src.partials], ['css'])
         .on('change', function () {
             const date = new Date();
             console.info('-> bundling CSS @ ' + date.toString());

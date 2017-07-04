@@ -19,3 +19,5 @@ var/sessions/
 web/bundles/
 web/cache/
 web/.htaccess
+
+vendor/

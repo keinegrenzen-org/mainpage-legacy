@@ -116,6 +116,13 @@ class FrontPage {
     private $video;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="youtube_link", type="string", length=160, nullable=true)
+     */
+    private $youtubeLink;
+
+    /**
      * @var boolean
      *
      * @ORM\Column(name="public", type="boolean")
@@ -397,5 +404,19 @@ class FrontPage {
      */
     public function setVideo($video) {
         $this->video = $video;
+    }
+
+    /**
+     * @return string
+     */
+    public function getYoutubeLink() {
+        return $this->youtubeLink;
+    }
+
+    /**
+     * @param string $youtubeLink
+     */
+    public function setYoutubeLink($youtubeLink) {
+        $this->youtubeLink = $youtubeLink;
     }
 }

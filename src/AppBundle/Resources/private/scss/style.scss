@@ -47,6 +47,7 @@ $enable-print-styles: true !default;
 
 @import "../../../../../web/assets/vendor/bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Oswald:400,700,300');
+@import "../Partials/animations";
 
 // Extra small devices (portrait phones, less than 576px)
 // No media query since this is the default in Bootstrap
@@ -83,6 +84,14 @@ $enable-print-styles: true !default;
   display: none;
 }
 
+.transition-wh {
+  -webkit-transition: width .3s ease, height .3s ease;
+  -moz-transition: width .3s ease, height .3s ease;
+  -ms-transition: width .3s ease, height .3s ease;
+  -o-transition: width .3s ease, height .3s ease;
+  transition: width .3s ease, height .3s ease;
+}
+
 body, html {
   height: 100%;
   font-family: "Oswald", sans-serif;
@@ -101,7 +110,7 @@ h1, h2 {
 }
 
 nav.navbar {
-  background-color: $gray-dark;
+  background-color: rgba($black, 0.5);
   min-height: 3.5em;
 
   .navbar-brand {
@@ -182,41 +191,40 @@ header {
         border-color: $gray-lightest;
       }
     }
+
+    .arrow-bounce {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      color: $white;
+      font-size: 1.2rem;
+      text-align: center;
+      animation: bounce 4s infinite;
+      animation-delay: 4s;
+      cursor: pointer;
+      text-decoration: none;
+
+      a {
+        color: $white;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
   }
 
   &.profile-header {
-    $navbar-height: 56px;
-    padding-top: $navbar-height;
-    padding-bottom: $navbar-height;
-
-    .image-container {
-      width: 55%;
-      padding-bottom: 55%;
-      overflow: hidden;
-      margin-left: auto;
-      margin-right: auto;
-      border: 3px solid $white;
-      position: relative;
-
-      img {
-        height: 100%;
-        width: auto;
-        position: absolute;
-      }
-    }
-
-    .title-container {
-      background-color: rgba(0, 0, 0, 0.3);
-    }
 
     .video-container {
       // see: https://codepen.io/shshaw/pen/OVGWLG
       position: absolute;
-      top: $navbar-height;
+      top: 0;
       bottom: 0;
       width: 100%;
-      height: 100%;
       overflow: hidden;
+      z-index: 0;
 
       video {
         /* Make video to at least 100% wide and tall */
@@ -231,15 +239,80 @@ header {
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%,-50%);
+        transform: translate(-50%, -50%);
       }
-
     }
 
-    .profile-header-content {
-      width: 90%;
-      margin-left: 5%;
-      margin-right: 5%;
+    .page-title {
+
+      .profile-header-content {
+        width: 40%;
+        margin-left: 5%;
+        margin-right: 5%;
+        z-index: 10;
+        cursor: pointer;
+
+        .image-container {
+          width: 55%;
+          padding-bottom: 55%;
+          overflow: hidden;
+          margin-left: auto;
+          margin-right: auto;
+          border: 3px solid $white;
+          position: relative;
+
+          img {
+            height: 100%;
+            width: auto;
+            position: absolute;
+          }
+        }
+
+        .title-container {
+          background-color: rgba(0, 0, 0, 0.3);
+
+          h1 {
+            font-size: 2rem;
+          }
+
+          h2 {
+            font-size: 1.2rem;
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      &.small {
+        justify-content: flex-start !important;
+        align-content: flex-end !important;
+
+        .profile-header-content {
+          position: relative;
+          margin-top: auto;
+
+          .image-container {
+            left: 5%;
+            width: 40%;
+            padding-bottom: 40%;
+            z-index: 11 !important;
+            margin: 0;
+          }
+
+          .title-container {
+            position: absolute;
+            left: 0;
+            padding-left: 50% !important;
+            padding-right: 5% !important;
+            z-index: 10 !important;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            transform: translateY(-50%);
+          }
+        }
+      }
     }
   }
 }
@@ -499,7 +572,8 @@ section.artist-discography {
 }
 
 @include media-breakpoint-up(md) {
-  header {
+
+  header:not(.profile-header) {
     .page-title {
       h1 {
         font-size: 3rem;
@@ -521,14 +595,6 @@ section.artist-discography {
 }
 
 @include media-breakpoint-up(lg) {
-  header {
-    &.profile-header {
-
-      .profile-header-content {
-        width: 40%;
-      }
-    }
-  }
 
   section.statistics {
     span {
@@ -546,7 +612,7 @@ section.artist-discography {
 }
 
 @include media-breakpoint-up(xl) {
-  header {
+  header:not(.profile-header) {
     .page-title {
       font-size: 6rem;
     }

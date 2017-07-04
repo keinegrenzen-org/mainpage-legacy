@@ -28,16 +28,16 @@
 
     <header class="container-fluid profile-header text-center"
             style="background-image: url({{ asset(frontPage.cover.webPath) }});">
-        <div class="row align-items-center justify-content-center justify-content-md-start page-title">
+        <div class="row align-items-center justify-content-center page-title">
             {% if not is_mobile() %}
                 <div class="video-container">
-                    <video width="auto" height="100%">
+                    <video autoplay loop>
                         <source src="{{ asset(frontPage.video) }}" type="video/mp4">
                         {{ 'no-video'|trans }}
                     </video>
                 </div>
             {% endif %}
-            <div class="profile-header-content">
+            <div class="profile-header-content mb-2">
                 <div class="rounded-circle image-container d-flex justify-content-center align-content-center mb-3">
                     <img src="{{ asset(frontPage.image.webPath) }}"
                          alt="{{ frontPage.name ~ ' - ' ~ 'frontpage.image'|trans }}" itemprop="image">
@@ -51,10 +51,13 @@
                     </h2>
                 </div>
             </div>
+            <div class="arrow-bounce pb-5">
+                <a class="fa fa-angle-double-down fa-2x fa-fw" href="#vita"></a>
+            </div>
         </div>
     </header>
 
-    <section class="container py-5 artist-bio">
+    <section class="container py-5 artist-bio" id="vita">
         <div class="row py-2">
             <div class="col-lg-12">
                 <h2>{{ 'profile.h2.bio'|trans }} & {{ 'profile.h2.albums'|trans }}</h2>
