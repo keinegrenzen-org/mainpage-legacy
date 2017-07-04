@@ -2,7 +2,7 @@
   "name": "keinegrenzen",
   "homepage": "https://www.keinegrenzen.org",
   "authors": [
-    "Barthy B. <barthy.bonhomme@gmail.com>"
+    "Barthy B. <post@barthy.koeln>"
   ],
   "description": "",
   "main": "",
@@ -16,16 +16,12 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "^3.3.7",
     "jquery": "^1.9.1",
-    "bootstrap-social": "^5.1.1",
     "font-awesome": "^4.7.0",
-    "waypoints": "^4.0.1",
     "imagesloaded": "^4.1.1",
     "color-thief": "^2.0.1",
-    "js-url": "^2.4.0",
     "soundcloud-audio": "^1.1.0",
-    "jquery-confirm": "^2.7.0",
-    "jquery-confirm2": "craftpip/jquery-confirm#^3.0.3"
+    "jquery-confirm": "craftpip/jquery-confirm#^3.2.3",
+    "bootstrap": "v4.0.0-alpha.6"
   }
 }

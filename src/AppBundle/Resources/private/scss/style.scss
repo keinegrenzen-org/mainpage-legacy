@@ -1,0 +1,526 @@
+// General variable structure
+//
+// Variable format should follow the `$component-modifier-state-property` order.
+
+// Colors
+//
+// Grayscale and brand colors for use across Bootstrap.
+
+// Start with assigning color names to specific hex values.
+$white: #fff !default;
+$black: #000 !default;
+$red: #d9534f !default;
+$orange: #f0ad4e !default;
+$yellow: #ffd500 !default;
+$green: #5cb85c !default;
+$blue: #00a8ff !default;
+$teal: #00eaff !default;
+$pink: #ff5b77 !default;
+$purple: #613d7c !default;
+
+// Create grayscale
+$gray-dark: #333333 !default;
+$gray: lighten(#333333, 20%) !default;
+$gray-light: lighten(#333333, 35%) !default;
+$gray-lighter: lighten(#333333, 50%) !default;
+$gray-lightest: lighten(#333333, 65%) !default;
+
+// Reassign color vars to semantic color scheme
+$brand-primary: $blue !default;
+$brand-success: $green !default;
+$brand-info: $teal !default;
+$brand-warning: $orange !default;
+$brand-danger: $red !default;
+$brand-inverse: $gray-dark !default;
+
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+
+$enable-rounded: false !default;
+$enable-shadows: true !default;
+$enable-gradients: false !default;
+$enable-transitions: true !default;
+$enable-hover-media-query: false !default;
+$enable-grid-classes: true !default;
+$enable-print-styles: true !default;
+
+@import "../../../../../web/assets/vendor/bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Oswald:400,700,300');
+
+// Extra small devices (portrait phones, less than 576px)
+// No media query since this is the default in Bootstrap
+
+// BTN SHADOW
+
+.btn:active, .btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.btn-shadow {
+  box-shadow: rgba(0, 34, 55, 0.24) 0 0.45rem 1.75rem 0;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.09);
+
+  &:hover,
+  &:focus {
+    color: #fff;
+    text-decoration: none;
+    box-shadow: rgba(0, 34, 55, 0.3) 0 0.45rem 1.75rem 0;
+  }
+
+  &:active {
+    box-shadow: rgba(0, 34, 55, 0.24) 0 0.45rem 1.75rem 0, inset 0 2px 3px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.text-big {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.initially-hidden {
+  display: none;
+}
+
+body, html {
+  height: 100%;
+  font-family: "Oswald", sans-serif;
+  font-weight: 300;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+h1, h2 {
+  border-bottom: 1px solid $brand-primary;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  display: inline-flex;
+}
+
+nav.navbar {
+  background-color: $gray-dark;
+  min-height: 3.5em;
+
+  .navbar-brand {
+    z-index: $zindex-navbar;
+    position: absolute;
+    top: 10px;
+  }
+
+  .navbar-toggler {
+    font-size: 1.5em;
+
+    &:active, &:focus {
+      outline: none;
+    }
+
+    .navbar-toggler-icon {
+      color: $white;
+      height: auto;
+    }
+  }
+
+  .nav-item {
+    text-align: center;
+
+    .nav-link {
+      color: $white;
+      text-transform: uppercase;
+
+      &:active, &:focus, &:hover {
+        color: $gray-lightest;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+header {
+  height: 100%;
+  background: url('../../images/lightroom/kgo_02.jpg') no-repeat center;
+  background-size: cover;
+
+  .row {
+    height: 100%;
+  }
+
+  .page-title {
+    font-size: 3rem;
+    color: $white;
+    text-transform: uppercase;
+    font-weight: 700;
+
+    h1, h2 {
+      padding: 0;
+      border: 0;
+      display: block;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 400;
+    }
+
+    strong {
+      color: $brand-primary;
+    }
+
+    .btn {
+      color: $white;
+      background-color: transparent;
+      border-color: $white;
+
+      &:hover, &:active, &:focus {
+        color: $gray-lightest;
+        border-color: $gray-lightest;
+      }
+    }
+  }
+
+  &.profile-header {
+    padding-top: 56px;
+    padding-bottom: 56px;
+
+    .image-container {
+      width: 55%;
+      padding-bottom: 55%;
+      overflow: hidden;
+      margin-left: auto;
+      margin-right: auto;
+      border: 3px solid $white;
+      position: relative;
+
+      img {
+        height: 100%;
+        width: auto;
+        position: absolute;
+      }
+    }
+
+    .title-container {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    .profile-header-content {
+      width: 90%;
+      margin-left: 5%;
+      margin-right: 5%;
+    }
+  }
+}
+
+section.intro {
+
+  .btn {
+    width: 40%;
+  }
+}
+
+section.statistics {
+  background: url('../../images/lightroom/kgo_01.jpg') no-repeat center;
+  background-size: cover;
+
+  span {
+    display: block;
+    font-size: 2rem;
+    line-height: 2rem;
+    height: 2rem;
+    color: $white;
+    text-transform: uppercase;
+    text-shadow: 0 5px 10px rgba(0, 34, 55, 0.3);
+
+    &.double {
+      font-size: 6rem;
+      line-height: 6rem;
+      height: 6rem;
+      color: $brand-primary;
+      font-weight: 700;
+      text-shadow: none;
+    }
+  }
+}
+
+section.artists {
+
+  .artist-col {
+
+    .artist-preview {
+      background-color: lighten($gray-lightest, 7.5%);
+
+      .artist-img {
+        overflow: hidden;
+        height: 250px;
+
+        img {
+          height: 100%;
+          width: auto;
+        }
+      }
+
+      .artist-genre {
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        color: $gray;
+      }
+    }
+  }
+}
+
+section.support {
+  background: url('../../images/lightroom/kgo_04.jpg') no-repeat center;
+  background-size: cover;
+  height: 75%;
+
+  .overlay {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .btn-fb {
+    background-color: #3b5998;
+    border-color: #3b5998;
+    color: $white;
+  }
+
+  .btn-tw {
+    background-color: #1da1f2;
+    border-color: #1da1f2;
+    color: $white;
+  }
+}
+
+footer {
+  background-color: $gray-lightest;
+  color: $white;
+  position: relative;
+
+  .btn-top {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    top: -50%;
+    left: 50%;
+    display: block;
+    transform: translateX(-50%);
+    background-color: $white;
+    color: $gray;
+
+    > span {
+      &:before {
+        font-size: 1.5rem;
+        width: 50px;
+        height: 50px;
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        line-height: 45px;
+      }
+    }
+  }
+
+  small, p {
+    color: $gray;
+
+    .fa-heart {
+      color: $brand-primary;
+    }
+  }
+
+}
+
+section.artist-bio {
+
+  .citations {
+
+    em {
+      line-height: 1rem;
+      vertical-align: top;
+
+      &::before {
+        display: inline-block;
+        content: '"';
+        font-size: 2rem;
+        font-weight: 700;
+        margin-right: 5px;
+      }
+    }
+
+  }
+
+}
+
+section.artist-discography {
+
+  .album-art-container {
+
+    .album-art {
+      width: 100%;
+      float: left;
+
+      .image-container {
+        width: 100%;
+        padding-bottom: 100%;
+        overflow: hidden;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+
+        img {
+          height: 100%;
+          width: auto;
+          position: absolute;
+        }
+      }
+    }
+  }
+
+  .album-details-container {
+
+    .album-details {
+
+      *:not(.btn) {
+        border-color: inherit;
+      }
+
+      .fa-soundcloud {
+        color: #ff5500;
+      }
+
+      .list-group-item {
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid;
+        cursor: pointer;
+
+        .track-number {
+          width: 10%;
+        }
+
+        .title {
+          width: 70%;
+          font-weight: 700;
+        }
+
+        .track-duration {
+          width: 20%;
+        }
+      }
+    }
+  }
+}
+
+.global-player {
+
+  .now-playing-elapsed,
+  .now-playing-length,
+  .fa,
+  .progress-container {
+    height: 2.5rem;
+    line-height: 2.5rem;
+  }
+
+  .now-playing-elapsed,
+  .now-playing-length {
+    font-size: 1.2rem;
+  }
+
+  .progress {
+    height: 1rem;
+    margin-top: (2.5rem - 1rem) / 2;
+    margin-bottom: (2.5rem - 1rem) / 2;
+
+    .progress-bar {
+      height: 1rem;
+    }
+  }
+
+  .now-playing-album, .now-playing-song {
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+
+  .fa {
+    cursor: pointer;
+  }
+}
+
+@include media-breakpoint-up(sm) {
+
+  section.statistics {
+    span {
+      font-size: 3rem;
+      line-height: 3rem;
+      height: 3rem;
+
+      &.double {
+        font-size: 8rem;
+        line-height: 8rem;
+        height: 8rem;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  header {
+    .page-title {
+      h1 {
+        font-size: 3rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  section.statistics {
+    span {
+      font-size: 4rem;
+      line-height: 4rem;
+      height: 4rem;
+    }
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  header {
+    &.profile-header {
+
+      .profile-header-content {
+        width: 40%;
+      }
+    }
+  }
+
+  section.statistics {
+    span {
+      font-size: 3rem;
+      line-height: 3rem;
+      height: 3rem;
+
+      &.double {
+        font-size: 8rem;
+        line-height: 8rem;
+        height: 8rem;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  header {
+    .page-title {
+      font-size: 6rem;
+    }
+  }
+}

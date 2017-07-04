@@ -63,21 +63,8 @@ doctrine:
         auto_generate_proxy_classes: "%kernel.debug%"
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
-
-# Swiftmailer Configuration
-swiftmailer:
-    transport: "%mailer_transport%"
-    host:      "%mailer_host%"
-    username:  "%mailer_user%"
-    password:  "%mailer_password%"
-    spool:     { type: memory }
-
-# app/config/config.yml
-assetic:
-    debug:          '%kernel.debug%'
-    use_controller: '%kernel.debug%'
-    filters:
-        cssrewrite: ~
+        filters:
+            published: AppBundle\Doctrine\PublishedFilter
 
 vich_uploader:
     db_driver: orm # or mongodb or propel or phpcr
@@ -106,7 +93,6 @@ easy_admin:
     design:
         form_theme: 'vertical'
         menu:
-            - { entity: 'Page', icon: 'bar-chart', label: 'Pages' }
             - { entity: 'FrontPage', icon: 'user', label: 'Artists' }
             - { entity: 'Album', icon: 'music', label: 'Albums' }
             - { entity: 'Donations', icon: 'money', label: 'Donations' }
@@ -120,22 +106,10 @@ easy_admin:
             css:
                 - '/bundles/app/css/fields.css'
     entities:
-        Page:
-            class: AppBundle\Entity\Page
-            label: Pages
-            disabled_actions: ['show', 'delete', 'edit', 'new']
-            list:
-                fields:
-                    - { property: 'id', label: 'ID', type: 'integer' }
-                    - { property: 'route', label: 'Route', type: 'url' }
-                    - { property: 'name', label: 'Name', type: 'string' }
-                    - { property: 'visits', label: 'Visits', type: 'integer', format: '%d' }
         FrontPage:
             class: AppBundle\Entity\FrontPage
             label: Artists
             list:
-                actions:
-                   - { name: 'frontCSS', label: "Create CSS" }
                 fields:
                     - { property: 'id', label: 'ID', type: 'integer' }
                     - { property: 'url', label: 'URL', type: 'url' }
@@ -159,8 +133,6 @@ easy_admin:
         Album:
             class: AppBundle\Entity\Album
             list:
-                actions:
-                   - { name: 'albumCSS', label: "Create CSS" }
                 fields:
                     - { property: 'id', label: 'ID', type: 'integer' }
                     - { property: 'title', label: 'Title', type: 'string' }
@@ -194,7 +166,7 @@ easy_admin:
                     - { property: 'date', label: 'Date', type: 'date' }
                     - { property: 'email', label: 'Email', type: 'text' }
                     - { property: 'amount', label: 'Amount', type: 'money' }
-    site_name: 'MWB ADMIN'
+    site_name: 'keingrenzen.org Backend'
 
 jms_i18n_routing:
     default_locale: de
@@ -217,6 +189,3 @@ ivory_ck_editor:
     configs:
         default:
             toolbar: basic
-
-gregwar_image:
-    fallback_image:  "%kernel.root_dir%/../src/AppBundle/Resources/public/images/img-placeholder.png"

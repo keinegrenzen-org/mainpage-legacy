@@ -1,24 +1,16 @@
 {% extends '@App/base.html.twig' %}
 
-    {% block stylesheets %}
-        {{ parent() }}
-        {% stylesheets
-        'bundles/app/css/impressum.css' filter='cssrewrite' %}
-        <link rel="stylesheet" href="{{ asset_url }}"/>
-        {% endstylesheets %}
-    {% endblock %}
-
 {% block pagetitle %}Datenschutz | {{ 'base.meta.title'|trans }}{% endblock %}
 
 {% block description %}{% endblock %}
 {% block og_description %}{% endblock %}
 
-{% block bodyclass %}impressum{% endblock %}
-
 {% block body %}
+
     {% include '@App/nav.html.twig' with {'index': false} %}
-    <div class="container header">
-        <section class="row">
+
+    <div class="container py-5 mt-5">
+        <section class="row py-2">
             <div class="col-lg-8 col-lg-push-2">
                 <h1>Datenschutz & Richtlinien</h1><br>
                 <h2>Prämisse</h2>
@@ -36,7 +28,7 @@
                 <p>Wir rufen zur Verbreitung von Liebe und Frieden auf und hoffen unseren Teil dazu beizutragen.</p>
             </div>
         </section>
-        <section class="row">
+        <section class="row py-2">
             <div class="col-lg-8 col-lg-push-2">
                 <h3>Cookies</h3>
                 <p>Die Internetseiten verwenden teilweise so genannte Cookies. Cookies richten auf Ihrem Rechner
@@ -103,5 +95,7 @@
             </div>
         </section>
     </div>
+
     {% include '@App/footer.html.twig' %}
+
 {% endblock %}
