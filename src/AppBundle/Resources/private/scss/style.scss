@@ -433,6 +433,7 @@ footer {
 
     .fa-heart {
       color: $brand-primary;
+      animation: heartbeat 2.5s infinite;
     }
   }
 
