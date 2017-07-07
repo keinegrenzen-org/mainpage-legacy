@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2017-06-27T16:06:32Z" source-language="en" target-language="de" datatype="plaintext" original="not.available">
+  <file date="2017-07-06T20:15:00Z" source-language="en" target-language="de" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -88,7 +88,7 @@ Viel spaß!</target>
       </trans-unit>
       <trans-unit id="f3daffeba5279f99a178ee2fed119a1fcdcf420a" resname="download_dialog.title">
         <source>download_dialog.title</source>
-        <target>Gutes tun für gute Musik</target>
+        <target>Gemeinnütziges Musikprojekt - Spenden an Ärzte ohne Grenzen für gute Musik</target>
         <jms:reference-file line="129">/../src/AppBundle/Resources/views/frontpage/show.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="11f9578d05e6f7bb58a3cdd00107e9f4e3882671" resname="error">
@@ -198,7 +198,7 @@ Unsere Musik und Leidenschaft ist ein Dankeschön für Ihre Menschlichkeit und H
       </trans-unit>
       <trans-unit id="c330892507cc988b6c26f9867be196871acb4461" resname="index.page-title.2">
         <source>index.page-title.2</source>
-        <target>Gutes tun für gute Musik</target>
+        <target>Spenden an gemeinnützige Organisationen für gute Musik</target>
         <jms:reference-file line="10">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="f4f488c11be4f2014ec798de06994bc1212ddecd" resname="link.label.title">

@@ -91,6 +91,8 @@ easy_admin:
             datetime: 'd. m. Y - H:i:s'
             number: '%.2f'
     design:
+        brand_color: '#00a8ff'
+        color_scheme: 'light'
         form_theme: 'vertical'
         menu:
             - { entity: 'FrontPage', icon: 'user', label: 'Artists' }
@@ -115,7 +117,7 @@ easy_admin:
                     - { property: 'url', label: 'URL', type: 'url' }
                     - { property: 'name', label: 'Name', type: 'string' }
                     - { property: 'albums', label: 'Albums', type: 'association' }
-                    - { property: 'public', label: 'Public', type: 'wtoggle' }
+                    - { property: 'public', label: 'Public', type: 'toggle' }
             form:
                 fields:
                     - { property: 'name', type: 'text', label: 'Name', css_class: 'col-lg-3' }

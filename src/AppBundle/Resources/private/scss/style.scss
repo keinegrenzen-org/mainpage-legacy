@@ -92,6 +92,13 @@ $enable-print-styles: true !default;
   transition: width .3s ease, height .3s ease;
 }
 
+.sr-enabled {
+
+  .sr {
+    visibility: hidden;
+  }
+}
+
 body, html {
   height: 100%;
   font-family: "Oswald", sans-serif;
@@ -166,6 +173,7 @@ header {
       padding: 0;
       border: 0;
       display: block;
+      text-shadow: rgba($black, 0.8) 0 0 2rem;
     }
 
     h1 {
@@ -175,21 +183,11 @@ header {
     h2 {
       font-size: 1.25rem;
       font-weight: 400;
+      line-height: 2rem;
     }
 
     strong {
       color: $brand-primary;
-    }
-
-    .btn {
-      color: $white;
-      background-color: transparent;
-      border-color: $white;
-
-      &:hover, &:active, &:focus {
-        color: $gray-lightest;
-        border-color: $gray-lightest;
-      }
     }
 
     .arrow-bounce {
@@ -246,7 +244,7 @@ header {
     .page-title {
 
       .profile-header-content {
-        width: 40%;
+        width: 90%;
         margin-left: 5%;
         margin-right: 5%;
         z-index: 10;
@@ -436,28 +434,32 @@ footer {
       animation: heartbeat 2.5s infinite;
     }
   }
-
 }
 
 section.artist-bio {
 
   .citations {
 
-    em {
-      line-height: 1rem;
-      vertical-align: top;
+    p {
+      text-align: center;
+      margin-bottom: 1.5rem;
 
-      &::before {
-        display: inline-block;
-        content: '"';
-        font-size: 2rem;
-        font-weight: 700;
-        margin-right: 5px;
+      em {
+        line-height: 1rem;
+        vertical-align: top;
+
+        &::before {
+          display: inline-block;
+          content: '"';
+          font-size: 2rem;
+          font-weight: 700;
+          margin-right: 0.1rem;
+          vertical-align: -0.3rem;
+          font-style: normal;
+        }
       }
     }
-
   }
-
 }
 
 section.artist-discography {
@@ -508,8 +510,13 @@ section.artist-discography {
         }
 
         .title {
-          width: 70%;
+          width: 68%;
+          margin-right: 2%;
           font-weight: 700;
+          height: 1.5rem;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
         }
 
         .track-duration {
@@ -586,6 +593,14 @@ section.artist-discography {
     }
   }
 
+  header.profile-header {
+    .page-title {
+      .profile-header-content {
+        width: 60%;
+      }
+    }
+  }
+
   section.statistics {
     span {
       font-size: 4rem;
@@ -596,6 +611,14 @@ section.artist-discography {
 }
 
 @include media-breakpoint-up(lg) {
+
+  header.profile-header {
+    .page-title {
+      .profile-header-content {
+        width: 40%;
+      }
+    }
+  }
 
   section.statistics {
     span {

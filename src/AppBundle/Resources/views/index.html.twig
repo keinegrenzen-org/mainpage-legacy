@@ -7,13 +7,17 @@
     <header class="container-fluid text-center">
         <div class="row align-items-center page-title">
             <div class="col">
-                <h2>{{ 'index.page-title.2'|trans }}</h2>
-                <h1 class="mt-2 mb-0">
-                    {{ 'index.page-title.1.1'|trans }}&nbsp;<strong>{{ 'index.page-title.1.2'|trans }}</strong>
-                </h1>
-                <a href="{{ 'nav.projekt.href'|trans }}" class="btn btn-outline-secondary btn-lg">
-                    {{ 'readmore'|trans }}
-                </a>
+                <div class="sr sr-t-1">
+                    <h2 class="text-center">{{ 'index.page-title.2'|trans|nl2br }}</h2>
+                    <h1 class="mt-2 mb-0">
+                        {{ 'index.page-title.1.1'|trans }}&nbsp;<strong>{{ 'index.page-title.1.2'|trans }}</strong>
+                    </h1>
+                </div>
+                <div class="sr sr-b-2">
+                    <a href="{{ 'nav.projekt.href'|trans }}" class="btn btn-primary btn-shadow btn-lg">
+                        {{ 'readmore'|trans }}
+                    </a>
+                </div>
             </div>
         </div>
     </header>
@@ -31,11 +35,11 @@
         </div>
         <div class="row py-2 justify-content-center">
             <div class="col-md-8 text-center">
-                <a class="btn btn-lg btn-outline-primary" href="{{ 'nav.artists.href'|trans }}">
+                <a class="btn btn-lg btn-outline-primary sr sr-b-1" href="{{ 'nav.artists.href'|trans }}">
                     <i class="fa fa-users fa-fw mr-1"></i>
                     {{ 'index.a.see_all_artists'|trans }}
                 </a>
-                <a class="btn btn-lg btn-primary btn-shadow" target="_blank" href="{{ path('donate_external') }}">
+                <a class="btn btn-lg btn-primary btn-shadow sr sr-b-1" target="_blank" href="{{ path('donate_external') }}">
                     {{ 'donate'|trans }}
                     <i class="fa fa-external-link fa-fw ml-1"></i>
                 </a>
@@ -71,7 +75,7 @@
 
     <section class="statistics container-fluid p-3" id="{{ 'nav.donate.id'|trans }}">
         <div class="row p-5">
-            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 p-5">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 p-5 sr sr-t-1">
                 <span class="double">
                     <strong class="counter">{{ (total/100)|number_format(0, '', '') }}</strong>€
                 </span>
@@ -80,13 +84,13 @@
                 <span>{{ 'index.donation.total.2'|trans }}</span>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 p-5">
-                <div class="col-lg-12 text-right">
+                <div class="col-lg-12 text-right sr sr-t-2">
                     <span class="double"><strong class="counter">{{ count }}</strong></span>
                     <br>
                     <span>{{ 'index.donation.count.1'|trans }}</span>
                     <span>{{ 'index.donation.count.2'|trans }}</span>
                 </div>
-                <div class="col-lg-12 text-right mt-5">
+                <div class="col-lg-12 text-right mt-5 sr sr-b-3">
                     <span class="double">
                         <strong class="counter">{{ ((total/100)/count)|number_format(2, ',', '') }}</strong>€
                     </span>
@@ -134,7 +138,7 @@
                             {% endfor %}
                         </ul>
                         <a href="{{ path('profile_show', {UURL: frontPage.UURL}) }}"
-                           class="btn btn-outline-primary mb-3" itemprop="url">
+                           class="btn btn-outline-primary mb-3 sr sr-b-1" itemprop="url">
                             {{ 'readmore'|trans }}
                         </a>
                     </div>
@@ -149,12 +153,12 @@
                 <div class="col align-self-center">
                     <h2 class="my-2">{{ 'nav.support'|trans }}</h2>
                     <p class="text-big p-5 my-2">{{ 'support.p'|trans }}</p>
-                    <a class="btn btn-tw btn-lg my-2" href="https://twitter.com/keinegrenzenOrg" rel="nofollow"
+                    <a class="btn btn-tw btn-lg my-2 sr sr-b-1" href="https://twitter.com/keinegrenzenOrg" rel="nofollow"
                        target="_blank" title="{{ 'support.tw.title'|trans }}">
                         <span class="fa fa-fw fa-twitter"></span>
                         {{ 'support.tw.title'|trans }}
                     </a>
-                    <a class="btn btn-fb btn-lg my-2" href="https://www.facebook.com/keinegrenzenOrg/" rel="nofollow"
+                    <a class="btn btn-fb btn-lg my-2 sr sr-b-1" href="https://www.facebook.com/keinegrenzenOrg/" rel="nofollow"
                        target="_blank" title="{{ 'support.fb.title'|trans }}">
                         <span class="fa fa-fw fa-facebook-f"></span>
                         {{ 'support.fb.title'|trans }}

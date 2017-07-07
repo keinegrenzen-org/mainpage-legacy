@@ -26,17 +26,20 @@ $(document).ready(() => {
         });
     });
 
-    const $profileHeaderTitle = $('.profile-header .page-title'),
-        $profileHeaerContent = $('.profile-header .profile-header-content'),
-        toggleProfileHeader = () => {
+    const $profileHeaderTitle = $('.profile-header .page-title').not('.mobile'),
+        $profileHeaerContent = $('.profile-header .profile-header-content');
+
+    if ($profileHeaderTitle.length) {
+        const toggleProfileHeader = () => {
             $profileHeaerContent.fadeToggle('slow', 'swing', () => {
                 $profileHeaderTitle.toggleClass('small');
                 $profileHeaerContent.fadeToggle('slow', 'swing');
             });
         };
 
-    setTimeout(() => {
-        toggleProfileHeader();
-        $profileHeaerContent.on('click', toggleProfileHeader);
-    }, 2000);
+        setTimeout(() => {
+            toggleProfileHeader();
+            $profileHeaerContent.on('click', toggleProfileHeader);
+        }, 2200);
+    }
 });

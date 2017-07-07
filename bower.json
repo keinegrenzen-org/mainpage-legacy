@@ -22,6 +22,7 @@
     "color-thief": "^2.0.1",
     "soundcloud-audio": "^1.1.0",
     "jquery-confirm": "craftpip/jquery-confirm#^3.2.3",
-    "bootstrap": "v4.0.0-alpha.6"
+    "bootstrap": "v4.0.0-alpha.6",
+    "scrollreveal": "^3.3.6"
   }
 }
