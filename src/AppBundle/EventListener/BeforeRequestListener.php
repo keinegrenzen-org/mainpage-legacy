@@ -19,9 +19,13 @@ class BeforeRequestListener {
     }
 
     public function onKernelRequest(GetResponseEvent $event) {
+
+        if ('easyadmin' === $event->getRequest()->attributes->get('_route')) {
+            return;
+        }
+
         $this->em
             ->getFilters()
             ->enable('published');
-
     }
 }

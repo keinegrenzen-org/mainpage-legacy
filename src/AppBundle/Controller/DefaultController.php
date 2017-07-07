@@ -51,10 +51,22 @@ class DefaultController extends Controller {
             return $i;
         });
 
+        $bigPage = null;
+        /**
+         * @var $page FrontPage
+         */
+        foreach ($frontPages as $page){
+            if($page->getUURL() === 'wuis'){
+                $bigPage = $page;
+                break;
+            }
+        }
+
         return $this->render('AppBundle::index.html.twig', array(
             'frontPages' => $frontPages,
             'total' => $total,
-            'count' => sizeof($donations)
+            'count' => sizeof($donations),
+            'bigPage' => $bigPage
         ));
     }
 
@@ -79,7 +91,7 @@ class DefaultController extends Controller {
     /**
      * Finds and displays a FrontPage entity.
      *
-     * @Route("/{UURL}", name="profile_show", requirements={"UURL" = "barthy|invo|enna|wuis"})
+     * @Route("/{UURL}", name="profile_show", requirements={"UURL" = "barthy|invo|enna|wuis|suburbian-rex"})
      * @Method("GET")
      * @param FrontPage $frontPage
      * @return \Symfony\Component\HttpFoundation\Response

@@ -3,7 +3,7 @@ $(document).ready(() => {
     $('.toggle-dl-dialog').click(e => {
         e.preventDefault();
 
-        const $e = $(this),
+        const $e = $(e.currentTarget),
             title = $e.data('title'),
             text = $e.data('text'),
             donate = $e.data('donate'),
@@ -12,9 +12,9 @@ $(document).ready(() => {
 
         const content =
             "<div>"
-            + "<p>" + text + "</p>"
-            + "<a class='btn btn-dialog btn-primary my-2' target='_blank' href='" + downloadUrl + "'>" + download + "</a>"
-            + "<a class='btn btn-dialog btn-success my-2' target='_blank' href='https://www.aerzte-ohne-grenzen.de/spenden-sammeln?cfd=barthyb'>" + donate + "</a>"
+            + "<p class='text-big'>" + text + "</p>"
+            + "<a class='btn btn-dialog btn-primary m-2' target='_blank' href='" + downloadUrl + "'>" + download + "</a>"
+            + "<a class='btn btn-dialog btn-success m-2' target='_blank' href='https://www.keinegrenzen.org/donate'>" + donate + "</a>"
             + "</div>";
 
         e.preventDefault();

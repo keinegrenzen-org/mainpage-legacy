@@ -62,10 +62,10 @@
                 </div>
             </div>
             <div class="col-md-6 align-self-center">
-                <h3>{{ frontPages[0].name }}</h3>
-                <p><strong>{{ frontPages[0].genre }}</strong>, {{ 'from'|trans }} {{ frontPages[0].location }}</p>
-                <p>{{ frontPages[0].vita|truncate(400, true)|raw }}</p>
-                <a href="{{ path('profile_show', {UURL: frontPages[0].UURL}) }}"
+                <h3>{{ bigPage.name }}</h3>
+                <p><strong>{{ bigPage.genre }}</strong>, {{ 'from'|trans }} {{ bigPage.location }}</p>
+                <p>{{ bigPage.vita|truncate(400, true)|raw }}</p>
+                <a href="{{ path('profile_show', {UURL: bigPage.UURL}) }}"
                    class="btn btn-secondary">
                     {{ 'readmore'|trans }}
                 </a>

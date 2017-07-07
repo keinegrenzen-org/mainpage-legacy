@@ -80,6 +80,11 @@ $enable-print-styles: true !default;
   line-height: 1.75rem;
 }
 
+.badge-white {
+  @include badge-variant($white);
+  color: $brand-primary;
+}
+
 .initially-hidden {
   display: none;
 }
@@ -94,7 +99,7 @@ $enable-print-styles: true !default;
 
 .sr-enabled {
 
-  .sr {
+  .sr:not(.sr-done) {
     visibility: hidden;
   }
 }
@@ -107,6 +112,10 @@ body, html {
 
 a:hover {
   cursor: pointer;
+}
+
+.jconfirm-title {
+  line-height: 2.5rem;
 }
 
 h1, h2 {

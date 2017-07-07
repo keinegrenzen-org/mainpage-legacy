@@ -85,6 +85,7 @@ vich_uploader:
             delete_on_remove:   true
 
 easy_admin:
+    site_name: 'keingrenzen.org Backend'
     formats:
             date:     'd. m. Y'
             time:     'H:i'
@@ -170,7 +171,6 @@ easy_admin:
                     - { property: 'date', label: 'Date', type: 'date' }
                     - { property: 'email', label: 'Email', type: 'text' }
                     - { property: 'amount', label: 'Amount', type: 'money' }
-    site_name: 'keingrenzen.org Backend'
 
 jms_i18n_routing:
     default_locale: de

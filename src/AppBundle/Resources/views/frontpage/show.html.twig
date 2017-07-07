@@ -42,7 +42,7 @@
                     <img src="{{ asset(frontPage.image.webPath) }}"
                          alt="{{ frontPage.name ~ ' - ' ~ 'frontpage.image'|trans }}" itemprop="image">
                 </div>
-                <div class="title-container py-3 px-1 sr sr-b-2">
+                <div class="title-container py-3 px-1 sr sr-preserve sr-b-2">
                     <h1>
                         <strong itemprop="name">{{ frontPage.name }}</strong>
                     </h1>
@@ -78,7 +78,7 @@
                 </div>
             </div>
             <div class="citations-container col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex">
-                <div class="citations px-5 align-self-center">
+                <div class="citations px-5 align-self-center text-big">
                     {{ frontPage.citations|raw }}
                 </div>
             </div>
@@ -140,7 +140,7 @@
                                data-url="{{ path("download_album", {UURL: album.UURL}) }}"
                             >
                                 {{ 'donate'|trans }} &amp; {{ 'download'|trans }}
-                                <span class="badge">{{ album.downloads }}</span>
+                                <span class="badge badge-white">{{ album.downloads }}</span>
                             </a>
                         </div>
                     </div>
