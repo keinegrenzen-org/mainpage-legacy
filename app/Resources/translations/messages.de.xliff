@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2017-07-06T20:15:00Z" source-language="en" target-language="de" datatype="plaintext" original="not.available">
+  <file date="2017-07-10T13:20:20Z" source-language="en" target-language="de" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -177,13 +177,13 @@ Bitte versuchen Sie es zu einem späteren Zeitpunkt noch ein Mal oder kontaktier
       </trans-unit>
       <trans-unit id="1ec2537459d72e523d09b8001761a9b6c47a46a0" resname="index.p.description">
         <source>index.p.description</source>
-        <target><![CDATA[keinegrenzen.org ist ein Zusammenschluss von Künstlern die Ihre Musik zu guten Zwecken einsetzen wollen.
+        <target><![CDATA[keinegrenzen.org ist ein Zusammenschluss von Künstlern die ihre Musik zu guten Zwecken einsetzen wollen.
 Wir bieten unsere Musik zum Download an und geben Ihnen die Möglichkeit im Gegenzug mit einer Spende Hoffnung und Liebe zu verbreiten.
 100% der Spenden gehen dabei an <a href="https://www.aerzte-ohne-grenzen.de/" rel="nofollow" target="_blank">Ärzte ohne Grenzen</a>.
 
 Unsere Musik und Leidenschaft ist ein Dankeschön für Ihre Menschlichkeit und Hilfe.
 
-Ärzte ohne Grenzen überzeugen durch die Vielfalt und Beständigkeit der Einsätze, durch den Einsatz Ihres Lebens und Ihrer Gesundheit. Superhelden in Arztkitteln.]]></target>
+Ärzte ohne Grenzen überzeugen durch die Vielfalt und Beständigkeit der Einsätze, durch den Einsatz ihres Lebens und ihrer Gesundheit. Superhelden in Arztkitteln.]]></target>
         <jms:reference-file line="29">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="781be4d73d1763c1c90cc20d5a925d1f2f20c7c5" resname="index.page-title.1.1">
