@@ -22,7 +22,7 @@
         </div>
     </header>
 
-    <section class="intro container py-5" id="{{ 'nav.projekt.id'|trans }}">
+    <section class="intro container pt-5" id="{{ 'nav.projekt.id'|trans }}">
         <div class="row py-2">
             <div class="col text-center">
                 <h2>{{ 'index.h1'|trans }}</h2>
@@ -35,11 +35,12 @@
         </div>
         <div class="row py-2 justify-content-center">
             <div class="col-md-8 text-center">
-                <a class="btn btn-lg btn-outline-primary sr sr-b-1" href="{{ 'nav.artists.href'|trans }}">
+                <a class="btn btn-lg btn-outline-primary sr sr-b-1 mb-3 mb-md-0" href="{{ 'nav.artists.href'|trans }}">
                     <i class="fa fa-users fa-fw mr-1"></i>
                     {{ 'index.a.see_all_artists'|trans }}
                 </a>
-                <a class="btn btn-lg btn-primary btn-shadow sr sr-b-1" target="_blank" href="{{ path('donate_external') }}">
+                <a class="btn btn-lg btn-primary btn-shadow sr sr-b-1" target="_blank"
+                   href="{{ path('donate_external') }}">
                     {{ 'donate'|trans }}
                     <i class="fa fa-external-link fa-fw ml-1"></i>
                 </a>
@@ -61,7 +62,7 @@
                             frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
-            <div class="col-md-6 align-self-center">
+            <div class="col-md-6 mt-3 mt-md-0 align-self-center">
                 <h3>{{ bigPage.name }}</h3>
                 <p><strong>{{ bigPage.genre }}</strong>, {{ 'from'|trans }} {{ bigPage.location }}</p>
                 <p>{{ bigPage.vita|truncate(400, true)|raw }}</p>
@@ -74,8 +75,8 @@
     </section>
 
     <section class="statistics container-fluid p-3" id="{{ 'nav.donate.id'|trans }}">
-        <div class="row p-5">
-            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 p-5 sr sr-t-1">
+        <div class="row p-md-5">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 p-md-5 sr sr-t-1">
                 <span class="double">
                     <strong class="counter">{{ (total/100)|number_format(0, '', '') }}</strong>€
                 </span>
@@ -83,7 +84,7 @@
                 <span>{{ 'index.donation.total.1'|trans }}</span>
                 <span>{{ 'index.donation.total.2'|trans }}</span>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-12 p-5">
+            <div class="col-lg-6 col-md-6 col-sm-12 p-md-5">
                 <div class="col-lg-12 text-right sr sr-t-2">
                     <span class="double"><strong class="counter">{{ count }}</strong></span>
                     <br>
@@ -147,18 +148,20 @@
         </div>
     </section>
 
-    <section class="support container-fluid" id="{{ 'nav.support.id'|trans }}">
-        <div class="row h-100">
-            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center h-100 overlay d-flex align-content-center">
-                <div class="col align-self-center">
+    <section class="support container-fluid d-flex py-5" id="{{ 'nav.support.id'|trans }}">
+        <div class="row align-self-center">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center">
+                <div class="col">
                     <h2 class="my-2">{{ 'nav.support'|trans }}</h2>
                     <p class="text-big p-5 my-2">{{ 'support.p'|trans }}</p>
-                    <a class="btn btn-tw btn-lg my-2 sr sr-b-1" href="https://twitter.com/keinegrenzenOrg" rel="nofollow"
+                    <a class="btn btn-tw btn-lg my-2 sr sr-b-1" href="https://twitter.com/keinegrenzenOrg"
+                       rel="nofollow"
                        target="_blank" title="{{ 'support.tw.title'|trans }}">
                         <span class="fa fa-fw fa-twitter"></span>
                         {{ 'support.tw.title'|trans }}
                     </a>
-                    <a class="btn btn-fb btn-lg my-2 sr sr-b-1" href="https://www.facebook.com/keinegrenzenOrg/" rel="nofollow"
+                    <a class="btn btn-fb btn-lg my-2 sr sr-b-1" href="https://www.facebook.com/keinegrenzenOrg/"
+                       rel="nofollow"
                        target="_blank" title="{{ 'support.fb.title'|trans }}">
                         <span class="fa fa-fw fa-facebook-f"></span>
                         {{ 'support.fb.title'|trans }}

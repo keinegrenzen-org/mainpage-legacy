@@ -161,6 +161,10 @@ nav.navbar {
       }
     }
   }
+
+  .navbar-collapse {
+    padding-top: 56px;
+  }
 }
 
 header {
@@ -327,7 +331,7 @@ header {
 section.intro {
 
   .btn {
-    width: 40%;
+    width: 100%;
   }
 }
 
@@ -345,9 +349,9 @@ section.statistics {
     text-shadow: 0 5px 10px rgba(0, 34, 55, 0.3);
 
     &.double {
-      font-size: 6rem;
-      line-height: 6rem;
-      height: 6rem;
+      font-size: 4rem;
+      line-height: 4rem;
+      height: 4rem;
       color: $brand-primary;
       font-weight: 700;
       text-shadow: none;
@@ -384,11 +388,7 @@ section.artists {
 section.support {
   background: url('../../images/lightroom/kgo_04.jpg') no-repeat center;
   background-size: cover;
-  height: 75%;
-
-  .overlay {
-    background-color: rgba(255, 255, 255, 0.5);
-  }
+  min-height: 75%;
 
   .btn-fb {
     background-color: #3b5998;
@@ -573,22 +573,15 @@ section.artist-discography {
 
 @include media-breakpoint-up(sm) {
 
-  section.statistics {
-    span {
-      font-size: 3rem;
-      line-height: 3rem;
-      height: 3rem;
-
-      &.double {
-        font-size: 8rem;
-        line-height: 8rem;
-        height: 8rem;
-      }
-    }
-  }
 }
 
 @include media-breakpoint-up(md) {
+
+  nav.navbar {
+    .navbar-collapse {
+      padding-top: 0;
+    }
+  }
 
   header:not(.profile-header) {
     .page-title {
@@ -610,11 +603,24 @@ section.artist-discography {
     }
   }
 
+  section.intro {
+
+    .btn {
+      width: 40%;
+    }
+  }
+
   section.statistics {
     span {
-      font-size: 4rem;
-      line-height: 4rem;
-      height: 4rem;
+      font-size: 3rem;
+      line-height: 3rem;
+      height: 3rem;
+    }
+
+    &.double {
+      font-size: 6rem;
+      line-height: 6rem;
+      height: 6rem;
     }
   }
 }
@@ -631,9 +637,9 @@ section.artist-discography {
 
   section.statistics {
     span {
-      font-size: 3rem;
-      line-height: 3rem;
-      height: 3rem;
+      font-size: 4rem;
+      line-height: 4rem;
+      height: 4rem;
 
       &.double {
         font-size: 8rem;
