@@ -12,10 +12,11 @@ composer.lock
 
 node_modules/
 
-app/cache/
-app/logs/
+var/logs/
 var/cache/
 var/sessions/
+web/css/
+web/js/
 web/bundles/
 web/cache/
 web/.htaccess
