@@ -271,19 +271,23 @@ header {
           margin-right: auto;
           border: 3px solid $white;
           position: relative;
+          margin-bottom: 2rem;
 
           img {
             height: 100%;
             width: auto;
             position: absolute;
+            left: 0;
+            top: 0;
           }
         }
 
         .title-container {
-          background-color: rgba(0, 0, 0, 0.3);
+          background-color: rgba(255, 255, 255, 0.5);
 
           h1 {
             font-size: 2rem;
+            margin-bottom: 0.35rem;
           }
 
           h2 {
@@ -302,17 +306,17 @@ header {
           margin-top: auto;
 
           .image-container {
-            left: 5%;
+            left: 0;
             width: 40%;
             padding-bottom: 40%;
             z-index: 11 !important;
-            margin: 0;
+            margin: 0 !important;
           }
 
           .title-container {
             position: absolute;
-            left: 0;
-            padding-left: 50% !important;
+            left: 5%;
+            padding-left: 40% !important;
             padding-right: 5% !important;
             z-index: 10 !important;
             top: 50%;
@@ -630,7 +634,11 @@ section.artist-discography {
   header.profile-header {
     .page-title {
       .profile-header-content {
-        width: 40%;
+        width: 50%;
+
+        &.small {
+          width: 60%;
+        }
       }
     }
   }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ app.request.locale }}" xmlns="http://www.w3.org/1999/html">
     <head>
-        {% if app.environment is same as("dev") %}
+        {% if app.environment is same as("prod") %}
             <!-- Google Tag Manager -->
             <script>(function (w, d, s, l, i) {
                     w[l] = w[l] || [];
@@ -57,7 +57,7 @@
         <![endif]-->
     </head>
     <body class="{{ (not is_mobile())?'sr-enabled':'' }}" {% block bodyschema %}{% endblock %}>
-        {% if app.environment is same as("dev") %}
+        {% if app.environment is same as("prod") %}
             <!-- Google Tag Manager (noscript) -->
             <noscript>
                 <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NR84CV"
