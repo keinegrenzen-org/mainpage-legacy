@@ -43,12 +43,15 @@
                          alt="{{ frontPage.name ~ ' - ' ~ 'frontpage.image'|trans }}" itemprop="image">
                 </div>
                 <div class="title-container py-5 px-1 sr sr-preserve sr-b-2">
-                    <h1>
-                        <strong itemprop="name">{{ frontPage.name }}</strong>
-                    </h1>
-                    <h2>
-                        <strong itemprop="genre">{{ frontPage.genre }}</strong> {{ 'from'|trans }} {{ frontPage.location }}
-                    </h2>
+                    <div class="d-block">
+                        <h1>
+                            <strong itemprop="name">{{ frontPage.name }}</strong>
+                        </h1>
+                        <hr/>
+                        <h2>
+                            <strong itemprop="genre">{{ frontPage.genre }}</strong> {{ 'from'|trans }} {{ frontPage.location }}
+                        </h2>
+                    </div>
                 </div>
             </div>
             <div class="arrow-bounce pb-5 sr sr-b-3">

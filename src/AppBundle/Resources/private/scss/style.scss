@@ -130,13 +130,17 @@ nav.navbar {
   min-height: 3.5em;
 
   .navbar-brand {
-    z-index: $zindex-navbar;
+    z-index: $zindex-dropdown;
     position: absolute;
     top: 10px;
   }
 
   .navbar-toggler {
-    font-size: 1.5em;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    position: absolute;
+    right: 0;
+    top: 0.5rem;
 
     &:active, &:focus {
       outline: none;
@@ -145,6 +149,8 @@ nav.navbar {
     .navbar-toggler-icon {
       color: $white;
       height: auto;
+      font-size: 1.5rem;
+      line-height: 1.5rem;
     }
   }
 
@@ -233,6 +239,8 @@ header {
       position: absolute;
       top: 0;
       bottom: 0;
+      left: 0;
+      right: 0;
       width: 100%;
       overflow: hidden;
       z-index: 0;
@@ -283,16 +291,21 @@ header {
         }
 
         .title-container {
-          background-color: rgba(255, 255, 255, 0.5);
+          background-color: rgba(0, 0, 0, 0.3);
 
           h1 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin-bottom: 0.35rem;
           }
 
           h2 {
-            font-size: 1.2rem;
+            font-size: 1.7rem;
             margin-bottom: 0;
+          }
+
+          hr {
+            border-color: rgba(255, 255, 255, 0.3);
+            max-width: 50%;
           }
         }
       }
@@ -307,24 +320,28 @@ header {
 
           .image-container {
             left: 0;
-            width: 40%;
-            padding-bottom: 40%;
+            width: 30%;
+            padding-bottom: 30%;
             z-index: 11 !important;
-            margin: 0 !important;
+            margin: 5px !important;
           }
 
           .title-container {
             position: absolute;
-            left: 5%;
-            padding-left: 40% !important;
+            left: -10px;
+            top: -10px;
+            bottom: -10px;
+            right: auto;
+            padding-left: 35% !important;
             padding-right: 5% !important;
             z-index: 10 !important;
-            top: 50%;
-            -webkit-transform: translateY(-50%);
-            -moz-transform: translateY(-50%);
-            -ms-transform: translateY(-50%);
-            -o-transform: translateY(-50%);
-            transform: translateY(-50%);
+            text-align: left;
+            display: flex;
+            align-items: center;
+
+            hr {
+              max-width: none;
+            }
           }
         }
       }
@@ -413,10 +430,10 @@ footer {
   position: relative;
 
   .btn-top {
-    position: relative;
+    position: absolute;
     width: 50px;
     height: 50px;
-    top: -50%;
+    top: -25px;
     left: 50%;
     display: block;
     transform: translateX(-50%);
@@ -495,6 +512,10 @@ section.artist-discography {
           height: 100%;
           width: auto;
           position: absolute;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          right: 0;
         }
       }
     }
@@ -633,11 +654,15 @@ section.artist-discography {
 
   header.profile-header {
     .page-title {
-      .profile-header-content {
-        width: 50%;
 
-        &.small {
-          width: 60%;
+      .profile-header-content {
+        width: 40%;
+      }
+
+      &.small {
+
+        .profile-header-content {
+          width: 50%;
         }
       }
     }
