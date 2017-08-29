@@ -121,8 +121,8 @@
                     <h3 class="artist-name" itemprop="name">{{ frontPage.name }}</h3>
                     <div class="artist-preview my-3">
                         <a href="{{ path('profile_show', {UURL: frontPage.UURL}) }}"
-                           class="artist-img d-flex justify-content-center">
-                            <img src="{{ asset(frontPage.image.webPath) }}" class="img-responsive center-block"
+                           class="artist-img d-flex justify-content-center align-items-center align-content-center">
+                            <img src="{{ asset(frontPage.image.webPath) }}"
                                  alt="{{ frontPage.name ~ ' - ' ~ 'frontpage.image'|trans }}" itemprop="image">
                         </a>
                         <p class="artist-genre my-2" itemprop="genre">{{ frontPage.genre }}</p>
