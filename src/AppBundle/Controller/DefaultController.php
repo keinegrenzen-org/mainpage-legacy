@@ -52,6 +52,7 @@ class DefaultController extends Controller {
         });
 
         $bigPage = null;
+
         /**
          * @var $page FrontPage
          */
@@ -89,9 +90,17 @@ class DefaultController extends Controller {
     }
 
     /**
+     * @Route("donate", name="donate_external")
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function donateExternalAction() {
+        return $this->redirect("https://www.aerzte-ohne-grenzen.de/spenden-sammeln?cfd=barthyb");
+    }
+
+    /**
      * Finds and displays a FrontPage entity.
      *
-     * @Route("/{UURL}", name="profile_show", requirements={"UURL" = "barthy|invo|enna|wuis|suburbian-rex"})
+     * @Route("/{UURL}", name="profile_show")
      * @Method("GET")
      * @param FrontPage $frontPage
      * @return \Symfony\Component\HttpFoundation\Response
@@ -126,14 +135,6 @@ class DefaultController extends Controller {
             $this->em = $this->getDoctrine()->getManager();
         }
         return $this->em;
-    }
-
-    /**
-     * @Route("donate", name="donate_external")
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
-    public function donateExternalAction() {
-        return $this->redirect("https://www.aerzte-ohne-grenzen.de/spenden-sammeln?cfd=barthyb");
     }
 
 }

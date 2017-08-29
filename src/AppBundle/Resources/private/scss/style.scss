@@ -221,6 +221,7 @@ header {
       animation-delay: 4s;
       cursor: pointer;
       text-decoration: none;
+      z-index: 1000;
 
       a {
         color: $white;
@@ -541,6 +542,7 @@ section.artist-discography {
 
         .track-number {
           width: 10%;
+          margin-right: 5px;
         }
 
         .title {

@@ -109,7 +109,7 @@ export default class SoundCloudPlayer {
                     for (let i = 0; i < tracks.length; i++) {
                         const $listItem = $(
                             '<li class="list-group-item">' +
-                            '<span class="track-number ">' + ((i < 9) ? '0' + (i + 1) : (i + 1)) + '</span>' +
+                            '<span class="track-number">' + ((i < 9) ? '0' + (i + 1) : (i + 1)) + '</span>' +
                             '<span class="title">' + tracks[i].title + '</span>' +
                             '<span class="track-duration">' + SoundCloudPlayer.formatTime(tracks[i].duration, true) + '</span>' +
                             '</li>'
@@ -234,12 +234,11 @@ export default class SoundCloudPlayer {
     };
 
     updatePlayer() {
-        if(this.$nowPlayingElapsed.text().length === 0){
+        if (this.$nowPlayingElapsed.text().length === 0) {
             this.$nowPlayingElapsed.text("00:00");
         }
         this.$nowPlayingLength.text(SoundCloudPlayer.formatTime(this.players[this.currentPlayer]._playlist.tracks[this.currentSong].duration, true));
         this.$nowPlayingAlbum.text(this.players[this.currentPlayer]._playlist.title);
         this.$nowPlayingSong.text(this.players[this.currentPlayer]._playlist.tracks[this.currentSong].title);
     }
-
 }
