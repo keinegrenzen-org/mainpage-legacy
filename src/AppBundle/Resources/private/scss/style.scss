@@ -541,6 +541,8 @@ section.artist-discography {
         border: 0;
         border-bottom: 1px solid;
         cursor: pointer;
+        text-overflow: ellipsis;
+        overflow: hidden;
 
         .track-number {
           width: 10%;
