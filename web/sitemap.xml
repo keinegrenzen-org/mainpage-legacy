@@ -12,7 +12,13 @@
     <url>
         <loc>https://www.keinegrenzen.org/impressum</loc>
         <lastmod>2017-02-23</lastmod>
-        <changefreq>daily</changefreq>
+        <changefreq>yearly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://www.keinegrenzen.org/datenschutz</loc>
+        <lastmod>2017-02-23</lastmod>
+        <changefreq>yearly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
@@ -35,6 +41,24 @@
     </url>
     <url>
         <loc>https://www.keinegrenzen.org/wuis</loc>
+        <lastmod>2017-02-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://www.keinegrenzen.org/suburbian-rex</loc>
+        <lastmod>2017-02-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://www.keinegrenzen.org/aapman</loc>
+        <lastmod>2017-02-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://www.keinegrenzen.org/kokee-thornton</loc>
         <lastmod>2017-02-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
