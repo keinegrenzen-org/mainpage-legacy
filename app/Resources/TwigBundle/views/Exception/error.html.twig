@@ -3,11 +3,11 @@
 {% block pagetitle %}{{ 'error'|trans }}{% endblock %}
 
 {% block body %}
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 col-lg-offset-3">
+    <div class="container-fluid error-page">
+        <div class="row justify-content-center mt-5 text-center">
+            <div class="col-lg-6">
                 <h1>{{ 'error'|trans }}</h1>
-                <p>{{ 'error.text'|trans|raw }}</p>
+                <p class="text-big">{{ 'error.text'|trans|raw }}</p>
             </div>
         </div>
     </div>

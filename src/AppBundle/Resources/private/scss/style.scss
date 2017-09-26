@@ -607,6 +607,14 @@ section.artist-discography {
   }
 }
 
+.error-page {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: url('../../images/404_dog.jpeg') no-repeat center;
+  background-size: cover;
+}
+
 @include media-breakpoint-up(sm) {
 
 }
