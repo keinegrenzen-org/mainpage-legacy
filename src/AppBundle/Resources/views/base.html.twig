@@ -39,8 +39,6 @@
         {% block og_description %}
             <meta name="og:description" content="{{ 'base.meta.description'|trans }}">
         {% endblock %}
-        {% set route = path(app.request.get('_route'), app.request.attributes.get("_route_params")) %}
-        <link rel="canonical" href="https://www.keinegrenzen.org{{ route }}"/>
         <link rel="icon" href="https://www.keinegrenzen.org{{ asset('bundles/app/images/favicon.png') }}">
         <link href='https://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
 
