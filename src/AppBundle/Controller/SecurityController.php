@@ -35,11 +35,11 @@ class SecurityController extends Controller {
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function roleAction() {
-        $roleArtist = $this->get('security.authorization_checker')->isGranted('ROLE_ART');
-        $roleCameraOp = $this->get('security.authorization_checker')->isGranted('ROLE_CAM');
+        $roleArtist = $this->get('security.authorization_checker')->isGranted('ROLE_ARTIST');
 
-        if ($roleArtist xor $roleCameraOp) {
-            return $this->redirectToRoute('planning');
+        if ($roleArtist) {
+            $username = $this->get('security.token_storage')->getToken()->getUser();
+            $this->redirectToRoute('profile_show', array('UURL' => $username));
         }
 
         return $this->redirectToRoute('admin');

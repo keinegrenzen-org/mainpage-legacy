@@ -286,7 +286,7 @@ header {
             height: 100%;
             width: auto;
             position: absolute;
-            left: 0;
+            left: -25%;
             top: 0;
           }
         }
@@ -423,7 +423,6 @@ section.support {
   .btn-tw {
     background-color: #1da1f2;
     border-color: #1da1f2;
-    color: $white;
   }
 
   .btn-insta {

@@ -56,8 +56,8 @@ class DefaultController extends Controller {
         /**
          * @var $page FrontPage
          */
-        foreach ($frontPages as $page){
-            if($page->getUURL() === 'wuis'){
+        foreach ($frontPages as $page) {
+            if ($page->getUURL() === 'wuis') {
                 $bigPage = $page;
                 break;
             }
@@ -113,7 +113,7 @@ class DefaultController extends Controller {
     }
 
     /**
-     * Finds and displays a FrontPage entity.
+     * Downloads an album file
      *
      * @Route("/download/{UURL}", name="download_album")
      * @Method("GET")
