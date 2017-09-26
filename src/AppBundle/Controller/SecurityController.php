@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Response;
 
 class SecurityController extends Controller {
     /**
@@ -38,8 +39,8 @@ class SecurityController extends Controller {
         $roleArtist = $this->get('security.authorization_checker')->isGranted('ROLE_ARTIST');
 
         if ($roleArtist) {
-            $username = $this->get('security.token_storage')->getToken()->getUser();
-            $this->redirectToRoute('profile_show', array('UURL' => $username));
+            $username = $this->get('security.token_storage')->getToken()->getUsername();
+            return $this->redirectToRoute('profile_show', array('UURL' => $username));
         }
 
         return $this->redirectToRoute('admin');
