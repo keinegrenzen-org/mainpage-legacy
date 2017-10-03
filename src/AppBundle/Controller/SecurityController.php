@@ -36,9 +36,11 @@ class SecurityController extends Controller {
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function roleAction() {
-        $roleArtist = $this->get('security.authorization_checker')->isGranted('ROLE_ARTIST');
+        $authChecker = $this->get('security.authorization_checker');
+        $roleArtist = $authChecker->isGranted('ROLE_ARTIST');
+        $roleAdmin = $authChecker->isGranted('ROLE_ADMIN');
 
-        if ($roleArtist) {
+        if ($roleArtist && !$roleAdmin) {
             $username = $this->get('security.token_storage')->getToken()->getUsername();
             return $this->redirectToRoute('profile_show', array('UURL' => $username));
         }

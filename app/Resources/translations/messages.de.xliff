@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2017-09-16T13:56:58Z" source-language="en" target-language="de" datatype="plaintext" original="not.available">
+  <file date="2017-10-03T23:28:03Z" source-language="en" target-language="de" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -300,7 +300,7 @@ Unsere Musik und Leidenschaft ist ein Dankeschön für Ihre Menschlichkeit und H
       <trans-unit id="229b4598c070739976cc6d4f232a94cce3cb1283" resname="noscript">
         <source>noscript</source>
         <target>Diese Seite benötigt JavaScript. Schalten Sie es ein oder öffnen Sie die Seite auf einem Gerät das JavaScript unterstützt.</target>
-        <jms:reference-file line="68">/../src/AppBundle/Resources/views/base.html.twig</jms:reference-file>
+        <jms:reference-file line="66">/../src/AppBundle/Resources/views/base.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="ef8d29955a725c39916a4626f3921a0104242439" resname="pause">
         <source>pause</source>

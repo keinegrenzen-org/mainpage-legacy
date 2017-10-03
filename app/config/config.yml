@@ -86,6 +86,7 @@ vich_uploader:
             delete_on_remove:   true
 
 easy_admin:
+    translation_domain: 'admin'
     site_name: 'keingrenzen.org Backend'
     formats:
             date:     'd. m. Y'
@@ -97,10 +98,10 @@ easy_admin:
         color_scheme: 'light'
         form_theme: 'vertical'
         menu:
-            - { entity: 'FrontPage', icon: 'user', label: 'Artists' }
-            - { entity: 'Album', icon: 'music', label: 'Albums' }
-            - { entity: 'Donations', icon: 'money', label: 'Donations' }
-            - { label: 'Translation', url: '/admin/trans', icon: 'language' }
+            - { entity: 'FrontPage', icon: 'user', label: 'menu.artists' }
+            - { entity: 'Album', icon: 'music', label: 'menu.albums' }
+            - { entity: 'Donations', icon: 'money', label: 'menu.donations' }
+            - { label: 'menu.translation', url: '/admin/trans', icon: 'language' }
         assets:
             js:
                 - '/bundles/app/js/vich.js'
@@ -112,66 +113,74 @@ easy_admin:
     entities:
         FrontPage:
             class: AppBundle\Entity\FrontPage
-            label: Artists
+            label: entity.artist
             list:
+                title: "list.artist"
                 fields:
-                    - { property: 'id', label: 'ID', type: 'integer' }
-                    - { property: 'url', label: 'URL', type: 'url' }
-                    - { property: 'name', label: 'Name', type: 'string' }
-                    - { property: 'albums', label: 'Albums', type: 'association' }
-                    - { property: 'public', label: 'Public', type: 'toggle' }
+                    - { property: 'id', label: 'artist.id', type: 'integer' }
+                    - { property: 'url', label: 'artist.URL', type: 'url' }
+                    - { property: 'name', label: 'artist.name', type: 'string' }
+                    - { property: 'albums', label: 'artist.albums', type: 'association' }
+                    - { property: 'public', label: 'artist.public', type: 'toggle' }
             form:
+                title: "form.artist"
                 fields:
-                    - { property: 'name', type: 'text', label: 'Name', css_class: 'col-lg-3' }
-                    - { property: 'shortName', type: 'text', label: 'Short Name', css_class: 'col-lg-3' }
-                    - { property: 'location', type: 'text', label: 'Location', css_class: 'col-lg-3' }
-                    - { property: 'genre', type: 'text', label: 'Genre', css_class: 'col-lg-3' }
-                    - { property: 'UURL', type: 'text', label: 'UURL', css_class: 'col-lg-12', type_options: {attr: {pattern: "^[.a-zA-Z0-9-]+$"}} }
-                    - { property: 'image', type: 'AppBundle\Form\ImageType', label: 'Image', css_class: 'col-lg-6' }
-                    - { property: 'cover', type: 'AppBundle\Form\ImageType', label: 'Cover', css_class: 'col-lg-6' }
-                    - { property: 'video', type: 'text', label: 'Video URL (relative to web/)', css_class: 'col-lg-6' }
-                    - { property: 'youtubeLink', type: 'text', label: 'Video URL (youtube)', css_class: 'col-lg-6' }
-                    - { property: 'vita', type: 'ckeditor', label: 'Vita' }
-                    - { property: 'metaDescription', type: 'text', label: 'Meta - Description (160 Chars)' }
-                    - { property: 'citations', type: 'ckeditor', label: 'Citations (One per <em>)' }
-                    - { property: 'links', type: 'collection', label: 'Links', type_options: { entry_options: { label: false }, entry_type: AppBundle\Form\LinkType, attr: { class: 'field-links' } }}
-                    - { property: 'public', type: 'checkbox', label: 'Public', css_class: 'col-lg-12' }
+                    - { property: 'name', type: 'text', label: 'artist.name', css_class: 'col-lg-3' }
+                    - { property: 'shortName', type: 'text', label: 'artist.short_name', css_class: 'col-lg-3' }
+                    - { property: 'location', type: 'text', label: 'artist.location', css_class: 'col-lg-3' }
+                    - { property: 'genre', type: 'text', label: 'artist.genre', css_class: 'col-lg-3' }
+                    - { property: 'UURL', type: 'text', label: 'artist.uurl', css_class: 'col-lg-12', type_options: {attr: {pattern: "^[.a-zA-Z0-9-]+$"}} }
+                    - { property: 'image', type: 'AppBundle\Form\ImageType', label: 'artist.profile_image', css_class: 'col-lg-6' }
+                    - { property: 'cover', type: 'AppBundle\Form\ImageType', label: 'artist.banner_image', css_class: 'col-lg-6' }
+                    - { property: 'video', type: 'text', label: 'artist.video', css_class: 'col-lg-6' }
+                    - { property: 'youtubeLink', type: 'text', label: 'artist.youtube', css_class: 'col-lg-6' }
+                    - { property: 'vita', type: 'ckeditor', label: 'artist.vita' }
+                    - { property: 'metaDescription', type: 'text', label: 'artist.meta_description' }
+                    - { property: 'citations', type: 'ckeditor', label: 'artist.citations' }
+                    - { property: 'links', type: 'collection', label: 'artist.links', type_options: { entry_options: { label: false }, entry_type: AppBundle\Form\LinkType, attr: { class: 'field-links' } }}
+                    - { property: 'public', type: 'checkbox', label: 'artist.public', css_class: 'col-lg-12' }
         Album:
             class: AppBundle\Entity\Album
+            label: entity.album
             list:
+                title: "list.album"
                 fields:
-                    - { property: 'id', label: 'ID', type: 'integer' }
-                    - { property: 'title', label: 'Title', type: 'string' }
-                    - { property: 'artist', label: 'Aritst Name', type: 'string' }
-                    - { property: 'public', label: 'Public', type: 'toggle' }
-                    - { property: 'downloads', label: 'Downloads', type: 'integer', format: '%d' }
+                    - { property: 'id', label: 'album.id', type: 'integer' }
+                    - { property: 'title', label: 'album.title', type: 'string' }
+                    - { property: 'artist', label: 'album.artist', type: 'string' }
+                    - { property: 'public', label: 'album.public', type: 'toggle' }
+                    - { property: 'downloads', label: 'album.downloads', type: 'integer', format: '%d' }
             form:
+                title: "form.album"
                 fields:
-                    - { property: 'title', type: 'text', label: 'Title' }
-                    - { property: 'cover', type: 'AppBundle\Form\ImageType', label: 'Cover', css_class: 'col-lg-12' }
-                    - { property: 'backgroundColor', type: 'text', label: 'Background Color', css_class: 'col-lg-3', type_options: { attr: { class: 'field-background' } } }
-                    - { property: 'primaryColor', type: 'text', label: 'Primary Color', css_class: 'col-lg-3', type_options: { attr: { class: 'field-primary' } } }
-                    - { property: 'secondaryColor', type: 'text', label: 'Secondary Color', css_class: 'col-lg-3', type_options: { attr: { class: 'field-secondary' } } }
-                    - { property: 'description', type: 'ckeditor', label: 'Description' }
-                    - { property: 'UURL', type: 'text', label: 'UURL', type_options: {attr: {pattern: "^[.a-zA-Z0-9-]+$"}} }
-                    - { property: 'soundcloud', type: 'text', label: 'SoundCloud' }
-                    - { property: 'published', type: 'date', label: 'Published' }
-                    - { property: 'frontPage', label: 'Artist Profile' }
-                    - { property: 'albumFilePath', type: 'text' ,label: 'Download File path' }
-                    - { property: 'public', type: 'checkbox', label: 'Public', css_class: 'col-lg-12' }
+                    - { property: 'title', type: 'text', label: 'album.title' }
+                    - { property: 'cover', type: 'AppBundle\Form\ImageType', label: 'album.cover', css_class: 'col-lg-12' }
+                    - { property: 'backgroundColor', type: 'text', label: 'album.background_color', css_class: 'col-lg-3', type_options: { attr: { class: 'field-background' } } }
+                    - { property: 'primaryColor', type: 'text', label: 'album.primary_color', css_class: 'col-lg-3', type_options: { attr: { class: 'field-primary' } } }
+                    - { property: 'secondaryColor', type: 'text', label: 'album.secondary_color', css_class: 'col-lg-3', type_options: { attr: { class: 'field-secondary' } } }
+                    - { property: 'description', type: 'ckeditor', label: 'album.description' }
+                    - { property: 'UURL', type: 'text', label: 'album.UURL', type_options: {attr: {pattern: "^[.a-zA-Z0-9-]+$"}} }
+                    - { property: 'soundcloud', type: 'text', label: 'album.soundcloud' }
+                    - { property: 'published', type: 'date', label: 'album.published' }
+                    - { property: 'frontPage', label: 'album.artist_profile' }
+                    - { property: 'albumFilePath', type: 'text', label: 'album.file_path' }
+                    - { property: 'public', type: 'checkbox', label: 'album.public', css_class: 'col-lg-12' }
         Donations:
             class: AppBundle\Entity\Donation
+            label: entity.donation
             list:
+                title: "list.donation"
                 fields:
-                    - { property: 'id', label: 'ID', type: 'integer' }
-                    - { property: 'date', label: 'Date', type: 'date', format: 'Y/m/d' }
-                    - { property: 'email', label: 'Email', type: 'email' }
-                    - { property: 'floatAmount', label: 'Amount', type: 'text' }
+                    - { property: 'id', label: 'donation.id', type: 'integer' }
+                    - { property: 'date', label: 'donation.date', type: 'date', format: 'Y/m/d' }
+                    - { property: 'email', label: 'donation.name', type: 'email' }
+                    - { property: 'floatAmount', label: 'donation.amount', type: 'text' }
             form:
+                title: "form.donation"
                 fields:
-                    - { property: 'date', label: 'Date', type: 'date' }
-                    - { property: 'email', label: 'Email', type: 'text' }
-                    - { property: 'amount', label: 'Amount', type: 'money' }
+                    - { property: 'date', label: 'donation.date', type: 'date' }
+                    - { property: 'email', label: 'donation.email', type: 'text' }
+                    - { property: 'amount', label: 'donation.amount', type: 'money', type_options: {divisor: 100} }
 
 jms_i18n_routing:
     default_locale: de

@@ -17,7 +17,7 @@ services:
             - { name: twig.extension }
     before_request_listener:
         class: AppBundle\EventListener\BeforeRequestListener
-        arguments: ["@doctrine.orm.entity_manager", "@security.authorization_checker"]
+        arguments: ["@doctrine.orm.entity_manager", "@security.authorization_checker", "@security.token_storage"]
         tags:
             -
                 name: kernel.event_listener
