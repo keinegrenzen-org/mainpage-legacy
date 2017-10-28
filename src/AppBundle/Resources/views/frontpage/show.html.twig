@@ -111,7 +111,8 @@
                     >
                         <div class="col-lg-6">
                             <h3 itemprop="name">{{ album.title }}</h3>
-                            <p style="color: {{ album.secondaryColor|raw }} !important">{{ 'published'|trans }}: {{ album.published|date('d.m.Y') }}</p>
+                            <p style="color: {{ album.secondaryColor|raw }} !important">{{ 'published'|trans }}
+                                : {{ album.published|date('d.m.Y') }}</p>
                             <div class="description text-big">
                                 {{ album.description|raw|nl2br }}
                             </div>
@@ -128,6 +129,7 @@
                                 </a>
                             </div>
                             <div class="album-embed" id="album-embed-{{ loop.index0 }}"
+                                 data-color-secondary="{{ album.secondaryColor|raw }}"
                                  data-sc="{{ album.soundcloud|raw }}" data-title="{{ album.title }}">
                                 <div class="album-list">
                                     <ul class="list-group"></ul>
