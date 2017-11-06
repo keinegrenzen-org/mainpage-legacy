@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         {# GOOGLE TAG MANAGER #}
-        {% if app.environment is same as("prod") %}
+        {% if app.environment is same as("prod") and not is_granted('ROLE_ADMIN') and not is_granted('ROLE_ARTIST') %}
             <!-- Google Tag Manager -->
             <script>(function (w, d, s, l, i) {
                 w[l] = w[l] || [];
