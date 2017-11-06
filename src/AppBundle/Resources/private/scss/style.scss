@@ -637,6 +637,10 @@ section.artist-discography {
     display: block;
     padding: 30px;
     background: rgba(255, 255, 255, 0.5);
+
+    > div {
+      margin: auto;
+    }
   }
 }
 
