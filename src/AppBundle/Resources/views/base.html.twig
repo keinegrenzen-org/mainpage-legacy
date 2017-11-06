@@ -72,7 +72,7 @@
         <![endif]-->
     </head>
     <body class="{{ (not is_mobile())?'sr-enabled':'' }}" {% block bodyschema %}{% endblock %}>
-        {% if app.environment is same as("prod") %}
+        {% if app.environment is same as("prod") and not is_granted('ROLE_ADMIN') and not is_granted('ROLE_ARTIST') %}
             <!-- Google Tag Manager (noscript) -->
             <noscript>
                 <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NR84CV"
