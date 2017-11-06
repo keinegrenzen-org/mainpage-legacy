@@ -628,6 +628,16 @@ section.artist-discography {
   overflow: hidden;
   background: url('../../images/404_dog.jpeg') no-repeat center;
   background-size: cover;
+  padding: 0;
+
+  .row {
+    width: 100%;
+    height: 100%;
+    margin: 0 !important;
+    display: block;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.5);
+  }
 }
 
 @include media-breakpoint-up(sm) {
