@@ -114,7 +114,7 @@ class Link
         $social = $this->getSocial();
         $socialIcon = ($social == 'youtube') ? $social . '-play' : $social;
         $title = $this->getTitle();
-        return "<a href=\"$link\" target=\"_blank\" title=\"$title\" rel=\"nofollow\"><span class=\"fa-stack text-muted\"><i class=\"fa fa-circle fa-stack-2x fa-fw\"></i><i class=\"fa fa-$socialIcon fa-stack-1x fa-inverse fa-fw\"></i><span class='sr-only'>$title</span></span></a>";
+        return "<a href=\"$link\" target=\"_blank\" title=\"$title\" rel=\"nofollow\" class=\"social-link\"><span class=\"fa-stack text-muted\"><i class=\"fa fa-circle fa-stack-2x fa-fw\"></i><i class=\"fa fa-$socialIcon fa-stack-1x fa-inverse fa-fw\"></i><span class='sr-only'>$title</span></span></a>";
     }
 
     /**

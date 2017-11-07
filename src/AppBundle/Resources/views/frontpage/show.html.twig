@@ -64,8 +64,8 @@
     <section class="container pt-5 artist-bio" id="vita">
         <div class="row py-2">
             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                <h2>{{ 'profile.h2.bio'|trans }} {{ frontPage.name }}</h2>
-                <ul class="list-inline mb-4">
+                <h2 class="sr sr-b-1">{{ 'profile.h2.bio'|trans }} {{ frontPage.name }}</h2>
+                <ul class="list-inline mb-4 sr sr-b-2">
                     {% for link in frontPage.links %}
                         {% if link.getSocial is same as ('link') %}
                             <li class="list-inline-item">{{ link.getMarkup|raw }}</li>
@@ -77,12 +77,12 @@
                         {% endif %}
                     {% endfor %}
                 </ul>
-                <div class="vita text-big" itemprop="description">
+                <div class="vita text-big sr sr-b-3" itemprop="description">
                     {{ frontPage.vita|raw }}
                 </div>
             </div>
             <div class="citations-container col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex">
-                <div class="citations px-5 align-self-center text-big">
+                <div class="citations px-5 align-self-center text-big sr sr-b-1">
                     {{ frontPage.citations|raw }}
                 </div>
             </div>
@@ -92,7 +92,7 @@
     <section class="container pt-5 artist-discography">
         <div class="row py-2 my-2">
             <div class="col-12">
-                <h2>{{ 'profile.h2.albums'|trans }}</h2>
+                <h2 class="sr sr-b-1">{{ 'profile.h2.albums'|trans }}</h2>
             </div>
         </div>
         {% for album in frontPage.albums %}

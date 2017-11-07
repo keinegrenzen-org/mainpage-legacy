@@ -104,6 +104,24 @@ $enable-print-styles: true !default;
   }
 }
 
+.social-link {
+
+  .fa-circle {
+    -webkit-transition: color .3s ease;
+    -moz-transition: color .3s ease;
+    -ms-transition: color .3s ease;
+    -o-transition: color .3s ease;
+    transition: color .3s ease;
+  }
+
+  &:hover {
+
+    .fa-circle {
+      color: $brand-primary;
+    }
+  }
+}
+
 body, html {
   height: 100%;
   font-family: 'Ubuntu', sans-serif;
@@ -394,13 +412,18 @@ section.artists {
 
       .artist-img {
         overflow: hidden;
-        height: 250px;
+        height: 0;
+        padding-bottom: 70%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
 
         img {
           min-height: 100%;
           max-width: 120%;
           width: auto;
           height: auto;
+          visibility: hidden;
         }
       }
 
