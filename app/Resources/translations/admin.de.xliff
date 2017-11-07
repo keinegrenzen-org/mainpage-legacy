@@ -259,6 +259,10 @@
                 <source>link.label.url</source>
                 <target>URL</target>
             </trans-unit>
+            <trans-unit id="loco:$63" resname="label.form.empty_value" datatype="plaintext">
+                <source>label.form.empty_value</source>
+                <target>Bitte Wählen</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

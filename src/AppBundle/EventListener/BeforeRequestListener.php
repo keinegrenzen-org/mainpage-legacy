@@ -36,7 +36,7 @@ class BeforeRequestListener {
         if ($route === 'profile_show' && $this->authorizationChecker->isGranted('ROLE_ARTIST')) {
             $uurl = $request->attributes->get('UURL');
             $username = $this->tokenStorage->getToken()->getUsername();
-            if ($uurl === $username) {
+            if ($uurl === $username || $username === 'admin') {
                 return;
             }
         }

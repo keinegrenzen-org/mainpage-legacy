@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2017-10-03T23:28:03Z" source-language="en" target-language="de" datatype="plaintext" original="not.available">
+  <file date="2017-11-07T17:10:30Z" source-language="en" target-language="de" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -314,12 +314,12 @@ Unsere Musik und Leidenschaft ist ein Dankeschön für Ihre Menschlichkeit und H
       </trans-unit>
       <trans-unit id="e696b18ba74e00c2a2f10ae1f73a6cccb614101a" resname="profile.h2.albums">
         <source>profile.h2.albums</source>
-        <target>Diskographie</target>
+        <target>Musik</target>
         <jms:reference-file line="66">/../src/AppBundle/Resources/views/frontpage/show.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="681fc538d17bd1e2e11505a9253c24b7eb5875d0" resname="profile.h2.bio">
         <source>profile.h2.bio</source>
-        <target>Vita</target>
+        <target>Über</target>
         <jms:reference-file line="66">/../src/AppBundle/Resources/views/frontpage/show.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="c2807535f28e44fe6c7375dcf90518115529a8fa" resname="published">

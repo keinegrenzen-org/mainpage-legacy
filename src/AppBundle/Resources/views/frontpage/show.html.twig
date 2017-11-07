@@ -61,10 +61,10 @@
         </div>
     </header>
 
-    <section class="container py-5 artist-bio" id="vita">
+    <section class="container pt-5 artist-bio" id="vita">
         <div class="row py-2">
             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                <h2>{{ 'profile.h2.bio'|trans }} & {{ 'profile.h2.albums'|trans }}</h2>
+                <h2>{{ 'profile.h2.bio'|trans }} {{ frontPage.name }}</h2>
                 <ul class="list-inline mb-4">
                     {% for link in frontPage.links %}
                         {% if link.getSocial is same as ('link') %}
@@ -89,7 +89,12 @@
         </div>
     </section>
 
-    <section class="container py-5 artist-discography">
+    <section class="container pt-5 artist-discography">
+        <div class="row py-2 my-2">
+            <div class="col-12">
+                <h2>{{ 'profile.h2.albums'|trans }}</h2>
+            </div>
+        </div>
         {% for album in frontPage.albums %}
             <div class="row py-2 my-2">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 px-2 album-art-container sr sr-b-1">
@@ -153,20 +158,23 @@
                 </div>
             </div>
         {% endfor %}
+    </section>
+
+    <div class="container py-5">
         <div class="row py-2 my-5 global-player">
             <div class="col-md-2 col-sm-4 col-xs-6">
-                <span class="fa fa-backward fa-fw fa-2x">
-                    <i class="sr-only">{{ 'backward'|trans }}</i>
-                </span>
+            <span class="fa fa-backward fa-fw fa-2x">
+                <i class="sr-only">{{ 'backward'|trans }}</i>
+            </span>
                 <span class="fa fa-play fa-fw fa-2x">
-                    <i class="sr-only">{{ 'play'|trans }}</i>
-                </span>
+                <i class="sr-only">{{ 'play'|trans }}</i>
+            </span>
                 <span class="fa fa-pause fa-fw fa-2x initially-hidden">
-                    <i class="sr-only">{{ 'pause'|trans }}</i>
-                </span>
+                <i class="sr-only">{{ 'pause'|trans }}</i>
+            </span>
                 <span class="fa fa-forward fa-fw fa-2x">
-                    <i class="sr-only">{{ 'forward'|trans }}</i>
-                </span>
+                <i class="sr-only">{{ 'forward'|trans }}</i>
+            </span>
             </div>
             <div class="col-md-8 d-none d-md-block progress-container">
                 <div class="progress">
@@ -183,7 +191,8 @@
                 <p><span class="now-playing-album text-primary"></span> - <span class="now-playing-song"></span></p>
             </div>
         </div>
-    </section>
+    </div>
+
     {% include '@App/footer.html.twig' %}
 {% endblock %}
 
