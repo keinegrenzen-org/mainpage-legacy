@@ -29,8 +29,8 @@
 
     <header class="container-fluid profile-header text-center"
             style="background-image: url({{ asset(frontPage.cover.webPath) }});">
-        <div class="row align-items-center justify-content-center page-title {{ is_mobile()?'mobile':'' }}">
-            {% if not is_mobile() %}
+        <div class="row align-items-center justify-content-center page-title sr sr-t-1{{ is_mobile()?'mobile':'' }}">
+            {% if not is_mobile() and frontPage.video is not null %}
                 <div class="video-container">
                     <video autoplay loop>
                         <source src="{{ asset(frontPage.video) }}" type="video/mp4">
@@ -38,12 +38,13 @@
                     </video>
                 </div>
             {% endif %}
-            <div class="profile-header-content mb-4">
-                <div class="rounded-circle image-container d-flex justify-content-center align-content-center sr sr-t-1">
+            <div class="profile-header-content">
+                <div class="rounded-circle image-container d-flex justify-content-center align-content-center"
+                     style="background-image: url({{ asset(frontPage.image.webPath) }})">
                     <img src="{{ asset(frontPage.image.webPath) }}"
                          alt="{{ frontPage.name ~ ' - ' ~ 'frontpage.image'|trans }}" itemprop="image">
                 </div>
-                <div class="title-container py-5 px-1 sr sr-preserve sr-b-2">
+                <div class="title-container py-4">
                     <div class="d-block">
                         <h1>
                             <strong itemprop="name">{{ frontPage.name }}</strong>
@@ -55,7 +56,7 @@
                     </div>
                 </div>
             </div>
-            <div class="arrow-bounce pb-5 sr sr-b-3">
+            <div class="arrow-bounce pb-3 sr sr-b-3">
                 <a class="fa fa-angle-double-down fa-2x fa-fw" href="#vita"></a>
             </div>
         </div>

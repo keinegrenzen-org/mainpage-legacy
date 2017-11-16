@@ -49,6 +49,17 @@ $enable-print-styles: true !default;
 @import url('https://fonts.googleapis.com/css?family=Oswald:500|Ubuntu:300');
 @import "../Partials/animations";
 
+
+@mixin transitionPositionAllAndTransform {
+  $duration: .2s;
+  $transition: top $duration ease, bottom $duration ease, left $duration ease, right $duration ease;
+  -webkit-transition: $transition, -webkit-transform $duration ease;
+  -moz-transition: $transition, -moz-transform $duration ease;
+  -ms-transition: $transition, -ms-transform $duration ease;
+  -o-transition: $transition, -o-transform $duration ease;
+  transition: $transition, transform $duration ease;
+}
+
 // Extra small devices (portrait phones, less than 576px)
 // No media query since this is the default in Bootstrap
 
@@ -267,6 +278,7 @@ header {
       width: 100%;
       overflow: hidden;
       z-index: 0;
+      display: none;
 
       video {
         /* Make video to at least 100% wide and tall */
@@ -286,23 +298,36 @@ header {
     }
 
     .page-title {
+      position: relative;
 
       .profile-header-content {
-        width: 90%;
-        margin-left: 5%;
-        margin-right: 5%;
         z-index: 10;
         cursor: pointer;
+        position: absolute;
+        top: 56px;
+        left: 56px;
+        right: 56px;
+        bottom: 56px;
 
         .image-container {
-          width: 55%;
-          padding-bottom: 55%;
+          width: 40vh;
+          padding-bottom: 40vh;
           overflow: hidden;
           margin-left: auto;
           margin-right: auto;
           border: 3px solid $white;
-          position: relative;
-          margin-bottom: 2rem;
+          position: absolute;
+          top: 28px;
+          left: 50%;
+          -webkit-transform: translate(-50%, 10vh);
+          -moz-transform: translate(-50%, 10vh);
+          -ms-transform: translate(-50%, 10vh);
+          -o-transform: translate(-50%, 10vh);
+          transform: translate(-50%, 10vh);
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+          @include transitionPositionAllAndTransform;
 
           img {
             height: 100%;
@@ -310,11 +335,23 @@ header {
             position: absolute;
             left: -25%;
             top: 0;
+            visibility: hidden;
           }
         }
 
         .title-container {
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          padding-left: 5%;
+          padding-right: 5%;
+          -webkit-transform: translateX(-50%);
+          -moz-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+          -o-transform: translateX(-50%);
+          transform: translateX(-50%);
           background-color: rgba(0, 0, 0, 0.3);
+          @include transitionPositionAllAndTransform;
 
           h1 {
             font-size: 2.5rem;
@@ -334,33 +371,36 @@ header {
       }
 
       &.small {
-        justify-content: flex-start !important;
-        align-content: flex-end !important;
 
         .profile-header-content {
-          position: relative;
-          margin-top: auto;
 
           .image-container {
             left: 0;
-            width: 30%;
-            padding-bottom: 30%;
+            bottom: 0;
+            top: unset;
+            width: 8.4rem;
+            padding-bottom: 8.4rem;
             z-index: 11 !important;
-            margin: 5px !important;
+            -webkit-transform: translateX(0%);
+            -moz-transform: translateX(0%);
+            -ms-transform: translateX(0%);
+            -o-transform: translateX(0%);
+            transform: translateX(0%);
+            margin: 0.5rem;
           }
 
           .title-container {
-            position: absolute;
-            left: -10px;
-            top: -10px;
-            bottom: -10px;
-            right: auto;
-            padding-left: 35% !important;
-            padding-right: 5% !important;
+            left: 0;
+            padding-left: 9.4rem !important;
             z-index: 10 !important;
             text-align: left;
             display: flex;
             align-items: center;
+            -webkit-transform: translateX(0%);
+            -moz-transform: translateX(0%);
+            -ms-transform: translateX(0%);
+            -o-transform: translateX(0%);
+            transform: translateX(0%);
 
             hr {
               max-width: none;
@@ -692,14 +732,6 @@ section.artist-discography {
     }
   }
 
-  header.profile-header {
-    .page-title {
-      .profile-header-content {
-        width: 60%;
-      }
-    }
-  }
-
   section.intro {
 
     .btn {
@@ -723,23 +755,6 @@ section.artist-discography {
 }
 
 @include media-breakpoint-up(lg) {
-
-  header.profile-header {
-    .page-title {
-
-      .profile-header-content {
-        width: 40%;
-      }
-
-      &.small {
-
-        .profile-header-content {
-          width: 50%;
-        }
-      }
-    }
-  }
-
   section.statistics {
     span {
       font-size: 4rem;
