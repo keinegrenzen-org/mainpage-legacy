@@ -77,7 +77,7 @@ class DefaultController extends Controller {
      * @internal param Request $request
      */
     public function imprintAction() {
-        return $this->render('@App/impressum.html.twig');
+        return $this->render('AppBundle::impressum.html.twig');
     }
 
     /**
@@ -86,7 +86,7 @@ class DefaultController extends Controller {
      * @internal param Request $request
      */
     public function datenschutzAction() {
-        return $this->render('@App/datenschutz.html.twig');
+        return $this->render('AppBundle::datenschutz.html.twig');
     }
 
     /**
@@ -107,7 +107,7 @@ class DefaultController extends Controller {
      * @internal param Request $request
      */
     public function showAction(FrontPage $frontPage) {
-        return $this->render('AppBundle:show.html.twig', array(
+        return $this->render('AppBundle::show.html.twig', array(
             'frontPage' => $frontPage,
         ));
     }
