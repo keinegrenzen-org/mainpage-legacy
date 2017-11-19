@@ -10,7 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * FrontPage
  *
  * @ORM\Table(name="front_page")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\FrontPageRepository")
+ * @ORM\Entity()
  */
 class FrontPage {
 

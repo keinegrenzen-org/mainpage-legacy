@@ -4,14 +4,12 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints\Date;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Album
  *
  * @ORM\Table(name="album")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\AlbumRepository")
+ * @ORM\Entity()
  * @ORM\HasLifecycleCallbacks
  */
 class Album {
@@ -92,13 +90,6 @@ class Album {
      * @ORM\Column(name="secondarycolor", type="string", length=20)
      */
     private $secondaryColor;
-
-    /**
-     * @var boolean
-     *
-     * @ORM\Column(name="public", type="boolean")
-     */
-    private $public = false;
 
     /**
      * @ORM\Column(name="downloads", type="integer", nullable=true)
@@ -274,22 +265,6 @@ class Album {
 
     public function __toString() {
         return $this . $this->getTitle() . ' - ' . $this->getArtist();
-    }
-
-    /**
-     * @return boolean
-     */
-    public function getPublic() {
-        return $this->public;
-    }
-
-    /**
-     * @param $public
-     * @return Album
-     */
-    public function setPublic($public) {
-        $this->public = $public;
-        return $this;
     }
 
     /**

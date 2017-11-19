@@ -148,7 +148,6 @@ easy_admin:
                     - { property: 'id', label: 'album.id', type: 'integer' }
                     - { property: 'title', label: 'album.title', type: 'string' }
                     - { property: 'artist', label: 'album.artist', type: 'string' }
-                    - { property: 'public', label: 'album.public', type: 'toggle' }
                     - { property: 'downloads', label: 'album.downloads', type: 'integer', format: '%d' }
             form:
                 title: "form.album"
@@ -164,7 +163,6 @@ easy_admin:
                     - { property: 'published', type: 'date', label: 'album.published' }
                     - { property: 'frontPage', label: 'album.artist_profile' }
                     - { property: 'albumFilePath', type: 'text', label: 'album.file_path' }
-                    - { property: 'public', type: 'checkbox', label: 'album.public', css_class: 'col-lg-12' }
         Donations:
             class: AppBundle\Entity\Donation
             label: entity.donation

@@ -107,7 +107,7 @@ class DefaultController extends Controller {
      * @internal param Request $request
      */
     public function showAction(FrontPage $frontPage) {
-        return $this->render('AppBundle:frontpage:show.html.twig', array(
+        return $this->render('AppBundle:show.html.twig', array(
             'frontPage' => $frontPage,
         ));
     }

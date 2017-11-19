@@ -1,5 +1,7 @@
 {% extends 'AppBundle::base.html.twig' %}
 
+{% import '@App/macros/social-link.html.twig' as socialLink %}
+
 {% block stylesheets %}
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('assets/vendor/jquery-confirm/dist/jquery-confirm.min.css') }}"/>
@@ -67,16 +69,7 @@
             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                 <h2 class="sr sr-b-1">{{ 'profile.h2.bio'|trans }} {{ frontPage.name }}</h2>
                 <ul class="list-inline mb-4 sr sr-b-2">
-                    {% for link in frontPage.links %}
-                        {% if link.getSocial is same as ('link') %}
-                            <li class="list-inline-item">{{ link.getMarkup|raw }}</li>
-                        {% endif %}
-                    {% endfor %}
-                    {% for link in frontPage.links %}
-                        {% if link.getSocial is not same as('link') %}
-                            <li class="list-inline-item">{{ link.getMarkup|raw }}</li>
-                        {% endif %}
-                    {% endfor %}
+                    {{ socialLink.sortAndRender(frontPage.links) }}
                 </ul>
                 <div class="vita text-big sr sr-b-3" itemprop="description">
                     {{ frontPage.vita|raw }}

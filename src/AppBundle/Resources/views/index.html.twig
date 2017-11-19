@@ -1,5 +1,7 @@
 {% extends '@App/base.html.twig' %}
 
+{% import '@App/macros/social-link.html.twig' as socialLink %}
+
 {% block body %}
 
     {% include '@App/nav.html.twig' with {'index': true} %}
@@ -122,22 +124,13 @@
                     <div class="artist-preview my-3">
                         <a href="{{ path('profile_show', {UURL: frontPage.UURL}) }}"
                            class="artist-img d-flex justify-content-center align-items-center align-content-center"
-                            style="background-image: url({{ asset(frontPage.image.webPath) }})">
+                           style="background-image: url({{ asset(frontPage.image.webPath) }})">
                             <img src="{{ asset(frontPage.image.webPath) }}"
                                  alt="{{ frontPage.name ~ ' - ' ~ 'frontpage.image'|trans }}" itemprop="image">
                         </a>
                         <p class="artist-genre my-2" itemprop="genre">{{ frontPage.genre }}</p>
                         <ul class="list-inline my-3 text-muted">
-                            {% for link in frontPage.links %}
-                                {% if link.getSocial != 'link' %}
-                                    <li class="list-inline-item">{{ link.getMarkup|raw }}</li>
-                                {% endif %}
-                            {% endfor %}
-                            {% for link in frontPage.links %}
-                                {% if link.getSocial == 'link' %}
-                                    <li class="list-inline-item">{{ link.getMarkup|raw }}</li>
-                                {% endif %}
-                            {% endfor %}
+                            {{ socialLink.sortAndRender(frontPage.links) }}
                         </ul>
                         <a href="{{ path('profile_show', {UURL: frontPage.UURL}) }}"
                            class="btn btn-outline-primary mb-3 sr sr-b-1" itemprop="url">

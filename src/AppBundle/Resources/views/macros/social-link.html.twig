@@ -1,0 +1,67 @@
+{% macro renderLink(link, title, icon) %}
+
+    <a href="{{ link }}" target="_blank" title="{{ title }}" rel="nofollow" class="social-link">
+        <span class="fa-stack text-muted">
+            <i class="fa fa-circle fa-stack-2x fa-fw"></i>
+            <i class="fa {{ icon }} fa-stack-1x fa-inverse fa-fw"></i>
+            <i class="sr-only">{{ title }}</i>
+        </span>
+    </a>
+
+{% endmacro renderLink %}
+
+{% macro sortAndRender(items) %}
+
+    {% set youtube = null %}
+    {% set soundcloud = null %}
+    {% set instagram = null %}
+    {% set facebook = null %}
+    {% set website = null %}
+
+    {% for item in items %}
+
+        {% if 'youtube' in item.link %}
+            {% set youtube = item.link %}
+        {% elseif 'soundcloud' in item.link %}
+            {% set soundcloud = item.link %}
+        {% elseif 'instagram' in item.link %}
+            {% set instagram = item.link %}
+        {% elseif 'facebook' in item.link %}
+            {% set facebook = item.link %}
+        {% else %}
+            {% set website = item.link %}
+        {% endif %}
+
+    {% endfor %}
+
+    {% if website is not null %}
+        <li class="list-inline-item">
+            {{ _self.renderLink(website, 'social.title.website'|trans, 'fa-link') }}
+        </li>
+    {% endif %}
+
+    {% if facebook is not null %}
+        <li class="list-inline-item">
+            {{ _self.renderLink(facebook, 'social.title.facebook'|trans, 'fa-facebook-f') }}
+        </li>
+    {% endif %}
+
+    {% if instagram is not null %}
+        <li class="list-inline-item">
+            {{ _self.renderLink(instagram, 'social.title.instagram'|trans, 'fa-instagram') }}
+        </li>
+    {% endif %}
+
+    {% if soundcloud is not null %}
+        <li class="list-inline-item">
+            {{ _self.renderLink(soundcloud, 'social.title.soundcloud'|trans, 'fa-soundcloud') }}
+        </li>
+    {% endif %}
+
+    {% if youtube is not null %}
+        <li class="list-inline-item">
+            {{ _self.renderLink(youtube, 'social.title.youtube'|trans, 'fa-youtube-play') }}
+        </li>
+    {% endif %}
+
+{% endmacro sortAndRender %}
