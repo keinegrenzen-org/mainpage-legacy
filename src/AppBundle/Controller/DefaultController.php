@@ -10,6 +10,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
+use Symfony\Component\Security\Core\Authorization\AuthorizationChecker;
 
 class DefaultController extends Controller {
 
@@ -107,6 +109,38 @@ class DefaultController extends Controller {
      * @internal param Request $request
      */
     public function showAction(FrontPage $frontPage) {
+
+        // Check if the user has acces to the unpublished profile
+        if ($frontPage->getPublic() === false) {
+            $denyAccess = true;
+
+            /**
+             * @var AuthorizationChecker
+             */
+            $authorizationChecker = $this->get('security.authorization_checker');
+
+            /**
+             * @var TokenStorage
+             */
+            $tokenStorage = $this->get('security.token_storage');
+
+            if ($authorizationChecker->isGranted('ROLE_ADMIN')) {
+                // allow access to the admin
+                $denyAccess = false;
+            } else if ($authorizationChecker->isGranted('ROLE_ARTIST')) {
+                // allow access to the respective user
+                $uurl = $frontPage->getUURL();
+                $username = $tokenStorage->getToken()->getUsername();
+                if ($uurl === $username) {
+                    $denyAccess = false;
+                }
+            }
+
+            if ($denyAccess === true) {
+                return $this->redirectToRoute('login');
+            }
+        }
+
         return $this->render('AppBundle::show.html.twig', array(
             'frontPage' => $frontPage,
         ));

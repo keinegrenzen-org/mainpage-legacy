@@ -14,13 +14,13 @@
 {% endblock %}
 
 {% block og_image %}
-    <meta name="og:image" content="https://www.keinegrenzen.org{{ asset(frontPage.cover.webPath) }}">
+    <meta property="og:image" content="https://www.keinegrenzen.org{{ asset(frontPage.cover.webPath) }}">
     <meta property="og:image:width" content="1920"/>
     <meta property="og:image:height" content="1080"/>
 {% endblock %}
 
 {% block og_description %}
-    <meta name="og:description" content="{{ frontPage.metaDescription }}">
+    <meta property="og:description" content="{{ frontPage.metaDescription }}">
 {% endblock %}
 
 {% block bodyschema %}itemscope itemtype="http://schema.org/MusicGroup"{% endblock %}
