@@ -59,7 +59,7 @@ class DefaultController extends Controller {
          * @var $page FrontPage
          */
         foreach ($frontPages as $page) {
-            if ($page->getUURL() === 'wuis') {
+            if ($page->getUURL() === 'suburbian-rex') {
                 $bigPage = $page;
                 break;
             }
