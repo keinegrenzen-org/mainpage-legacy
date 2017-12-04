@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Link
@@ -24,6 +25,8 @@ class Link {
     /**
      * @var string
      *
+     * @Assert\URL()
+     * @Assert\NotBlank()
      * @ORM\Column(name="link", type="string", length=255)
      */
     private $link;

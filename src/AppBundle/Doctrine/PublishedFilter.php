@@ -11,6 +11,11 @@ namespace AppBundle\Doctrine;
 use Doctrine\ORM\Mapping\ClassMetadata;
 use Doctrine\ORM\Query\Filter\SQLFilter;
 
+/**
+ * Filter that enables the published status of entities
+ *
+ * @package AppBundle\Doctrine
+ */
 class PublishedFilter extends SQLFilter {
 
     /**

@@ -7,12 +7,12 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * FrontPage
+ * Profile
  *
- * @ORM\Table(name="front_page")
+ * @ORM\Table(name="profile")
  * @ORM\Entity()
  */
-class FrontPage {
+class Profile {
 
     public function __construct() {
         $this->albums = new ArrayCollection();
@@ -31,7 +31,8 @@ class FrontPage {
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255, nullable=true)
+     * @Assert\NotBlank()
+     * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
 
@@ -52,36 +53,40 @@ class FrontPage {
     /**
      * @var string
      *
-     * @ORM\Column(name="genre", type="string", length=255, nullable=true)
+     * @Assert\NotBlank()
+     * @ORM\Column(name="genre", type="string", length=255)
      */
     private $genre;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="vita", type="text", nullable=true)
+     * @Assert\NotBlank()
+     * @ORM\Column(name="description", type="text")
      */
-    private $vita;
+    private $description;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="citations", type="text", nullable=true)
+     * @ORM\Column(name="quotes", type="text", nullable=true)
      */
-    private $citations;
+    private $quotes;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="metadesc", type="string", length=160, nullable=true)
+     * @Assert\NotBlank()
+     * @Assert\Length(min="100", max="160")
+     * @ORM\Column(name="meta_description", type="string", length=160)
      */
     private $metaDescription;
 
     /**
      * @var ArrayCollection
      * @ORM\ManyToMany(targetEntity="Link", cascade={"persist", "remove"})
-     * @ORM\JoinTable(name="frontpage_links",
-     *      joinColumns={@ORM\JoinColumn(name="frontpage_id", referencedColumnName="id")},
+     * @ORM\JoinTable(name="profiles_links",
+     *      joinColumns={@ORM\JoinColumn(name="profile_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="link_id", referencedColumnName="id")}
      *      )
      */
@@ -92,28 +97,27 @@ class FrontPage {
      *
      * @ORM\OneToOne(targetEntity="Image", cascade={"remove", "persist"})
      */
-    private $image;
+    private $profileImage;
 
     /**
      * @var Image
      *
      * @ORM\OneToOne(targetEntity="Image", cascade={"remove", "persist"})
      */
-    private $cover;
+    private $bannerImage;
 
     /**
-     *
-     * @ORM\OneToMany(targetEntity="Album", mappedBy="frontPage", cascade={"remove", "persist"})
-     * @ORM\OrderBy({"published" = "DESC"})
+     * @ORM\OneToMany(targetEntity="Album", mappedBy="profile", cascade={"remove", "persist"})
      */
     private $albums;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="video", type="string", length=160, nullable=true)
+     * @Assert\NotBlank()
+     * @ORM\Column(name="banner_video_path", type="string", length=160, nullable=true)
      */
-    private $video;
+    private $bannerVideoPath;
 
     /**
      * @var string
@@ -153,7 +157,7 @@ class FrontPage {
      * Set name
      *
      * @param string $name
-     * @return FrontPage
+     * @return Profile
      */
     public function setName($name) {
         $this->name = $name;
@@ -173,11 +177,11 @@ class FrontPage {
     /**
      * Set vita
      *
-     * @param string $vita
-     * @return FrontPage
+     * @param string $description
+     * @return Profile
      */
-    public function setVita($vita) {
-        $this->vita = $vita;
+    public function setDescription($description) {
+        $this->description = $description;
 
         return $this;
     }
@@ -187,15 +191,15 @@ class FrontPage {
      *
      * @return string
      */
-    public function getVita() {
-        return $this->vita;
+    public function getDescription() {
+        return $this->description;
     }
 
     /**
      * Set links
      *
      * @param array $links
-     * @return FrontPage
+     * @return Profile
      */
     public function setLinks($links) {
         $this->links = $links;
@@ -215,11 +219,11 @@ class FrontPage {
     /**
      * Set image
      *
-     * @param string $image
-     * @return FrontPage
+     * @param string $profileImage
+     * @return Profile
      */
-    public function setImage($image) {
-        $this->image = $image;
+    public function setProfileImage($profileImage) {
+        $this->profileImage = $profileImage;
 
         return $this;
     }
@@ -229,15 +233,15 @@ class FrontPage {
      *
      * @return string
      */
-    public function getImage() {
-        return $this->image;
+    public function getProfileImage() {
+        return $this->profileImage;
     }
 
     /**
      * Set albums
      *
      * @param array $albums
-     * @return FrontPage
+     * @return Profile
      */
     public function setAlbums($albums) {
         $this->albums = $albums;
@@ -263,7 +267,7 @@ class FrontPage {
 
     /**
      * @param $public
-     * @return FrontPage
+     * @return Profile
      */
     public function setPublic($public) {
         $this->public = $public;
@@ -325,29 +329,29 @@ class FrontPage {
     /**
      * @return Image
      */
-    public function getCover() {
-        return $this->cover;
+    public function getBannerImage() {
+        return $this->bannerImage;
     }
 
     /**
-     * @param Image $cover
+     * @param Image $bannerImage
      */
-    public function setCover($cover) {
-        $this->cover = $cover;
+    public function setBannerImage($bannerImage) {
+        $this->bannerImage = $bannerImage;
     }
 
     /**
      * @return string
      */
-    public function getCitations() {
-        return $this->citations;
+    public function getQuotes() {
+        return $this->quotes;
     }
 
     /**
-     * @param string $citations
+     * @param string $quotes
      */
-    public function setCitations($citations) {
-        $this->citations = $citations;
+    public function setQuotes($quotes) {
+        $this->quotes = $quotes;
     }
 
     /**
@@ -395,15 +399,15 @@ class FrontPage {
     /**
      * @return string
      */
-    public function getVideo() {
-        return $this->video;
+    public function getBannerVideoPath() {
+        return $this->bannerVideoPath;
     }
 
     /**
-     * @param string $video
+     * @param string $bannerVideoPath
      */
-    public function setVideo($video) {
-        $this->video = $video;
+    public function setBannerVideoPath($bannerVideoPath) {
+        $this->bannerVideoPath = $bannerVideoPath;
     }
 
     /**

@@ -4,7 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Album;
 use AppBundle\Entity\Donation;
-use AppBundle\Entity\FrontPage;
+use AppBundle\Entity\Profile;
 use Doctrine\ORM\EntityManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -13,6 +13,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
 use Symfony\Component\Security\Core\Authorization\AuthorizationChecker;
 
+/**
+ * Controller that handles all public pages
+ *
+ * @package AppBundle\Controller
+ */
 class DefaultController extends Controller {
 
     /**
@@ -20,6 +25,12 @@ class DefaultController extends Controller {
      */
     private $em;
 
+    /**
+     * Increments the download count on an album.
+     *
+     * @param Album $album increment count on this album
+     * @param Request $request
+     */
     private function addDownload(Album $album, Request $request) {
         $cookies[] = $request->cookies->all();
         $cookie = 'album_' . $album->getUURL();
@@ -34,14 +45,16 @@ class DefaultController extends Controller {
     }
 
     /**
+     * Fetches all profiles and donation statistics and renders the homepage
+     *
      * @Route("/", name="homepage")
      * @return \Symfony\Component\HttpFoundation\Response
      * @internal param Request $request
      */
     public function indexAction() {
 
-        $frontPages = $this->getEm()
-            ->getRepository('AppBundle:FrontPage')
+        $profiles = $this->getEm()
+            ->getRepository('AppBundle:Profile')
             ->findBy(array('public' => true), array('id' => 'DESC'));
 
         $donations = $this->getEm()
@@ -56,17 +69,17 @@ class DefaultController extends Controller {
         $bigPage = null;
 
         /**
-         * @var $page FrontPage
+         * @var $profile Profile
          */
-        foreach ($frontPages as $page) {
-            if ($page->getUURL() === 'suburbian-rex') {
-                $bigPage = $page;
+        foreach ($profiles as $profile) {
+            if ($profile->getUURL() === 'suburbian-rex') {
+                $bigPage = $profile;
                 break;
             }
         }
 
         return $this->render('AppBundle::index.html.twig', array(
-            'frontPages' => $frontPages,
+            'profiles' => $profiles,
             'total' => $total,
             'count' => sizeof($donations),
             'bigPage' => $bigPage
@@ -74,6 +87,8 @@ class DefaultController extends Controller {
     }
 
     /**
+     * Renders the imprint page
+     *
      * @Route("/impressum", name="impressum")
      * @return \Symfony\Component\HttpFoundation\Response
      * @internal param Request $request
@@ -83,6 +98,8 @@ class DefaultController extends Controller {
     }
 
     /**
+     * Renders the TOS page
+     *
      * @Route("/datenschutz", name="datenschutz")
      * @return \Symfony\Component\HttpFoundation\Response
      * @internal param Request $request
@@ -92,6 +109,8 @@ class DefaultController extends Controller {
     }
 
     /**
+     * Redirects to the donation page
+     *
      * @Route("donate", name="donate_external")
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
@@ -100,18 +119,18 @@ class DefaultController extends Controller {
     }
 
     /**
-     * Finds and displays a FrontPage entity.
+     * Finds and renders a profile
      *
      * @Route("/{UURL}", name="profile_show", requirements={"UURL": "(?!login|admin|checkrole\b)\b[\w-]+"})
      * @Method("GET")
-     * @param FrontPage $frontPage
+     * @param Profile $profile
      * @return \Symfony\Component\HttpFoundation\Response
      * @internal param Request $request
      */
-    public function showAction(FrontPage $frontPage) {
+    public function showAction(Profile $profile) {
 
-        // Check if the user has acces to the unpublished profile
-        if ($frontPage->getPublic() === false) {
+        // Check if the user has access to the unpublished profile
+        if ($profile->getPublic() === false) {
             $denyAccess = true;
 
             /**
@@ -129,7 +148,7 @@ class DefaultController extends Controller {
                 $denyAccess = false;
             } else if ($authorizationChecker->isGranted('ROLE_ARTIST')) {
                 // allow access to the respective user
-                $uurl = $frontPage->getUURL();
+                $uurl = $profile->getUURL();
                 $username = $tokenStorage->getToken()->getUsername();
                 if ($uurl === $username) {
                     $denyAccess = false;
@@ -142,12 +161,12 @@ class DefaultController extends Controller {
         }
 
         return $this->render('AppBundle::show.html.twig', array(
-            'frontPage' => $frontPage,
+            'profile' => $profile,
         ));
     }
 
     /**
-     * Downloads an album file
+     * Downloads an album zip archive and increments its download count
      *
      * @Route("/download/{UURL}", name="download_album")
      * @Method("GET")
@@ -162,12 +181,15 @@ class DefaultController extends Controller {
     }
 
     /**
+     * Sets the entity manager if it hasn't been used before and returns it.
+     *
      * @return EntityManager
      */
     public function getEm() {
         if ($this->em == null) {
             $this->em = $this->getDoctrine()->getManager();
         }
+
         return $this->em;
     }
 

@@ -7,20 +7,20 @@
     <link rel="stylesheet" href="{{ asset('assets/vendor/jquery-confirm/dist/jquery-confirm.min.css') }}"/>
 {% endblock %}
 
-{% block pagetitle %}{{ frontPage.name }} | {{ 'base.meta.title'|trans }}{% endblock %}
+{% block pagetitle %}{{ profile.name }} | {{ 'base.meta.title'|trans }}{% endblock %}
 
 {% block description %}
-    <meta name="description" content="{{ frontPage.metaDescription }}">
+    <meta name="description" content="{{ profile.metaDescription }}">
 {% endblock %}
 
 {% block og_image %}
-    <meta property="og:image" content="https://www.keinegrenzen.org{{ asset(frontPage.cover.webPath) }}">
+    <meta property="og:image" content="https://www.keinegrenzen.org{{ asset(profile.bannerImage.webPath) }}">
     <meta property="og:image:width" content="1920"/>
     <meta property="og:image:height" content="1080"/>
 {% endblock %}
 
 {% block og_description %}
-    <meta property="og:description" content="{{ frontPage.metaDescription }}">
+    <meta property="og:description" content="{{ profile.metaDescription }}">
 {% endblock %}
 
 {% block bodyschema %}itemscope itemtype="http://schema.org/MusicGroup"{% endblock %}
@@ -30,54 +30,54 @@
     {% include '@App/nav.html.twig' with {'index': false} %}
 
     <header class="container-fluid profile-header text-center"
-            style="background-image: url({{ asset(frontPage.cover.webPath) }});">
+            style="background-image: url({{ asset(profile.bannerImage.webPath) }});">
         <div class="row align-items-center justify-content-center page-title sr sr-t-1{{ is_mobile()?'mobile':'' }}">
-            {% if not is_mobile() and frontPage.video is not null %}
+            {% if not is_mobile() and profile.bannerVideoPath is not null %}
                 <div class="video-container">
                     <video autoplay loop>
-                        <source src="{{ asset(frontPage.video) }}" type="video/mp4">
+                        <source src="{{ asset(profile.bannerVideoPath) }}" type="video/mp4">
                         {{ 'no-video'|trans }}
                     </video>
                 </div>
             {% endif %}
             <div class="profile-header-content">
                 <div class="rounded-circle image-container d-flex justify-content-center align-content-center"
-                     style="background-image: url({{ asset(frontPage.image.webPath) }})">
-                    <img src="{{ asset(frontPage.image.webPath) }}"
-                         alt="{{ frontPage.name ~ ' - ' ~ 'frontpage.image'|trans }}" itemprop="image">
+                     style="background-image: url({{ asset(profile.profileImage.webPath) }})">
+                    <img src="{{ asset(profile.profileImage.webPath) }}"
+                         alt="{{ profile.name ~ ' - ' ~ 'frontpage.image'|trans }}" itemprop="image">
                 </div>
                 <div class="title-container py-4">
                     <div class="d-block">
                         <h1>
-                            <strong itemprop="name">{{ frontPage.name }}</strong>
+                            <strong itemprop="name">{{ profile.name }}</strong>
                         </h1>
                         <hr/>
                         <h2>
-                            <strong itemprop="genre">{{ frontPage.genre }}</strong> {{ 'from'|trans }} {{ frontPage.location }}
+                            <strong itemprop="genre">{{ profile.genre }}</strong> {{ 'from'|trans }} {{ profile.location }}
                         </h2>
                     </div>
                 </div>
             </div>
             <div class="arrow-bounce pb-3 sr sr-b-3">
-                <a class="fa fa-angle-double-down fa-2x fa-fw" href="#vita"></a>
+                <a class="fa fa-angle-double-down fa-2x fa-fw" href="#description"></a>
             </div>
         </div>
     </header>
 
-    <section class="container pt-5 artist-bio" id="vita">
+    <section class="container pt-5 artist-bio" id="description">
         <div class="row py-2">
             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                <h2 class="sr sr-b-1">{{ 'profile.h2.bio'|trans }} {{ frontPage.name }}</h2>
+                <h2 class="sr sr-b-1">{{ 'profile.h2.bio'|trans }} {{ profile.name }}</h2>
                 <ul class="list-inline mb-4 sr sr-b-2">
-                    {{ socialLink.sortAndRender(frontPage.links) }}
+                    {{ socialLink.sortAndRender(profile.links) }}
                 </ul>
-                <div class="vita text-big sr sr-b-3" itemprop="description">
-                    {{ frontPage.vita|raw }}
+                <div class="description text-big sr sr-b-3" itemprop="description">
+                    {{ profile.description|raw }}
                 </div>
             </div>
-            <div class="citations-container col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex">
-                <div class="citations px-5 align-self-center text-big sr sr-b-1">
-                    {{ frontPage.citations|raw }}
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex">
+                <div class="quotes px-5 align-self-center text-big sr sr-b-1">
+                    {{ profile.quotes|raw }}
                 </div>
             </div>
         </div>
@@ -89,13 +89,13 @@
                 <h2 class="sr sr-b-1">{{ 'profile.h2.albums'|trans }}</h2>
             </div>
         </div>
-        {% for album in frontPage.albums %}
+        {% for album in profile.albums %}
             <div class="row py-2 my-2">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 px-2 album-art-container sr sr-b-1">
                     <div class="album-art" itemprop="album" itemscope itemtype="http://schema.org/MusicAlbum"
                          data-uurl="{{ album.UURL }}">
                         <meta itemprop="description" content="{{ album.description }}"/>
-                        <meta itemprop="genre" content="{{ frontPage.genre }}"/>
+                        <meta itemprop="genre" content="{{ profile.genre }}"/>
                         <div class="image-container d-flex justify-content-center align-content-center">
                             <img itemprop="image" src="{{ asset(album.cover.webPath) }}"
                                  alt="{{ album.title }} - Cover"/>
@@ -111,7 +111,7 @@
                         <div class="col-lg-6">
                             <h3 itemprop="name">{{ album.title }}</h3>
                             <p style="color: {{ album.secondaryColor|raw }} !important">{{ 'published'|trans }}
-                                : {{ album.published|date('d.m.Y') }}</p>
+                                : {{ album.releaseDate|date('d.m.Y') }}</p>
                             <div class="description text-big">
                                 {{ album.description|raw|nl2br }}
                             </div>
@@ -120,7 +120,7 @@
                             <div class="row tracklist-title mb-2">
                                 <h4 class="col-9">{{ 'tracklist'|trans }}</h4>
                                 <a class="col-3 text-right"
-                                   href="{{ album.soundcloud|raw }}"
+                                   href="{{ album.soundCloudLink|raw }}"
                                    target="_blank" title="{{ 'listenOnSc'|trans }}">
                                         <span class="fa fa-2x fa-fw fa-soundcloud">
                                             <span class="sr-only">{{ 'listenOnSc'|trans }}</span>
@@ -129,7 +129,7 @@
                             </div>
                             <div class="album-embed" id="album-embed-{{ loop.index0 }}"
                                  data-color-secondary="{{ album.secondaryColor|raw }}"
-                                 data-sc="{{ album.soundcloud|raw }}" data-title="{{ album.title }}">
+                                 data-sc="{{ album.soundCloudLink|raw }}" data-title="{{ album.title }}">
                                 <div class="album-list">
                                     <ul class="list-group"></ul>
                                 </div>

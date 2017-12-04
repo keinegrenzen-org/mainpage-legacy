@@ -67,7 +67,7 @@
             <div class="col-md-6 mt-3 mt-md-0 align-self-center">
                 <h3>{{ bigPage.name }}</h3>
                 <p><strong>{{ bigPage.genre }}</strong>, {{ 'from'|trans }} {{ bigPage.location }}</p>
-                <p>{{ bigPage.vita|truncate(400, true)|raw }}</p>
+                <p>{{ bigPage.description|truncate(400, true)|raw }}</p>
                 <a href="{{ path('profile_show', {UURL: bigPage.UURL}) }}"
                    class="btn btn-secondary">
                     {{ 'readmore'|trans }}
@@ -117,22 +117,22 @@
             </div>
         </div>
         <div class="row py-2 justify-content-center">
-            {% for frontPage in frontPages %}
+            {% for profile in profiles %}
                 <div class="col-lg-4 col-sm-6 text-center artist-col my-3"
                      itemscope itemtype="http://schema.org/MusicGroup">
-                    <h3 class="artist-name" itemprop="name">{{ frontPage.name }}</h3>
+                    <h3 class="artist-name" itemprop="name">{{ profile.name }}</h3>
                     <div class="artist-preview my-3">
-                        <a href="{{ path('profile_show', {UURL: frontPage.UURL}) }}"
+                        <a href="{{ path('profile_show', {UURL: profile.UURL}) }}"
                            class="artist-img d-flex justify-content-center align-items-center align-content-center"
-                           style="background-image: url({{ asset(frontPage.image.webPath) }})">
-                            <img src="{{ asset(frontPage.image.webPath) }}"
-                                 alt="{{ frontPage.name ~ ' - ' ~ 'frontpage.image'|trans }}" itemprop="image">
+                           style="background-image: url({{ asset(profile.profileImage.webPath) }})">
+                            <img src="{{ asset(profile.profileImage.webPath) }}"
+                                 alt="{{ profile.name ~ ' - ' ~ 'frontpage.image'|trans }}" itemprop="image">
                         </a>
-                        <p class="artist-genre my-2" itemprop="genre">{{ frontPage.genre }}</p>
+                        <p class="artist-genre my-2" itemprop="genre">{{ profile.genre }}</p>
                         <ul class="list-inline my-3 text-muted">
-                            {{ socialLink.sortAndRender(frontPage.links) }}
+                            {{ socialLink.sortAndRender(profile.links) }}
                         </ul>
-                        <a href="{{ path('profile_show', {UURL: frontPage.UURL}) }}"
+                        <a href="{{ path('profile_show', {UURL: profile.UURL}) }}"
                            class="btn btn-outline-primary mb-3 sr sr-b-1" itemprop="url">
                             {{ 'readmore'|trans }}
                         </a>

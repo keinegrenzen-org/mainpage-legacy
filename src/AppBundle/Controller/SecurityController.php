@@ -4,7 +4,13 @@ namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
+/**
+ * Controoler that handles all security related functions
+ *
+ * @package AppBundle\Controller
+ */
 class SecurityController extends Controller {
 
     /**
@@ -13,6 +19,10 @@ class SecurityController extends Controller {
      * @internal param Request $request
      */
     public function loginAction() {
+
+        /**
+         * @var AuthenticationUtils $authenticationUtils
+         */
         $authenticationUtils = $this->get('security.authentication_utils');
 
         // get the login error if there is one
@@ -32,6 +42,8 @@ class SecurityController extends Controller {
     }
 
     /**
+     * Checks the logged in user's role and redirects accordingly
+     *
      * @Route("/checkrole", name="check_role")
      * @return \Symfony\Component\HttpFoundation\Response
      */
