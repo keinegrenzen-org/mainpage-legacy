@@ -1,6 +1,7 @@
 # Parameters
 /app/config/parameters.yml
-/app/config/parameters.ini
+/app/config/parameters.yml.dist
+/app/config/security.yml
 
 # PHPStorm
 /.idea
@@ -18,7 +19,7 @@ var/sessions/
 web/css/
 web/js/
 web/bundles/
-web/cache/
 web/.htaccess
+web/uploads/
 
 vendor/
