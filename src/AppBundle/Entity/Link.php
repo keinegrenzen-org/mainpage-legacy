@@ -25,7 +25,7 @@ class Link {
     /**
      * @var string
      *
-     * @Assert\URL()
+     * @Assert\Url()
      * @Assert\NotBlank()
      * @ORM\Column(name="link", type="string", length=255)
      */
