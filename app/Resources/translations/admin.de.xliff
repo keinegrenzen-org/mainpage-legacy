@@ -231,8 +231,8 @@
                 <source>Donation</source>
                 <target>Spende</target>
             </trans-unit>
-            <trans-unit id="loco:$56" resname="FrontPage" datatype="plaintext">
-                <source>FrontPage</source>
+            <trans-unit id="loco:$56" resname="Profile" datatype="plaintext">
+                <source>Profile</source>
                 <target>Künstler</target>
             </trans-unit>
             <trans-unit id="loco:$57" resname="Album" datatype="plaintext">
@@ -262,6 +262,10 @@
             <trans-unit id="loco:$63" resname="label.form.empty_value" datatype="plaintext">
                 <source>label.form.empty_value</source>
                 <target>Bitte Wählen</target>
+            </trans-unit>
+            <trans-unit id="loco:$63" resname="donation.name" datatype="plaintext">
+                <source>donation.name</source>
+                <target>Name</target>
             </trans-unit>
         </body>
     </file>

@@ -2,8 +2,8 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Donation
@@ -11,11 +11,9 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="donation")
  * @ORM\Entity()
  */
-class Donation
-{
-    public function __construct()
-    {
-        $this->albums = new ArrayCollection();
+class Donation {
+
+    public function __construct() {
         $this->date = new \DateTime('now');
     }
 
@@ -29,32 +27,6 @@ class Donation
     private $id;
 
     /**
-     * @var
-     * @ORM\ManyToMany(targetEntity="Album")
-     * @ORM\JoinTable(name="donation_albums",
-     *      joinColumns={@ORM\JoinColumn(name="donation_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="album_id", referencedColumnName="id")}
-     *      )
-     */
-    private $albums;
-
-    /**
-     * @return mixed
-     */
-    public function getAlbums()
-    {
-        return $this->albums;
-    }
-
-    /**
-     * @param mixed $albums
-     */
-    public function setAlbums($albums)
-    {
-        $this->albums = $albums;
-    }
-
-    /**
      * @var \DateTime
      *
      * @ORM\Column(name="date", type="datetime")
@@ -64,16 +36,19 @@ class Donation
     /**
      * @var int
      *
-     * @ORM\Column(name="amount", type="integer", nullable=true)
+     * @Assert\NotEqualTo(0)
+     * @ORM\Column(name="amount", type="integer")
      */
     private $amount;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=255, nullable=true)
+     * @Assert\NotBlank()
+     * @Assert\Length(min="2", max="255")
+     * @ORM\Column(name="name", type="string", length=255)
      */
-    private $email;
+    private $name;
 
 
     /**
@@ -81,8 +56,7 @@ class Donation
      *
      * @return int
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -93,8 +67,7 @@ class Donation
      *
      * @return Donation
      */
-    public function setDate($date)
-    {
+    public function setDate($date) {
         $this->date = $date;
 
         return $this;
@@ -105,8 +78,7 @@ class Donation
      *
      * @return \DateTime
      */
-    public function getDate()
-    {
+    public function getDate() {
         return $this->date;
     }
 
@@ -117,8 +89,7 @@ class Donation
      *
      * @return Donation
      */
-    public function setAmount($amount)
-    {
+    public function setAmount($amount) {
         $this->amount = $amount;
 
         return $this;
@@ -129,21 +100,19 @@ class Donation
      *
      * @return int
      */
-    public function getAmount()
-    {
+    public function getAmount() {
         return $this->amount;
     }
 
     /**
      * Set email
      *
-     * @param string $email
+     * @param string $name
      *
      * @return Donation
      */
-    public function setEmail($email)
-    {
-        $this->email = $email;
+    public function setName($name) {
+        $this->name = $name;
 
         return $this;
     }
@@ -153,28 +122,23 @@ class Donation
      *
      * @return string
      */
-    public function getEmail()
-    {
-        return $this->email;
+    public function getName() {
+        return $this->name;
     }
 
-    public function addAlbum(Album $album)
-    {
+    public function addAlbum(Album $album) {
         $this->albums->add($album);
     }
 
-    public function getFloatAmount()
-    {
+    public function getFloatAmount() {
         return "" . $this->getAmount() / 100 . "€";
     }
 
-    public function getDecimalAmount()
-    {
+    public function getDecimalAmount() {
         return "" . $this->getAmount() / 100;
     }
 
-    public function getUSFormatAmout()
-    {
+    public function getUSFormatAmout() {
         setlocale(LC_MONETARY, 'en_US');
         return money_format('%i', $this->getAmount());
     }

@@ -33,9 +33,9 @@ class Album {
     /**
      * @var string
      *
-     * @ORM\Column(name="soundcloud", type="string", length=512)
+     * @ORM\Column(name="sound_cloud_link", type="string", length=512)
      */
-    private $soundcloud;
+    private $soundCloudLink;
 
     /**
      * @ORM\OneToOne(targetEntity="Image", cascade={"remove", "persist"})
@@ -58,14 +58,14 @@ class Album {
      * @var Date
      * @ORM\Column(name="published", type="date")
      */
-    private $published;
+    private $releaseDate;
 
     /**
-     * @var FrontPage
-     * @ORM\ManyToOne(targetEntity="FrontPage", inversedBy="albums")
-     * @ORM\JoinColumn(name="frontPage_id", referencedColumnName="id")
+     * @var Profile
+     * @ORM\ManyToOne(targetEntity="Profile", inversedBy="albums")
+     * @ORM\JoinColumn(name="profile_id", referencedColumnName="id")
      */
-    private $frontPage;
+    private $profile;
 
     /**
      * @var string
@@ -75,19 +75,19 @@ class Album {
 
     /**
      * @var string
-     * @ORM\Column(name="backgroundcolor", type="string", length=20)
+     * @ORM\Column(name="background_color", type="string", length=20)
      */
     private $backgroundColor;
 
     /**
      * @var string
-     * @ORM\Column(name="primarycolor", type="string", length=20)
+     * @ORM\Column(name="primary_color", type="string", length=20)
      */
     private $primaryColor;
 
     /**
      * @var string
-     * @ORM\Column(name="secondarycolor", type="string", length=20)
+     * @ORM\Column(name="secondary_color", type="string", length=20)
      */
     private $secondaryColor;
 
@@ -150,15 +150,15 @@ class Album {
     /**
      * @return mixed
      */
-    public function getPublished() {
-        return $this->published;
+    public function getReleaseDate() {
+        return $this->releaseDate;
     }
 
     /**
-     * @param mixed $published
+     * @param mixed $releaseDate
      */
-    public function setPublished($published) {
-        $this->published = $published;
+    public function setReleaseDate($releaseDate) {
+        $this->releaseDate = $releaseDate;
     }
 
     /**
@@ -190,17 +190,17 @@ class Album {
     }
 
     /**
-     * @return FrontPage
+     * @return Profile
      */
-    public function getFrontPage() {
-        return $this->frontPage;
+    public function getProfile() {
+        return $this->profile;
     }
 
     /**
-     * @param mixed $frontPage
+     * @param mixed $profile
      */
-    public function setFrontPage($frontPage) {
-        $this->frontPage = $frontPage;
+    public function setProfile($profile) {
+        $this->profile = $profile;
     }
 
     /**
@@ -248,19 +248,19 @@ class Album {
     /**
      * @return mixed
      */
-    public function getSoundcloud() {
-        return $this->soundcloud;
+    public function getSoundCloudLink() {
+        return $this->soundCloudLink;
     }
 
     /**
-     * @param mixed $soundcloud
+     * @param mixed $soundCloudLink
      */
-    public function setSoundcloud($soundcloud) {
-        $this->soundcloud = $soundcloud;
+    public function setSoundCloudLink($soundCloudLink) {
+        $this->soundCloudLink = $soundCloudLink;
     }
 
     public function getArtist() {
-        return $this->getFrontPage()->getName();
+        return $this->getProfile()->getName();
     }
 
     public function __toString() {
