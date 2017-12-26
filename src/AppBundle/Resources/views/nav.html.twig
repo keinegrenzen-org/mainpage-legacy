@@ -6,8 +6,8 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon fa fa-navicon fa-fw">
-            <i class="sr-only">Toggle navigation</i>
+        <span class="navicon">
+            {% include '@App/icons/menu.svg.twig' with {color: 'white'} %}
         </span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -26,7 +26,10 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link donate-external" target="_blank" href="{{ path('donate_external') }}">
-                    {{ 'nav.donate'|trans }}<span class="fa fa-external-link fa-fw ml-2"></span>
+                    {{ 'nav.donate'|trans }}
+                    <span class="ml-2">
+                        {% include '@App/icons/external-link.svg.twig' with {color: 'white'} %}
+                    </span>
                 </a>
             </li>
         </ul>

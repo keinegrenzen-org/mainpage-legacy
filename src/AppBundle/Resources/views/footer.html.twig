@@ -1,6 +1,7 @@
 <footer class="footer container-fluid py-5">
     <a class="rounded-circle btn-top" href="#">
-        <span class="fa fa-fw fa-chevron-up">
+        <span>
+            {% include '@App/icons/up.svg.twig' with {color: 'primary'} %}
             <i class="sr-only">{{ 'to_the_top'|trans }}</i>
         </span>
     </a>
@@ -15,11 +16,12 @@
                 </li>
             </ul>
             <p>© 2016-2017 Barthélémy Bonhomme</p>
-            <small>
-                {{ 'madewith'|trans }}&nbsp;
-                <span class="fa fa-heart">
-                    <i class="sr-only">{{ 'love'|trans }}</i>
-                </span> {{ 'incologne'|trans }}
+            <small class="made-with-love">
+                {{ 'madewith'|trans }}
+                <span>
+                    {% include '@App/icons/heart.svg.twig' with {color: 'primary'} %}
+                </span>
+                {{ 'incologne'|trans }}
             </small>
         </div>
     </section>

@@ -105,8 +105,6 @@ easy_admin:
         assets:
             js:
                 - '/bundles/app/js/vich.js'
-                - '/assets/vendor/color-thief/dist/color-thief.js'
-                - '/assets/vendor/imagesloaded.imagesloaded.pkgd.min.js'
                 - '/bundles/app/js/field-type.js'
             css:
                 - '/bundles/app/css/fields.css'
@@ -130,13 +128,13 @@ easy_admin:
                     - { property: 'location', type: 'text', label: 'artist.location', css_class: 'col-lg-3' }
                     - { property: 'genre', type: 'text', label: 'artist.genre', css_class: 'col-lg-3' }
                     - { property: 'UURL', type: 'text', label: 'artist.uurl', css_class: 'col-lg-12', type_options: {attr: {pattern: "^[.a-zA-Z0-9-]+$"}} }
-                    - { property: 'image', type: 'AppBundle\Form\ImageType', label: 'artist.profile_image', css_class: 'col-lg-6' }
-                    - { property: 'cover', type: 'AppBundle\Form\ImageType', label: 'artist.banner_image', css_class: 'col-lg-6' }
-                    - { property: 'video', type: 'text', label: 'artist.video', css_class: 'col-lg-6' }
+                    - { property: 'profileImage', type: 'AppBundle\Form\ImageType', label: 'artist.profile_image', css_class: 'col-lg-6' }
+                    - { property: 'bannerImage', type: 'AppBundle\Form\ImageType', label: 'artist.banner_image', css_class: 'col-lg-6' }
+                    - { property: 'bannerVideoPath', type: 'text', label: 'artist.video', css_class: 'col-lg-6' }
                     - { property: 'youtubeLink', type: 'text', label: 'artist.youtube', css_class: 'col-lg-6' }
-                    - { property: 'vita', type: 'ckeditor', label: 'artist.vita' }
+                    - { property: 'description', type: 'ckeditor', label: 'artist.vita' }
                     - { property: 'metaDescription', type: 'text', label: 'artist.meta_description' }
-                    - { property: 'citations', type: 'ckeditor', label: 'artist.citations' }
+                    - { property: 'quotes', type: 'ckeditor', label: 'artist.citations' }
                     - { property: 'links', type: 'collection', label: 'artist.links', type_options: { entry_options: { label: false }, entry_type: AppBundle\Form\LinkType, attr: { class: 'field-links' } }}
                     - { property: 'public', type: 'checkbox', label: 'artist.public', css_class: 'col-lg-12' }
         Album:
@@ -171,13 +169,13 @@ easy_admin:
                 fields:
                     - { property: 'id', label: 'donation.id', type: 'integer' }
                     - { property: 'date', label: 'donation.date', type: 'date', format: 'Y/m/d' }
-                    - { property: 'email', label: 'donation.name', type: 'email' }
+                    - { property: 'name', label: 'donation.name', type: 'email' }
                     - { property: 'floatAmount', label: 'donation.amount', type: 'text' }
             form:
                 title: "form.donation"
                 fields:
                     - { property: 'date', label: 'donation.date', type: 'date', css_class: 'col-lg-4' }
-                    - { property: 'email', label: 'donation.name', type: 'text', css_class: 'col-lg-4' }
+                    - { property: 'name', label: 'donation.name', type: 'text', css_class: 'col-lg-4' }
                     - { property: 'amount', label: 'donation.amount', type: 'money', css_class: 'col-lg-4', type_options: {divisor: 100} }
 
 jms_i18n_routing:

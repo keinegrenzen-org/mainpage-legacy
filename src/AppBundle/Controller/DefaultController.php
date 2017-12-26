@@ -30,6 +30,7 @@ class DefaultController extends Controller {
      *
      * @param Album $album increment count on this album
      * @param Request $request
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
     private function addDownload(Album $album, Request $request) {
         $cookies[] = $request->cookies->all();
@@ -173,6 +174,7 @@ class DefaultController extends Controller {
      * @param Album $album
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function downloadAction(Album $album, Request $request) {
         $this->addDownload($album, $request);

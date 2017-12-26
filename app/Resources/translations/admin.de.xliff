@@ -1,272 +1,263 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-    <file date="2017-10-03T23:28:03Z" source-language="en" target-language="de" datatype="plaintext"
-          original="not.available">
-        <header>
-            <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
-            <note>The source node in most cases contains the sample message as written by the developer. If it looks
-                like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a
-                default message.
-            </note>
-        </header>
-        <body>
-            <trans-unit id="loco:$1" resname="list.artist" datatype="plaintext">
-                <source>list.artist</source>
-                <target>Künstler</target>
-            </trans-unit>
-            <trans-unit id="loco:$2" resname="list.album" datatype="plaintext">
-                <source>list.album</source>
-                <target>Alben</target>
-            </trans-unit>
-            <trans-unit id="loco:$3" resname="list.donation" datatype="plaintext">
-                <source>list.donation</source>
-                <target>Spenden</target>
-            </trans-unit>
-            <trans-unit id="loco:$4" resname="form.artist" datatype="plaintext">
-                <source>form.artist</source>
-                <target>Künstler</target>
-            </trans-unit>
-            <trans-unit id="loco:$5" resname="form.album" datatype="plaintext">
-                <source>form.album</source>
-                <target>Album</target>
-            </trans-unit>
-            <trans-unit id="loco:$6" resname="form.donation" datatype="plaintext">
-                <source>form.donation</source>
-                <target>Spende</target>
-            </trans-unit>
-            <trans-unit id="loco:$7" resname="artist.id" datatype="plaintext">
-                <source>artist.id</source>
-                <target>ID</target>
-            </trans-unit>
-            <trans-unit id="loco:$8" resname="artist.URL" datatype="plaintext">
-                <source>artist.URL</source>
-                <target>URL</target>
-            </trans-unit>
-            <trans-unit id="loco:$9" resname="artist.name" datatype="plaintext">
-                <source>artist.name</source>
-                <target>Name</target>
-            </trans-unit>
-            <trans-unit id="loco:$10" resname="artist.short_name" datatype="plaintext">
-                <source>artist.short_name</source>
-                <target>Kurzform</target>
-            </trans-unit>
-            <trans-unit id="loco:$11" resname="artist.albums" datatype="plaintext">
-                <source>artist.albums</source>
-                <target>Alben</target>
-            </trans-unit>
-            <trans-unit id="loco:$12" resname="artist.public" datatype="plaintext">
-                <source>artist.public</source>
-                <target>Öffentlich</target>
-            </trans-unit>
-            <trans-unit id="loco:$13" resname="artist.loction" datatype="plaintext">
-                <source>artist.loction</source>
-                <target>Ort</target>
-            </trans-unit>
-            <trans-unit id="loco:$14" resname="artist.genre" datatype="plaintext">
-                <source>artist.genre</source>
-                <target>Genre</target>
-            </trans-unit>
-            <trans-unit id="loco:$15" resname="artist.uurl" datatype="plaintext">
-                <source>artist.uurl</source>
-                <target>UURL</target>
-            </trans-unit>
-            <trans-unit id="loco:$16" resname="artist.profile_image" datatype="plaintext">
-                <source>artist.profile_image</source>
-                <target>Profilbild</target>
-            </trans-unit>
-            <trans-unit id="loco:$17" resname="artist.banner_image" datatype="plaintext">
-                <source>artist.banner_image</source>
-                <target>Banner</target>
-            </trans-unit>
-            <trans-unit id="loco:$18" resname="artist.video" datatype="plaintext">
-                <source>artist.video</source>
-                <target>Video</target>
-            </trans-unit>
-            <trans-unit id="loco:$19" resname="artist.youtube" datatype="plaintext">
-                <source>artist.youtube</source>
-                <target>YouTube Video</target>
-            </trans-unit>
-            <trans-unit id="loco:$20" resname="artist.vita" datatype="plaintext">
-                <source>artist.vita</source>
-                <target>Vita</target>
-            </trans-unit>
-            <trans-unit id="loco:$21" resname="artist.meta_description" datatype="plaintext">
-                <source>artist.meta_description</source>
-                <target>Meta Description (160 Zeichen)</target>
-            </trans-unit>
-            <trans-unit id="loco:$22" resname="artist.citations" datatype="plaintext">
-                <source>artist.citations</source>
-                <target>Zitate (1 per &lt;em/&gt;)</target>
-            </trans-unit>
-            <trans-unit id="loco:$23" resname="artist.links" datatype="plaintext">
-                <source>artist.links</source>
-                <target>Links</target>
-            </trans-unit>
-            <trans-unit id="loco:$24" resname="album.id" datatype="plaintext">
-                <source>album.id</source>
-                <target>ID</target>
-            </trans-unit>
-            <trans-unit id="loco:$25" resname="album.title" datatype="plaintext">
-                <source>album.title</source>
-                <target>Titel</target>
-            </trans-unit>
-            <trans-unit id="loco:$26" resname="album.artist" datatype="plaintext">
-                <source>album.artist</source>
-                <target>Künstler</target>
-            </trans-unit>
-            <trans-unit id="loco:$27" resname="album.public" datatype="plaintext">
-                <source>album.public</source>
-                <target>Öffentlich</target>
-            </trans-unit>
-            <trans-unit id="loco:$28" resname="album.downloads" datatype="plaintext">
-                <source>album.downloads</source>
-                <target>Downloads</target>
-            </trans-unit>
-            <trans-unit id="loco:$29" resname="album.cover" datatype="plaintext">
-                <source>album.cover</source>
-                <target>Cover</target>
-            </trans-unit>
-            <trans-unit id="loco:$30" resname="album.background_color"
-                        datatype="plaintext">
-                <source>album.background_color</source>
-                <target>Hintergrundfarbe</target>
-            </trans-unit>
-            <trans-unit id="loco:$31" resname="album.primary_color" datatype="plaintext">
-                <source>album.primary_color</source>
-                <target>Primärfarbe</target>
-            </trans-unit>
-            <trans-unit id="loco:$32" resname="album.secondary_color" datatype="plaintext">
-                <source>album.secondary_color</source>
-                <target>Sekundärfarbe</target>
-            </trans-unit>
-            <trans-unit id="loco:$33" resname="album.description" datatype="plaintext">
-                <source>album.description</source>
-                <target>Beschreibung</target>
-            </trans-unit>
-            <trans-unit id="loco:$34" resname="album.UURL" datatype="plaintext">
-                <source>album.UURL</source>
-                <target>UURL</target>
-            </trans-unit>
-            <trans-unit id="loco:$35" resname="album.soundcloud" datatype="plaintext">
-                <source>album.soundcloud</source>
-                <target>SoundCloud</target>
-            </trans-unit>
-            <trans-unit id="loco:$36" resname="album.published" datatype="plaintext">
-                <source>album.published</source>
-                <target>Veröffentlich</target>
-            </trans-unit>
-            <trans-unit id="loco:$37" resname="album.artist_profile" datatype="plaintext">
-                <source>album.artist_profile</source>
-                <target>Künstlerprofil</target>
-            </trans-unit>
-            <trans-unit id="loco:$38" resname="album.file_path" datatype="plaintext">
-                <source>album.file_path</source>
-                <target>Dateipfad</target>
-            </trans-unit>
-            <trans-unit id="loco:$39" resname="donation.id" datatype="plaintext">
-                <source>donation.id</source>
-                <target>ID</target>
-            </trans-unit>
-            <trans-unit id="loco:$40" resname="donation.date" datatype="plaintext">
-                <source>donation.date</source>
-                <target>Datum</target>
-            </trans-unit>
-            <trans-unit id="loco:$41" resname="donation.name" datatype="plaintext">
-                <source>donation.name</source>
-                <target>Name</target>
-            </trans-unit>
-            <trans-unit id="loco:$42" resname="donation.amount" datatype="plaintext">
-                <source>donation.amount</source>
-                <target>Betrag</target>
-            </trans-unit>
-            <trans-unit id="loco:$43" resname="menu.artists" datatype="plaintext">
-                <source>menu.artists</source>
-                <target>Künstler</target>
-            </trans-unit>
-            <trans-unit id="loco:$44" resname="menu.albums" datatype="plaintext">
-                <source>menu.albums</source>
-                <target>Alben</target>
-            </trans-unit>
-            <trans-unit id="loco:$45" resname="menu.donations" datatype="plaintext">
-                <source>menu.donations</source>
-                <target>Spenden</target>
-            </trans-unit>
-            <trans-unit id="loco:$46" resname="menu.translation" datatype="plaintext">
-                <source>menu.translation</source>
-                <target>Übersetzungen</target>
-            </trans-unit>
-            <trans-unit id="loco:$47" resname="action.new" datatype="plaintext">
-                <source>action.new</source>
-                <target>Hinzufügen</target>
-            </trans-unit>
-            <trans-unit id="loco:$48" resname="action.edit" datatype="plaintext">
-                <source>action.edit</source>
-                <target>Bearbeiten</target>
-            </trans-unit>
-            <trans-unit id="loco:$49" resname="action.delete" datatype="plaintext">
-                <source>action.delete</source>
-                <target>Löschen</target>
-            </trans-unit>
-            <trans-unit id="loco:$50" resname="entity.donation" datatype="plaintext">
-                <source>entity.donation</source>
-                <target>Spende</target>
-            </trans-unit>
-            <trans-unit id="loco:$51" resname="entity.artist" datatype="plaintext">
-                <source>entity.artist</source>
-                <target>Künstler</target>
-            </trans-unit>
-            <trans-unit id="loco:$52" resname="action.search" datatype="plaintext">
-                <source>action.search</source>
-                <target>Suchen</target>
-            </trans-unit>
-            <trans-unit id="loco:$53" resname="action.cancel" datatype="plaintext">
-                <source>action.cancel</source>
-                <target>Abbrechen</target>
-            </trans-unit>
-            <trans-unit id="loco:$54" resname="entity.album" datatype="plaintext">
-                <source>entity.album</source>
-                <target>Album</target>
-            </trans-unit>
-            <trans-unit id="loco:$55" resname="Donation" datatype="plaintext">
-                <source>Donation</source>
-                <target>Spende</target>
-            </trans-unit>
-            <trans-unit id="loco:$56" resname="Profile" datatype="plaintext">
-                <source>Profile</source>
-                <target>Künstler</target>
-            </trans-unit>
-            <trans-unit id="loco:$57" resname="Album" datatype="plaintext">
-                <source>Album</source>
-                <target>Album</target>
-            </trans-unit>
-            <trans-unit id="loco:$58" resname="artist.location" datatype="plaintext">
-                <source>artist.location</source>
-                <target>Ort</target>
-            </trans-unit>
-            <trans-unit id="loco:$59" resname="action.save" datatype="plaintext">
-                <source>action.save</source>
-                <target>Speichern</target>
-            </trans-unit>
-            <trans-unit id="loco:$60" resname="action.list" datatype="plaintext">
-                <source>action.list</source>
-                <target>Zurück zur Liste</target>
-            </trans-unit>
-            <trans-unit id="loco:$61" resname="link.label.title" datatype="plaintext">
-                <source>link.label.title</source>
-                <target>Titel</target>
-            </trans-unit>
-            <trans-unit id="loco:$62" resname="link.label.url" datatype="plaintext">
-                <source>link.label.url</source>
-                <target>URL</target>
-            </trans-unit>
-            <trans-unit id="loco:$63" resname="label.form.empty_value" datatype="plaintext">
-                <source>label.form.empty_value</source>
-                <target>Bitte Wählen</target>
-            </trans-unit>
-            <trans-unit id="loco:$63" resname="donation.name" datatype="plaintext">
-                <source>donation.name</source>
-                <target>Name</target>
-            </trans-unit>
-        </body>
-    </file>
+  <file date="2017-12-11T15:25:30Z" source-language="en" target-language="de" datatype="plaintext" original="not.available">
+    <header>
+      <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
+      <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
+    </header>
+    <body>
+      <trans-unit id="dfb4c9a14bad646a676fc7d73527aab7475643ad" resname="Album">
+        <source>Album</source>
+        <target>Album</target>
+      </trans-unit>
+      <trans-unit id="2c09302558d86a572fffd1a3eca659bac1fabd98" resname="Donation">
+        <source>Donation</source>
+        <target>Spende</target>
+      </trans-unit>
+      <trans-unit id="ff4fc0276e960c348647b647235f68200887c9d2" resname="Profile">
+        <source>Profile</source>
+        <target>Künstler</target>
+      </trans-unit>
+      <trans-unit id="21108d9b943e652dff62993ac11e9dc55040423d" resname="action.cancel">
+        <source>action.cancel</source>
+        <target>Abbrechen</target>
+      </trans-unit>
+      <trans-unit id="0572c6a9b4ceda67128308e1a9a03ea5fb4a8e42" resname="action.delete">
+        <source>action.delete</source>
+        <target>Löschen</target>
+      </trans-unit>
+      <trans-unit id="4c505c1b265748cc62350d50e33784b90532fac6" resname="action.edit">
+        <source>action.edit</source>
+        <target>Bearbeiten</target>
+      </trans-unit>
+      <trans-unit id="1248f6e4ac5372f3b01a7afa700a9612e7389e7e" resname="action.list">
+        <source>action.list</source>
+        <target>Zurück zur Liste</target>
+      </trans-unit>
+      <trans-unit id="472a205c6d25b0ecf7b754844f7a4ab9243ee635" resname="action.new">
+        <source>action.new</source>
+        <target>Hinzufügen</target>
+      </trans-unit>
+      <trans-unit id="f19b5156868a2acb77e79c7ea9586c3eda8bd792" resname="action.save">
+        <source>action.save</source>
+        <target>Speichern</target>
+      </trans-unit>
+      <trans-unit id="40f7d7ce547a5ed668d7f4651c481ae6be7fa238" resname="action.search">
+        <source>action.search</source>
+        <target>Suchen</target>
+      </trans-unit>
+      <trans-unit id="37e96910c55ae23799c392dbaf390768cc13ae5b" resname="album.UURL">
+        <source>album.UURL</source>
+        <target>UURL</target>
+      </trans-unit>
+      <trans-unit id="0f992122489ae86775028e68a03592b75c9c66fd" resname="album.artist">
+        <source>album.artist</source>
+        <target>Künstler</target>
+      </trans-unit>
+      <trans-unit id="8e7dcf83938bc2bdd32f8c877b0a5aad385db56f" resname="album.artist_profile">
+        <source>album.artist_profile</source>
+        <target>Künstlerprofil</target>
+      </trans-unit>
+      <trans-unit id="07b2d78949456721fb7c263d6177a6319988cd44" resname="album.background_color">
+        <source>album.background_color</source>
+        <target>Hintergrundfarbe</target>
+      </trans-unit>
+      <trans-unit id="1156c5e2526a21d3eb5e36f4656afe094520d1b7" resname="album.cover">
+        <source>album.cover</source>
+        <target>Cover</target>
+      </trans-unit>
+      <trans-unit id="6fd533996837d4c4eb1a1c86ae6357b3669845fe" resname="album.description">
+        <source>album.description</source>
+        <target>Beschreibung</target>
+      </trans-unit>
+      <trans-unit id="bbdb2414e13dd205e5d90648368f28e2f7eebad6" resname="album.downloads">
+        <source>album.downloads</source>
+        <target>Downloads</target>
+      </trans-unit>
+      <trans-unit id="2f514ec644e1d4e7548135de04b4d6f4afe396e3" resname="album.file_path">
+        <source>album.file_path</source>
+        <target>Dateipfad</target>
+      </trans-unit>
+      <trans-unit id="042e842dfef53e2f18e400bc50ad58eabec5f1c2" resname="album.id">
+        <source>album.id</source>
+        <target>ID</target>
+      </trans-unit>
+      <trans-unit id="17aadb2ed7b13292079485ebe82135b6cdef2208" resname="album.primary_color">
+        <source>album.primary_color</source>
+        <target>Primärfarbe</target>
+      </trans-unit>
+      <trans-unit id="7cb07430f36f9d38e724ce1fa9e092fb851bff48" resname="album.public">
+        <source>album.public</source>
+        <target>Öffentlich</target>
+      </trans-unit>
+      <trans-unit id="97df28d113de1037bf8b9eb0a8f38c782301e7f6" resname="album.published">
+        <source>album.published</source>
+        <target>Veröffentlich</target>
+      </trans-unit>
+      <trans-unit id="308cc6c87c37b8fcffa4a18e8294d4e8b11ee797" resname="album.secondary_color">
+        <source>album.secondary_color</source>
+        <target>Sekundärfarbe</target>
+      </trans-unit>
+      <trans-unit id="ab0e4c602ce08ac9181e47efa268103a47585d20" resname="album.soundcloud">
+        <source>album.soundcloud</source>
+        <target>SoundCloud</target>
+      </trans-unit>
+      <trans-unit id="055f33729015b042089867d0c0ae6ff88cd06f21" resname="album.title">
+        <source>album.title</source>
+        <target>Titel</target>
+      </trans-unit>
+      <trans-unit id="69eac7a23e98bbcbf98a080d45b96bda2e5d5b6d" resname="artist.URL">
+        <source>artist.URL</source>
+        <target>URL</target>
+      </trans-unit>
+      <trans-unit id="0d8d7883dc0ebb9ad73a4afa6bcda411de6fa62e" resname="artist.albums">
+        <source>artist.albums</source>
+        <target>Alben</target>
+      </trans-unit>
+      <trans-unit id="7837ea9582b7818d2565809776f2e7ebc5a521c6" resname="artist.banner_image">
+        <source>artist.banner_image</source>
+        <target>Banner</target>
+      </trans-unit>
+      <trans-unit id="e85998b42c2eafe70c7ed556f5213562da34bc46" resname="artist.citations">
+        <source>artist.citations</source>
+        <target><![CDATA[Zitate (1 per <em/>)]]></target>
+      </trans-unit>
+      <trans-unit id="26f4d1107f36b310a9b56eeb78f5141058734315" resname="artist.genre">
+        <source>artist.genre</source>
+        <target>Genre</target>
+      </trans-unit>
+      <trans-unit id="39570162ae0e6d266d035739a9ea7f4d78c2f21f" resname="artist.id">
+        <source>artist.id</source>
+        <target>ID</target>
+      </trans-unit>
+      <trans-unit id="292307b9745d6471a94da39526ea0c596e84087c" resname="artist.links">
+        <source>artist.links</source>
+        <target>Links</target>
+      </trans-unit>
+      <trans-unit id="638965d2881e816b90bd14ff7f7d29d0f5b1c398" resname="artist.location">
+        <source>artist.location</source>
+        <target>Ort</target>
+      </trans-unit>
+      <trans-unit id="f66c44cd41a5bea189d64d40cfbb2b8ada89d4fb" resname="artist.loction">
+        <source>artist.loction</source>
+        <target>Ort</target>
+      </trans-unit>
+      <trans-unit id="24a0695dc6edc86c3c1780de3946d43dc7ecda0d" resname="artist.meta_description">
+        <source>artist.meta_description</source>
+        <target>Meta Description (160 Zeichen)</target>
+      </trans-unit>
+      <trans-unit id="00ae359c7e2058cdee803728571e3d6899c99fa8" resname="artist.name">
+        <source>artist.name</source>
+        <target>Name</target>
+      </trans-unit>
+      <trans-unit id="625958d260dbf4f380f1fd951bfafbbc51908fa7" resname="artist.profile_image">
+        <source>artist.profile_image</source>
+        <target>Profilbild</target>
+      </trans-unit>
+      <trans-unit id="1bfb0c2826de16c230842e844a0a7ed008d29e50" resname="artist.public">
+        <source>artist.public</source>
+        <target>Öffentlich</target>
+      </trans-unit>
+      <trans-unit id="4ae65a9f6f34743eac45e5a1a8628cce8b48c906" resname="artist.short_name">
+        <source>artist.short_name</source>
+        <target>Kurzform</target>
+      </trans-unit>
+      <trans-unit id="0077c6a5b511388caa2dccc3a8219bc75ef34754" resname="artist.uurl">
+        <source>artist.uurl</source>
+        <target>UURL</target>
+      </trans-unit>
+      <trans-unit id="fd8001847eeb0a987b146a9952b1787b3afbc529" resname="artist.video">
+        <source>artist.video</source>
+        <target>Video</target>
+      </trans-unit>
+      <trans-unit id="8a62eab85b3b1c675db1719555481daac594f591" resname="artist.vita">
+        <source>artist.vita</source>
+        <target>Vita</target>
+      </trans-unit>
+      <trans-unit id="fab1745594351afe9b04c0e467d4fc362ccaf717" resname="artist.youtube">
+        <source>artist.youtube</source>
+        <target>YouTube Video</target>
+      </trans-unit>
+      <trans-unit id="ebbd69ad34dd5d78197a516c1eedbb12e9a7de3b" resname="donation.amount">
+        <source>donation.amount</source>
+        <target>Betrag</target>
+      </trans-unit>
+      <trans-unit id="5c00eab3b90becca528bd3413ddb128c782ab129" resname="donation.date">
+        <source>donation.date</source>
+        <target>Datum</target>
+      </trans-unit>
+      <trans-unit id="ec344679a99ba0080bc05b276a09d20999eddda0" resname="donation.id">
+        <source>donation.id</source>
+        <target>ID</target>
+      </trans-unit>
+      <trans-unit id="1adc59a5e3e8af984670558ce2c451a06dbcfff8" resname="donation.name">
+        <source>donation.name</source>
+        <target>Name</target>
+      </trans-unit>
+      <trans-unit id="dfa64c0b44941ac52f543249b4bff7f91e65f42e" resname="entity.album">
+        <source>entity.album</source>
+        <target>Album</target>
+      </trans-unit>
+      <trans-unit id="f3e3c5c57c3d4bf93e6ff049b59880fc731d4763" resname="entity.artist">
+        <source>entity.artist</source>
+        <target>Künstler</target>
+      </trans-unit>
+      <trans-unit id="2c64895a57ec3935acd933ca4a4f68c5ba4da3bc" resname="entity.donation">
+        <source>entity.donation</source>
+        <target>Spende</target>
+      </trans-unit>
+      <trans-unit id="072a819ce0e13886cba7cc2f6017e9eab5b80855" resname="form.album">
+        <source>form.album</source>
+        <target>Album</target>
+      </trans-unit>
+      <trans-unit id="b33d1b4b19d5c114b88f487664e2f536a52deba3" resname="form.artist">
+        <source>form.artist</source>
+        <target>Künstler</target>
+      </trans-unit>
+      <trans-unit id="b0842637782fdfb2815c594c4d8ab1a45fa1e5c2" resname="form.donation">
+        <source>form.donation</source>
+        <target>Spende</target>
+      </trans-unit>
+      <trans-unit id="6b8d7f8c4c852f4d605281471c1bf73a5264de27" resname="label.form.empty_value">
+        <source>label.form.empty_value</source>
+        <target>Bitte Wählen</target>
+      </trans-unit>
+      <trans-unit id="f4f488c11be4f2014ec798de06994bc1212ddecd" resname="link.label.title">
+        <source>link.label.title</source>
+        <target>Titel</target>
+      </trans-unit>
+      <trans-unit id="5dabddadb5550b030c844b5081a649b191e7c927" resname="link.label.url">
+        <source>link.label.url</source>
+        <target>URL</target>
+      </trans-unit>
+      <trans-unit id="355e62a6ccacd8b509858f8992342c3d1359c331" resname="list.album">
+        <source>list.album</source>
+        <target>Alben</target>
+      </trans-unit>
+      <trans-unit id="7a7d546020b9815769c3cc42feb7dfc39121ee67" resname="list.artist">
+        <source>list.artist</source>
+        <target>Künstler</target>
+      </trans-unit>
+      <trans-unit id="ea188edb93093608815a19007705e9d67ef68ec4" resname="list.donation">
+        <source>list.donation</source>
+        <target>Spenden</target>
+      </trans-unit>
+      <trans-unit id="88e38629e8c88b32715558837b8cb74d698b6e0a" resname="menu.albums">
+        <source>menu.albums</source>
+        <target>Alben</target>
+      </trans-unit>
+      <trans-unit id="4f494fcac8791b71fc88f03fe4d5bff703dd54f7" resname="menu.artists">
+        <source>menu.artists</source>
+        <target>Künstler</target>
+      </trans-unit>
+      <trans-unit id="5e7bec0473c31a8ad6b308d9bd0dd003ce546924" resname="menu.donations">
+        <source>menu.donations</source>
+        <target>Spenden</target>
+      </trans-unit>
+      <trans-unit id="c136d5b4518049cb39d5e06e6b8dc16619e7f7af" resname="menu.translation">
+        <source>menu.translation</source>
+        <target>Übersetzungen</target>
+      </trans-unit>
+    </body>
+  </file>
 </xliff>

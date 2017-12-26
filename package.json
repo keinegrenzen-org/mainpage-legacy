@@ -1,47 +1,45 @@
 {
-  "name": "keinegrenzen",
+  "name": "keinegrenzen.org",
   "version": "1.0.0",
-  "description": "",
+  "description": "keinegrenzen.org - Good people for a good cause",
   "main": "index.js",
   "scripts": {
+    "build": "webpack --config webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BarthyB/keinegrenzen.git"
+    "url": "git+https://github.com/BarthyB/keinegrenzen.org.git"
   },
-  "author": "Barthy",
-  "license": "ISC",
+  "author": "Barthy B.",
+  "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/BarthyB/keinegrenzen/issues"
+    "url": "https://github.com/BarthyB/keinegrenzen.org/issues"
   },
-  "homepage": "https://github.com/BarthyB/keinegrenzen#readme",
-  "devDependencies": {
-    "babel-preset-es2015": "^6.24.1",
-    "babelify": "^7.3.0",
-    "event-stream": "^3.3.4",
-    "glob": "^7.1.2",
-    "gulp": "^3.9.1",
-    "gulp-browserify": "^0.5.1",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.6.0",
-    "gulp-uglify": "^3.0.0",
-    "gulp-watch": "^4.3.11",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0"
-  },
+  "homepage": "https://github.com/BarthyB/keinegrenzen.org#readme",
   "dependencies": {
-    "@types/node": "^6.0.85"
+    "bootstrap": "^4.0.0-beta.2",
+    "jquery": "^3.2.1",
+    "popper.js": "^1.12.9",
+    "scrollreveal": "^3.3.6",
+    "soundcloud-audio": "^1.2.2"
   },
-  "browserify": {
-    "transform": [
-      "babelify"
-    ]
-  },
-  "babel": {
-    "presets": [
-      "es2015"
-    ]
+  "devDependencies": {
+    "autoprefixer": "^7.2.1",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "css-loader": "^0.28.7",
+    "cssnano": "^3.10.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.5",
+    "node-sass": "^4.7.2",
+    "postcss-loader": "^2.0.9",
+    "postcss-scss": "^1.0.2",
+    "resolve-url-loader": "^2.2.0",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.0",
+    "uglifyjs-webpack-plugin": "^1.1.2",
+    "webpack": "^3.10.0"
   }
 }

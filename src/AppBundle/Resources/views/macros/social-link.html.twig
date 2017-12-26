@@ -1,11 +1,7 @@
 {% macro renderLink(link, title, icon) %}
 
     <a href="{{ link }}" target="_blank" title="{{ title }}" rel="nofollow" class="social-link">
-        <span class="fa-stack text-muted">
-            <i class="fa fa-circle fa-stack-2x fa-fw"></i>
-            <i class="fa {{ icon }} fa-stack-1x fa-inverse fa-fw"></i>
-            <i class="sr-only">{{ title }}</i>
-        </span>
+        {% include '@App/icons/' ~ icon ~ '.svg.twig' with {color: 'white'} %}
     </a>
 
 {% endmacro renderLink %}
@@ -36,31 +32,31 @@
 
     {% if website is not null %}
         <li class="list-inline-item">
-            {{ _self.renderLink(website, 'social.title.website'|trans, 'fa-link') }}
+            {{ _self.renderLink(website, 'social.title.website'|trans, 'link') }}
         </li>
     {% endif %}
 
     {% if facebook is not null %}
         <li class="list-inline-item">
-            {{ _self.renderLink(facebook, 'social.title.facebook'|trans, 'fa-facebook-f') }}
+            {{ _self.renderLink(facebook, 'social.title.facebook'|trans, 'facebook') }}
         </li>
     {% endif %}
 
     {% if instagram is not null %}
         <li class="list-inline-item">
-            {{ _self.renderLink(instagram, 'social.title.instagram'|trans, 'fa-instagram') }}
+            {{ _self.renderLink(instagram, 'social.title.instagram'|trans, 'instagram') }}
         </li>
     {% endif %}
 
     {% if soundcloud is not null %}
         <li class="list-inline-item">
-            {{ _self.renderLink(soundcloud, 'social.title.soundcloud'|trans, 'fa-soundcloud') }}
+            {{ _self.renderLink(soundcloud, 'social.title.soundcloud'|trans, 'soundcloud') }}
         </li>
     {% endif %}
 
     {% if youtube is not null %}
         <li class="list-inline-item">
-            {{ _self.renderLink(youtube, 'social.title.youtube'|trans, 'fa-youtube-play') }}
+            {{ _self.renderLink(youtube, 'social.title.youtube'|trans, 'youtube') }}
         </li>
     {% endif %}
 

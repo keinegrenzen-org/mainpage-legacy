@@ -21,6 +21,11 @@
                     </a>
                 </div>
             </div>
+            <div class="arrow-bounce pb-3 sr sr-b-3">
+                <a href="#{{ 'nav.projekt.id'|trans }}">
+                    {% include '@App/icons/down.svg.twig' with {color: 'white'} %}
+                </a>
+            </div>
         </div>
     </header>
 
@@ -38,13 +43,17 @@
         <div class="row py-2 justify-content-center">
             <div class="col-md-8 text-center">
                 <a class="btn btn-lg btn-outline-primary sr sr-b-1 mb-3 mb-md-0" href="{{ 'nav.artists.href'|trans }}">
-                    <i class="fa fa-users fa-fw mr-1"></i>
+                    <span class="mr-1">
+                        {% include '@App/icons/group.svg.twig' with {color: 'primary'} %}
+                    </span>
                     {{ 'index.a.see_all_artists'|trans }}
                 </a>
                 <a class="btn btn-lg btn-primary btn-shadow sr sr-b-1 donate-external" target="_blank"
                    href="{{ path('donate_external') }}">
                     {{ 'donate'|trans }}
-                    <i class="fa fa-external-link fa-fw ml-1"></i>
+                    <span class="ml-1">
+                        {% include '@App/icons/external-link.svg.twig' with {color: 'white'} %}
+                    </span>
                 </a>
             </div>
         </div>
@@ -151,19 +160,25 @@
                     <a class="btn btn-tw btn-lg my-2 sr sr-b-1" href="https://twitter.com/keinegrenzenOrg"
                        rel="nofollow"
                        target="_blank" title="{{ 'support.tw.title'|trans }}">
-                        <span class="fa fa-fw fa-twitter"></span>
+                        <span>
+                            {% include '@App/icons/twitter.svg.twig' with {color: 'white'} %}
+                        </span>
                         {{ 'support.tw.title'|trans }}
                     </a>
                     <a class="btn btn-fb btn-lg my-2 sr sr-b-1" href="https://www.facebook.com/keinegrenzenOrg/"
                        rel="nofollow"
                        target="_blank" title="{{ 'support.fb.title'|trans }}">
-                        <span class="fa fa-fw fa-facebook-f"></span>
+                        <span>
+                            {% include '@App/icons/facebook.svg.twig' with {color: 'white'} %}
+                        </span>
                         {{ 'support.fb.title'|trans }}
                     </a>
                     <a class="btn btn-insta btn-lg my-2 sr sr-b-1" href="https://www.instagram.com/keinegrenzen_org/"
                        rel="nofollow"
-                       target="_blank" title="{{ 'support.fb.title'|trans }}">
-                        <span class="fa fa-fw fa-instagram"></span>
+                       target="_blank" title="{{ 'support.insta.title'|trans }}">
+                        <span>
+                            {% include '@App/icons/instagram.svg.twig' with {color: 'white'} %}
+                        </span>
                         {{ 'support.insta.title'|trans }}
                     </a>
                 </div>

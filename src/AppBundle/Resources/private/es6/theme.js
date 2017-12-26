@@ -1,4 +1,4 @@
-import SoundCloudPlayer from '../Components/SoundCloudPlayer'
+import '../scss/style.scss'
 
 $(document).ready(() => {
 
@@ -20,12 +20,6 @@ $(document).ready(() => {
       }
     )
   })
-
-  // Initialize SoundCloud if found
-  const $globalPlayer = $('.global-player')
-  if ($globalPlayer.length) {
-    new SoundCloudPlayer($globalPlayer)
-  }
 
   window.sr = ScrollReveal({mobile: false, reset: false})
   const preserve = (e) => {

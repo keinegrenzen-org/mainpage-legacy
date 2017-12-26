@@ -45,19 +45,19 @@ $enable-hover-media-query: false !default;
 $enable-grid-classes: true !default;
 $enable-print-styles: true !default;
 
-@import "../../../../../web/assets/vendor/bootstrap/scss/bootstrap";
-@import url('https://fonts.googleapis.com/css?family=Oswald:500|Ubuntu:300');
-@import "../Partials/animations";
+$icon-size: 20px;
 
+@import "../../../../../node_modules/bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Oswald:500|Ubuntu:300');
+@import "partials/animations";
 
 @mixin transitionPositionAllAndTransform {
-  $duration: .2s;
-  $transition: top $duration ease, bottom $duration ease, left $duration ease, right $duration ease;
-  -webkit-transition: $transition, -webkit-transform $duration ease;
-  -moz-transition: $transition, -moz-transform $duration ease;
-  -ms-transition: $transition, -ms-transform $duration ease;
-  -o-transition: $transition, -o-transform $duration ease;
-  transition: $transition, transform $duration ease;
+  $duration: .8s;
+  $interpolation: ease-in-out;
+  $position-transition: top $duration $interpolation, bottom $duration $interpolation, left $duration $interpolation, right $duration $interpolation;
+  $padding-transition: padding-top $duration $interpolation, padding-bottom $duration $interpolation, padding-left $duration $interpolation, padding-right $duration $interpolation;
+  $size-transition: height $duration $interpolation, width $duration $interpolation;
+  transition: $position-transition, $padding-transition, $size-transition, transform $duration $interpolation;
 }
 
 // Extra small devices (portrait phones, less than 576px)
@@ -101,10 +101,6 @@ $enable-print-styles: true !default;
 }
 
 .transition-wh {
-  -webkit-transition: width .3s ease, height .3s ease;
-  -moz-transition: width .3s ease, height .3s ease;
-  -ms-transition: width .3s ease, height .3s ease;
-  -o-transition: width .3s ease, height .3s ease;
   transition: width .3s ease, height .3s ease;
 }
 
@@ -115,21 +111,36 @@ $enable-print-styles: true !default;
   }
 }
 
-.social-link {
+.icon {
+  width: $icon-size;
+  height: $icon-size;
+  vertical-align: -2px;
 
-  .fa-circle {
-    -webkit-transition: color .3s ease;
-    -moz-transition: color .3s ease;
-    -ms-transition: color .3s ease;
-    -o-transition: color .3s ease;
-    transition: color .3s ease;
+  &.icon-white {
+    fill: $white;
   }
 
-  &:hover {
+  &.icon-primary {
+    fill: $primary;
+  }
 
-    .fa-circle {
-      color: $brand-primary;
-    }
+  &.icon-gray {
+    fill: $gray-dark;
+  }
+}
+
+.social-link {
+  $padding: $icon-size / 1.5;
+  width: $icon-size + $padding;
+  height: $icon-size + $padding;
+  padding: $padding / 2;
+  display: block;
+  background-color: $gray-light;
+  border-radius: 50%;
+  transition: background-color .3s ease;
+
+  &:hover {
+    background-color: $brand-primary;
   }
 }
 
@@ -161,6 +172,10 @@ h1, h2, h3, h4, h5, h6, .btn, .nav-link, .statistics {
 nav.navbar {
   background-color: rgba($black, 0.5);
   min-height: 3.5em;
+
+  .navicon {
+    color: $white;
+  }
 
   .navbar-brand {
     z-index: $zindex-dropdown;
@@ -208,7 +223,7 @@ nav.navbar {
 
 header {
   height: 100%;
-  background: url('../../images/lightroom/kgo_02.jpg') no-repeat center;
+  background: url('../../public/images/lightroom/kgo_02.jpg') no-repeat center;
   background-size: cover;
 
   .row {
@@ -256,20 +271,18 @@ header {
       text-decoration: none;
       z-index: 1000;
 
-      a {
-        color: $white;
-
-        &:hover {
-          text-decoration: none;
-        }
+      .icon {
+        width: 30px;
+        height: 30px;
       }
     }
   }
 
   &.profile-header {
+    $header-padding: 56px;
 
     .video-container {
-      // see: https://codepen.io/shshaw/pen/OVGWLG
+      /* see: https://codepen.io/shshaw/pen/OVGWLG */
       position: absolute;
       top: 0;
       bottom: 0;
@@ -281,20 +294,21 @@ header {
       display: none;
 
       video {
-        /* Make video to at least 100% wide and tall */
+        position: absolute !important;
         min-width: 100%;
         min-height: 100%;
-
-        /* Setting width & height to auto prevents the browser from stretching or squishing the video */
         width: auto;
         height: auto;
-
-        /* Center the video */
-        position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
       }
+    }
+
+    .video-portrait-buttons {
+      position: absolute;
+      right: $header-padding;
+      bottom: $header-padding;
     }
 
     .page-title {
@@ -302,28 +316,23 @@ header {
 
       .profile-header-content {
         z-index: 10;
-        cursor: pointer;
         position: absolute;
-        top: 56px;
-        left: 56px;
-        right: 56px;
-        bottom: 56px;
+        top: $header-padding;
+        left: $header-padding;
+        right: $header-padding;
+        bottom: $header-padding;
 
         .image-container {
           width: 40vh;
-          padding-bottom: 40vh;
+          height: 40vh;
           overflow: hidden;
           margin-left: auto;
           margin-right: auto;
           border: 3px solid $white;
           position: absolute;
-          top: 28px;
+          bottom: 30vh;
           left: 50%;
-          -webkit-transform: translate(-50%, 10vh);
-          -moz-transform: translate(-50%, 10vh);
-          -ms-transform: translate(-50%, 10vh);
-          -o-transform: translate(-50%, 10vh);
-          transform: translate(-50%, 10vh);
+          transform: translateX(-50%);
           background-repeat: no-repeat;
           background-size: cover;
           background-position: center;
@@ -340,15 +349,12 @@ header {
         }
 
         .title-container {
+          width: 100%;
           position: absolute;
           bottom: 0;
           left: 50%;
           padding-left: 5%;
           padding-right: 5%;
-          -webkit-transform: translateX(-50%);
-          -moz-transform: translateX(-50%);
-          -ms-transform: translateX(-50%);
-          -o-transform: translateX(-50%);
           transform: translateX(-50%);
           background-color: rgba(0, 0, 0, 0.3);
           @include transitionPositionAllAndTransform;
@@ -365,7 +371,7 @@ header {
 
           hr {
             border-color: rgba(255, 255, 255, 0.3);
-            max-width: 50%;
+            width: 50%;
           }
         }
       }
@@ -375,36 +381,21 @@ header {
         .profile-header-content {
 
           .image-container {
-            left: 0;
-            bottom: 0;
-            top: unset;
-            width: 8.4rem;
-            padding-bottom: 8.4rem;
+            left: .75rem;
+            bottom: .75rem;
+            width: 18vh;
+            height: 18vh;
             z-index: 11 !important;
-            -webkit-transform: translateX(0%);
-            -moz-transform: translateX(0%);
-            -ms-transform: translateX(0%);
-            -o-transform: translateX(0%);
             transform: translateX(0%);
-            margin: 0.5rem;
           }
 
           .title-container {
             left: 0;
-            padding-left: 9.4rem !important;
+            padding-left: calc(18vh + 1.5rem) !important;
             z-index: 10 !important;
-            text-align: left;
             display: flex;
             align-items: center;
-            -webkit-transform: translateX(0%);
-            -moz-transform: translateX(0%);
-            -ms-transform: translateX(0%);
-            -o-transform: translateX(0%);
             transform: translateX(0%);
-
-            hr {
-              max-width: none;
-            }
           }
         }
       }
@@ -420,7 +411,7 @@ section.intro {
 }
 
 section.statistics {
-  background: url('../../images/lightroom/kgo_01.jpg') no-repeat center;
+  background: url('../../public/images/lightroom/kgo_01.jpg') no-repeat center;
   background-size: cover;
 
   span {
@@ -477,7 +468,7 @@ section.artists {
 }
 
 section.support {
-  background: url('../../images/lightroom/kgo_04.jpg') no-repeat center;
+  background: url('../../public/images/lightroom/kgo_04.jpg') no-repeat center;
   background-size: cover;
   min-height: 75%;
 
@@ -498,6 +489,10 @@ section.support {
     border-color: #e1306c;
     color: $white;
   }
+
+  .icon {
+    fill: $white;
+  }
 }
 
 footer {
@@ -517,8 +512,7 @@ footer {
     color: $gray;
 
     > span {
-      &:before {
-        font-size: 1.5rem;
+      .icon {
         width: 50px;
         height: 50px;
         display: block;
@@ -527,7 +521,6 @@ footer {
         right: 0;
         bottom: 0;
         top: 0;
-        line-height: 45px;
       }
     }
   }
@@ -535,9 +528,16 @@ footer {
   small, p {
     color: $gray;
 
-    .fa-heart {
-      color: $brand-primary;
-      animation: heartbeat 2.5s infinite;
+    &.made-with-love {
+      line-height: $icon-size + 3px;
+
+      .icon {
+        height: 1rem;
+        width: 1rem;
+        transform: translateY(0.5rem);
+        fill: $brand-primary;
+        animation: heartbeat 2.5s infinite;
+      }
     }
   }
 }
@@ -573,8 +573,8 @@ section.artist-discography {
   .album-art-container {
 
     .album-art {
-      width: 100%;
       float: left;
+      width: 100% !important;
 
       .image-container {
         width: 100%;
@@ -603,10 +603,6 @@ section.artist-discography {
 
       *:not(.btn) {
         border-color: inherit;
-      }
-
-      .fa-soundcloud {
-        color: #ff5500;
       }
 
       .list-group-item {
@@ -655,9 +651,11 @@ section.artist-discography {
 
   .now-playing-elapsed,
   .now-playing-length,
-  .fa,
+  .icon,
+  .player-control,
   .progress-container {
     height: 2.5rem;
+    min-width: 2.5rem;
     line-height: 2.5rem;
   }
 
@@ -673,6 +671,7 @@ section.artist-discography {
 
     .progress-bar {
       height: 1rem;
+      transition: width .075s linear;
     }
   }
 
@@ -681,7 +680,7 @@ section.artist-discography {
     font-weight: 400;
   }
 
-  .fa {
+  .player-control {
     cursor: pointer;
   }
 }
@@ -690,7 +689,7 @@ section.artist-discography {
   height: 100%;
   width: 100%;
   overflow: hidden;
-  background: url('../../images/404_dog.jpeg') no-repeat center;
+  background: url('../../public/images/404_dog.jpeg') no-repeat center;
   background-size: cover;
   padding: 0;
 
@@ -705,6 +704,50 @@ section.artist-discography {
     > div {
       margin: auto;
     }
+  }
+}
+
+.youtube-video {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: $white;
+  z-index: $zindex-modal;
+
+  iframe {
+    width: 100%;
+    height: 100%;
+  }
+
+  .dismiss-video {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    z-index: $zindex-modal + 1;
+  }
+}
+
+.download-dialog {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: $white;
+  z-index: $zindex-modal;
+
+  .row {
+    height: 100%;
+
+    .col {
+      margin: auto;
+    }
+  }
+
+  .btn {
+    width: 100%;
   }
 }
 
@@ -732,8 +775,18 @@ section.artist-discography {
     }
   }
 
+  header.profile-header .page-title .profile-header-content .title-container {
+    width: auto;
+  }
+
   section.intro {
 
+    .btn {
+      width: 40%;
+    }
+  }
+
+  .download-dialog {
     .btn {
       width: 40%;
     }

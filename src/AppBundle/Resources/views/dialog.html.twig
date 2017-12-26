@@ -1,0 +1,13 @@
+<div class="container-fluid download-dialog initially-hidden">
+    <div class="row text-center align-content-center">
+        <div class="col col-lg-4 col-md-8 col-sm-12">
+            <h3 class="mb-3">{{ 'download_dialog.title'|trans }}</h3>
+            <p class="mb-3">{{ 'download_dialog.text'|trans }}</p>
+            <a class="btn btn-lg btn-outline-primary btn-download mb-3 mb-md-0">{{ 'download'|trans }}</a>
+            <a class="btn btn-lg btn-primary btn-shadow" href="{{ path('donate_external') }}" target="_blank"
+               rel="nofollow">{{ 'donate'|trans }}</a>
+            <br>
+            <a class="d-block dismiss-dialog mt-3" href="#">{{ 'download_dialog.dismiss'|trans }}</a>
+        </div>
+    </div>
+</div>

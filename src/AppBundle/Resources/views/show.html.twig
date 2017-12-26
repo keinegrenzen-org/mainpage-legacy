@@ -2,11 +2,6 @@
 
 {% import '@App/macros/social-link.html.twig' as socialLink %}
 
-{% block stylesheets %}
-    {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('assets/vendor/jquery-confirm/dist/jquery-confirm.min.css') }}"/>
-{% endblock %}
-
 {% block pagetitle %}{{ profile.name }} | {{ 'base.meta.title'|trans }}{% endblock %}
 
 {% block description %}
@@ -59,13 +54,30 @@
                 </div>
             </div>
             <div class="arrow-bounce pb-3 sr sr-b-3">
-                <a class="fa fa-angle-double-down fa-2x fa-fw" href="#description"></a>
+                <a href="#description">
+                    {% include '@App/icons/down.svg.twig' with {color: 'white'} %}
+                </a>
             </div>
         </div>
+        {% if not is_mobile() and profile.youtubeLink is not null %}
+            <div class="video-portrait-buttons initially-hidden">
+                {% if not is_mobile() %}
+                    <a href="#" class="d-block btn btn-lg btn-primary mb-3 play-video">
+                        {% include '@App/icons/play.svg.twig' with {color: 'white'} %}
+                        {{ 'frontpage.video.play'|trans }}
+                    </a>
+                {% endif %}
+                <a href="https://youtube.com/watch?v={{ profile.youtubeLink }}" target="_blank" rel="nofollow"
+                   class="d-block btn btn-lg btn-primary">
+                    {% include '@App/icons/youtube.svg.twig' with {color: 'white'} %}
+                    {{ 'frontpage.video.youtube'|trans }}
+                </a>
+            </div>
+        {% endif %}
     </header>
 
     <section class="container pt-5 artist-bio" id="description">
-        <div class="row py-2">
+        <div class="row py-2 align-content-center">
             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                 <h2 class="sr sr-b-1">{{ 'profile.h2.bio'|trans }} {{ profile.name }}</h2>
                 <ul class="list-inline mb-4 sr sr-b-2">
@@ -75,11 +87,13 @@
                     {{ profile.description|raw }}
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 d-flex">
-                <div class="quotes px-5 align-self-center text-big sr sr-b-1">
-                    {{ profile.quotes|raw }}
+            {% if profile.quotes is not null %}
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 pt-5 mt-5">
+                    <div class="quotes px-5 align-self-center text-big sr sr-b-1">
+                        {{ profile.quotes|raw }}
+                    </div>
                 </div>
-            </div>
+            {% endif %}
         </div>
     </section>
 
@@ -137,11 +151,7 @@
                         </div>
                         <div class="col-12">
                             <a class="btn btn-primary pull-right toggle-dl-dialog mt-4 donate-external" target="_blank"
-                               href="{{ path('donate_external') }}"
-                               data-title="{{ 'download_dialog.title'|trans }}"
-                               data-text="{{ 'download_dialog.text'|trans }}"
-                               data-download="{{ 'download'|trans }}"
-                               data-donate="{{ 'donate'|trans }}"
+                               href="{{ path('donate_external') }}" rel="nofollow"
                                data-url="{{ path("download_album", {UURL: album.UURL}) }}"
                             >
                                 {{ 'donate'|trans }} &amp; {{ 'download'|trans }}
@@ -157,18 +167,22 @@
     <div class="container py-5">
         <div class="row py-2 my-5 global-player">
             <div class="col-md-2 col-sm-4 col-xs-6">
-            <span class="fa fa-backward fa-fw fa-2x">
-                <i class="sr-only">{{ 'backward'|trans }}</i>
-            </span>
-                <span class="fa fa-play fa-fw fa-2x">
-                <i class="sr-only">{{ 'play'|trans }}</i>
-            </span>
-                <span class="fa fa-pause fa-fw fa-2x initially-hidden">
-                <i class="sr-only">{{ 'pause'|trans }}</i>
-            </span>
-                <span class="fa fa-forward fa-fw fa-2x">
-                <i class="sr-only">{{ 'forward'|trans }}</i>
-            </span>
+                <span class="player-control backward">
+                    {% include '@App/icons/previous.svg.twig' with {color: 'gray'} %}
+                    <i class="sr-only">{{ 'backward'|trans }}</i>
+                </span>
+                <span class="player-control play">
+                    {% include '@App/icons/play.svg.twig' with {color: 'gray'} %}
+                    <i class="sr-only">{{ 'play'|trans }}</i>
+                </span>
+                <span class="player-control pause initially-hidden">
+                    {% include '@App/icons/pause.svg.twig' with {color: 'gray'} %}
+                    <i class="sr-only">{{ 'pause'|trans }}</i>
+                </span>
+                <span class="player-control forward">
+                    {% include '@App/icons/next.svg.twig' with {color: 'gray'} %}
+                    <i class="sr-only">{{ 'forward'|trans }}</i>
+                </span>
             </div>
             <div class="col-md-8 d-none d-md-block progress-container">
                 <div class="progress">
@@ -187,12 +201,18 @@
         </div>
     </div>
 
+    {% if profile.youtubeLink is not null %}
+        <div class="youtube-video initially-hidden" data-id="{{ profile.youtubeLink }}">
+            <div id="youtube-video"></div>
+            <a class="btn btn-lg btn-primary dismiss-video" href="#">{{ 'frontpage.video.dismiss'|trans }}</a>
+        </div>
+    {% endif %}
+    {% include '@App/dialog.html.twig' %}
     {% include '@App/footer.html.twig' %}
 {% endblock %}
 
-{% block javascripts %}
-    {{ parent() }}
-    <script src="{{ asset('assets/vendor/soundcloud-audio/dist/soundcloud-audio.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/jquery-confirm/dist/jquery-confirm.min.js') }}"></script>
-    <script src="{{ asset('bundles/app/dist/js/profile.min.js') }}"></script>
-{% endblock %}
+    {% block javascripts %}
+        {{ parent() }}
+        <script src="{{ asset('assets/soundcloud-audio.min.js') }}"></script>
+        <script src="{{ asset('bundles/app/js/profile.min.js') }}"></script>
+    {% endblock %}

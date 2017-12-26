@@ -79,10 +79,10 @@ export default class SoundCloudPlayer {
   constructor ($container) {
     this.players = []
 
-    this.$btnPlay = $container.find('.fa-play')
-    this.$btnPause = $container.find('.fa-pause')
-    this.$btnForward = $container.find('.fa-forward')
-    this.$btnBackward = $container.find('.fa-backward')
+    this.$btnPlay = $container.find('.player-control.play')
+    this.$btnPause = $container.find('.player-control.pause')
+    this.$btnForward = $container.find('.player-control.forward')
+    this.$btnBackward = $container.find('.player-control.backward')
     this.$nowPlayingElapsed = $container.find('.now-playing-elapsed')
     this.$nowPlayingLength = $container.find('.now-playing-length')
     this.$nowPlayingAlbum = $container.find('.now-playing-album')

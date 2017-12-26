@@ -3,36 +3,26 @@
 .btn-addon:focus,
 .btn-addon {
     border-radius: 0;
-    border:1px solid #AAA;
+    border: 1px solid #AAA;
 }
+
 .input-group .form-control {
     z-index: inherit !important;
 }
+
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     opacity: 1;
 }
-.collection-empty:not(:last-of-type){
+
+.collection-empty:not(:last-of-type) {
     display: none;
 }
+
 .collection div.text-right.field-collection-action {
-    float:none;
+    float: none;
     clear: both;
     text-align: center;
-    height:20px;
-    width:100%;
-}
-#frontpage_links > div {
+    height: 20px;
     width: 100%;
-    float: left;
-    padding: 15px;
-    border: 1px solid #AAA;
-}
-
-@media (min-width:992px) {
-
-    #frontpage_links > div {
-        width: 33.333333%;
-    }
-
 }
