@@ -341,6 +341,7 @@ header {
           background-repeat: no-repeat;
           background-size: cover;
           background-position: center;
+          cursor: pointer;
           @include transitionPositionAllAndTransform;
 
           img {
@@ -361,6 +362,7 @@ header {
           padding-left: 5%;
           padding-right: 5%;
           transform: translateX(-50%);
+          cursor: pointer;
           background-color: rgba(0, 0, 0, 0.3);
           @include transitionPositionAllAndTransform;
 

@@ -5976,6 +5976,7 @@ header {
         left: 50%;
         -webkit-transform: translateX(-50%);
         transform: translateX(-50%);
+        cursor: pointer;
         position: absolute; }
       header.profile-header .page-title .profile-header-content .title-container {
         width: 100%;

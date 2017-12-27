@@ -31,7 +31,7 @@ framework:
     fragments:       ~
     http_method_override: true
     assets:
-        version: 'v1.1.0'
+        version: 'v1.1.1'
 
 # Twig Configuration
 twig:
@@ -129,7 +129,7 @@ easy_admin:
                     - { property: 'UURL', type: 'text', label: 'artist.uurl', css_class: 'col-lg-12', type_options: {attr: {pattern: "^[.a-zA-Z0-9-]+$"}} }
                     - { property: 'profileImage', type: 'AppBundle\Form\ImageType', label: 'artist.profile_image', css_class: 'col-lg-6' }
                     - { property: 'bannerImage', type: 'AppBundle\Form\ImageType', label: 'artist.banner_image', css_class: 'col-lg-6' }
-                    - { property: 'bannerVideoPath', type: 'text', label: 'artist.video', css_class: 'col-lg-6' }
+                    - { property: 'bannerVideoPath', type: 'text', label: 'artist.video', css_class: 'col-lg-6', type_options: { required: false } }
                     - { property: 'youtubeLink', type: 'text', label: 'artist.youtube', css_class: 'col-lg-6' }
                     - { property: 'description', type: 'ckeditor', label: 'artist.vita' }
                     - { property: 'metaDescription', type: 'text', label: 'artist.meta_description' }
@@ -156,9 +156,9 @@ easy_admin:
                     - { property: 'secondaryColor', type: 'text', label: 'album.secondary_color', css_class: 'col-lg-3', type_options: { attr: { class: 'field-secondary' } } }
                     - { property: 'description', type: 'ckeditor', label: 'album.description' }
                     - { property: 'UURL', type: 'text', label: 'album.UURL', type_options: {attr: {pattern: "^[.a-zA-Z0-9-]+$"}} }
-                    - { property: 'soundcloud', type: 'text', label: 'album.soundcloud' }
-                    - { property: 'published', type: 'date', label: 'album.published' }
-                    - { property: 'frontPage', label: 'album.artist_profile' }
+                    - { property: 'soundCloudLink', type: 'text', label: 'album.soundcloud' }
+                    - { property: 'releaseDate', type: 'date', label: 'album.published' }
+                    - { property: 'profile', label: 'album.artist_profile' }
                     - { property: 'albumFilePath', type: 'text', label: 'album.file_path' }
         Donations:
             class: AppBundle\Entity\Donation

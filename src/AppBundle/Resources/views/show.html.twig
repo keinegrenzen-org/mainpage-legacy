@@ -44,7 +44,11 @@
                 <div class="title-container py-4">
                     <div class="d-block">
                         <h1>
-                            <strong itemprop="name">{{ profile.name }}</strong>
+                            {% if is_mobile() and profile.shortName is not null %}
+                                <strong itemprop="name">{{ profile.shortName }}</strong>
+                            {% else %}
+                                <strong itemprop="name">{{ profile.name }}</strong>
+                            {% endif %}
                         </h1>
                         <hr/>
                         <h2>

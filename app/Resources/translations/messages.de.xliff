@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2017-12-26T18:58:42Z" source-language="en" target-language="de" datatype="plaintext" original="not.available">
+  <file date="2017-12-27T14:38:37Z" source-language="en" target-language="de" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -188,9 +188,9 @@ Bitte versuchen Sie es zu einem späteren Zeitpunkt noch ein Mal oder kontaktier
         <source>index.p.description</source>
         <target><![CDATA[keinegrenzen.org ist ein Zusammenschluss von Künstlern die ihre Musik zu guten Zwecken einsetzen wollen.
 Wir bieten unsere Musik zum Download an und geben Ihnen die Möglichkeit im Gegenzug mit einer Spende Hoffnung und Liebe zu verbreiten.
-100% der Spenden gehen dabei an <a href="https://www.aerzte-ohne-grenzen.de/" rel="nofollow" target="_blank">Ärzte ohne Grenzen</a>.
+100 % der Spenden gehen dabei an <a href="https://www.aerzte-ohne-grenzen.de/" rel="nofollow" target="_blank">Ärzte ohne Grenzen</a>.
 
-Unsere Musik und Leidenschaft ist ein Dankeschön für Ihre Menschlichkeit und Hilfe.
+Unsere Musik und Leidenschaft sind ein Dankeschön für Ihre Menschlichkeit und Hilfe.
 
 Ärzte ohne Grenzen überzeugen durch die Vielfalt und Beständigkeit der Einsätze, durch den Einsatz ihres Lebens und ihrer Gesundheit. Superhelden in Arztkitteln.]]></target>
         <jms:reference-file line="40">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
