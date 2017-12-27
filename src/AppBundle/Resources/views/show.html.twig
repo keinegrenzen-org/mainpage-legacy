@@ -78,18 +78,18 @@
 
     <section class="container pt-5 artist-bio" id="description">
         <div class="row py-2 align-content-center">
-            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                <h2 class="sr sr-b-1">{{ 'profile.h2.bio'|trans }} {{ profile.name }}</h2>
-                <ul class="list-inline mb-4 sr sr-b-2">
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 sr sr-b-1">
+                <h2>{{ 'profile.h2.bio'|trans }} {{ profile.name }}</h2>
+                <ul class="list-inline mb-4">
                     {{ socialLink.sortAndRender(profile.links) }}
                 </ul>
-                <div class="description text-big sr sr-b-3" itemprop="description">
+                <div class="description text-big" itemprop="description">
                     {{ profile.description|raw }}
                 </div>
             </div>
             {% if profile.quotes is not null %}
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 pt-5 mt-5">
-                    <div class="quotes px-5 align-self-center text-big sr sr-b-1">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 pt-5 mt-5 sr sr-b-2">
+                    <div class="quotes px-5 align-self-center text-big">
                         {{ profile.quotes|raw }}
                     </div>
                 </div>
@@ -104,8 +104,8 @@
             </div>
         </div>
         {% for album in profile.albums %}
-            <div class="row py-2 my-2">
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 px-2 album-art-container sr sr-b-1">
+            <div class="row py-2 my-2 sr sr-b-1">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 px-2 album-art-container">
                     <div class="album-art" itemprop="album" itemscope itemtype="http://schema.org/MusicAlbum"
                          data-uurl="{{ album.UURL }}">
                         <meta itemprop="description" content="{{ album.description }}"/>
@@ -116,7 +116,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 px-2 album-details-container sr sr-b-2">
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 px-2 album-details-container">
                     <div class="row album-details px-3 py-4 m-0"
                          style="background-color: {{ album.backgroundColor|raw }};
                                  color: {{ album.primaryColor|raw }} !important;
@@ -214,8 +214,8 @@
     {% block javascripts %}
         {{ parent() }}
         <script src="{{ asset('assets/soundcloud-audio.min.js') }}"></script>
+        <script src="{{ asset('bundles/app/js/profile.min.js') }}"></script>
         {% if not is_mobile() and profile.youtubeLink is not null %}
             <script src="https://www.youtube.com/iframe_api"></script>
         {% endif %}
-        <script src="{{ asset('bundles/app/js/profile.min.js') }}"></script>
     {% endblock %}

@@ -77,7 +77,11 @@ export default class YouTubePlayer {
     this.$dismissVideoButton = $('.dismiss-video')
     this.$videoPortraitButtons = $('.video-portrait-buttons')
 
-    window.onYouTubeIframeAPIReady = this.onYouTubeIframeAPIReady.bind(this)
+    if (window.YT && window.YT.Player) {
+      this.onYouTubeIframeAPIReady()
+    } else {
+      window.onYouTubeIframeAPIReady = this.onYouTubeIframeAPIReady.bind(this)
+    }
     this.$playVideoButton.click(this.showAndPlay.bind(this))
     this.$dismissVideoButton.click(this.pauseAndHide.bind(this))
   }

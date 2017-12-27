@@ -6231,7 +6231,7 @@ section.artist-discography .album-details-container .album-details .list-group-i
   .youtube-video .dismiss-video {
     position: absolute;
     bottom: 15px;
-    right: 15px;
+    left: 15px;
     z-index: 1051; }
 
 .download-dialog {

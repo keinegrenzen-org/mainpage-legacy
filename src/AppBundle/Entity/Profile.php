@@ -108,6 +108,7 @@ class Profile {
 
     /**
      * @ORM\OneToMany(targetEntity="Album", mappedBy="profile", cascade={"remove", "persist"})
+     * @ORM\OrderBy({"releaseDate" = "DESC"})
      */
     private $albums;
 

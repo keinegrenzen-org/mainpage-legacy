@@ -56,7 +56,7 @@ class Album {
 
     /**
      * @var Date
-     * @ORM\Column(name="published", type="date")
+     * @ORM\Column(name="release_date", type="date")
      */
     private $releaseDate;
 

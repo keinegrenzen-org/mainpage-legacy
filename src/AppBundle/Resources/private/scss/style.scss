@@ -724,7 +724,7 @@ section.artist-discography {
   .dismiss-video {
     position: absolute;
     bottom: 15px;
-    right: 15px;
+    left: 15px;
     z-index: $zindex-modal + 1;
   }
 }
