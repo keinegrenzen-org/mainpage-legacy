@@ -5842,6 +5842,9 @@ h1, h2 {
 nav.navbar {
   background-color: rgba(0, 0, 0, 0.5);
   min-height: 3.5em; }
+  nav.navbar .logo {
+    width: 80px;
+    height: 80px; }
   nav.navbar .navicon {
     color: #fff; }
   nav.navbar .navbar-brand {

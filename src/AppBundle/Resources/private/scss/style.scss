@@ -173,6 +173,11 @@ nav.navbar {
   background-color: rgba($black, 0.5);
   min-height: 3.5em;
 
+  .logo {
+    width: 80px;
+    height: 80px;
+  }
+
   .navicon {
     color: $white;
   }

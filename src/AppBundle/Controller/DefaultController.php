@@ -3,7 +3,6 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Album;
-use AppBundle\Entity\Donation;
 use AppBundle\Entity\Profile;
 use Doctrine\ORM\EntityManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -58,14 +57,8 @@ class DefaultController extends Controller {
             ->getRepository('AppBundle:Profile')
             ->findBy(array('public' => true), array('id' => 'DESC'));
 
-        $donations = $this->getEm()
-            ->getRepository('AppBundle:Donation')
-            ->findAll();
-
-        $total = array_reduce($donations, function ($i, Donation $obj) {
-            $i += $obj->getAmount();
-            return $i;
-        });
+        $statistics = $this->getEm()->getRepository('AppBundle:Donation')
+            ->findStatistics();
 
         $bigPage = null;
 
@@ -81,8 +74,9 @@ class DefaultController extends Controller {
 
         return $this->render('AppBundle::index.html.twig', array(
             'profiles' => $profiles,
-            'total' => $total,
-            'count' => sizeof($donations),
+            'total' => $statistics['total'],
+            'count' => $statistics['donationCount'],
+            'average' => $statistics['donationAverage'],
             'bigPage' => $bigPage
         ));
     }
