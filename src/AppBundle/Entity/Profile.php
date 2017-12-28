@@ -115,7 +115,6 @@ class Profile {
     /**
      * @var string
      *
-     * @Assert\NotBlank()
      * @ORM\Column(name="banner_video_path", type="string", length=160, nullable=true)
      */
     private $bannerVideoPath;
