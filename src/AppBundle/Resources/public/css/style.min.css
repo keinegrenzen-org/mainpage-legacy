@@ -5817,6 +5817,11 @@ a.text-dark:focus, a.text-dark:hover {
   .social-link:hover {
     background-color: #09f; }
 
+blockquote {
+  border-left: 4px solid #09f;
+  padding-left: 20px;
+  font-style: italic; }
+
 body, html {
   height: 100%;
   font-family: Ubuntu,sans-serif; }
