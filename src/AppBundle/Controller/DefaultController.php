@@ -63,8 +63,6 @@ class DefaultController extends Controller {
 
         $bigPage = null;
 
-        dump($genres);
-
         /**
          * @var $profile Profile
          */
