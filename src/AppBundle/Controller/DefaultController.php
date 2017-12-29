@@ -60,6 +60,9 @@ class DefaultController extends Controller {
         $statistics = $this->getEm()->getRepository('AppBundle:Donation')
             ->findStatistics();
 
+        //$genres = $this->getEm()->getRepository('AppBundle:Profile')
+        //    ->findAllGenres();
+
         $bigPage = null;
 
         /**
