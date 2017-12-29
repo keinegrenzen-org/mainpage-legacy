@@ -49,21 +49,21 @@ class DefaultController extends Controller {
      *
      * @Route("/", name="homepage")
      * @return \Symfony\Component\HttpFoundation\Response
-     * @internal param Request $request
+     * @throws \Doctrine\ORM\NoResultException
+     * @throws \Doctrine\ORM\NonUniqueResultException* @internal param Request $request
      */
     public function indexAction() {
 
-        $profiles = $this->getEm()
-            ->getRepository('AppBundle:Profile')
-            ->findBy(array('public' => true), array('id' => 'DESC'));
+        $profileRepository = $this->getEm()->getRepository('AppBundle:Profile');
+        $profiles = $profileRepository->findBy(array('public' => true), array('id' => 'DESC'));
+        $genres = $profileRepository->findAllGenres();
 
-        $statistics = $this->getEm()->getRepository('AppBundle:Donation')
-            ->findStatistics();
-
-        //$genres = $this->getEm()->getRepository('AppBundle:Profile')
-        //    ->findAllGenres();
+        $downloadCount = $this->getEm()->getRepository("AppBundle:Album")->findDownloadCount();
+        $statistics = $this->getEm()->getRepository('AppBundle:Donation')->findStatistics();
 
         $bigPage = null;
+
+        dump($genres);
 
         /**
          * @var $profile Profile
@@ -79,7 +79,8 @@ class DefaultController extends Controller {
             'profiles' => $profiles,
             'total' => $statistics['total'],
             'count' => $statistics['donationCount'],
-            'average' => $statistics['donationAverage'],
+            'downloadCount' => $downloadCount,
+            'genres' => $genres,
             'bigPage' => $bigPage
         ));
     }

@@ -5773,7 +5773,7 @@ a.text-dark:focus, a.text-dark:hover {
 
 .text-big {
   font-size: 1.25rem;
-  line-height: 1.75rem; }
+  line-height: 1.5; }
 
 .badge-white {
   color: #111;
@@ -6043,6 +6043,14 @@ section.statistics {
       color: #09f;
       font-weight: 700;
       text-shadow: none; }
+
+section.artists .genre-link {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: #8c8c8c; }
+  section.artists .genre-link.active {
+    color: #09f;
+    text-decoration: underline; }
 
 section.artists .artist-col .artist-preview {
   background-color: #ececec; }

@@ -12,14 +12,10 @@ class DonationRepository extends EntityRepository {
     public function findStatistics() {
         $queryBuilder = $this->createQueryBuilder('d')
             ->select('SUM(d.amount) AS total')
-            ->addSelect('COUNT(d.id) AS donationCount')
-            ->addSelect('AVG(d.amount) AS donationAverage');
+            ->addSelect('COUNT(d.id) AS donationCount');
 
         $statistics = reset($queryBuilder->getQuery()->getScalarResult());
-
         $statistics['total'] = number_format(($statistics['total'] /100), 0, ',', '');
-        $statistics['donationAverage'] = number_format(($statistics['donationAverage'] /100), 2, ',', '');
-
         return $statistics;
     }
 

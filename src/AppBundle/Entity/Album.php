@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraints\Date;
  * Album
  *
  * @ORM\Table(name="album")
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\AlbumRepository")
  * @ORM\HasLifecycleCallbacks
  */
 class Album {

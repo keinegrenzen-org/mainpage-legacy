@@ -1,24 +1,31 @@
 import '../scss/style.scss'
+import GenreFilter from './components/GenreFilter'
 
 $(document).ready(() => {
 
-  $('a[href^=\'#\']').on('click', e => {
+  const $artistPreviews = $('.artist-col')
+  if ($artistPreviews.length) {
+    new GenreFilter($artistPreviews)
+  }
+
+  $('a[href^="#"]').on('click', e => {
     e.preventDefault()
+    console.info('click scroll onepager thing')
 
-    let hash = $(e.currentTarget).attr('href')
-    if (hash === '#') {
-      hash = 'header'
+    let url = new URL($(e.currentTarget).attr('href'))
+    if (url.search === null) {
+      $('html, body').animate(
+        {
+          scrollTop: $(url.hash === '#' ? 'header' : url.hash).offset().top - 50
+        },
+        300,
+        () => {
+          window.location.hash = url.hash
+        }
+      )
+    } else {
+      window.location.hash = url.hash
     }
-
-    $('html, body').animate(
-      {
-        scrollTop: $(hash).offset().top - 50
-      },
-      300,
-      () => {
-        window.location.hash = hash
-      }
-    )
   })
 
   window.sr = ScrollReveal({mobile: false, reset: false})

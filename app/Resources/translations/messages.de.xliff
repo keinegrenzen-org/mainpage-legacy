@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2017-12-27T14:38:37Z" source-language="en" target-language="de" datatype="plaintext" original="not.available">
+  <file date="2017-12-29T16:05:26Z" source-language="en" target-language="de" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -19,6 +19,11 @@ Der Link den Sie aufgerufen haben ist vielleicht abgelaufen oder fehlerhaft.<br>
 Hier können Sie <a href="/" title="Startseite">zurück zur Startseite</a> gelangen.]]></target>
         <jms:reference-file line="10">/Resources/TwigBundle/views/Exception/error404.html.twig</jms:reference-file>
       </trans-unit>
+      <trans-unit id="186b342112989d6cad636e83101db371fbe8c9da" resname="artists.genreFilter.clear">
+        <source>artists.genreFilter.clear</source>
+        <target>Alle Anzeigen</target>
+        <jms:reference-file line="132">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
+      </trans-unit>
       <trans-unit id="c0cd2200e973f084da775576db3c9b7916ffdd2b" resname="artists.p.description">
         <source>artists.p.description</source>
         <target xml:space="preserve">Auf jeder Künstler-Seite befinden sich Musikalben und Mixtapes.
@@ -30,7 +35,7 @@ Viel spaß!</target>
       <trans-unit id="92cfee211c2718d23390225146ec5cd4315ce47f" resname="backward">
         <source>backward</source>
         <target>voriges Lied</target>
-        <jms:reference-file line="172">/../src/AppBundle/Resources/views/show.html.twig</jms:reference-file>
+        <jms:reference-file line="176">/../src/AppBundle/Resources/views/show.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="c8b41e767c205da50e5142f69809308fe316dde0" resname="base.meta.description">
         <source>base.meta.description</source>
@@ -62,13 +67,13 @@ Viel spaß!</target>
         <target>Spenden</target>
         <jms:reference-file line="8">/../src/AppBundle/Resources/views/dialog.html.twig</jms:reference-file>
         <jms:reference-file line="53">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
-        <jms:reference-file line="157">/../src/AppBundle/Resources/views/show.html.twig</jms:reference-file>
+        <jms:reference-file line="161">/../src/AppBundle/Resources/views/show.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="817248fb77fb5c2cef3f2c732ad257cb1fb9c5e4" resname="download">
         <source>download</source>
         <target>Runterladen</target>
         <jms:reference-file line="6">/../src/AppBundle/Resources/views/dialog.html.twig</jms:reference-file>
-        <jms:reference-file line="157">/../src/AppBundle/Resources/views/show.html.twig</jms:reference-file>
+        <jms:reference-file line="161">/../src/AppBundle/Resources/views/show.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="9edc2d772ae644c1c96599dcf8134145630bc556" resname="download_dialog.dismiss">
         <source>download_dialog.dismiss</source>
@@ -110,34 +115,34 @@ Bitte versuchen Sie es zu einem späteren Zeitpunkt noch ein Mal oder kontaktier
       <trans-unit id="ace0c5e90ac07202e99d0186576979bacac854c0" resname="forward">
         <source>forward</source>
         <target>nächstes Lied</target>
-        <jms:reference-file line="184">/../src/AppBundle/Resources/views/show.html.twig</jms:reference-file>
+        <jms:reference-file line="188">/../src/AppBundle/Resources/views/show.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="0b1e95cfd9775191a7224d0a218ae79187e80c1d" resname="from">
         <source>from</source>
         <target>aus</target>
         <jms:reference-file line="78">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
-        <jms:reference-file line="51">/../src/AppBundle/Resources/views/show.html.twig</jms:reference-file>
+        <jms:reference-file line="55">/../src/AppBundle/Resources/views/show.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="256e6d193e061dbe513a387710efe928b699fb57" resname="frontpage.image">
         <source>frontpage.image</source>
         <target>Profilbild</target>
-        <jms:reference-file line="138">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
+        <jms:reference-file line="154">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
         <jms:reference-file line="42">/../src/AppBundle/Resources/views/show.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="13e4fcf16a8b27f166b4697b99ca75d837f9e25f" resname="frontpage.video.dismiss">
         <source>frontpage.video.dismiss</source>
         <target>Zurück zum Profil</target>
-        <jms:reference-file line="207">/../src/AppBundle/Resources/views/show.html.twig</jms:reference-file>
+        <jms:reference-file line="211">/../src/AppBundle/Resources/views/show.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="8ebb2bbc4216956489fa5c25b5c8542b25de66ab" resname="frontpage.video.play">
         <source>frontpage.video.play</source>
         <target>Video Abspielen</target>
-        <jms:reference-file line="67">/../src/AppBundle/Resources/views/show.html.twig</jms:reference-file>
+        <jms:reference-file line="71">/../src/AppBundle/Resources/views/show.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="a31078351b6e09c07147b96193a438268f6f6ff1" resname="frontpage.video.youtube">
         <source>frontpage.video.youtube</source>
         <target>Video auf YouTube öffnen</target>
-        <jms:reference-file line="73">/../src/AppBundle/Resources/views/show.html.twig</jms:reference-file>
+        <jms:reference-file line="77">/../src/AppBundle/Resources/views/show.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="795b2872f43c8ec15b9e659cc28ee4a05a4befe2" resname="incologne">
         <source>incologne</source>
@@ -149,16 +154,6 @@ Bitte versuchen Sie es zu einem späteren Zeitpunkt noch ein Mal oder kontaktier
         <target>Alle Künstler sehen</target>
         <jms:reference-file line="49">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
       </trans-unit>
-      <trans-unit id="57aef9674791eec5ff26ba4cae6a4b868ee0c6df" resname="index.donation.ave.1">
-        <source>index.donation.ave.1</source>
-        <target>Durchschnittlicher</target>
-        <jms:reference-file line="110">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="6d7249924a3d2c4abfc745f31e897b999a5244f3" resname="index.donation.ave.2">
-        <source>index.donation.ave.2</source>
-        <target>Spendenbetrag</target>
-        <jms:reference-file line="111">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
-      </trans-unit>
       <trans-unit id="30db2745145aa6e87064c24c5e0bc9707cffe653" resname="index.donation.count.1">
         <source>index.donation.count.1</source>
         <target>Spenden</target>
@@ -168,6 +163,16 @@ Bitte versuchen Sie es zu einem späteren Zeitpunkt noch ein Mal oder kontaktier
         <source>index.donation.count.2</source>
         <target>insgesamt</target>
         <jms:reference-file line="103">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d2c90b91b37bb2631e1f990f0bfd325ceb2ffc8c" resname="index.donation.dls.1">
+        <source>index.donation.dls.1</source>
+        <target>Downloads</target>
+        <jms:reference-file line="110">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="8df23714bb586c59401843b86a6282d0b298a7f7" resname="index.donation.dls.2">
+        <source>index.donation.dls.2</source>
+        <target>Insgesamt</target>
+        <jms:reference-file line="111">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="5cdf555112771f6898abbc2822c1a0f688f33d2a" resname="index.donation.total.1">
         <source>index.donation.total.1</source>
@@ -218,8 +223,8 @@ Unsere Musik und Leidenschaft sind ein Dankeschön für Ihre Menschlichkeit und 
       <trans-unit id="e01670c3b844fffb444782b352674c623a2a951f" resname="listenOnSc">
         <source>listenOnSc</source>
         <target>Auf SoundCloud anhören</target>
-        <jms:reference-file line="138">/../src/AppBundle/Resources/views/show.html.twig</jms:reference-file>
-        <jms:reference-file line="140">/../src/AppBundle/Resources/views/show.html.twig</jms:reference-file>
+        <jms:reference-file line="142">/../src/AppBundle/Resources/views/show.html.twig</jms:reference-file>
+        <jms:reference-file line="144">/../src/AppBundle/Resources/views/show.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="f2f811ec8a8c50ff1e0dde148a268fd71564609d" resname="madewith">
         <source>madewith</source>
@@ -230,29 +235,30 @@ Unsere Musik und Leidenschaft sind ein Dankeschön für Ihre Menschlichkeit und 
         <source>mwb</source>
         <target>keinegrenzen.org</target>
         <jms:reference-file line="31">/../src/AppBundle/Resources/views/base.html.twig</jms:reference-file>
-        <jms:reference-file line="3">/../src/AppBundle/Resources/views/nav.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="b737e60f2a43cee6a67b0d3cceef25ee9bfc8fd2" resname="nav.artists">
         <source>nav.artists</source>
         <target>Künstler</target>
         <jms:reference-file line="120">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
-        <jms:reference-file line="21">/../src/AppBundle/Resources/views/nav.html.twig</jms:reference-file>
+        <jms:reference-file line="20">/../src/AppBundle/Resources/views/nav.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="e7d2203fc1ee221429cd69f15690b1ebdbe402f6" resname="nav.artists.href">
         <source>nav.artists.href</source>
         <target>#kuenstler</target>
         <jms:reference-file line="45">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
-        <jms:reference-file line="21">/../src/AppBundle/Resources/views/nav.html.twig</jms:reference-file>
+        <jms:reference-file line="20">/../src/AppBundle/Resources/views/nav.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="9b9a7d3c52502b0699d451b1d9fcc94c3b0f3837" resname="nav.artists.id">
         <source>nav.artists.id</source>
         <target>kuenstler</target>
         <jms:reference-file line="117">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
+        <jms:reference-file line="131">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
+        <jms:reference-file line="137">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="42fb88737ee57569cacdf3149927829c093b218d" resname="nav.donate">
         <source>nav.donate</source>
         <target>Spenden</target>
-        <jms:reference-file line="29">/../src/AppBundle/Resources/views/nav.html.twig</jms:reference-file>
+        <jms:reference-file line="28">/../src/AppBundle/Resources/views/nav.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="b86c3fdf1ad7d251ccaa2558fd67e322168fe363" resname="nav.donate.id">
         <source>nav.donate.id</source>
@@ -262,13 +268,13 @@ Unsere Musik und Leidenschaft sind ein Dankeschön für Ihre Menschlichkeit und 
       <trans-unit id="fc0cacbf487d4957a0bbf8c8f26319e5033d2c2f" resname="nav.projekt">
         <source>nav.projekt</source>
         <target>Projekt</target>
-        <jms:reference-file line="17">/../src/AppBundle/Resources/views/nav.html.twig</jms:reference-file>
+        <jms:reference-file line="16">/../src/AppBundle/Resources/views/nav.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="73d145e996781211ac91c0ecd24c735a7be1e595" resname="nav.projekt.href">
         <source>nav.projekt.href</source>
         <target>#projekt</target>
         <jms:reference-file line="19">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
-        <jms:reference-file line="17">/../src/AppBundle/Resources/views/nav.html.twig</jms:reference-file>
+        <jms:reference-file line="16">/../src/AppBundle/Resources/views/nav.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="7b30dd0c75f91b87b468a56712d9d27119754bce" resname="nav.projekt.id">
         <source>nav.projekt.id</source>
@@ -279,18 +285,18 @@ Unsere Musik und Leidenschaft sind ein Dankeschön für Ihre Menschlichkeit und 
       <trans-unit id="7552d306356d4e17a8b37a8b2683705a5924c9e7" resname="nav.support">
         <source>nav.support</source>
         <target>Unterstützen</target>
-        <jms:reference-file line="158">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
-        <jms:reference-file line="25">/../src/AppBundle/Resources/views/nav.html.twig</jms:reference-file>
+        <jms:reference-file line="174">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
+        <jms:reference-file line="24">/../src/AppBundle/Resources/views/nav.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="c0091d8ceec3d3002f477910e15c53c38de90540" resname="nav.support.href">
         <source>nav.support.href</source>
         <target>#unterstuetzen</target>
-        <jms:reference-file line="25">/../src/AppBundle/Resources/views/nav.html.twig</jms:reference-file>
+        <jms:reference-file line="24">/../src/AppBundle/Resources/views/nav.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="0712322c1a344e8e9e9f80fa4321e411cc9b5445" resname="nav.support.id">
         <source>nav.support.id</source>
         <target>unterstuetzen</target>
-        <jms:reference-file line="154">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
+        <jms:reference-file line="170">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="17e2c07513d7312f6b7b751fc83308a67e23e5b0" resname="no-video">
         <source>no-video</source>
@@ -306,83 +312,83 @@ Unsere Musik und Leidenschaft sind ein Dankeschön für Ihre Menschlichkeit und 
       <trans-unit id="ef8d29955a725c39916a4626f3921a0104242439" resname="pause">
         <source>pause</source>
         <target>Pause</target>
-        <jms:reference-file line="180">/../src/AppBundle/Resources/views/show.html.twig</jms:reference-file>
+        <jms:reference-file line="184">/../src/AppBundle/Resources/views/show.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="516626bf8a5006ecce1803eeb6a747182000d4f8" resname="play">
         <source>play</source>
         <target>Abspielen</target>
-        <jms:reference-file line="176">/../src/AppBundle/Resources/views/show.html.twig</jms:reference-file>
+        <jms:reference-file line="180">/../src/AppBundle/Resources/views/show.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="e696b18ba74e00c2a2f10ae1f73a6cccb614101a" resname="profile.h2.albums">
         <source>profile.h2.albums</source>
         <target>Musik</target>
-        <jms:reference-file line="103">/../src/AppBundle/Resources/views/show.html.twig</jms:reference-file>
+        <jms:reference-file line="107">/../src/AppBundle/Resources/views/show.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="681fc538d17bd1e2e11505a9253c24b7eb5875d0" resname="profile.h2.bio">
         <source>profile.h2.bio</source>
         <target>Über</target>
-        <jms:reference-file line="82">/../src/AppBundle/Resources/views/show.html.twig</jms:reference-file>
+        <jms:reference-file line="86">/../src/AppBundle/Resources/views/show.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="c2807535f28e44fe6c7375dcf90518115529a8fa" resname="published">
         <source>published</source>
         <target>Erschienen</target>
-        <jms:reference-file line="127">/../src/AppBundle/Resources/views/show.html.twig</jms:reference-file>
+        <jms:reference-file line="131">/../src/AppBundle/Resources/views/show.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="940ede354b752fe4b1148d2312a5c131e19a78df" resname="readmore">
         <source>readmore</source>
         <target>Mehr sehen</target>
-        <jms:reference-file line="146">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
+        <jms:reference-file line="162">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
         <jms:reference-file line="20">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
         <jms:reference-file line="82">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="35fde9d7c1376c301e790829a11e92a0f5665678" resname="social.title.facebook">
         <source>social.title.facebook</source>
         <target>Facebook</target>
-        <jms:reference-file line="41">/../src/AppBundle/Resources/views/macros/social-link.html.twig</jms:reference-file>
+        <jms:reference-file line="43">/../src/AppBundle/Resources/views/macros/social-link.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="0f42bceac1c81c1a21c899ceb7a9fed61ffe82e3" resname="social.title.instagram">
         <source>social.title.instagram</source>
         <target>Instagram</target>
-        <jms:reference-file line="47">/../src/AppBundle/Resources/views/macros/social-link.html.twig</jms:reference-file>
+        <jms:reference-file line="49">/../src/AppBundle/Resources/views/macros/social-link.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="688ce49a4112fed73525888b659d1ffee390d44f" resname="social.title.soundcloud">
         <source>social.title.soundcloud</source>
         <target>SoundCloud</target>
-        <jms:reference-file line="53">/../src/AppBundle/Resources/views/macros/social-link.html.twig</jms:reference-file>
+        <jms:reference-file line="55">/../src/AppBundle/Resources/views/macros/social-link.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="590c06d2be3572d1f54d7a5a8b3afe9fc0a8a122" resname="social.title.website">
         <source>social.title.website</source>
         <target>Homepage</target>
-        <jms:reference-file line="35">/../src/AppBundle/Resources/views/macros/social-link.html.twig</jms:reference-file>
+        <jms:reference-file line="37">/../src/AppBundle/Resources/views/macros/social-link.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="411d4cbfe31776bdb5b74cdb1b28f5cd35b02522" resname="social.title.youtube">
         <source>social.title.youtube</source>
         <target>YouTube</target>
-        <jms:reference-file line="59">/../src/AppBundle/Resources/views/macros/social-link.html.twig</jms:reference-file>
+        <jms:reference-file line="61">/../src/AppBundle/Resources/views/macros/social-link.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="f15c9040f6747db2994784967e67c80f6661de91" resname="support.fb.title">
         <source>support.fb.title</source>
         <target>Facebook</target>
-        <jms:reference-file line="170">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
-        <jms:reference-file line="174">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
+        <jms:reference-file line="186">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
+        <jms:reference-file line="190">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="78703a21328e33e05540c0abcc1845a39a3353e6" resname="support.insta.title">
         <source>support.insta.title</source>
         <target>Instagram</target>
-        <jms:reference-file line="178">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
-        <jms:reference-file line="182">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
+        <jms:reference-file line="194">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
+        <jms:reference-file line="198">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="6cac9ab557eee6bb015d5b7fdea328be6b6511a5" resname="support.p">
         <source>support.p</source>
         <target xml:space="preserve">keinegrenzen.org wächst lediglich mit Ihrer Unterstützung. Deshalb hier die Möglichkeit auf sozialen Netzwerken Wind zu machen und Leute auf dieses Projekt aufmerksam zu machen.
 Vielen Dank!</target>
-        <jms:reference-file line="159">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
+        <jms:reference-file line="175">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="89caac9765d984700356d5f1e285d42871667113" resname="support.tw.title">
         <source>support.tw.title</source>
         <target>Twitter</target>
-        <jms:reference-file line="162">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
-        <jms:reference-file line="166">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
+        <jms:reference-file line="178">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
+        <jms:reference-file line="182">/../src/AppBundle/Resources/views/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="6794f3b46652850a3c5116dbcf12836159d4da29" resname="to_the_top">
         <source>to_the_top</source>
@@ -392,7 +398,7 @@ Vielen Dank!</target>
       <trans-unit id="2fca7fabaf37f42f46d8b58f9ae529fcacbef3e6" resname="tracklist">
         <source>tracklist</source>
         <target>Tracklist</target>
-        <jms:reference-file line="135">/../src/AppBundle/Resources/views/show.html.twig</jms:reference-file>
+        <jms:reference-file line="139">/../src/AppBundle/Resources/views/show.html.twig</jms:reference-file>
       </trans-unit>
     </body>
   </file>

@@ -6,7 +6,7 @@
 
     {% include '@App/nav.html.twig' with {'index': true} %}
 
-    <header class="container-fluid text-center">
+    <header class="container-fluid text-center" id="intro">
         <div class="row align-items-center page-title">
             <div class="col">
                 <div class="sr sr-t-1">
@@ -104,11 +104,11 @@
                 </div>
                 <div class="col-lg-12 text-right mt-5 sr sr-b-3">
                     <span class="double">
-                        <strong class="counter">{{ average }}</strong>€
+                        <strong class="counter">{{ downloadCount }}</strong>
                     </span>
                     <br>
-                    <span>{{ 'index.donation.ave.1'|trans }}</span>
-                    <span>{{ 'index.donation.ave.2'|trans }}</span>
+                    <span>{{ 'index.donation.dls.1'|trans }}</span>
+                    <span>{{ 'index.donation.dls.2'|trans }}</span>
                 </div>
             </div>
         </div>
@@ -126,8 +126,24 @@
             </div>
         </div>
         <div class="row py-2 justify-content-center">
+            <div class="col-lg-12 text-center">
+                <a class="d-inline-block mx-3 genre-link active" data-genre=""
+                   href="?genre=all#{{ 'nav.artists.id'|trans }}">
+                    {{ 'artists.genreFilter.clear'|trans }}
+                </a>
+                {% for genre in genres %}
+                    {% set genreSlug = genre.name|lower|replace([' '],['-']) %}
+                    <a class="d-inline-block mx-3 genre-link" data-genre="{{ genreSlug }}"
+                       href="?genre={{ genreSlug }}#{{ 'nav.artists.id'|trans }}">
+                        {{ genre.name }}
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row py-2 justify-content-center">
             {% for profile in profiles %}
                 <div class="col-lg-4 col-sm-6 text-center artist-col my-3"
+                     data-genre="{{ profile.genre|lower|replace([' '],['-']) }}"
                      itemscope itemtype="http://schema.org/MusicGroup">
                     <h3 class="artist-name" itemprop="name">{{ profile.name }}</h3>
                     <div class="artist-preview my-3">
