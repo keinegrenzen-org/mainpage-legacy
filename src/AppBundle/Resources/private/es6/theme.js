@@ -10,13 +10,14 @@ $(document).ready(() => {
 
   $('a[href^="#"]').on('click', e => {
     e.preventDefault()
-    console.info('click scroll onepager thing')
 
     let url = new URL($(e.currentTarget).attr('href'))
-    if (url.search === null) {
+    if (url.search.length === 0) {
+      const selector = (url.hash.length === 0) ? 'header' : url.hash
+
       $('html, body').animate(
         {
-          scrollTop: $(url.hash === '#' ? 'header' : url.hash).offset().top - 50
+          scrollTop: $(selector).offset().top - 50
         },
         300,
         () => {
