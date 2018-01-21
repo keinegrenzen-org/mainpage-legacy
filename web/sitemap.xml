@@ -81,4 +81,10 @@
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
     </url>
+    <url>
+        <loc>https://www.keinegrenzen.org/augen</loc>
+        <lastmod>2018-01-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+    </url>
 </urlset>
