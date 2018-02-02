@@ -1,6 +1,7 @@
 {% extends 'AppBundle::base.html.twig' %}
 
 {% import '@App/macros/social-link.html.twig' as socialLink %}
+{% import '@App/macros/icons.html.twig' as icons %}
 
 {% block pagetitle %}{{ profile.name }} | {{ 'base.meta.title'|trans }}{% endblock %}
 
@@ -59,7 +60,7 @@
             </div>
             <div class="arrow-bounce pb-3 sr sr-b-3">
                 <a href="#description">
-                    {% include '@App/icons/down.svg.twig' with {color: 'white'} %}
+                    {{ icons.render('down', 'white') }}
                 </a>
             </div>
         </div>
@@ -67,13 +68,13 @@
             <div class="video-portrait-buttons initially-hidden">
                 {% if not is_mobile() %}
                     <a href="#" class="d-block btn btn-lg btn-primary mb-3 play-video">
-                        {% include '@App/icons/play.svg.twig' with {color: 'white'} %}
+                        {{ icons.render('play', 'white') }}
                         {{ 'frontpage.video.play'|trans }}
                     </a>
                 {% endif %}
                 <a href="https://youtube.com/watch?v={{ profile.youtubeLink }}" target="_blank" rel="nofollow"
                    class="d-block btn btn-lg btn-primary">
-                    {% include '@App/icons/youtube.svg.twig' with {color: 'white'} %}
+                    {{ icons.render('youtube', 'white') }}
                     {{ 'frontpage.video.youtube'|trans }}
                 </a>
             </div>
@@ -172,19 +173,19 @@
         <div class="row py-2 my-5 global-player">
             <div class="col-md-2 col-sm-4 col-xs-6">
                 <span class="player-control backward">
-                    {% include '@App/icons/previous.svg.twig' with {color: 'gray'} %}
+                    {{ icons.render('previous', 'gray') }}
                     <i class="sr-only">{{ 'backward'|trans }}</i>
                 </span>
                 <span class="player-control play">
-                    {% include '@App/icons/play.svg.twig' with {color: 'gray'} %}
+                    {{ icons.render('play', 'gray') }}
                     <i class="sr-only">{{ 'play'|trans }}</i>
                 </span>
                 <span class="player-control pause initially-hidden">
-                    {% include '@App/icons/pause.svg.twig' with {color: 'gray'} %}
+                    {{ icons.render('pause', 'gray') }}
                     <i class="sr-only">{{ 'pause'|trans }}</i>
                 </span>
                 <span class="player-control forward">
-                    {% include '@App/icons/next.svg.twig' with {color: 'gray'} %}
+                    {{ icons.render('next', 'gray') }}
                     <i class="sr-only">{{ 'forward'|trans }}</i>
                 </span>
             </div>

@@ -1,7 +1,9 @@
 {% macro renderLink(link, title, icon) %}
 
+    {% import '@App/macros/icons.html.twig' as icons %}
+
     <a href="{{ link }}" target="_blank" title="{{ title }}" rel="nofollow" class="social-link">
-        {% include '@App/icons/' ~ icon ~ '.svg.twig' with {color: 'white'} %}
+        {{ icons.render(icon, 'white') }}
     </a>
 
 {% endmacro renderLink %}

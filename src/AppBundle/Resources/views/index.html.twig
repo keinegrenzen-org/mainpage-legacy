@@ -1,6 +1,7 @@
 {% extends '@App/base.html.twig' %}
 
 {% import '@App/macros/social-link.html.twig' as socialLink %}
+{% import '@App/macros/icons.html.twig' as icons %}
 
 {% block body %}
 
@@ -23,7 +24,7 @@
             </div>
             <div class="arrow-bounce pb-3 sr sr-b-3">
                 <a href="#{{ 'nav.projekt.id'|trans }}">
-                    {% include '@App/icons/down.svg.twig' with {color: 'white'} %}
+                    {{ icons.render('down', 'white') }}
                 </a>
             </div>
         </div>
@@ -44,7 +45,7 @@
             <div class="col-md-8 text-center">
                 <a class="btn btn-lg btn-outline-primary sr sr-b-1 mb-3 mb-md-0" href="{{ 'nav.artists.href'|trans }}">
                     <span class="mr-1">
-                        {% include '@App/icons/group.svg.twig' with {color: 'primary'} %}
+                        {{ icons.render('group', 'primary') }}
                     </span>
                     {{ 'index.a.see_all_artists'|trans }}
                 </a>
@@ -52,7 +53,7 @@
                    href="{{ path('donate_external') }}">
                     {{ 'donate'|trans }}
                     <span class="ml-1">
-                        {% include '@App/icons/external-link.svg.twig' with {color: 'white'} %}
+                        {{ icons.render('external-link', 'white') }}
                     </span>
                 </a>
             </div>
@@ -177,7 +178,7 @@
                        rel="nofollow"
                        target="_blank" title="{{ 'support.tw.title'|trans }}">
                         <span>
-                            {% include '@App/icons/twitter.svg.twig' with {color: 'white'} %}
+                            {{ icons.render('twitter', 'white') }}
                         </span>
                         {{ 'support.tw.title'|trans }}
                     </a>
@@ -185,7 +186,7 @@
                        rel="nofollow"
                        target="_blank" title="{{ 'support.fb.title'|trans }}">
                         <span>
-                            {% include '@App/icons/facebook.svg.twig' with {color: 'white'} %}
+                            {{ icons.render('facebook', 'white') }}
                         </span>
                         {{ 'support.fb.title'|trans }}
                     </a>
@@ -193,7 +194,7 @@
                        rel="nofollow"
                        target="_blank" title="{{ 'support.insta.title'|trans }}">
                         <span>
-                            {% include '@App/icons/instagram.svg.twig' with {color: 'white'} %}
+                            {{ icons.render('instagram', 'white') }}
                         </span>
                         {{ 'support.insta.title'|trans }}
                     </a>

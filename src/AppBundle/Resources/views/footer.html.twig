@@ -1,7 +1,9 @@
+{% import '@App/macros/icons.html.twig' as icons %}
+
 <footer class="footer container-fluid py-5">
     <a class="rounded-circle btn-top" href="#">
         <span>
-            {% include '@App/icons/up.svg.twig' with {color: 'primary'} %}
+            {{ icons.render('up', 'primary') }}
             <i class="sr-only">{{ 'to_the_top'|trans }}</i>
         </span>
     </a>
@@ -19,7 +21,7 @@
             <small class="made-with-love">
                 {{ 'madewith'|trans }}
                 <span>
-                    {% include '@App/icons/heart.svg.twig' with {color: 'primary'} %}
+                    {{ icons.render('heart', 'primary') }}
                 </span>
                 {{ 'incologne'|trans }}
             </small>

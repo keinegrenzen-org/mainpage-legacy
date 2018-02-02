@@ -1,0 +1,3 @@
+{% macro render(icon, color) %}
+    {% include '@App/icons/' ~ icon ~ '.svg.twig' with {'color': color} %}
+{% endmacro %}
