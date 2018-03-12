@@ -1,8 +1,7 @@
 <?php
 
-namespace AppBundle\Form;
+namespace AdminBundle\Form;
 
-use AppBundle\Entity\Image;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;

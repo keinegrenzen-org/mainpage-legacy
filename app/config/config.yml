@@ -128,14 +128,14 @@ easy_admin:
                     - { property: 'location', type: 'text', label: 'artist.location', css_class: 'col-lg-3' }
                     - { property: 'genre', type: 'text', label: 'artist.genre', css_class: 'col-lg-3' }
                     - { property: 'UURL', type: 'text', label: 'artist.uurl', css_class: 'col-lg-12', type_options: {attr: {pattern: "^[.a-zA-Z0-9-]+$"}} }
-                    - { property: 'profileImage', type: 'AppBundle\Form\ImageType', label: 'artist.profile_image', css_class: 'col-lg-6' }
-                    - { property: 'bannerImage', type: 'AppBundle\Form\ImageType', label: 'artist.banner_image', css_class: 'col-lg-6' }
+                    - { property: 'profileImage', type: 'AdminBundle\Form\ImageType', label: 'artist.profile_image', css_class: 'col-lg-6' }
+                    - { property: 'bannerImage', type: 'AdminBundle\Form\ImageType', label: 'artist.banner_image', css_class: 'col-lg-6' }
                     - { property: 'bannerVideoPath', type: 'text', label: 'artist.video', css_class: 'col-lg-6', type_options: { required: false } }
                     - { property: 'youtubeLink', type: 'text', label: 'artist.youtube', css_class: 'col-lg-6' }
                     - { property: 'description', type: 'ckeditor', label: 'artist.vita' }
                     - { property: 'metaDescription', type: 'text', label: 'artist.meta_description' }
                     - { property: 'quotes', type: 'ckeditor', label: 'artist.citations' }
-                    - { property: 'links', type: 'collection', label: 'artist.links', type_options: { entry_options: { label: false }, entry_type: AppBundle\Form\LinkType, attr: { class: 'field-links' } }}
+                    - { property: 'links', type: 'collection', label: 'artist.links', type_options: { entry_options: { label: false }, entry_type: AdminBundle\Form\LinkType, attr: { class: 'field-links' } }}
                     - { property: 'public', type: 'checkbox', label: 'artist.public', css_class: 'col-lg-12' }
         Album:
             class: AppBundle\Entity\Album
@@ -151,7 +151,7 @@ easy_admin:
                 title: "form.album"
                 fields:
                     - { property: 'title', type: 'text', label: 'album.title' }
-                    - { property: 'cover', type: 'AppBundle\Form\ImageType', label: 'album.cover', css_class: 'col-lg-12' }
+                    - { property: 'cover', type: 'AdminBundle\Form\ImageType', label: 'album.cover', css_class: 'col-lg-12' }
                     - { property: 'backgroundColor', type: 'text', label: 'album.background_color', css_class: 'col-lg-3', type_options: { attr: { class: 'field-background' } } }
                     - { property: 'primaryColor', type: 'text', label: 'album.primary_color', css_class: 'col-lg-3', type_options: { attr: { class: 'field-primary' } } }
                     - { property: 'secondaryColor', type: 'text', label: 'album.secondary_color', css_class: 'col-lg-3', type_options: { attr: { class: 'field-secondary' } } }
