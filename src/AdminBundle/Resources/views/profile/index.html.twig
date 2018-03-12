@@ -1,0 +1,59 @@
+{#{% extends 'base.html.twig' %}#}
+
+{% block body %}
+    <h1>Profiles list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Shortname</th>
+                <th>Location</th>
+                <th>Genre</th>
+                <th>Description</th>
+                <th>Quotes</th>
+                <th>Metadescription</th>
+                <th>Bannervideopath</th>
+                <th>Youtubelink</th>
+                <th>Public</th>
+                <th>Uurl</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for profile in profiles %}
+            <tr>
+                <td><a href="{{ path('admin_profile_show', { 'id': profile.id }) }}">{{ profile.id }}</a></td>
+                <td>{{ profile.name }}</td>
+                <td>{{ profile.shortName }}</td>
+                <td>{{ profile.location }}</td>
+                <td>{{ profile.genre }}</td>
+                <td>{{ profile.description }}</td>
+                <td>{{ profile.quotes }}</td>
+                <td>{{ profile.metaDescription }}</td>
+                <td>{{ profile.bannerVideoPath }}</td>
+                <td>{{ profile.youtubeLink }}</td>
+                <td>{% if profile.public %}Yes{% else %}No{% endif %}</td>
+                <td>{{ profile.UURL }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_profile_show', { 'id': profile.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_profile_edit', { 'id': profile.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_profile_new') }}">Create a new profile</a>
+        </li>
+    </ul>
+{% endblock %}

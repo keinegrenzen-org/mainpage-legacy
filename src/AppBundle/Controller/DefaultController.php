@@ -67,7 +67,7 @@ class DefaultController extends Controller {
          * @var $profile Profile
          */
         foreach ($profiles as $profile) {
-            if ($profile->getUURL() === 'suburbian-rex') {
+            if ($profile->getUURL() === 'reloom') {
                 $bigPage = $profile;
                 break;
             }

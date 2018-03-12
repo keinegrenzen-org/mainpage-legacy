@@ -14,7 +14,8 @@ class DonationRepository extends EntityRepository {
             ->select('SUM(d.amount) AS total')
             ->addSelect('COUNT(d.id) AS donationCount');
 
-        $statistics = reset($queryBuilder->getQuery()->getScalarResult());
+        $statistics = $queryBuilder->getQuery()->getScalarResult();
+        $statistics = reset($statistics);
         $statistics['total'] = number_format(($statistics['total'] /100), 0, ',', '');
         return $statistics;
     }
