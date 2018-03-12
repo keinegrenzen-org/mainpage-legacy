@@ -78,10 +78,11 @@
                 <h3>{{ bigPage.name }}</h3>
                 <p><strong>{{ bigPage.genre }}</strong>, {{ 'from'|trans }} {{ bigPage.location }}</p>
                 {{ bigPage.description|truncate(400, true)|raw }}
-                <a href="{{ path('profile_show', {UURL: bigPage.UURL}) }}"
-                   class="btn btn-secondary">
-                    {{ 'readmore'|trans }}
-                </a>
+                <p>
+                    <a href="{{ path('profile_show', {UURL: bigPage.UURL}) }}" class="btn btn-secondary">
+                        {{ 'readmore'|trans }}
+                    </a>
+                </p>
             </div>
         </div>
     </section>
