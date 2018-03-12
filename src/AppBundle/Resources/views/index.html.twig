@@ -77,7 +77,7 @@
             <div class="col-md-6 mt-3 mt-md-0 align-self-center">
                 <h3>{{ bigPage.name }}</h3>
                 <p><strong>{{ bigPage.genre }}</strong>, {{ 'from'|trans }} {{ bigPage.location }}</p>
-                {{ bigPage.description|truncate(400, true)|raw }}
+                {{ bigPage.description|truncate(300, true)|raw }}
                 <p>
                     <a href="{{ path('profile_show', {UURL: bigPage.UURL}) }}" class="btn btn-secondary">
                         {{ 'readmore'|trans }}
