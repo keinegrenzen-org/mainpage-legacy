@@ -17,7 +17,7 @@ files=(
  "bootstrap/dist/js/bootstrap.min.js"
  "scrollreveal/dist/scrollreveal.min.js"
  "soundcloud-audio/dist/soundcloud-audio.min.js"
- "jquery/dist/jquery.min.js"
+ "jquery/dist/jquery.slim.min.js"
  "popper.js/dist/umd/popper.min.js"
 )
 

@@ -69,7 +69,7 @@
         <div class="row py-2">
             <div class="col-md-6">
                 <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item"
+                    <iframe title="{{ 'bigPage.iframe_title'|trans }}" class="embed-responsive-item"
                             src="https://www.youtube.com/embed/{{ bigPage.youtubeLink }}"
                             frameborder="0" allowfullscreen></iframe>
                 </div>
@@ -79,7 +79,8 @@
                 <p><strong>{{ bigPage.genre }}</strong>, {{ 'from'|trans }} {{ bigPage.location }}</p>
                 {{ bigPage.description|truncate(300, true)|raw }}
                 <p>
-                    <a href="{{ path('profile_show', {UURL: bigPage.UURL}) }}" class="btn btn-secondary">
+                    <a title="{{ 'readmore'|trans }}" href="{{ path('profile_show', {UURL: bigPage.UURL}) }}"
+                       class="btn btn-secondary">
                         {{ 'readmore'|trans }}
                     </a>
                 </p>
@@ -135,7 +136,7 @@
                 </a>
                 {% for genre in genres %}
                     {% set genreSlug = genre.name|lower|replace([' '],['-']) %}
-                    <a class="d-inline-block mx-3 genre-link" data-genre="{{ genreSlug }}"
+                    <a class="d-inline-block mx-3 genre-link" data-genre="{{ genreSlug }}" title="{{ genre.name }}"
                        href="?genre={{ genreSlug }}#{{ 'nav.artists.id'|trans }}">
                         {{ genre.name }}
                     </a>
@@ -149,17 +150,17 @@
                      itemscope itemtype="http://schema.org/MusicGroup">
                     <h3 class="artist-name" itemprop="name">{{ profile.name }}</h3>
                     <div class="artist-preview my-3">
-                        <a href="{{ path('profile_show', {UURL: profile.UURL}) }}"
+                        <a href="{{ path('profile_show', {UURL: profile.UURL}) }}" title="{{ profile.name }}"
                            class="artist-img d-flex justify-content-center align-items-center align-content-center"
                            style="background-image: url({{ asset(profile.profileImage.webPath) }})">
                             <img src="{{ asset(profile.profileImage.webPath) }}"
-                                 alt="{{ profile.name ~ ' - ' ~ 'frontpage.image'|trans }}" itemprop="image">
+                                 title="{{ profile.name }} - {{ 'frontpage.image'|trans }}" itemprop="image">
                         </a>
                         <p class="artist-genre my-2" itemprop="genre">{{ profile.genre }}</p>
                         <ul class="list-inline my-3 text-muted">
                             {{ socialLink.sortAndRender(profile.links) }}
                         </ul>
-                        <a href="{{ path('profile_show', {UURL: profile.UURL}) }}"
+                        <a href="{{ path('profile_show', {UURL: profile.UURL}) }}" title="{{ 'readmore'|trans }}"
                            class="btn btn-outline-primary mb-3 sr sr-b-1" itemprop="url">
                             {{ 'readmore'|trans }}
                         </a>
