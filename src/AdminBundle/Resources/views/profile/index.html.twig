@@ -1,59 +1,64 @@
-{#{% extends 'base.html.twig' %}#}
+{% extends 'AdminBundle::base.html.twig' %}
 
 {% block body %}
-    <h1>Profiles list</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Profiles list</h1>
+            </div>
+        </div>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Shortname</th>
-                <th>Location</th>
-                <th>Genre</th>
-                <th>Description</th>
-                <th>Quotes</th>
-                <th>Metadescription</th>
-                <th>Bannervideopath</th>
-                <th>Youtubelink</th>
-                <th>Public</th>
-                <th>Uurl</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for profile in profiles %}
-            <tr>
-                <td><a href="{{ path('admin_profile_show', { 'id': profile.id }) }}">{{ profile.id }}</a></td>
-                <td>{{ profile.name }}</td>
-                <td>{{ profile.shortName }}</td>
-                <td>{{ profile.location }}</td>
-                <td>{{ profile.genre }}</td>
-                <td>{{ profile.description }}</td>
-                <td>{{ profile.quotes }}</td>
-                <td>{{ profile.metaDescription }}</td>
-                <td>{{ profile.bannerVideoPath }}</td>
-                <td>{{ profile.youtubeLink }}</td>
-                <td>{% if profile.public %}Yes{% else %}No{% endif %}</td>
-                <td>{{ profile.UURL }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('admin_profile_show', { 'id': profile.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('admin_profile_edit', { 'id': profile.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        <div class="row my-2">
+            <div class="col-lg-12">
+                <a class="btn btn-success" href="{{ path('admin_profile_new') }}">Create a new profile</a>
+            </div>
+        </div>
 
-    <ul>
-        <li>
-            <a href="{{ path('admin_profile_new') }}">Create a new profile</a>
-        </li>
-    </ul>
+        <div class="row">
+            <div class="col-lg-12">
+                <table class="table table-bordered table-striped table-hover">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Genre</th>
+                        <th scope="col">Public</th>
+                        <th scope="col">Uurl</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for profile in profiles %}
+                        <tr>
+                            <td><a href="{{ path('profile_show', { 'UURL': profile.uURL }) }}">{{ profile.id }}</a>
+                            </td>
+                            <td>{{ profile.name }}</td>
+                            <td>{{ profile.genre }}</td>
+                            <td>{% if profile.public %}Yes{% else %}No{% endif %}</td>
+                            <td>{{ profile.UURL }}</td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <a class="btn btn-primary"
+                                       href="{{ path('profile_show', { 'UURL': profile.uURL }) }}">
+                                        View
+                                    </a>
+                                    <a class="btn btn-warning"
+                                       href="{{ path('admin_profile_edit', { 'id': profile.id }) }}">
+                                        Edit
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="row my-2">
+            <div class="col-lg-12">
+                <a class="btn btn-success" href="{{ path('admin_profile_new') }}">Create a new profile</a>
+            </div>
+        </div>
+    </div>
 {% endblock %}

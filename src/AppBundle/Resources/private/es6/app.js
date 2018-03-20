@@ -1,4 +1,4 @@
-import '../scss/style.scss'
+import '../scss/app.scss'
 import GenreFilter from './components/GenreFilter'
 
 $(document).ready(() => {

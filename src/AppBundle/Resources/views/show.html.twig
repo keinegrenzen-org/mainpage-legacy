@@ -218,8 +218,8 @@
 
     {% block javascripts %}
         {{ parent() }}
-        <script src="{{ asset('assets/soundcloud-audio.min.js') }}"></script>
-        <script src="{{ asset('bundles/app/js/profile.min.js') }}"></script>
+        <script src="{{ asset('assets/vendor/soundcloud-audio.min.js') }}"></script>
+        <script src="{{ asset('assets/js/profile.min.js') }}"></script>
         {% if not is_mobile() and profile.youtubeLink is not null %}
             <script src="https://www.youtube.com/iframe_api"></script>
         {% endif %}

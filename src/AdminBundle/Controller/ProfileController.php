@@ -41,7 +41,7 @@ class ProfileController extends Controller {
      */
     public function newAction(Request $request) {
         $profile = new Profile();
-        $form = $this->createForm('AppBundle\Form\ProfileType', $profile);
+        $form = $this->createForm('AdminBundle\Form\ProfileType', $profile);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -49,29 +49,12 @@ class ProfileController extends Controller {
             $em->persist($profile);
             $em->flush();
 
-            return $this->redirectToRoute('admin_profile_show', array('id' => $profile->getId()));
+            return $this->redirectToRoute('profile_show', array('UURL' => $profile->getUURL()));
         }
 
         return $this->render('@Admin/profile/new.html.twig', array(
             'profile' => $profile,
             'form' => $form->createView(),
-        ));
-    }
-
-    /**
-     * Finds and displays a profile entity.
-     *
-     * @Route("/{id}", name="admin_profile_show")
-     * @Method("GET")
-     * @param Profile $profile
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function showAction(Profile $profile) {
-        $deleteForm = $this->createDeleteForm($profile);
-
-        return $this->render('@Admin/profile/show.html.twig', array(
-            'profile' => $profile,
-            'delete_form' => $deleteForm->createView(),
         ));
     }
 
@@ -86,7 +69,7 @@ class ProfileController extends Controller {
      */
     public function editAction(Request $request, Profile $profile) {
         $deleteForm = $this->createDeleteForm($profile);
-        $editForm = $this->createForm('AppBundle\Form\ProfileType', $profile);
+        $editForm = $this->createForm('AdminBundle\Form\ProfileType', $profile);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {

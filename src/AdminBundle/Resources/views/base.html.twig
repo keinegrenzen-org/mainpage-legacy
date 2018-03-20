@@ -1,0 +1,60 @@
+{% import '@Admin/macros/nav.html.twig' as nav %}
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>keinegrenzen.org | Admin</title>
+        <meta name="description" content="keinegrenzen.org admin backend">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('assets/css/admin.min.css') }}"/>
+        {% endblock %}
+    </head>
+    <body>
+        <div class="container-fluid">
+            <header class="row bg-dark">
+                <div class="col-lg-12 p-2 text-white">
+                    <h3>keinegrenzen.org</h3>
+                </div>
+            </header>
+
+            <div class="row">
+                <nav class="col-lg-2 bg-secondary py-3">
+                    {% set route = app.request.attributes.get('_route') %}
+                    <div class="list-group">
+                        <a class="{{ nav.navActive(route, 'admin_profile') }} list-group-item p-2 list-group-item-action"
+                           href="{{ path('admin_profile_index') }}">
+                            Profiles
+                        </a>
+                        <a class="{{ nav.navActive(route, 'admin_album') }} list-group-item p-2 list-group-item-action"
+                                href="{{ path('admin_profile_index') }}">
+                            Albums
+                        </a>
+                        <a class="{{ nav.navActive(route, 'admin_donation') }} list-group-item p-2 list-group-item-action"
+                           href="{{ path('admin_profile_index') }}">
+                            Donations
+                        </a>
+                        <a class="list-group-item p-2 list-group-item-action bg-secondary text-white"
+                                href="{{ path('jms_translation_index') }}">
+                            Translation
+                        </a>
+                    </div>
+                </nav>
+                <div class="col-lg-10 py-4">
+                    {% block body %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+
+        {% block javascripts %}
+            <script src="{{ asset('assets/vendor/jquery.slim.min.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('assets/vendor/popper.min.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('assets/vendor/bootstrap.min.js') }}" type="text/javascript"></script>
+            <script src="{{ asset('assets/js/admin.min.js') }}" type="text/javascript"></script>
+        {% endblock %}
+    </body>
+</html>

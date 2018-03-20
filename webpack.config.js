@@ -4,12 +4,13 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
   entry: {
-    theme: './src/AppBundle/Resources/private/es6/theme.js',
+    app: './src/AppBundle/Resources/private/es6/app.js',
+    admin: './src/AdminBundle/Resources/private/es6/admin.js',
     profile: './src/AppBundle/Resources/private/es6/profile.js'
   },
   output: {
     filename: '[name].min.js?[hash]',
-    path: path.resolve('./src/AppBundle/Resources/public/js/')
+    path: path.resolve('./web/assets/js/')
   },
   module: {
     rules: [
@@ -72,7 +73,7 @@ module.exports = {
   plugins: [
     new UglifyJsPlugin(),
     new ExtractTextPlugin({
-      filename: '../css/style.min.css?[hash]',
+      filename: '../css/[name].min.css?[hash]',
       disable: false,
       allChunks: true
     })

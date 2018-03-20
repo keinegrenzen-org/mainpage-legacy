@@ -11,6 +11,6 @@ class DefaultController extends Controller {
      * @Route("/", name="admin")
      */
     public function indexAction() {
-        return $this->render('AdminBundle:Default:index.html.twig');
+        return $this->render('AdminBundle::index.html.twig');
     }
 }

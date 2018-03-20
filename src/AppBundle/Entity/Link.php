@@ -60,4 +60,8 @@ class Link {
     public function getLink() {
         return $this->link;
     }
+
+    public function __toString() {
+        return $this->getLink();
+    }
 }
