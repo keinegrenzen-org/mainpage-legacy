@@ -14,12 +14,9 @@ composer.lock
 node_modules/
 
 var/logs/
-var/cache/
 var/sessions/
-web/css/
-web/js/
 web/bundles/
 web/.htaccess
 web/uploads/
 
-vendor/
+/vendor/
