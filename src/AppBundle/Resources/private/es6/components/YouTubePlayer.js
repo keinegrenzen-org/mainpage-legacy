@@ -1,10 +1,13 @@
+import Animations from './Animations'
+
 export default class YouTubePlayer {
-  get $videoPortraitButtons () {
-    return this._$videoPortraitButtons
+
+  get videoPortraitButtons () {
+    return this._videoPortraitButtons
   }
 
-  set $videoPortraitButtons (value) {
-    this._$videoPortraitButtons = value
+  set videoPortraitButtons (value) {
+    this._videoPortraitButtons = value
   }
 
   get player () {
@@ -15,42 +18,42 @@ export default class YouTubePlayer {
     this._player = value
   }
 
-  get $dismissVideoButton () {
-    return this._$dismissVideoButton
+  get dismissVideoButton () {
+    return this._dismissVideoButton
   }
 
-  set $dismissVideoButton (value) {
-    this._$dismissVideoButton = value
+  set dismissVideoButton (value) {
+    this._dismissVideoButton = value
   }
 
-  get $youtubeVideo () {
-    return this._$youtubeVideo
+  get youtubeVideo () {
+    return this._youtubeVideo
   }
 
-  set $youtubeVideo (value) {
-    this._$youtubeVideo = value
+  set youtubeVideo (value) {
+    this._youtubeVideo = value
   }
 
-  get $playVideoButton () {
-    return this._$playVideoButton
+  get playVideoButton () {
+    return this._playVideoButton
   }
 
-  set $playVideoButton (value) {
-    this._$playVideoButton = value
+  set playVideoButton (value) {
+    this._playVideoButton = value
   }
 
   onYouTubeIframeAPIReady () {
     this.player = new YT.Player('youtube-video', {
       height: window.height,
       width: window.width,
-      videoId: this.$youtubeVideo.data('id'),
+      videoId: this.youtubeVideo.id,
       playerVars: {
         controls: 0,
         showinfo: 0
       },
       events: {
         'onReady': () => {
-          this.$videoPortraitButtons.fadeIn()
+          Animations.fadeIn(this.videoPortraitButtons)
         },
         'onStateChange': event => {
           if (event.data === YT.PlayerState.ENDED) {
@@ -63,27 +66,28 @@ export default class YouTubePlayer {
 
   pauseAndHide () {
     this.player.pauseVideo()
-    this.$youtubeVideo.fadeOut()
+    Animations.fadeOut(this.youtubeVideo)
   }
 
   showAndPlay () {
-    this.$youtubeVideo.fadeIn()
+    Animations.fadeIn(this.youtubeVideo)
     this.player.playVideo()
   }
 
-  constructor ($youtubeVideo) {
-    this.$playVideoButton = $('.play-video')
-    this.$youtubeVideo = $youtubeVideo
-    this.$dismissVideoButton = $('.dismiss-video')
-    this.$videoPortraitButtons = $('.video-portrait-buttons')
+  constructor (youtubeVideo) {
+    this.playVideoButton = document.querySelector('.play-video')
+    this.youtubeVideo = youtubeVideo
+    this.dismissVideoButton = document.querySelector('.dismiss-video')
+    this.videoPortraitButtons = document.querySelector('.video-portrait-buttons')
 
     if (window.YT && window.YT.Player) {
       this.onYouTubeIframeAPIReady()
     } else {
       window.onYouTubeIframeAPIReady = this.onYouTubeIframeAPIReady.bind(this)
     }
-    this.$playVideoButton.click(this.showAndPlay.bind(this))
-    this.$dismissVideoButton.click(this.pauseAndHide.bind(this))
+
+    this.playVideoButton.addEventListener('click', this.showAndPlay.bind(this), false)
+    this.dismissVideoButton.addEventListener('click', this.pauseAndHide.bind(this), false)
   }
 
 }

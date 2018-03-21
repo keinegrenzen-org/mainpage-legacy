@@ -130,23 +130,24 @@
         </div>
         <div class="row py-2 justify-content-center">
             <div class="col-lg-12 text-center">
-                <a class="d-inline-block mx-3 genre-link active" data-genre=""
-                   href="?genre=all#{{ 'nav.artists.id'|trans }}">
-                    {{ 'artists.genreFilter.clear'|trans }}
-                </a>
-                {% for genre in genres %}
-                    {% set genreSlug = genre.name|lower|replace([' '],['-']) %}
-                    <a class="d-inline-block mx-3 genre-link" data-genre="{{ genreSlug }}" title="{{ genre.name }}"
-                       href="?genre={{ genreSlug }}#{{ 'nav.artists.id'|trans }}">
-                        {{ genre.name }}
-                    </a>
-                {% endfor %}
+                <div class="btn-group" role="group" aria-label="{{ 'artist_filters'|trans }}">
+                    <button type="button" class="btn btn-outline-dark genre-filter active" data-filter="*">
+                        {{ 'artists.genreFilter.clear'|trans }}
+                        &nbsp;<span class="badge badge-light">{{ profiles|length }}</span>
+                    </button>
+
+                    {% for genre in genres %}
+                        <button type="button" class="btn btn-outline-dark genre-filter" data-filter=".{{ genre.slug }}">
+                            {{ genre.name }}
+                            &nbsp;<span class="badge badge-light">{{ genre.profileCount }}</span>
+                        </button>
+                    {% endfor %}
+                </div>
             </div>
         </div>
-        <div class="row py-2 justify-content-center">
+        <div class="row py-2 artists-row">
             {% for profile in profiles %}
-                <div class="col-lg-4 col-sm-6 text-center artist-col my-3"
-                     data-genre="{{ profile.genre|lower|replace([' '],['-']) }}"
+                <div class="{{ loop.index is same as(1) ? 'grid-sizer':'' }} {{ genres[profile.genre].slug }} col-lg-4 col-sm-6 text-center artist-col my-3"
                      itemscope itemtype="http://schema.org/MusicGroup">
                     <h3 class="artist-name" itemprop="name">{{ profile.name }}</h3>
                     <div class="artist-preview my-3">

@@ -19,6 +19,8 @@
   "homepage": "https://github.com/BarthyB/keinegrenzen.org#readme",
   "dependencies": {
     "bootstrap": "^4.0.0-beta.2",
+    "imagesloaded": "^4.1.4",
+    "isotope-layout": "^3.0.5",
     "jquery": "^3.2.1",
     "popper.js": "^1.12.9",
     "scrollreveal": "^3.3.6",

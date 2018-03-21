@@ -1,40 +1,43 @@
 import '../scss/app.scss'
-import GenreFilter from './components/GenreFilter'
 
-$(document).ready(() => {
+document.addEventListener('DOMContentLoaded', function () {
 
-  const $artistPreviews = $('.artist-col')
-  if ($artistPreviews.length) {
-    new GenreFilter($artistPreviews)
-  }
-
-  $('a[href^="#"]').on('click', e => {
-    e.preventDefault()
-
-    let url = new URL($(e.currentTarget).attr('href'))
-    if (url.search.length === 0) {
-      const selector = (url.hash.length === 0) ? 'header' : url.hash
-
-      $('html, body').animate(
-        {
-          scrollTop: $(selector).offset().top - 50
-        },
-        300,
-        () => {
-          window.location.hash = url.hash
+  const artists = document.querySelector('.artists')
+  let isotope
+  if (artists) {
+    imagesLoaded(artists, () => {
+      isotope = new Isotope('.artists-row', {
+        itemSelector: '.artist-col',
+        masonry: {
+          columnWidth: '.grid-sizer',
+          percentPosition: true
         }
-      )
-    } else {
-      window.location.hash = url.hash
+      })
+    })
+
+    const filterButtons = document.querySelectorAll('.genre-filter')
+    const filter = (e) => {
+      const button = e.currentTarget
+      const filter = button.dataset.filter
+      const activeButton = document.querySelector('.genre-filter.active')
+
+      activeButton.classList.remove('active')
+      isotope.arrange({
+        filter: filter
+      })
+      button.classList.add('active')
     }
-  })
+
+    for (let i = 0; i < filterButtons.length; i++) {
+      filterButtons[i].addEventListener('click', filter, false)
+    }
+  }
 
   window.sr = ScrollReveal({mobile: false, reset: false})
   const preserve = (e) => {
-    const $e = $(e)
-    if ($e.hasClass('sr-preserve')) {
-      $e.addClass('sr-done')
-      $e.removeAttr('style')
+    if (e.classList.contains('sr-preserve')) {
+      e.classList.add('sr-done')
+      e.removeAttribute('style')
     }
   }
 

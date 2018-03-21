@@ -11,6 +11,15 @@ class ProfileRepository extends EntityRepository {
             ->select('p.genre AS name, COUNT(p) AS profileCount')
             ->groupBy('p.genre');
 
-        return $queryBuilder->getQuery()->getArrayResult();
+        $results = $queryBuilder->getQuery()->getArrayResult();
+        $sluggedResults = array();
+
+        foreach($results as $result){
+            $slug = strtolower(str_replace(array(' ', '/'), '-', $result['name']));
+            $result['slug'] = $slug;
+            $sluggedResults[$result['name']] = $result;
+        }
+
+        return $sluggedResults;
     }
 }

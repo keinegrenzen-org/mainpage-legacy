@@ -14,18 +14,17 @@ Cyan='\033[0;36m'         # Cyan
 White='\033[0;37m'        # White
 
 files=(
- "bootstrap/dist/js/bootstrap.min.js"
  "scrollreveal/dist/scrollreveal.min.js"
  "soundcloud-audio/dist/soundcloud-audio.min.js"
- "jquery/dist/jquery.slim.min.js"
- "popper.js/dist/umd/popper.min.js"
+ "isotope-layout/dist/isotope.pkgd.min.js"
+ "imagesloaded/imagesloaded.pkgd.min.js"
 )
 
-rm -r "./web/assets"
-mkdir "./web/assets"
+rm -r "./web/assets/vendor"
+mkdir "./web/assets/vendor"
 
 for i in "${files[@]}"
 do
    echo -e "copying $Green'node_modules/$i'$Color_Off"
-   cp "./node_modules/$i" "./web/assets/"
+   cp "./node_modules/$i" "./web/assets/vendor/"
 done
