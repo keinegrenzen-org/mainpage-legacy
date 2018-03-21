@@ -16,7 +16,7 @@
 
             <div class="row my-2">
                 <div class="col-lg-12">
-                    <a class="btn btn-success" href="{{ "{{ path('" ~ route_name_prefix ~ "_new') }}" }}">Create a
+                    <a class="btn btn-success" href="{{ "{{ path('admin_" ~ route_name_prefix ~ "_new') }}" }}">Create a
                         new {{ entity_singularized }}</a>
                 </div>
             </div>
@@ -77,29 +77,12 @@
                             {%- if loop.last %}
 
                                 <td>
-                                    <ul>
-
-                                        {%- for action in record_actions %}
-
-                                            <li>
-                                                <a href="{{ "{{ path('" ~ route_name_prefix ~ "_" ~ action ~ "', { '"~ identifier ~"': " ~ entity_singularized ~ "."~ identifier ~" }) }}" }}">{{ action }}</a>
-                                            </li>
-
-                                        {%- endfor %}
-
-                                    </ul>
-
                                     <div class="btn-group" role="group">
                                         {%- for action in record_actions %}
 
-                                            <a href="{{ "{{ path('" ~ route_name_prefix ~ "_" ~ action ~ "', { '"~ identifier ~"': " ~ entity_singularized ~ "."~ identifier ~" }) }}" }}">{{ action|capitalize }}</a>
+                                            <a href="{{ "{{ path('admin_" ~ route_name_prefix ~ "_" ~ action ~ "', { '"~ identifier ~"': " ~ entity_singularized ~ "."~ identifier ~" }) }}" }}">{{ action|capitalize }}</a>
 
                                         {%- endfor %}
-
-                                        <a class="btn btn-warning"
-                                           href="{{ path('admin_profile_edit', { 'id': profile.id }) }}">
-                                            Edit
-                                        </a>
                                     </div>
                                 </td>
 
@@ -117,7 +100,7 @@
 
             <div class="row my-2">
                 <div class="col-lg-12">
-                    <a class="btn btn-success" href="{{ "{{ path('" ~ route_name_prefix ~ "_new') }}" }}">Create a
+                    <a class="btn btn-success" href="{{ "{{ path('admin_" ~ route_name_prefix ~ "_new') }}" }}">Create a
                         new {{ entity_singularized }}</a>
                 </div>
             </div>

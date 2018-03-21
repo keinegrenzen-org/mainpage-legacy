@@ -10,7 +10,7 @@ module.exports = {
   },
   output: {
     filename: '[name].min.js?[hash]',
-    path: path.resolve('./web/assets/js/')
+    path: path.resolve('./web/assets/js')
   },
   module: {
     rules: [
@@ -31,35 +31,23 @@ module.exports = {
         }
       },
       {
-        test: /\.scss$/,
+        test: /\.(s*)css$/,
         use: ExtractTextPlugin.extract({
-            fallback: 'style-loader',
-            use: [
-              {
-                loader: 'css-loader',
-                options: {
-                  modules: false
-                }
-              },
-              {
-                loader: 'sass-loader',
-                options: {
-                  includePaths: [
-                    path.resolve('./node_modules/bootstrap/scss')
-                  ]
-                }
-              },
-              {
-                loader: 'postcss-loader',
-                options: {
-                  config: {
-                    path: './postcss.config.js'
-                  }
-                }
+          use: [
+            {
+              loader: 'css-loader',
+            },
+            'postcss-loader',
+            {
+              loader: 'sass-loader',
+              options: {
+                includePaths: [
+                  path.resolve('./node_modules/bootstrap/scss')
+                ]
               }
-            ]
-          }
-        )
+            }
+          ]
+        })
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/,
@@ -74,7 +62,6 @@ module.exports = {
     new UglifyJsPlugin(),
     new ExtractTextPlugin({
       filename: '../css/[name].min.css?[hash]',
-      disable: false,
       allChunks: true
     })
   ]

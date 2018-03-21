@@ -35,7 +35,7 @@ class {{ entity_class }}Controller extends Controller
 {
 {% block class_body %}
     {%- if 'index' in actions %}
-        {%- include '../crud/actions/index.php.twig' %}
+        {%- include 'crud/actions/index.php.twig' %}
     {%- endif %}
 
     {%- if 'new' in actions %}

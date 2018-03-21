@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Album creation</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Create" />
+    {{ form_end(form) }}
+
+    <div class="row">
+        <div class="col-lg-12">
+            <a class="btn btn-primary" href="{{ path('album_index') }}">Back to the list</a>        </div>
+    </div>{% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Album</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ album.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ album.title }}</td>
+            </tr>
+            <tr>
+                <th>Soundcloudlink</th>
+                <td>{{ album.soundCloudLink }}</td>
+            </tr>
+            <tr>
+                <th>Albumfilepath</th>
+                <td>{{ album.albumFilePath }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ album.description }}</td>
+            </tr>
+            <tr>
+                <th>Releasedate</th>
+                <td>{% if album.releaseDate %}{{ album.releaseDate|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Uurl</th>
+                <td>{{ album.UURL }}</td>
+            </tr>
+            <tr>
+                <th>Backgroundcolor</th>
+                <td>{{ album.backgroundColor }}</td>
+            </tr>
+            <tr>
+                <th>Primarycolor</th>
+                <td>{{ album.primaryColor }}</td>
+            </tr>
+            <tr>
+                <th>Secondarycolor</th>
+                <td>{{ album.secondaryColor }}</td>
+            </tr>
+            <tr>
+                <th>Downloads</th>
+                <td>{{ album.downloads }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <a class="btn btn-primary" href="{{ path('album_index') }}">Back to the list</a>            {{ form_start(delete_form, {'attr': {'class': 'btn btn-danger btn-form'}}) }}
+            <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}        </div>
+    </div>{% endblock %}

@@ -5,7 +5,7 @@
      *
 {% block phpdoc_method_annotations %}
 {% if 'annotation' == format %}
-     * @Route("/", name="{{ route_name_prefix }}_index")
+     * @Route("/", name="admin_{{ route_name_prefix }}_index")
      * @Method("GET")
 {% endif %}
 {% endblock phpdoc_method_annotations %}
