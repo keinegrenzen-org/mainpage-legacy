@@ -163,6 +163,10 @@ $icon-size: 20px;
   &.icon-gray {
     fill: $gray-dark;
   }
+
+  &.icon-orange {
+    fill: #f50;
+  }
 }
 
 .social-link {
@@ -654,46 +658,55 @@ section.artist-discography {
 
     .album-details {
 
+      .tracklist-title > a > .icon-orange {
+        height: 2.5rem;
+        width: auto;
+      }
+
       *:not(.btn) {
         border-color: inherit;
       }
 
-      .list-group-item {
-        background: transparent;
-        border: 0;
-        border-bottom: 1px solid;
-        cursor: pointer;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        position: relative;
-        height: 2.5rem;
+      .album-list {
 
-        .track-number {
-          position: absolute;
-          left: 0;
-          width: 25px;
-          height: 100%;
-          line-height: 100%;
-        }
+        .list-group {
+          padding: 0;
 
-        .title {
-          position: absolute;
-          left: 25px;
-          right: 50px;
-          overflow: hidden;
-          white-space: nowrap;
-          text-overflow: ellipsis;
-          height: 100%;
-          line-height: 100%;
-        }
+          .list-group-item {
+            background: transparent;
+            border: 0;
+            border-bottom: 1px solid;
+            cursor: pointer;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            position: relative;
+            height: 2.5rem;
 
-        .track-duration {
-          position: absolute;
-          right: 0;
-          width: 50px;
-          height: 100%;
-          line-height: 100%;
-          text-align: right;
+            .track-number, .title, .track-duration {
+              position: absolute;
+              height: 2.5rem;
+              line-height: 2.5rem;
+            }
+
+            .track-number {
+              left: 0;
+              width: 25px;
+            }
+
+            .title {
+              left: 25px;
+              right: 50px;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+            }
+
+            .track-duration {
+              right: 0;
+              width: 50px;
+              text-align: right;
+            }
+          }
         }
       }
     }

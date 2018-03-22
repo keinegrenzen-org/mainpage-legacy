@@ -141,9 +141,8 @@
                                 <a class="col-3 text-right"
                                    href="{{ album.soundCloudLink|raw }}"
                                    target="_blank" title="{{ 'listenOnSc'|trans }}">
-                                        <span class="fa fa-2x fa-fw fa-soundcloud">
-                                            <span class="sr-only">{{ 'listenOnSc'|trans }}</span>
-                                        </span>
+                                    {{ icons.render('soundcloud', 'orange') }}
+                                    <i class="sr-only">{{ 'listenOnSc'|trans }}</i>
                                 </a>
                             </div>
                             <div class="album-embed" id="album-embed-{{ loop.index0 }}"

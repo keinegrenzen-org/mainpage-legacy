@@ -100,6 +100,7 @@ export default class SoundCloudPlayer {
       this.players.push(player)
 
       const secondaryColor = embedElement.dataset.colorSecondary
+      embedElement.dataset.playerNr = embedIndex.toString()
 
       player.resolve(
         embedElement.dataset.sc,
@@ -116,7 +117,7 @@ export default class SoundCloudPlayer {
               '</li>'
 
             list.insertAdjacentHTML('beforeend', listItem)
-            list.querySelector('.list-group-item').addEventListener('click', () => {
+            list.querySelector('.list-group-item:last-child').addEventListener('click', () => {
               this.play(embedIndex, i)
             }, false)
           }
@@ -195,8 +196,9 @@ export default class SoundCloudPlayer {
     }
 
     if (!this.players[playerIndex].playing) {
-      Animations.fadeOut(this.btnPause)
-      Animations.fadeIn(this.btnPlay)
+      Animations.fadeOut(this.btnPlay, () => {
+        Animations.fadeIn(this.btnPause, 'inline-block')
+      })
     }
 
     if (this.players[playerIndex]._playlistIndex !== songIndex) {
@@ -213,8 +215,9 @@ export default class SoundCloudPlayer {
 
   pause (playerIndex, songIndex) {
     if (this.players[playerIndex].playing) {
-      Animations.fadeOut(this.btnPlay)
-      Animations.fadeIn(this.btnPause)
+      Animations.fadeOut(this.btnPause, () => {
+        Animations.fadeIn(this.btnPlay, 'inline-block')
+      })
       this.players[playerIndex].pause({
         playlistIndex: songIndex
       })

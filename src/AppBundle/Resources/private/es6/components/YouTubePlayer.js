@@ -43,6 +43,7 @@ export default class YouTubePlayer {
   }
 
   onYouTubeIframeAPIReady () {
+    console.info(this.youtubeVideo.id);
     this.player = new YT.Player('youtube-video', {
       height: window.height,
       width: window.width,
@@ -70,8 +71,9 @@ export default class YouTubePlayer {
   }
 
   showAndPlay () {
-    Animations.fadeIn(this.youtubeVideo)
-    this.player.playVideo()
+    Animations.fadeIn(this.youtubeVideo, 'block', () => {
+      this.player.playVideo()
+    })
   }
 
   constructor (youtubeVideo) {
