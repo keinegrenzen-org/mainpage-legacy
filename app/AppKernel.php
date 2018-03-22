@@ -14,7 +14,6 @@ class AppKernel extends Kernel
             new Symfony\Bundle\MonologBundle\MonologBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Vich\UploaderBundle\VichUploaderBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new JMS\I18nRoutingBundle\JMSI18nRoutingBundle(),

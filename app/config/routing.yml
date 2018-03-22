@@ -1,16 +1,16 @@
-admin:
-    resource: "@AdminBundle/Controller/"
-    type:     annotation
-    prefix:   /admin/
+#admin:
+#    resource: "@AdminBundle/Controller/"
+#    type:     annotation
+#    prefix:   /admin/
 
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
 
-#easy_admin_bundle:
-#    resource: "@EasyAdminBundle/Controller/"
-#    type:     annotation
-#    prefix:   /admin/
+easy_admin_bundle:
+    resource: "@EasyAdminBundle/Controller/"
+    type:     annotation
+    prefix:   /admin/
 
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
