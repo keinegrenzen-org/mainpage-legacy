@@ -20,3 +20,5 @@ web/.htaccess
 web/uploads/
 
 /vendor/
+app/Resources/views/
+var/cache/
