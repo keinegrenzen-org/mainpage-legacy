@@ -2,8 +2,8 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Album;
-use AppBundle\Entity\Profile;
+use AdminBundle\Entity\Album;
+use AdminBundle\Entity\Profile;
 use Doctrine\ORM\EntityManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -30,6 +30,7 @@ class DefaultController extends Controller {
      * @param Album $album increment count on this album
      * @param Request $request
      * @throws \Doctrine\ORM\OptimisticLockException
+     * @throws \Doctrine\ORM\ORMException
      */
     private function addDownload(Album $album, Request $request) {
         $cookies[] = $request->cookies->all();
@@ -49,17 +50,16 @@ class DefaultController extends Controller {
      *
      * @Route("/", name="homepage")
      * @return \Symfony\Component\HttpFoundation\Response
-     * @throws \Doctrine\ORM\NoResultException
      * @throws \Doctrine\ORM\NonUniqueResultException* @internal param Request $request
      */
     public function indexAction() {
 
-        $profileRepository = $this->getEm()->getRepository('AppBundle:Profile');
+        $profileRepository = $this->getEm()->getRepository('AdminBundle:Profile');
         $profiles = $profileRepository->findBy(array('public' => true), array('id' => 'DESC'));
         $genres = $profileRepository->findAllGenres();
 
-        $downloadCount = $this->getEm()->getRepository("AppBundle:Album")->findDownloadCount();
-        $statistics = $this->getEm()->getRepository('AppBundle:Donation')->findStatistics();
+        $downloadCount = $this->getEm()->getRepository("AdminBundle:Album")->findDownloadCount();
+        $statistics = $this->getEm()->getRepository('AdminBundle:Donation')->findStatistics();
 
         $bigPage = null;
 
@@ -171,6 +171,7 @@ class DefaultController extends Controller {
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      * @throws \Doctrine\ORM\OptimisticLockException
+     * @throws \Doctrine\ORM\ORMException
      */
     public function downloadAction(Album $album, Request $request) {
         $this->addDownload($album, $request);

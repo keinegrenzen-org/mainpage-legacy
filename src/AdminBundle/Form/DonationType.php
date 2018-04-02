@@ -6,25 +6,16 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class AlbumType extends AbstractType
+class DonationType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('title')
-            ->add('soundCloudLink')
-            ->add('albumFilePath')
-            ->add('description')
-            ->add('releaseDate')
-            ->add('UURL')
-            ->add('backgroundColor')
-            ->add('primaryColor')
-            ->add('secondaryColor')
-            ->add('downloads')
-            ->add('cover')
-            ->add('profile')
+        $builder->add('date')
+            ->add('amount')
+            ->add('name')
             ;
     }
     
@@ -34,7 +25,7 @@ class AlbumType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AdminBundle\Entity\Album'
+            'data_class' => 'AdminBundle\Entity\Donation'
         ));
     }
 
@@ -43,7 +34,7 @@ class AlbumType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'adminbundle_album';
+        return 'adminbundle_donation';
     }
 
 

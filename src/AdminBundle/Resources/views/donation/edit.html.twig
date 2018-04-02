@@ -8,7 +8,7 @@
 
         <div class="row">
             <div class="col-lg-12">
-                <h1>{{ 'edit_or_new'|trans }} Profile</h1>
+                <h1>{{ 'edit_or_new'|trans }} Donation</h1>
             </div>
         </div>
 
@@ -26,7 +26,7 @@
 
             <div class="row">
         <div class="col-lg-12">
-            <a class="btn btn-primary" href="{{ path('admin_profile_index') }}">{{ 'back_to_list'|trans }}</a>            {{ form_start(delete_form, {'attr': {'class': 'btn btn-danger btn-form'}}) }}
+            <a class="btn btn-primary" href="{{ path('admin_donation_index') }}">{{ 'back_to_list'|trans }}</a>            {{ form_start(delete_form, {'attr': {'class': 'btn btn-danger btn-form'}}) }}
             <input type="submit" value="Delete">
             {{ form_end(delete_form) }}        </div>
     </div>{% endblock %}

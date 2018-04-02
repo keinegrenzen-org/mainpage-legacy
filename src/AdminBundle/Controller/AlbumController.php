@@ -2,7 +2,7 @@
 
 namespace AdminBundle\Controller;
 
-use AppBundle\Entity\Album;
+use AdminBundle\Entity\Album;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -24,9 +24,9 @@ class AlbumController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $albums = $em->getRepository('AppBundle:Album')->findAll();
+        $albums = $em->getRepository('AdminBundle:Album')->findAll();
 
-        return $this->render('@Admin/album/index.html.twig', array(
+        return $this->render('AdminBundle:album:index.html.twig', array(
             'albums' => $albums,
         ));
     }
@@ -36,8 +36,6 @@ class AlbumController extends Controller
      *
      * @Route("/new", name="admin_album_new")
      * @Method({"GET", "POST"})
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function newAction(Request $request)
     {
@@ -53,7 +51,7 @@ class AlbumController extends Controller
             return $this->redirectToRoute('profile_show', array('UURL' => $album->getProfile()->getUURL()));
         }
 
-        return $this->render('@Admin/album/edit.html.twig', array(
+        return $this->render('AdminBundle:album:edit.html.twig', array(
             'album' => $album,
             'form' => $form->createView(),
         ));
@@ -64,9 +62,6 @@ class AlbumController extends Controller
      *
      * @Route("/{id}/edit", name="admin_album_edit")
      * @Method({"GET", "POST"})
-     * @param Request $request
-     * @param Album $album
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function editAction(Request $request, Album $album)
     {
@@ -80,7 +75,7 @@ class AlbumController extends Controller
             return $this->redirectToRoute('admin_album_edit', array('id' => $album->getId()));
         }
 
-        return $this->render('@Admin/album/edit.html.twig', array(
+        return $this->render('AdminBundle:album:edit.html.twig', array(
             'album' => $album,
             'form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -92,9 +87,6 @@ class AlbumController extends Controller
      *
      * @Route("/{id}", name="admin_album_delete")
      * @Method("DELETE")
-     * @param Request $request
-     * @param Album$album
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function deleteAction(Request $request, Album $album)
     {

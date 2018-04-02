@@ -110,7 +110,7 @@ easy_admin:
                 - '/bundles/app/css/fields.css'
     entities:
         Profile:
-            class: AppBundle\Entity\Profile
+            class: AdminBundle\Entity\Profile
             label: entity.artist
             list:
                 title: "list.artist"
@@ -138,7 +138,7 @@ easy_admin:
                     - { property: 'links', type: 'collection', label: 'artist.links', type_options: { entry_options: { label: false }, entry_type: AdminBundle\Form\LinkType, attr: { class: 'field-links' } }}
                     - { property: 'public', type: 'checkbox', label: 'artist.public', css_class: 'col-lg-12' }
         Album:
-            class: AppBundle\Entity\Album
+            class: AdminBundle\Entity\Album
             label: entity.album
             list:
                 title: "list.album"
@@ -162,7 +162,7 @@ easy_admin:
                     - { property: 'profile', label: 'album.artist_profile' }
                     - { property: 'albumFilePath', type: 'text', label: 'album.file_path' }
         Donations:
-            class: AppBundle\Entity\Donation
+            class: AdminBundle\Entity\Donation
             label: entity.donation
             list:
                 title: "list.donation"
