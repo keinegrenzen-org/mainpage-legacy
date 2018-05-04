@@ -49,3 +49,43 @@ $icon-size: 20px;
 
 @import "../../../../../node_modules/bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Oswald:500|Ubuntu:300');
+
+html {
+  height: 100vh;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.wrapper {
+  height: 100vh;
+  overflow: hidden;
+
+  > div.row {
+    height: 100%;
+  }
+}
+
+.content {
+  overflow: scroll;
+}
+
+nav {
+  padding: 0;
+
+  a {
+    color: $white;
+    display: block;
+    transition: background-color .2s ease-in-out, color .2s ease-in-out, border-color .2s ease-in-out;
+    border-left: 5px solid $secondary;
+
+    &:hover {
+      text-decoration: none;
+      color: $white;
+      background-color: darken($secondary, 10%);
+      border-left: 5px solid $white;
+    }
+  }
+}
+

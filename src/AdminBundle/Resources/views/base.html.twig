@@ -18,7 +18,7 @@
         {% set notLogin = route is not same as('login') %}
 
         {% if notLogin %}
-        <div class="container-fluid">
+        <div class="container-fluid wrapper">
             <header class="row bg-dark">
                 <div class="col-lg-12 p-2 text-white">
                     <h3>keinegrenzen.org</h3>
@@ -26,27 +26,25 @@
             </header>
 
             <div class="row">
-                <nav class="col-lg-2 bg-secondary py-3">
-                    <div class="list-group">
-                        <a class="{{ nav.navActive(route, 'admin_profile') }} list-group-item p-2 list-group-item-action"
+                <nav class="col-lg-2 bg-secondary py-3 px-0">
+                        <a class="{{ nav.navActive(route, 'admin_profile') }} p-2"
                            href="{{ path('admin_profile_index') }}">
                             Profiles
                         </a>
-                        <a class="{{ nav.navActive(route, 'admin_album') }} list-group-item p-2 list-group-item-action"
+                        <a class="{{ nav.navActive(route, 'admin_album') }} p-2"
                            href="{{ path('admin_album_index') }}">
                             Albums
                         </a>
-                        <a class="{{ nav.navActive(route, 'admin_donation') }} list-group-item p-2 list-group-item-action"
+                        <a class="{{ nav.navActive(route, 'admin_donation') }} p-2"
                            href="{{ path('admin_donation_index') }}">
                             Donations
                         </a>
-                        <a class="list-group-item p-2 list-group-item-action bg-secondary text-white"
+                        <a class="p-2 text-white"
                            href="{{ path('jms_translation_index') }}">
                             Translation
                         </a>
-                    </div>
                 </nav>
-                <div class="col-lg-10 py-4">
+                <div class="col-lg-10 py-4 content">
                     {% endif %}
                     {% block body %}
                     {% endblock %}

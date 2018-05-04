@@ -17,11 +17,12 @@
                     <a class="text-muted" href="{{ path('datenschutz') }}">{{ 'footer.link.datenschutz'|trans }}</a>
                 </li>
             </ul>
-            <p>© 2016-2017 Barthélémy Bonhomme</p>
+            <p>© 2016-{{ "now"|date("Y") }} Barth&eacute;l&eacute;my Bonhomme</p>
             <small class="made-with-love">
                 {{ 'madewith'|trans }}
                 <span>
                     {{ icons.render('heart', 'primary') }}
+                    <i class="sr-only">Liebe</i>
                 </span>
                 {{ 'incologne'|trans }}
             </small>
