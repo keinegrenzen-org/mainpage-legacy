@@ -1,0 +1,10 @@
+    <div class="row">
+        <div class="col-lg-12">
+            <a class="btn btn-primary" href="{{ "{{ path('admin_" ~ route_name_prefix ~ "_index') }}" }}">{{ "{{ 'back_to_list'|trans }}" }}</a>
+            {%- if ('delete' in actions) and (not hide_delete) %}
+            {{ "{{ form_start(delete_form, {'attr': {'class': 'btn btn-danger btn-form'}}) }}" }}
+            <input type="submit" value="Delete">
+            {{  "{{ form_end(delete_form) }}" }}
+            {%- endif %}
+        </div>
+    </div>

@@ -6,14 +6,14 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ProfileType extends AbstractType {
-
+class ProfileType extends AbstractType
+{
     /**
      * {@inheritdoc}
      */
-    public function buildForm(FormBuilderInterface $builder, array $options) {
-        $builder
-            ->add('name')
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        $builder->add('name')
             ->add('shortName')
             ->add('location')
             ->add('genre')
@@ -26,23 +26,26 @@ class ProfileType extends AbstractType {
             ->add('UURL')
             ->add('links')
             ->add('profileImage')
-            ->add('bannerImage');
+            ->add('bannerImage')
+            ;
     }
-
+    
     /**
      * {@inheritdoc}
      */
-    public function configureOptions(OptionsResolver $resolver) {
+    public function configureOptions(OptionsResolver $resolver)
+    {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Profile'
+            'data_class' => 'AdminBundle\Entity\Profile'
         ));
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getBlockPrefix() {
-        return 'appbundle_profile';
+    public function getBlockPrefix()
+    {
+        return 'adminbundle_profile';
     }
 
 
