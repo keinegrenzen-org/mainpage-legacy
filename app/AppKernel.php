@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new SunCat\MobileDetectBundle\MobileDetectBundle(),
             new EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle(),
+            new \Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new AdminBundle\AdminBundle(),
             new AppBundle\AppBundle(),
         );

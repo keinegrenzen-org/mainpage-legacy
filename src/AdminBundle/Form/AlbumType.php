@@ -45,6 +45,4 @@ class AlbumType extends AbstractType
     {
         return 'adminbundle_album';
     }
-
-
 }
