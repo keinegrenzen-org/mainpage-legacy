@@ -384,19 +384,16 @@ header {
           bottom: 30vh;
           left: 50%;
           transform: translateX(-50%);
-          background-repeat: no-repeat;
-          background-size: cover;
-          background-position: center;
           cursor: pointer;
           @include transitionPositionAllAndTransform;
 
           img {
+            position: absolute;
             height: 100%;
             width: auto;
-            position: absolute;
-            left: -25%;
-            top: 0;
-            visibility: hidden;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
           }
         }
 
@@ -502,16 +499,17 @@ section.artists {
         overflow: hidden;
         height: 0;
         padding-bottom: 70%;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
+        position: relative;
 
         img {
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translate(-50%, -5%);
           min-height: 100%;
           max-width: 120%;
           width: auto;
           height: auto;
-          visibility: hidden;
         }
       }
 

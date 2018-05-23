@@ -18,6 +18,7 @@ files=(
  "soundcloud-audio/dist/soundcloud-audio.min.js"
  "isotope-layout/dist/isotope.pkgd.min.js"
  "imagesloaded/imagesloaded.pkgd.min.js"
+ "vanilla-lazyload/dist/lazyload.min.js"
 )
 
 rm -r "./web/assets/vendor"

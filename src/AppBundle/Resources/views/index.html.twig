@@ -152,9 +152,8 @@
                     <h3 class="artist-name" itemprop="name">{{ profile.name }}</h3>
                     <div class="artist-preview my-3">
                         <a href="{{ path('profile_show', {UURL: profile.UURL}) }}" title="{{ profile.name }}"
-                           class="artist-img d-flex justify-content-center align-items-center align-content-center"
-                           style="background-image: url({{ asset(profile.profileImage.webPath) }})">
-                            <img src="{{ asset(profile.profileImage.webPath) }}"
+                           class="artist-img d-flex justify-content-center align-items-center align-content-center">
+                            <img data-src="{{ asset(profile.profileImage.webPath) }}"
                                  title="{{ profile.name }} - {{ 'frontpage.image'|trans }}" itemprop="image">
                         </a>
                         <p class="artist-genre my-2" itemprop="genre">{{ profile.genre }}</p>
@@ -209,3 +208,8 @@
     {% include '@App/footer.html.twig' %}
 
 {% endblock %}
+
+    {% block javascripts %}
+        <script src="{{ asset('assets/vendor/lazyload.min.js') }}"></script>
+        {{ parent() }}
+    {% endblock %}

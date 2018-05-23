@@ -24,7 +24,8 @@
     "jquery": "^3.2.1",
     "popper.js": "^1.12.9",
     "scrollreveal": "^3.3.6",
-    "soundcloud-audio": "^1.2.2"
+    "soundcloud-audio": "^1.2.2",
+    "vanilla-lazyload": "^8.7.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.2.1",

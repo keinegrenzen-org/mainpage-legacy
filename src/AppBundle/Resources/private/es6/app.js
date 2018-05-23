@@ -2,6 +2,10 @@ import '../scss/app.scss'
 
 document.addEventListener('DOMContentLoaded', function () {
 
+  if(window.LazyLoad){
+    new window.LazyLoad();
+  }
+
   const artists = document.querySelector('.artists')
   let isotope
   if (artists) {

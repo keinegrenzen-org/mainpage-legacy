@@ -37,8 +37,7 @@
                 </div>
             {% endif %}
             <div class="profile-header-content">
-                <div class="rounded-circle image-container d-flex justify-content-center align-content-center"
-                     style="background-image: url({{ asset(profile.profileImage.webPath) }})">
+                <div class="rounded-circle image-container d-flex justify-content-center align-content-center">
                     <img src="{{ asset(profile.profileImage.webPath) }}"
                          alt="{{ profile.name ~ ' - ' ~ 'frontpage.image'|trans }}" itemprop="image">
                 </div>
@@ -116,7 +115,7 @@
                         <meta itemprop="description" content="{{ album.description }}"/>
                         <meta itemprop="genre" content="{{ profile.genre }}"/>
                         <div class="image-container d-flex justify-content-center align-content-center">
-                            <img itemprop="image" src="{{ asset(album.cover.webPath) }}"
+                            <img itemprop="image" data-src="{{ asset(album.cover.webPath) }}"
                                  alt="{{ album.title }} - Cover"/>
                         </div>
                     </div>
@@ -216,10 +215,11 @@
 {% endblock %}
 
     {% block javascripts %}
-        {{ parent() }}
         <script src="{{ asset('assets/vendor/soundcloud-audio.min.js') }}"></script>
+        <script src="{{ asset('assets/vendor/lazyload.min.js') }}"></script>
         <script src="{{ asset('assets/js/profile.min.js') }}"></script>
         {% if not is_mobile() and profile.youtubeLink is not null %}
             <script src="https://www.youtube.com/iframe_api"></script>
         {% endif %}
+        {{ parent() }}
     {% endblock %}
