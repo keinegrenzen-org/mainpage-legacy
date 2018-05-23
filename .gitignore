@@ -6,8 +6,6 @@
 # PHPStorm
 /.idea
 
-composer.lock
-
 /web/app.php
 /web/app_dev.php
 
