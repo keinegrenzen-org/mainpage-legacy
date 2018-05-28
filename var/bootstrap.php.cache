@@ -680,7 +680,7 @@ return self::$trustedHeaderSet;
 public static function setTrustedHosts(array $hostPatterns)
 {
 self::$trustedHostPatterns = array_map(function ($hostPattern) {
-return sprintf('#%s#i', $hostPattern);
+return sprintf('{%s}i', $hostPattern);
 }, $hostPatterns);
 self::$trustedHosts = array();
 }

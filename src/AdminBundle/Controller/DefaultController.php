@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 class DefaultController extends Controller {
 
     /**
-     * @Route("/test", name="admin")
+     * @Route("/", name="admin")
      */
     public function indexAction() {
         return $this->render('AdminBundle::index.html.twig');

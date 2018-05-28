@@ -3,11 +3,6 @@ easy_admin_bundle:
     type:     annotation
     prefix:   /admin/
 
-admin:
-    resource: "@AdminBundle/Controller/"
-    type:     annotation
-    prefix:   /admin/
-
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation

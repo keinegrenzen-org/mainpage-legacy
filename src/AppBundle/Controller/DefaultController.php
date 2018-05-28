@@ -118,7 +118,7 @@ class DefaultController extends Controller {
     /**
      * Finds and renders a profile
      *
-     * @Route("/{UURL}", name="profile_show", requirements={"UURL": "(?!login|admin|checkrole\b)\b[\w-]+"})
+     * @Route("/{UURL}", name="profile_show", requirements={"UURL": "(?!login|_?admin|checkrole\b)\b[\w-]+"})
      * @Method("GET")
      * @param Profile $profile
      * @return \Symfony\Component\HttpFoundation\Response
