@@ -69,17 +69,20 @@
         <div class="row py-2">
             <div class="col-md-6">
                 <div class="embed-responsive embed-responsive-16by9">
-                    <iframe title="{{ 'bigPage.iframe_title'|trans }}" class="embed-responsive-item"
-                            src="https://www.youtube.com/embed/{{ bigPage.youtubeLink }}"
+                    <iframe title="ENNA feat &lbrack;lu&rbrack; &mdash; Luxus" class="embed-responsive-item"
+                            src="https://www.youtube.com/embed/KxA-CKQ8XoQ"
                             frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
             <div class="col-md-6 mt-3 mt-md-0 align-self-center">
-                <h3>{{ bigPage.name }}</h3>
-                <p><strong>{{ bigPage.genre }}</strong>, {{ 'from'|trans }} {{ bigPage.location }}</p>
-                {{ bigPage.description|truncate(300, true)|raw }}
+                <h3>ENNA feat. &lbrack;lu&rbrack; &mdash; Luxus</h3>
+                <p>ENNA wettert gegen materiellen Überfluss, gegen übertriebenen Konsum und unmenschlichen Kapitalismus.
+                    Begleitet von &lbrack;lu&rbrack; regt dieser Song zum Handeln und Nachdenken an.<br>
+                    Schließt Euch an und <a href="https://www.keinegrenzen.org/spenden" target="_blank">spendet an Ärzte
+                        ohne Grenzen</a>, die Menschen behandeln, die&nbsp;keinen Zugang zu medizinischer Behandlung
+                    haben.</p>
                 <p>
-                    <a title="{{ 'readmore'|trans }}" href="{{ path('profile_show', {UURL: bigPage.UURL}) }}"
+                    <a title="{{ 'readmore'|trans }}" href="{{ path('profile_show', {UURL: 'enna'}) }}"
                        class="btn btn-secondary">
                         {{ 'readmore'|trans }}
                     </a>
