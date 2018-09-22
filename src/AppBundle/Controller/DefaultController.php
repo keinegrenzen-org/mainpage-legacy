@@ -176,7 +176,7 @@ class DefaultController extends Controller {
     public function downloadAction(Album $album, Request $request) {
         $this->addDownload($album, $request);
 
-        return $this->redirect("/uploads/albums/" . $album->getAlbumFilePath());
+        return $this->file("/uploads/albums/" . $album->getAlbumFilePath());
     }
 
     /**
