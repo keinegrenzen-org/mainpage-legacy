@@ -153,13 +153,33 @@
                             </div>
                         </div>
                         <div class="col-12">
-                            <a class="btn btn-primary pull-right toggle-dl-dialog mt-4 donate-external" target="_blank"
-                               href="{{ path('donate_external') }}" rel="nofollow"
-                               data-url="{{ path("download_album", {UURL: album.UURL}) }}"
-                            >
-                                {{ 'donate'|trans }} &amp; {{ 'download'|trans }}
-                                <span class="badge badge-white">{{ album.downloads }}</span>
-                            </a>
+                            {% if album.uurl is same as('luxus') %}
+                                <a class="btn btn-primary pull-right toggle-dl-dialog mt-4 donate-external"
+                                   target="_blank"
+                                   href="{{ path('donate_external') }}" rel="nofollow"
+                                   data-url="{{ path("download_album", {UURL: 'luxus'}) }}"
+                                >
+                                    &quot;Luxus&quot; {{ 'download'|trans }}
+                                    <span class="badge badge-white">{{ album.downloads }}</span>
+                                </a>
+                                <a class="btn btn-primary pull-right toggle-dl-dialog mt-4 donate-external"
+                                   target="_blank"
+                                   href="{{ path('donate_external') }}" rel="nofollow"
+                                   data-url="{{ path("download_album", {UURL: 'seele'}) }}"
+                                >
+                                    &quot;Seele&quot; {{ 'download'|trans }}
+                                    <span class="badge badge-white">{{ album.downloads }}</span>
+                                </a>
+                            {% else %}
+                                <a class="btn btn-primary pull-right toggle-dl-dialog mt-4 donate-external"
+                                   target="_blank"
+                                   href="{{ path('donate_external') }}" rel="nofollow"
+                                   data-url="{{ path("download_album", {UURL: album.UURL}) }}"
+                                >
+                                    {{ 'donate'|trans }} &amp; {{ 'download'|trans }}
+                                    <span class="badge badge-white">{{ album.downloads }}</span>
+                                </a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
