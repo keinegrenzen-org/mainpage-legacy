@@ -135,14 +135,17 @@
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <div class="row tracklist-title mb-2">
-                                <h4 class="col-9">Video</h4>
-                            </div>
-                            <div class="embed-responsive embed-responsive-16by9">
-                                <iframe title="ENNA feat &lbrack;lu&rbrack; &mdash; Luxus" class="embed-responsive-item"
-                                        src="https://www.youtube.com/embed/KxA-CKQ8XoQ"
-                                        frameborder="0" allowfullscreen></iframe>
-                            </div>
+                            {% if album.UURL == 'luxus' %}
+                                <div class="row tracklist-title mb-2">
+                                    <h4 class="col-9">Video</h4>
+                                </div>
+                                <div class="embed-responsive embed-responsive-16by9 mb-2">
+                                    <iframe title="ENNA feat &lbrack;lu&rbrack; &mdash; Luxus"
+                                            class="embed-responsive-item"
+                                            src="https://www.youtube.com/embed/KxA-CKQ8XoQ?controls=0&showinfo=0"
+                                            frameborder="0" allowfullscreen></iframe>
+                                </div>
+                            {% endif %}
                             <div class="row tracklist-title mb-2">
                                 <h4 class="col-9">{{ 'tracklist'|trans }}</h4>
                                 <a class="col-3 text-right"
