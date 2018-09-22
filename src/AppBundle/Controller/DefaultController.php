@@ -108,7 +108,7 @@ class DefaultController extends Controller {
     /**
      * Redirects to the donation page
      *
-     * @Route("donate", name="donate_external")
+     * @Route("spenden", name="donate_external")
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function donateExternalAction() {
