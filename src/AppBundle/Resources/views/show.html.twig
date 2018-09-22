@@ -153,14 +153,13 @@
                             </div>
                         </div>
                         <div class="col-12">
-                            {% if album.UURL is same as('luxus') %}
+                            {% if album.UURL == 'luxus' %}
                                 <a class="btn btn-primary pull-right toggle-dl-dialog mt-4 donate-external"
-                                   target="_blank"
+                                   target="_blank" data-uurl="{{ album.UURL }}"
                                    href="{{ path('donate_external') }}" rel="nofollow"
                                    data-url="{{ path("download_album", {UURL: 'luxus'}) }}"
                                 >
                                     &quot;Luxus&quot; {{ 'download'|trans }}
-                                    <span class="badge badge-white">{{ album.downloads }}</span>
                                 </a>
                                 <a class="btn btn-primary pull-right toggle-dl-dialog mt-4 donate-external"
                                    target="_blank"
@@ -168,11 +167,10 @@
                                    data-url="{{ path("download_album", {UURL: 'seele'}) }}"
                                 >
                                     &quot;Seele&quot; {{ 'download'|trans }}
-                                    <span class="badge badge-white">{{ album.downloads }}</span>
                                 </a>
                             {% else %}
                                 <a class="btn btn-primary pull-right toggle-dl-dialog mt-4 donate-external"
-                                   target="_blank"
+                                   target="_blank" data-uurl="{{ album.UURL }}"
                                    href="{{ path('donate_external') }}" rel="nofollow"
                                    data-url="{{ path("download_album", {UURL: album.UURL}) }}"
                                 >
