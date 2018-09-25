@@ -114,6 +114,15 @@ class DefaultController extends Controller {
     public function donateExternalAction() {
         return $this->redirect("https://www.aerzte-ohne-grenzen.de/spenden-sammeln?cfd=barthyb");
     }
+    /**
+     * Redirects to the donation page
+     *
+     * @Route("wdr", name="stream_external")
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function streamExternalAction() {
+        return $this->redirect("https://www1.wdr.de/mediathek/av/videostream-der-sheriff-praesentiert-live-und-ungefiltert-100.amp");
+    }
 
     /**
      * Finds and renders a profile
