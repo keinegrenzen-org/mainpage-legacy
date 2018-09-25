@@ -140,7 +140,7 @@
                     </button>
 
                     {% for genre in genres %}
-                        <button type="button" class="btn btn-outline-dark genre-filter" data-filter=".{{ genre.slug }}">
+                        <button type="button" class="btn btn-outline-dark genre-filter m-1" data-filter=".{{ genre.slug }}">
                             {{ genre.name }}
                             &nbsp;<span class="badge badge-light">{{ genre.profileCount }}</span>
                         </button>
