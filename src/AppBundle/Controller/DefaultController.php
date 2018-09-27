@@ -121,7 +121,7 @@ class DefaultController extends Controller {
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function streamExternalAction() {
-        return $this->redirect("https://www1.wdr.de/mediathek/av/videostream-der-sheriff-praesentiert-live-und-ungefiltert-100.amp");
+        return $this->redirect("https://www1.wdr.de/unterhaltung/show-und-talk/der-sheriff/stream-der-sheriff-praesentiert-live-und-ungefiltert-100.html");
     }
 
     /**
