@@ -50,5 +50,4 @@ The following labels separate issues in multiple categories:
 
 ## Authors and contributors
 
-- (Designer) Lucas Carrascosa
-- (Developer) Barthélémy Bonhomme, @BarthyB: post@barthy.koeln
+- *(Author)* Barthélémy Bonhomme, [@BarthyB](https://github.com/BarthyB/): [post@barthy.koeln](mailto:post@barthy.koeln)
