@@ -48,6 +48,7 @@ The following labels separate issues in multiple categories:
 - design
 - SEO
 
-## Author and contributors
+## Authors and contributors
 
-- (Author) Barthélémy Bonhomme, @BarthyB: post@barthy.koeln
+- (Designer) Lucas Carrascosa
+- (Developer) Barthélémy Bonhomme, @BarthyB: post@barthy.koeln
