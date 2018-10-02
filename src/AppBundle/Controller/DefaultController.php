@@ -203,5 +203,4 @@ class DefaultController extends Controller {
 
         return $this->em;
     }
-
 }
