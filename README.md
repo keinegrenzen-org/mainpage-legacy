@@ -48,6 +48,6 @@ The following labels separate issues in multiple categories:
 - design
 - SEO
 
-## Author and contributors
+## Authors and contributors
 
-- (Author) Barthélémy Bonhomme, @BarthyB: post@barthy.koeln
+- *(Author)* Barthélémy Bonhomme, [@BarthyB](https://github.com/BarthyB/): [post@barthy.koeln](mailto:post@barthy.koeln)
