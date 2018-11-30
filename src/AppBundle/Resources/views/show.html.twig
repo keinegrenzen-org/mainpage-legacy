@@ -108,90 +108,97 @@
             </div>
         </div>
         {% for album in profile.albums %}
-            {% if album.UURL != 'seele' %}
-            <div class="row py-2 my-2 sr sr-b-1">
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 px-2 album-art-container">
-                    <div class="album-art" itemprop="album" itemscope itemtype="http://schema.org/MusicAlbum"
-                         data-uurl="{{ album.UURL }}">
-                        <meta itemprop="description" content="{{ album.description }}"/>
-                        <meta itemprop="genre" content="{{ profile.genre }}"/>
-                        <div class="image-container d-flex justify-content-center align-content-center">
-                            <img itemprop="image" data-src="{{ asset(album.cover.webPath) }}"
-                                 alt="{{ album.title }} - Cover"/>
+            {% if album.UURL != 'seele' and album.UURL != 'geschichte' %}
+                <div class="row py-2 my-2 sr sr-b-1">
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 px-2 album-art-container">
+                        <div class="album-art" itemprop="album" itemscope itemtype="http://schema.org/MusicAlbum"
+                             data-uurl="{{ album.UURL }}">
+                            <meta itemprop="description" content="{{ album.description }}"/>
+                            <meta itemprop="genre" content="{{ profile.genre }}"/>
+                            <div class="image-container d-flex justify-content-center align-content-center">
+                                <img itemprop="image" data-src="{{ asset(album.cover.webPath) }}"
+                                     alt="{{ album.title }} - Cover"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 px-2 album-details-container">
+                        <div class="row album-details px-3 py-4 m-0"
+                             style="background-color: {{ album.backgroundColor|raw }};
+                                     color: {{ album.primaryColor|raw }} !important;
+                                     border-color: {{ album.secondaryColor|raw }} !important;"
+                        >
+                            <div class="col-lg-6">
+                                <h3 itemprop="name">{{ album.title }}</h3>
+                                <p style="color: {{ album.secondaryColor|raw }} !important">{{ 'published'|trans }}
+                                    : {{ album.releaseDate|date('d.m.Y') }}</p>
+                                <div class="description text-big">
+                                    {{ album.description|raw }}
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                {% if album.UURL == 'luxus' %}
+                                    <h4 class="mb-4">Video</h4>
+                                    <div class="embed-responsive embed-responsive-16by9 mb-4">
+                                        <iframe title="ENNA feat &lbrack;lu&rbrack; &mdash; Luxus"
+                                                class="embed-responsive-item"
+                                                src="https://www.youtube.com/embed/KxA-CKQ8XoQ?controls=0&showinfo=0&rel=0"
+                                                frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                {% endif %}
+                                <div class="row tracklist-title mb-2">
+                                    <h4 class="col-9">{{ 'tracklist'|trans }}</h4>
+                                    <a class="col-3 text-right"
+                                       href="{{ album.soundCloudLink|raw }}"
+                                       target="_blank" title="{{ 'listenOnSc'|trans }}">
+                                        {{ icons.render('soundcloud', 'orange') }}
+                                        <i class="sr-only">{{ 'listenOnSc'|trans }}</i>
+                                    </a>
+                                </div>
+                                <div class="album-embed" id="album-embed-{{ loop.index0 }}"
+                                     data-color-secondary="{{ album.secondaryColor|raw }}"
+                                     data-sc="{{ album.soundCloudLink|raw }}" data-title="{{ album.title }}">
+                                    <div class="album-list">
+                                        <ul class="list-group"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                {% if album.UURL == 'luxus' %}
+                                    <a class="btn btn-primary pull-right toggle-dl-dialog mt-4 donate-external"
+                                       target="_blank"
+                                       href="{{ path('donate_external') }}" rel="nofollow"
+                                       data-url="{{ path("download_album", {UURL: 'geschichte'}) }}"
+                                    >
+                                        &quot;Geschichte&quot; {{ 'download'|trans }}
+                                    </a>
+                                    <a class="btn btn-primary pull-right toggle-dl-dialog mt-4 donate-external"
+                                       target="_blank" data-uurl="{{ album.UURL }}"
+                                       href="{{ path('donate_external') }}" rel="nofollow"
+                                       data-url="{{ path("download_album", {UURL: 'luxus'}) }}"
+                                    >
+                                        &quot;Luxus&quot; {{ 'download'|trans }}
+                                    </a>
+                                    <a class="btn btn-primary pull-right toggle-dl-dialog mt-4 donate-external"
+                                       target="_blank"
+                                       href="{{ path('donate_external') }}" rel="nofollow"
+                                       data-url="{{ path("download_album", {UURL: 'seele'}) }}"
+                                    >
+                                        &quot;Seele&quot; {{ 'download'|trans }}
+                                    </a>
+                                {% else %}
+                                    <a class="btn btn-primary pull-right toggle-dl-dialog mt-4 donate-external"
+                                       target="_blank" data-uurl="{{ album.UURL }}"
+                                       href="{{ path('donate_external') }}" rel="nofollow"
+                                       data-url="{{ path("download_album", {UURL: album.UURL}) }}"
+                                    >
+                                        {{ 'donate'|trans }} &amp; {{ 'download'|trans }}
+                                        <span class="badge badge-white">{{ album.downloads }}</span>
+                                    </a>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 px-2 album-details-container">
-                    <div class="row album-details px-3 py-4 m-0"
-                         style="background-color: {{ album.backgroundColor|raw }};
-                                 color: {{ album.primaryColor|raw }} !important;
-                                 border-color: {{ album.secondaryColor|raw }} !important;"
-                    >
-                        <div class="col-lg-6">
-                            <h3 itemprop="name">{{ album.title }}</h3>
-                            <p style="color: {{ album.secondaryColor|raw }} !important">{{ 'published'|trans }}
-                                : {{ album.releaseDate|date('d.m.Y') }}</p>
-                            <div class="description text-big">
-                                {{ album.description|raw }}
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            {% if album.UURL == 'luxus' %}
-                                <h4 class="mb-4">Video</h4>
-                                <div class="embed-responsive embed-responsive-16by9 mb-4">
-                                    <iframe title="ENNA feat &lbrack;lu&rbrack; &mdash; Luxus"
-                                            class="embed-responsive-item"
-                                            src="https://www.youtube.com/embed/KxA-CKQ8XoQ?controls=0&showinfo=0&rel=0"
-                                            frameborder="0" allowfullscreen></iframe>
-                                </div>
-                            {% endif %}
-                            <div class="row tracklist-title mb-2">
-                                <h4 class="col-9">{{ 'tracklist'|trans }}</h4>
-                                <a class="col-3 text-right"
-                                   href="{{ album.soundCloudLink|raw }}"
-                                   target="_blank" title="{{ 'listenOnSc'|trans }}">
-                                    {{ icons.render('soundcloud', 'orange') }}
-                                    <i class="sr-only">{{ 'listenOnSc'|trans }}</i>
-                                </a>
-                            </div>
-                            <div class="album-embed" id="album-embed-{{ loop.index0 }}"
-                                 data-color-secondary="{{ album.secondaryColor|raw }}"
-                                 data-sc="{{ album.soundCloudLink|raw }}" data-title="{{ album.title }}">
-                                <div class="album-list">
-                                    <ul class="list-group"></ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            {% if album.UURL == 'luxus' %}
-                                <a class="btn btn-primary pull-right toggle-dl-dialog mt-4 donate-external"
-                                   target="_blank" data-uurl="{{ album.UURL }}"
-                                   href="{{ path('donate_external') }}" rel="nofollow"
-                                   data-url="{{ path("download_album", {UURL: 'luxus'}) }}"
-                                >
-                                    &quot;Luxus&quot; {{ 'download'|trans }}
-                                </a>
-                                <a class="btn btn-primary pull-right toggle-dl-dialog mt-4 donate-external"
-                                   target="_blank"
-                                   href="{{ path('donate_external') }}" rel="nofollow"
-                                   data-url="{{ path("download_album", {UURL: 'seele'}) }}"
-                                >
-                                    &quot;Seele&quot; {{ 'download'|trans }}
-                                </a>
-                            {% else %}
-                                <a class="btn btn-primary pull-right toggle-dl-dialog mt-4 donate-external"
-                                   target="_blank" data-uurl="{{ album.UURL }}"
-                                   href="{{ path('donate_external') }}" rel="nofollow"
-                                   data-url="{{ path("download_album", {UURL: album.UURL}) }}"
-                                >
-                                    {{ 'donate'|trans }} &amp; {{ 'download'|trans }}
-                                    <span class="badge badge-white">{{ album.downloads }}</span>
-                                </a>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-            </div>
             {% endif %}
         {% endfor %}
     </section>
