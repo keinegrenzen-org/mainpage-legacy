@@ -1,0 +1,91 @@
+// General variable structure
+//
+// Variable format should follow the `$component-modifier-state-property` order.
+
+// Colors
+//
+// Grayscale and brand colors for use across Bootstrap.
+
+// Start with assigning color names to specific hex values.
+$white: #fff !default;
+$black: #000 !default;
+$red: #d9534f !default;
+$orange: #f0ad4e !default;
+$yellow: #ffd500 !default;
+$green: #5cb85c !default;
+$blue: #0099ff !default;
+$teal: #00eaff !default;
+$pink: #ff5b77 !default;
+$purple: #613d7c !default;
+
+// Create grayscale
+$gray-dark: #333333 !default;
+$gray: lighten(#333333, 20%) !default;
+$gray-light: lighten(#333333, 35%) !default;
+$gray-lighter: lighten(#333333, 50%) !default;
+$gray-lightest: lighten(#333333, 65%) !default;
+
+// Reassign color vars to semantic color scheme
+$brand-primary: $blue !default;
+$brand-success: $green !default;
+$brand-info: $teal !default;
+$brand-warning: $orange !default;
+$brand-danger: $red !default;
+$brand-inverse: $gray-dark !default;
+
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+
+$enable-rounded: false !default;
+$enable-shadows: true !default;
+$enable-gradients: false !default;
+$enable-transitions: true !default;
+$enable-hover-media-query: false !default;
+$enable-grid-classes: true !default;
+$enable-print-styles: true !default;
+
+$icon-size: 20px;
+
+@import "../../../../../node_modules/bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Oswald:500|Ubuntu:300');
+
+html {
+  height: 100vh;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.wrapper {
+  height: 100vh;
+  overflow: hidden;
+
+  > div.row {
+    height: 100%;
+  }
+}
+
+.content {
+  overflow: scroll;
+}
+
+nav {
+  padding: 0;
+
+  a {
+    color: $white;
+    display: block;
+    transition: background-color .2s ease-in-out, color .2s ease-in-out, border-color .2s ease-in-out;
+    border-left: 5px solid $secondary;
+
+    &:hover {
+      text-decoration: none;
+      color: $white;
+      background-color: darken($secondary, 10%);
+      border-left: 5px solid $white;
+    }
+  }
+}
+

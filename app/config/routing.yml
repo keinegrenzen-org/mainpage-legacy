@@ -1,19 +1,19 @@
 easy_admin_bundle:
-  resource: "@EasyAdminBundle/Controller/"
-  type:     annotation
-  prefix:   /admin/
+    resource: "@AdminBundle/Controller/"
+    type:     annotation
+    prefix:   /admin/
 
 app:
-  resource: "@AppBundle/Controller/"
-  type:     annotation
+    resource: "@AppBundle/Controller/"
+    type:     annotation
 
 fos_js_routing:
-  resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
 
 JMSTranslationBundle_ui:
-  resource: "@JMSTranslationBundle/Controller/"
-  type:     annotation
-  prefix:   /admin/trans
+    resource: "@JMSTranslationBundle/Controller/"
+    type:     annotation
+    prefix:   /admin/trans
 
 logout:
-  path: /logout
+    path: /logout

@@ -1,0 +1,80 @@
+{% trans_default_domain 'admin' %}
+
+    {% extends 'AdminBundle::base.html.twig' %}
+
+    {% block body %}
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Albums</h1>
+                </div>
+            </div>
+
+            <div class="row my-2">
+                <div class="col-lg-12">
+                    <a class="btn btn-success" href="{{ path('admin_album_new') }}">
+                        {{ 'create_new'|trans({'entity': 'album'}) }}
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <table class="table table-bordered table-striped table-hover">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Soundcloudlink</th>
+                            <th scope="col">Albumfilepath</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Releasedate</th>
+                            <th scope="col">Uurl</th>
+                            <th scope="col">Backgroundcolor</th>
+                            <th scope="col">Primarycolor</th>
+                            <th scope="col">Secondarycolor</th>
+                            <th scope="col">Downloads</th>
+                            <th scope="col">{{ 'actions'|trans }}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for album in albums %}
+                            <tr>
+                                <td>
+                                    <a href="{{ path('profile_show', { 'UURL': album.profile.uURL }) }}">{{ album.id }}</a>
+                                </td>
+                                <td>{{ album.title }}</td>
+                                <td>{{ album.soundCloudLink }}</td>
+                                <td>{{ album.albumFilePath }}</td>
+                                <td>{{ album.description }}</td>
+                                <td>{% if album.releaseDate %}{{ album.releaseDate|date('Y-m-d') }}{% endif %}</td>
+                                <td>{{ album.UURL }}</td>
+                                <td>{{ album.backgroundColor }}</td>
+                                <td>{{ album.primaryColor }}</td>
+                                <td>{{ album.secondaryColor }}</td>
+                                <td>{{ album.downloads }}</td>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <a class="btn btn-primary"
+                                           href="{{ path('profile_show', { 'UURL': album.profile.uURL }) }}">{{ 'show'|trans }}</a>
+                                        <a class="btn btn-primary"
+                                           href="{{ path('admin_album_edit', { 'id': album.id }) }}">{{ 'edit'|trans }}</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="row my-2">
+                <div class="col-lg-12">
+                    <a class="btn btn-success" href="{{ path('admin_album_new') }}">
+                        {{ 'create_new'|trans({'entity': 'album'}) }}
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    {% endblock %}
