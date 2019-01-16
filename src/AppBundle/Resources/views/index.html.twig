@@ -68,22 +68,18 @@
         </div>
         <div class="row py-2">
             <div class="col-md-6">
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe title="ENNA &mdash; Geschichte" class="embed-responsive-item"
-                            src="https://www.youtube.com/embed/gz6MOY-L4vQ"
-                            frameborder="0" allowfullscreen></iframe>
-                </div>
+                <a href="https://festival.keinegrenzen.org" rel="nofollow noopener">
+                    <img class="img-fluid" src="https://festival.keinegrenzen.org/images/banner.png?v=3"
+                         title="keinegrenzen Festival">
+                </a>
             </div>
             <div class="col-md-6 mt-3 mt-md-0 align-self-center">
-                <h3>ENNA &mdash; Geschichte</h3>
-                <p>ENNA wettert gegen materiellen &Uuml;berfluss, gegen &uuml;bertriebenen Konsum und unmenschlichen Kapitalismus.
-                    Sein neuestes Lied erz&auml;hlt die Geschichte eines ganz normalen jungen Mannes und dessen Weg hin zur Musik.<br>
-                    Schließt Euch an und <a href="https://www.keinegrenzen.org/spenden" target="_blank">spendet an Ärzte
-                        ohne Grenzen</a>, die Menschen behandeln, die&nbsp;keinen Zugang zu medizinischer Behandlung
-                    haben.</p>
+                <h3>keinegrenzen Festival</h3>
+                <p class="lead">Am 19. Januar 2019 veranstalten wir ein gemeinn&uuml;tziges Festival im K&ouml;lner Stadtgarten.
+                    Dabei wird jeglicher Gewinn ebenfalls an &Auml;rzte ohne Grenzen gespendet.</p>
                 <p>
-                    <a title="{{ 'readmore'|trans }}" href="{{ path('profile_show', {UURL: 'enna'}) }}"
-                       class="btn btn-secondary">
+                    <a title="{{ 'readmore'|trans }}" href="https://festival.keinegrenzen.org"
+                       class="btn btn-primary btn-lg">
                         {{ 'readmore'|trans }}
                     </a>
                 </p>
@@ -140,7 +136,8 @@
                     </button>
 
                     {% for genre in genres %}
-                        <button type="button" class="btn btn-outline-dark genre-filter m-1" data-filter=".{{ genre.slug }}">
+                        <button type="button" class="btn btn-outline-dark genre-filter m-1"
+                                data-filter=".{{ genre.slug }}">
                             {{ genre.name }}
                             &nbsp;<span class="badge badge-light">{{ genre.profileCount }}</span>
                         </button>
