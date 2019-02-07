@@ -11,12 +11,18 @@
 
 {% block og_image %}
     <meta property="og:image" content="https://www.keinegrenzen.org{{ asset(profile.bannerImage.webPath) }}">
+    {#
     <meta property="og:image:width" content="1920"/>
     <meta property="og:image:height" content="1080"/>
+    #}
 {% endblock %}
 
 {% block og_description %}
     <meta property="og:description" content="{{ profile.metaDescription }}">
+{% endblock %}
+
+{% block og_url %}
+    <meta property="og:url" content="https://keinegrenzen.org/{{ profile.UURL }}">
 {% endblock %}
 
 {% block bodyschema %}itemscope itemtype="http://schema.org/MusicGroup"{% endblock %}
