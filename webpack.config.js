@@ -1,5 +1,5 @@
 const path = require('path')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
@@ -59,10 +59,13 @@ module.exports = {
     ]
   },
   plugins: [
-    new UglifyJsPlugin(),
     new ExtractTextPlugin({
       filename: '../css/[name].min.css?[hash]',
       allChunks: true
     })
-  ]
+  ],
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()],
+  },
 }
